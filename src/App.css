@@ -1,27 +1,32 @@
-/* App.css - Estilo Futurista / Cyberpunk */
-
+/* --- Estilos Gerais --- */
 :root {
-  --bg-dark: #030712;
-  --bg-light: #f3f4f6;
-  --card-dark: rgba(17, 24, 39, 0.7);
-  --card-light: rgba(255, 255, 255, 0.8);
-  --text-dark: #f9fafb;
-  --text-light: #1f2937;
-  --accent-cyan: #00f2ff;
-  --accent-pink: #ff0055;
-  --border-dark: rgba(255, 255, 255, 0.1);
-  --border-light: rgba(0, 0, 0, 0.1);
+  --pergaminho-fundo: url('./assets/pergaminho.jpg');
+  --cor-texto-principal: #4a4a4a; /* Cinza escuro para leitura */
+  --cor-fundo-card: rgba(255, 255, 255, 0.95);
+  --cor-destaque: #8b4513; /* Marrom madeira para detalhes */
+  --cor-borda-card: #d2b48c; /* Marrom claro para bordas */
+  --cor-sombra-card: rgba(0, 0, 0, 0.3);
+  --cor-botao-acesso: #8b4513;
+  --cor-texto-botao-acesso: white;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.dark-mode {
+  --pergaminho-fundo: #1a1a1a; /* Fundo escuro no modo noite */
+  --cor-texto-principal: #e0e0e0; /* Texto claro no modo noite */
+  --cor-fundo-card: rgba(45, 45, 45, 0.95);
+  --cor-destaque: #ffd700; /* Dourado no modo noite */
+  --cor-borda-card: #555;
+  --cor-sombra-card: rgba(255, 215, 0, 0.1); /* Sombra sutil dourada */
+  --cor-botao-acesso: #ffd700;
+  --cor-texto-botao-acesso: #1a1a1a;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  transition: background 0.3s ease;
+  margin: 0;
+  font-family: 'Georgia', serif; /* Fonte clássica */
+  background-color: #1a1a1a;
+  color: var(--cor-texto-principal);
+  overflow-x: hidden;
 }
 
 .app-container {
@@ -29,201 +34,205 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 20px;
+  box-sizing: border-box;
+  
+  /* Configuração do Fundo (se for imagem ou cor) */
+  background: var(--pergaminho-fundo) center/cover no-repeat fixed;
 }
 
-.app-container.dark {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
-  background-image: 
-    radial-gradient(at 10% 20%, rgba(0, 242, 255, 0.08) 0px, transparent 50%),
-    radial-gradient(at 90% 80%, rgba(255, 0, 85, 0.08) 0px, transparent 50%);
-}
-
-.app-container.light {
-  background-color: var(--bg-light);
-  color: var(--text-light);
-}
-
-/* Header */
+/* --- Cabeçalho --- */
 .app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto 2rem auto;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--cor-borda-card);
+  margin-bottom: 30px;
 }
 
 .app-header h1 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+  font-size: 32px;
+  margin: 0;
+  background: linear-gradient(90deg, var(--cor-destaque), #4a4a4a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 
 .mode-btn {
-  background: transparent;
-  border: 1px solid var(--accent-cyan);
-  color: var(--accent-cyan);
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
+  background: none;
+  border: 1px solid var(--cor-borda-card);
+  color: var(--cor-texto-principal);
+  padding: 8px 15px;
   cursor: pointer;
-  font-weight: 600;
+  border-radius: 5px;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+  font-family: inherit;
 }
 
 .mode-btn:hover {
-  background: var(--accent-cyan);
-  color: var(--bg-dark);
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+  background-color: var(--cor-borda-card);
+  color: white;
 }
 
-/* Main & Search */
-.app-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
+/* --- Busca --- */
 .search-container {
-  width: 100%;
-  max-width: 450px;
-  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 .search-input {
   width: 100%;
-  padding: 0.9rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 50px;
-  border: 1px solid var(--border-dark);
-  background: var(--card-dark);
-  color: var(--text-dark);
-  backdrop-filter: blur(12px);
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.app-container.light .search-input {
-  background: var(--card-light);
-  border: 1px solid var(--border-light);
-  color: var(--text-light);
-}
-
-.search-input:focus {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
-}
-
-/* Swiper Cards */
-.mySwiper {
-  width: 320px;
-  height: 440px;
-  padding-bottom: 30px;
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-  background: var(--card-dark);
-  border: 1px solid var(--border-dark);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 20px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  max-width: 400px;
+  padding: 12px 15px;
+  border: 2px solid var(--cor-borda-card);
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.8); /* Sempre claro ou semi-transparente */
+  font-size: 16px;
+  font-family: inherit;
   transition: border-color 0.3s ease;
 }
 
-.app-container.light .card {
-  background: var(--card-light);
-  border: 1px solid var(--border-light);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.search-input:focus {
+  outline: none;
+  border-color: var(--cor-destaque);
 }
 
-.card:hover {
-  border-color: rgba(0, 242, 255, 0.4);
+/* --- Swiper (Cards) --- */
+.swiper-wrapper-container {
+  width: 100%;
+  max-width: 350px; /* Ajuste o tamanho máximo dos cards */
+  margin: 0 auto;
+}
+
+.mySwiper {
+  padding-bottom: 50px;
+}
+
+.card {
+  background-color: var(--cor-fundo-card);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 25px var(--cor-sombra-card);
+  text-align: center;
+  border: 1px solid var(--cor-borda-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 450px; /* Altura fixa para alinhar os cards */
+  justify-content: space-between;
 }
 
 .card img {
   width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
+  height: 150px; /* Altura fixa da imagem */
+  object-fit: contain; /* Mantém a proporção da imagem */
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  border: 1px solid var(--cor-borda-card);
 }
 
-.card img:hover {
-  transform: scale(1.02);
-}
-
-.category {
-  font-size: 0.75rem;
+.card .category {
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--accent-cyan);
-  font-weight: 700;
-  margin-top: 0.5rem;
+  color: var(--cor-destaque);
+  letter-spacing: 1px;
+  font-weight: bold;
 }
 
 .card h3 {
-  font-size: 1.25rem;
-  margin: 0.2rem 0;
-  font-weight: 700;
+  font-size: 20px;
+  margin: 10px 0;
+  color: var(--cor-texto-principal);
 }
 
 .card p {
-  font-size: 0.9rem;
-  opacity: 0.8;
+  font-size: 14px;
+  margin: 0 0 15px;
   line-height: 1.4;
-  flex-grow: 1;
+  color: var(--cor-texto-principal);
+  flex-grow: 1; /* Ocupa o espaço disponível */
+  overflow: hidden; /* Esconde texto longo */
 }
 
-.card a {
+/* --- Botão de Acessar (O ponto chave!) --- */
+.access-btn {
   display: inline-block;
-  text-align: center;
-  padding: 0.6rem;
-  background: linear-gradient(135deg, var(--accent-cyan), #0072ff);
-  color: #030712;
-  font-weight: 700;
-  border-radius: 8px;
+  background-color: var(--cor-botao-acesso);
+  color: var(--cor-texto-botao-acesso);
+  padding: 12px 25px;
   text-decoration: none;
-  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  cursor: pointer;
+  margin-top: auto; /* Garante que o botão fique na parte inferior */
 }
 
-.card a:hover {
+.access-btn:hover {
+  transform: translateY(-2px);
   opacity: 0.9;
-  box-shadow: 0 0 12px rgba(0, 242, 255, 0.5);
 }
 
-.no-results {
-  font-size: 1.1rem;
-  opacity: 0.6;
+/* --- Sugestões --- */
+.suggestion-section {
+  margin-top: 60px;
+  text-align: center;
+  padding: 30px;
+  background-color: var(--cor-fundo-card);
+  border-radius: 15px;
+  border: 1px solid var(--cor-borda-card);
 }
 
-/* Modal de Zoom */
+.suggestion-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.suggestion-input {
+  flex-grow: 1;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid var(--cor-borda-card);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.suggestion-btn {
+  padding: 10px 20px;
+  background-color: var(--cor-destaque);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.suggestions-list ul {
+  list-style-position: inside;
+  padding: 0;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Modal (Zoom) --- */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(3, 7, 18, 0.85);
-  backdrop-filter: blur(8px);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
   cursor: zoom-out;
 }
@@ -231,15 +240,16 @@ body {
 .modal img {
   max-width: 90%;
   max-height: 90%;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
-  border: 1px solid var(--accent-cyan);
+  border: 5px solid white;
+  border-radius: 10px;
 }
 
-/* Footer */
+/* --- Rodapé --- */
 footer {
+  margin-top: 40px;
   text-align: center;
-  font-size: 0.8rem;
-  opacity: 0.5;
-  margin-top: 2rem;
+  font-size: 12px;
+  color: var(--cor-texto-principal);
+  padding-top: 20px;
+  border-top: 1px solid var(--cor-borda-card);
 }
