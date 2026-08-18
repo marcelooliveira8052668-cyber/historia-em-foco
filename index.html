@@ -94,7 +94,7 @@
         </header>
 
         <section class="categories-section">
-            <div class="section-title">Prof. Marcelo Oliveira - Temas de História</div>
+            <div class="section-title"> Dev.web/ Prof. Marcelo Oliveira - Temas de História</div>
             <div class="cards-carousel" id="cardsContainer"></div>
         </section>
 
@@ -157,6 +157,46 @@
         // Lista de Temas
         const artigos = [
             {
+                title: "O Período Paleolítico",
+                image: "https://i.pinimg.com/736x/e0/1a/bd/e01abd4502c1723ce64f615b4d29af31.jpg",
+                url: "https://docs.google.com/document/d/10twRP8iNChhVP50zht4lRvotao9LCHzm/edit"
+            },
+            {
+                title: "A Revolução Neolítica",
+                image: "https://1.bp.blogspot.com/-eXprArqL2WI/YDvte-w6WqI/AAAAAAAAjic/995A8P3P2AcruwoaFjrb0NnRugX8uU-9QCLcBGAsYHQ/s728/2.jpg",
+                url: "https://docs.google.com/document/d/19X7IbcTi4cRvBglwGalEh5YG6Nnuqadz/edit"
+            },
+            {
+                title: "A Idade dos Metais",
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdmVcin7vA1HTFwJhVgLDWZQVGMvqtqOSdmzwVrNAQnY4lKA2n5fDvRyzwwBrtBisTKaKv1wqtLl86rLZUNdPus2Z2Karms9PUyZu0NF944l-rVGpvZaL1oB6SDqdF9q2P3da3IHXFjkrkCPx2jRslJsvaVuF0EnfkE5YErgNUXXEWq60fPchdlXR8a60Z/s1536/Infografico%20sobre%20Idade%20dos%20Metais.png",
+                url: "https://docs.google.com/document/d/1KbK40WndDswKLORsI69wMZNtS44Cj29U/edit"
+            },
+            {
+                title: "Fontes Históricas",
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaQOsX6ndKWs5Nos0vcxZnxq8zQS8WTECfzSeZdcZMOw1JzbEwMnS_6l6Lf9Uiq2qI4pg0oeKlCqJUZA3YMa4IhWB03GaJhv0PdsO9lCuQ2Ao8x4uI8fUTdIJWz-G-4-_hZk98ZiU8QVmkj1j82P30-PP-xK2aUUHeBNqyp8dcKJ04SKsgP2SPbLWO/s2240/BannerHJ2023_21.jpg",
+                url: "https://docs.google.com/document/d/1fXr7J6FghJaA_786xBnOt9tkwOfymk7H/edit"
+            },
+            {
+                title: "Mesopotâmia e Egito Antigo",
+                image: "https://blog.explicae.com.br/wp-content/uploads/2022/08/1-5.png",
+                url: "https://docs.google.com/document/d/1Xsj0_VXTwAN9C92NR3IbOkSCgFAkXgAu/edit"
+            },
+            {
+                title: "Idade Média: O Feudalismo",
+                image: "https://images.unsplash.com/photo-1514539079130-25950c84af65?w=800&auto=format&fit=crop&q=80",
+                url: "https://docs.google.com/document/d/1fTDqhM7Xk9vYNnueupJvyEmCZib8ubk7/edit"
+            },
+            {
+                title: "A Revolução Industrial",
+                image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=800&auto=format&fit=crop&q=80",
+                url: "https://docs.google.com/document/d/1SmPi9WrGdhktO40zmwPVHmYIFwlxv_9S/edit"
+            },
+            {
+                title: "Segunda Guerra Mundial",
+                image: "https://1.bp.blogspot.com/--HwaIUOQPDQ/X2DakNtiuhI/AAAAAAAAG1s/IUTRvV-YkOsDtTp9oYraVUB4w503VzwpACLcBGAsYHQ/s2048/POST_Fascismo-e-Nazismo.png",
+               url: "https://docs.google.com/document/d/1slFONVa1ARl4AkbikxxoyH_epPhWtCY8/edit"
+            },
+          {
           id: 0,
           category: "Pré-História",
           title: "O Período Paleolítico",
@@ -204,34 +244,7 @@
             "Vestígios deixados pelos seres humanos no passado que permitem aos historiadores investigar, reconstruir e compreender como as sociedades antigas viviam.",
           url: "https://docs.google.com/document/d/1fXr7J6FghJaA_786xBnOt9tkwOfymk7H/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
         },
-
-         
-            {
-                title: "Fontes Históricas",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaQOsX6ndKWs5Nos0vcxZnxq8zQS8WTECfzSeZdcZMOw1JzbEwMnS_6l6Lf9Uiq2qI4pg0oeKlCqJUZA3YMa4IhWB03GaJhv0PdsO9lCuQ2Ao8x4uI8fUTdIJWz-G-4-_hZk98ZiU8QVmkj1j82P30-PP-xK2aUUHeBNqyp8dcKJ04SKsgP2SPbLWO/s2240/BannerHJ2023_21.jpg",
-                url: "https://docs.google.com/document/d/1fXr7J6FghJaA_786xBnOt9tkwOfymk7H/edit"
-            },
-            {
-                title: "Mesopotâmia e Egito Antigo",
-                image: "https://blog.explicae.com.br/wp-content/uploads/2022/08/1-5.png",
-                url: "https://docs.google.com/document/d/1Xsj0_VXTwAN9C92NR3IbOkSCgFAkXgAu/edit"
-            },
-            {
-                title: "Idade Média: O Feudalismo",
-                image: "https://images.unsplash.com/photo-1514539079130-25950c84af65?w=800&auto=format&fit=crop&q=80",
-                url: "https://docs.google.com/document/d/1fTDqhM7Xk9vYNnueupJvyEmCZib8ubk7/edit"
-            },
-            {
-                title: "A Revolução Industrial",
-                image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=800&auto=format&fit=crop&q=80",
-                url: "https://docs.google.com/document/d/1SmPi9WrGdhktO40zmwPVHmYIFwlxv_9S/edit"
-            },
-            {
-                title: "Segunda Guerra Mundial",
-                image: "https://1.bp.blogspot.com/--HwaIUOQPDQ/X2DakNtiuhI/AAAAAAAAG1s/IUTRvV-YkOsDtTp9oYraVUB4w503VzwpACLcBGAsYHQ/s2048/POST_Fascismo-e-Nazismo.png",
-               url: "https://docs.google.com/document/d/1slFONVa1ARl4AkbikxxoyH_epPhWtCY8/edit"
-            },
-                {
+        {
           id: 4,
           category: "Geral",
           title: "Mesopotâmia e Egito Antigo: As Primeiras Civilizações",
@@ -642,9 +655,9 @@
     title: "O Ciclo da Cana-de-Açúcar no Nordeste",
     period: "Século XVI - Século XVII",
     readTime: "6 min",
-    image: "https://i.pinimg.com/originals/56/78/90/5678901234abcdef5678901234abcdef.jpg",
+    image: "https://i.ytimg.com/vi/ZrB7-Ge_CPY/maxresdefault.jpg",
     excerpt: "Saiba como funcionavam os engenhos, a economia colonial e o sistema de plantation no Brasil.",
-    url: "#",
+    url: "https://docs.google.com/document/d/1SkrZCUOH_aBW9PiPYU-Npt8TpeHNT945/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
   },
   {
     id: 58,
@@ -652,9 +665,9 @@
     title: "As Invasões Holandesas no Nordeste",
     period: "1630 - 1654",
     readTime: "7 min",
-    image: "https://i.pinimg.com/originals/67/89/01/6789012345abcdef6789012345abcdef.jpg",
+    image: "https://i.ytimg.com/vi/cSvfTWo1JzM/maxresdefault.jpg",
     excerpt: "Analise o governo de Maurício de Nassau e a luta pela expulsão dos holandeses de Pernambuco.",
-    url: "#",
+    url: "https://docs.google.com/document/d/1FzDrsAeQcB6goVE9ELqipE9Xx5eyhfyw/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
   },
   {
     id: 59,
@@ -662,9 +675,9 @@
     title: "O Quilombo dos Palmares e Zumbi",
     period: "Século XVII",
     readTime: "8 min",
-    image: "https://i.pinimg.com/originals/78/90/12/7890123456abcdef7890123456abcdef.jpg",
+    image: "https://static1.thmais.com.br/wp-content/uploads/2023/11/zumbi-dos-palmares-conheca-a-historia-do-lider-quilombola-1024x683.jpg",
     excerpt: "A trajetória de resistência da maior comunidade de escravizados fugitivos do período colonial brasileiro.",
-    url: "#",
+    url: "https://docs.google.com/document/d/1Q1Br28k7MNZMuFAL_2I7wW0sZekuhT1t/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
   },
   {
     id: 60,
@@ -672,9 +685,9 @@
     title: "A Corrida do Ouro e o Ciclo da Mineração",
     period: "Século XVIII",
     readTime: "7 min",
-    image: "https://i.pinimg.com/originals/89/01/23/8901234567abcdef8901234567abcdef.jpg",
+    image: "https://politicagens.com/wp-content/uploads/2025/10/Ciclo-do-Ouro-com-Escravos-1.jpg",
     excerpt: "Descubra como a descoberta do ouro deslocou o eixo econômico da colônia para Minas Gerais.",
-    url: "#",
+    url: "https://docs.google.com/document/d/12IWjQr7romD6niccGGWkZwCSOVAEaFbJ/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
   },
   {
     id: 61,
@@ -682,9 +695,9 @@
     title: "A Inconfidência Mineira e Tiradentes",
     period: "1789",
     readTime: "6 min",
-    image: "https://i.pinimg.com/originals/90/12/34/9012345678abcdef9012345678abcdef.jpg",
+    image: "https://i.ytimg.com/vi/CzpeE1b0gXM/maxresdefault.jpg",
     excerpt: "Os ideais iluministas e a conspiração contra o domínio português nas alterosas mineiras.",
-    url: "#",
+    url: "https://docs.google.com/document/d/1uHFurjgB6bWs6nDTSF3AZD1tNzn9_Tio/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
   },
   {
     id: 62,
@@ -692,9 +705,9 @@
     title: "A Chegada da Família Real Portuguesa",
     period: "1808",
     readTime: "6 min",
-    image: "https://i.pinimg.com/originals/01/23/45/0123456789abcdef0123456789abcdef.jpg",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgu1x1ZVac_HmoMTQskescalxC7-SKTc2PY0HZUbmypNt5eZJ21O56GHnmPwWhuSVaCTtdxUrTGac6rfVS435linS8zrsW5d6cQG44ZTgdQCmhZBYnkzyl3-kTR0mHmSSDXjlzIcGbct0ePm166TgKxpcg4ZO-_br_9fGJhQEDpLzoY8tT1PhzJmBL-/w1600/chegada-familia-real.webp",
     excerpt: "Como a fuga de D. João VI da Europa transformou a colônia tropical em sede do Império Português.",
-    url: "#",
+    url: "https://docs.google.com/document/d/1X2FkP6uBRPrSUPR-9_bqdWsCik2TexUM/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
   },
   {
     id: 63,
@@ -1575,7 +1588,12 @@
     image: "https://i.pinimg.com/originals/89/01/23/8901234567abcdef8901234567abcdef.jpg",
     excerpt: "A beleza arquitetônica dos palácios reais construídos nas margens do rio Loire na França.",
     url: "#",
-  }
+  },
+  {
+    title: "O Gado Muares e o Café",
+    image: "https://cptstatic.s3.amazonaws.com/imagens/enviadas/materias/materia8166/saiba-mais-sobre-muares-artigos-cursos-cpt.jpg",
+    url: "https://docs.google.com/document/d/1pSl04Y-pdkJ30VV4RlzHoW4Ormi27MXx/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true"
+}
         ];
 
         function exibirCards(listaDeArtigos) {
