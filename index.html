@@ -135,10 +135,23 @@
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 243, 255, 0.5); /* Efeito brilho */
 }
+           .topo-site {
+    width: 100%;            /* Ocupa toda a largura da tela */
+    height: 350px;          /* Altura da faixa no topo (você pode ajustar, ex: 300px ou 400px) */
+    overflow: hidden;       /* Esconde o que passar do limite */
+}
+
+.foto-capa {
+    width: 100%;            /* Garante que ela ocupe toda a largura */
+    height: 100%;           /* Preenche a altura definida no bloco pai */
+    object-fit: cover;      /* **O segredo:** faz a foto cobrir o espaço inteiro sem distorcer ou esticar */
+    object-position: center; /* Centraliza a foto para focar na parte principal */
+}
     </style>
+    <img src="img/sua-foto.jpg" alt="Capa do site" class="foto-capa">
 </head>
 <body>
-<img src="minha-foto.jpg" alt="Descrição da foto">
+
     <button class="theme-toggle" onclick="toggleTheme()">Alternar Tema</button>
     <div class="hero-background"></div>
 
