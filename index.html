@@ -5,74 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>História em Foco | Portal Futurista</title>
     
-    <style>
-        :root {
-            --bg-color: #05050a;
-            --text-color: #fff;
-            --accent-color: #00f3ff;
-            --panel-bg: rgba(10, 10, 25, 0.65);
-        }
+    
+       <style>
+    /* Definição de Variáveis de Cores (Paleta Futurista) */
+    :root {
+        --bg-color: #05050a;
+        --card-bg: rgba(20, 20, 40, 0.7);
+        --text-color: #e0e0e0;
+        --accent-color: #00f3ff;
+        --accent-glow: rgba(0, 243, 255, 0.3);
+        --font-main: 'Inter', 'Segoe UI', sans-serif;
+    }
 
-        .light-mode {
-            --bg-color: #f0f2f5;
-            --text-color: #333;
-            --accent-color: #0066ff;
-            --panel-bg: rgba(255, 255, 255, 0.8);
-        }
+    .light-mode {
+        --bg-color: #f0f2f5;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --text-color: #1a1a1a;
+        --accent-color: #0066ff;
+        --accent-glow: rgba(0, 102, 255, 0.2);
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
 
-        body, html { height: 100%; color: var(--text-color); background-color: var(--bg-color); transition: all 0.3s; }
+    body { 
+        background-color: var(--bg-color); 
+        color: var(--text-color); 
+        transition: background 0.4s, color 0.4s;
+        line-height: 1.6;
+        min-height: 100vh;
+    }
 
-        .hero-background {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(5, 5, 10, 0.8), rgba(15, 12, 41, 0.8));
-            z-index: -1;
-        }
+    /* Hero Effect */
+    .hero-background {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #05050a 100%);
+        z-index: -1;
+    }
 
-        .main-container { display: flex; flex-direction: column; min-height: 100vh; padding: 25px 40px 50px 40px; overflow-y: auto; }
+    .main-container { max-width: 1200px; margin: 0 auto; padding: 40px; }
 
-        .theme-toggle { position: fixed; top: 20px; right: 20px; padding: 10px 15px; border-radius: 20px; cursor: pointer; background: var(--accent-color); color: #000; border: none; font-weight: bold; z-index: 100; }
+    /* Barra de Pesquisa Estilizada */
+    .search-box input {
+        width: 100%; padding: 18px 25px; border-radius: 50px;
+        background: var(--card-bg); border: 1px solid var(--accent-color);
+        color: var(--text-color); font-size: 1rem;
+        backdrop-filter: blur(10px); outline: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        transition: transform 0.3s, border 0.3s;
+    }
+    .search-box input:focus { transform: scale(1.02); border-color: #fff; }
 
-        .search-box { width: 100%; max-width: 650px; margin: 0 auto 20px; position: relative; }
-        .search-box input { width: 100%; padding: 14px 20px 14px 50px; border-radius: 30px; border: 1px solid var(--accent-color); background: var(--panel-bg); color: var(--text-color); outline: none; }
+    /* Cards - Design Moderno */
+    .cards-carousel { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px; padding: 20px 0;
+    }
 
-        .categories-section { margin-bottom: 20px; }
-        .section-title { font-size: 1.2rem; margin-bottom: 15px; font-weight: bold; color: var(--accent-color); }
-        .cards-carousel { display: flex; gap: 18px; overflow-x: auto; padding: 10px 0; scroll-behavior: smooth; }
-        
-        .card { 
-            flex: 0 0 180px; height: 210px; background: var(--panel-bg); border-radius: 12px; 
-            overflow: hidden; border: 1px solid var(--accent-color); text-align: center; 
-            display: flex; flex-direction: column; color: var(--text-color); position: relative;
-        }
-        
-        .card img { width: 100%; height: 100px; object-fit: cover; cursor: pointer; transition: opacity 0.2s; }
-        .card img:hover { opacity: 0.8; }
-        
-        .card-content { padding: 8px 5px; font-size: 0.85rem; font-weight: 600; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
-        .card-content a { color: var(--accent-color); text-decoration: none; font-size: 0.8rem; margin-top: 5px; }
-        .card-content a:hover { text-decoration: underline; }
+    .card {
+        background: var(--card-bg);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 20px; overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    .card:hover { 
+        transform: translateY(-10px); 
+        box-shadow: 0 10px 30px var(--accent-glow);
+    }
+    .card img { width: 100%; height: 160px; object-fit: cover; }
 
-        .modal {
-            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); align-items: center; justify-content: center; flex-direction: column;
-        }
-        .modal img { max-width: 85%; max-height: 80vh; border-radius: 8px; border: 2px solid var(--accent-color); box-shadow: 0 0 20px rgba(0,243,255,0.4); }
-        .modal-caption { color: #fff; margin-top: 15px; font-size: 1.1rem; font-weight: bold; text-align: center; }
-        .close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
-        .close-modal:hover { color: var(--accent-color); }
+    .card-content { padding: 20px; }
+    .card-content h4 { margin-bottom: 10px; color: var(--accent-color); }
 
-        .feedback-section { margin-top: 30px; padding: 20px; background: var(--panel-bg); border-radius: 16px; border: 1px solid var(--accent-color); }
-        .feedback-section h3 { margin-bottom: 15px; font-size: 1.1rem; text-align: center; }
-        .feedback-wrapper { display: flex; gap: 10px; max-width: 600px; margin: 0 auto 20px auto; }
-        .feedback-section input { flex: 1; padding: 10px 15px; border-radius: 20px; border: 1px solid var(--accent-color); background: transparent; color: var(--text-color); outline: none; }
-        .feedback-section button { padding: 10px 20px; border-radius: 20px; background: var(--accent-color); color: #000; border: none; cursor: pointer; font-weight: bold; }
+    /* Botão de Tema */
+    .theme-toggle {
+        position: fixed; top: 20px; right: 20px; z-index: 1000;
+        padding: 12px 25px; border-radius: 30px; cursor: pointer;
+        background: var(--accent-color); color: #000; border: none; font-weight: 800;
+        box-shadow: 0 5px 15px var(--accent-glow);
+    }
 
-        .comments-list { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; max-height: 200px; overflow-y: auto; }
-        .comment-item { background: rgba(0, 243, 255, 0.1); border-left: 3px solid var(--accent-color); padding: 10px 15px; border-radius: 6px; font-size: 0.9rem; word-break: break-word; }
+    /* Modal */
+    .modal {
+        background: rgba(0,0,0,0.95); backdrop-filter: blur(5px);
+    }
+    .modal img { border: 3px solid var(--accent-color); border-radius: 15px; }
 
-        @media (max-width: 768px) { .main-container { padding: 15px; } }
+    /* Feedback Section */
+    .feedback-section { 
+        background: var(--card-bg); border: none; padding: 40px; 
+        border-radius: 30px; margin-top: 50px;
+    }
+    
+    .comment-item {
+        background: rgba(255,255,255,0.05); padding: 15px;
+        margin-bottom: 10px; border-radius: 10px; border-left: 4px solid var(--accent-color);
+    }
+    .hero-content {
+    display: flex;
+    justify-content: center; /* Centraliza a imagem horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    width: 100%;             /* Garante que a div ocupe a largura total */
+}
+
+.hero-content img {
+    max-width: 100%;         /* Garante que a imagem não seja maior que a tela */
+    display: block;
+}
+/* O contêiner que cobre a tela toda */
+.modal {
+    position: fixed;        /* Fixa na tela */
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* O fundo escuro que você queria */
+    display: flex;          /* Essencial para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    z-index: 9999;           /* Garante que fique acima de tudo */
+}
+
+/* A imagem dentro do modal */
+.modal img {
+    max-width: 90%;          /* Não deixa a imagem estourar a tela */
+    max-height: 80vh;        /* Deixa uma margem nas bordas */
+    border: 3px solid #00f3ff; /* A borda neon que definimos antes */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.5); /* Efeito brilho */
+}
     </style>
 </head>
 <body>
@@ -94,7 +156,7 @@
         </header>
 
         <section class="categories-section">
-            <div class="section-title"> Site em construção.../ Prof. Marcelo Oliveira - Temas de História</div>
+            <div class="section-title"> Dev.web/ Prof. Marcelo Oliveira - Temas de História</div>
             <div class="cards-carousel" id="cardsContainer"></div>
         </section>
 
@@ -196,6 +258,66 @@
                 image: "https://1.bp.blogspot.com/--HwaIUOQPDQ/X2DakNtiuhI/AAAAAAAAG1s/IUTRvV-YkOsDtTp9oYraVUB4w503VzwpACLcBGAsYHQ/s2048/POST_Fascismo-e-Nazismo.png",
                url: "https://docs.google.com/document/d/1slFONVa1ARl4AkbikxxoyH_epPhWtCY8/edit"
             },
+          {
+          id: 0,
+          category: "Pré-História",
+          title: "O Período Paleolítico",
+          period: "Pré-História",
+          readTime: "6 min",
+          image:
+            "https://i.pinimg.com/736x/e0/1a/bd/e01abd4502c1723ce64f615b4d29af31.jpg",
+          excerpt:
+            "Conheça o período mais longo da humanidade, marcado pelo uso da pedra lascada, pelo nomadismo e pela descoberta do fogo.",
+          url: "https://docs.google.com/document/d/10twRP8iNChhVP50zht4lRvotao9LCHzm/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 1,
+          category: "Pré-História",
+          title: "A Revolução Neolítica",
+          period: "Pré-História",
+          readTime: "7 min",
+          image:
+            "https://1.bp.blogspot.com/-eXprArqL2WI/YDvte-w6WqI/AAAAAAAAjic/995A8P3P2AcruwoaFjrb0NnRugX8uU-9QCLcBGAsYHQ/s728/2.jpg",
+          excerpt:
+            "Entenda como o domínio da agricultura e da pecuária transformou o estilo de vida nômade no sedentarismo das primeiras aldeias.",
+          url: "https://docs.google.com/document/d/19X7IbcTi4cRvBglwGalEh5YG6Nnuqadz/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 2,
+          category: "Pré-História",
+          title: "A Idade dos Metais",
+          period: "Pré-História",
+          readTime: "5 min",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdmVcin7vA1HTFwJhVgLDWZQVGMvqtqOSdmzwVrNAQnY4lKA2n5fDvRyzwwBrtBisTKaKv1wqtLl86rLZUNdPus2Z2Karms9PUyZu0NF944l-rVGpvZaL1oB6SDqdF9q2P3da3IHXFjkrkCPx2jRslJsvaVuF0EnfkE5YErgNUXXEWq60fPchdlXR8a60Z/s1536/Infografico%20sobre%20Idade%20dos%20Metais.png",
+          excerpt:
+            "A transição final com o domínio da fundição de cobre, bronze e ferro, impulsionando o surgimento das primeiras cidades.",
+          url: "https://docs.google.com/document/d/1KbK40WndDswKLORsI69wMZNtS44Cj29U/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 3,
+          category: "Geral",
+          title: "Fontes Históricas",
+          period: "Introdução à História",
+          readTime: "5 min",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaQOsX6ndKWs5Nos0vcxZnxq8zQS8WTECfzSeZdcZMOw1JzbEwMnS_6l6Lf9Uiq2qI4pg0oeKlCqJUZA3YMa4IhWB03GaJhv0PdsO9lCuQ2Ao8x4uI8fUTdIJWz-G-4-_hZk98ZiU8QVmkj1j82P30-PP-xK2aUUHeBNqyp8dcKJ04SKsgP2SPbLWO/s2240/BannerHJ2023_21.jpg",
+          excerpt:
+            "Vestígios deixados pelos seres humanos no passado que permitem aos historiadores investigar, reconstruir e compreender como as sociedades antigas viviam.",
+          url: "https://docs.google.com/document/d/1fXr7J6FghJaA_786xBnOt9tkwOfymk7H/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 4,
+          category: "Geral",
+          title: "Mesopotâmia e Egito Antigo: As Primeiras Civilizações",
+          period: "Antiguidade Oriental",
+          readTime: "6 min",
+          image:
+            "https://blog.explicae.com.br/wp-content/uploads/2022/08/1-5.png",
+          excerpt:
+            "O surgimento da escrita cuneiforme, os rios Tigre, Eufrates e Nilo, e a organização teocrática das sociedades hidráulicas.",
+          url: "https://docs.google.com/document/d/1Xsj0_VXTwAN9C92NR3IbOkSCgFAkXgAu/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
         {
           id: 5,
           category: "Geral",
@@ -1677,115 +1799,7 @@
       image: "https://lh6.googleusercontent.com/8SX0EWsXNmcR-0kfnWscNKPStFrnxJQoQpLqyNukblQlyCWyRhokN_1QmV4Cs9AqPMvogIhytbzPF3kiFXvmRctv4f77QVCNPwtKc8b_Dknfw4y8yYD65yEqM13eOBqPQtBckSayCc5t17wU-VZ3cA=w640-h519",
       excerpt: "Como os mexicas construíram Tenochtitlán sobre as águas, desenvolveram as chinampas e enfrentaram a chegada de Hernán Cortés.",
       url: "https://docs.google.com/document/d/1IUHkevWMO1_rnCEteSPcKLSNPLUMVr58/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true"
-  },
-            
-  {
-    id: 77,
-    category: "Século XX",
-    title: "A Grande Depressão de 1929",
-    period: "1929",
-    readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80",
-    excerpt: "O colapso da bolsa de Nova York e sua repercussão econômica desastrosa em escala global.",
-    content: "A Grande Depressão foi a maior e mais profunda crise econômica do século XX, iniciada com o colapso da Bolsa de Valores de Nova York em outubro de 1929 (conhecido como a Quinta-Feira Negra). O desrespeito aos limites do crédito, a superprodução industrial e agrícola nos Estados Unidos e a retração do consumo geraram falências em massa, desemprego recorde e a interrupção do fluxo de capitais internacionais, afetando drasticamente países exportadores como o Brasil.",
-    questions: [
-      {
-        question: "A crise de 1929 teve origem nos Estados Unidos e espalhou-se rapidamente pelo mundo capitalista. Uma das principais causas desse colapso econômico foi:",
-        options: [
-          "a) a escassez de matérias-primas decorrente da descolonização afro-asiática.",
-          "b) a superprodução industrial e agrícola aliada à especulação financeira desmedida na bolsa de valores.",
-          "c) a adoção imediata do modelo keynesiano por todos os governos ocidentais.",
-          "d) o embargo econômico imposto pela União Soviética aos países capitalistas.",
-          "e) a destruição física das principais fábricas europeias durante a Primeira Guerra Mundial."
-        ],
-        answer: "b"
-      },
-      {
-        question: "No contexto brasileiro, a Grande Depressão de 1929 produziu um efeito socioeconômico direto que consistiu em:",
-        options: [
-          "a) o esgotamento do modelo exportador cafeeiro, acelerando a industrialização substitutiva de importações e a Revolução de 1930.",
-          "b) o superávit recorde na balança comercial devido ao aumento mundial no preço do café.",
-          "c) a consolidação imediata do neoliberalismo como diretriz econômica do Estado.",
-          "d) a extinção completa da classe operária urbana e o retorno ao trabalho escravo.",
-          "e) o isolamento econômico total do país em relação à América Latina."
-        ],
-        answer: "a"
-      }
-    ],
-    url: "#"
-  },
-  {
-    id: 78,
-    category: "Século XX",
-    title: "A Segunda Guerra Mundial",
-    period: "1939 - 1945",
-    readTime: "10 min",
-    image: "https://images.unsplash.com/photo-1579965342575-16428a7c8889?auto=format&fit=crop&w=800&q=80",
-    excerpt: "O conflito mais letal da história humana: o avanço do Eixo, o Holocausto e o desfecho atômico.",
-    content: "A Segunda Guerra Mundial (1939-1945) opôs os Aliados (liderados por EUA, Reino Unido, URSS e França) às Potências do Eixo (Alemanha, Itália e Japão). Motivada pelo expansionismo agressivo do nazifascismo e pelas feridas não cicatrizadas da Primeira Guerra, a guerra culminou no extermínio sistemático de milhões de pessoas no Holocausto e transformou a geopolítica global com o lançamento das bombas atômicas sobre Hiroshima e Nagasaki.",
-    questions: [
-      {
-        question: "O expansionismo territorial alemão sob o comando de Adolf Hitler, fundamentado na ideia de 'espaço vital' (Lebensraum), teve como estopim direto para o início da guerra em 1939:",
-        options: [
-          "a) a invasão da Polônia pelas tropas alemãs.",
-          "b) a anexação pacífica da Áustria pelo acordo de Munique.",
-          "c) o ataque japonês à base naval norte-americana de Pearl Harbor.",
-          "d) a ofensiva militar alemã contra a União Soviética na Operação Barbarossa.",
-          "e) a formação do Pacto Anti-Komintern entre Alemanha e Japão."
-        ],
-        answer: "a"
-      },
-      {
-        question: "O desfecho da Segunda Guerra Mundial marcou profundamente a história contemporânea, resultando, entre outros aspectos, em:",
-        options: [
-          "a) o fortalecimento do isolacionismo político e econômico dos Estados Unidos.",
-          "b) a ascensão de EUA e URSS como superpotências rivais, inaugurando o período da Guerra Fria.",
-          "c) a unificação imediata da Europa sob um único governo democrático parlamentar.",
-          "d) a extinção definitiva de todas as armas nucleares do planeta através de tratados bilaterais.",
-          "e) a restauração dos impérios coloniais europeus na África e na Ásia sem qualquer resistência."
-        ],
-        answer: "b"
-      }
-    ],
-    url: "#"
-  },
-  {
-    id: 79,
-    category: "Século XX",
-    title: "A Guerra Fria e a Corrida Espacial",
-    period: "1947 - 1991",
-    readTime: "8 min",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-    excerpt: "A disputa ideológica, tecnológica e nuclear entre Estados Unidos e União Soviética.",
-    content: "A Guerra Fria caracterizou-se pela bipolaridade mundial entre o capitalismo liberal liderado pelos Estados Unidos e o socialismo real encabeçado pela União Soviética. Embora não tenha havido um confronto militar direto entre as superpotências devido à ameaça da destruição mútua assegurada pelo arsenal nuclear, a rivalidade estendeu-se a conflitos locais, espionagem, propaganda ideológica e à espetacular Corrida Espacial.",
-    questions: [
-      {
-        question: "A Corrida Espacial, aspecto marcante da Guerra Fria, refletia a competição tecnológica e ideológica entre as superpotências. Um marco inicial importante dessa disputa foi:",
-        options: [
-          "a) o lançamento do satélite soviético Sputnik em 1957.",
-          "b) a chegada do homem à Lua na missão Apollo 11 em 1969.",
-          "c) a criação da Estação Espacial Internacional no final da década de 1990.",
-          "d) o acordo de desarmamento espacial assinado em Genebra.",
-          "e) o envio do primeiro robô em Marte pelos Estados Unidos."
-        ],
-        answer: "a"
-      },
-      {
-        question: "Durante a Guerra Fria, a divisão do mundo em blocos antagônicos gerou diversas crises internacionais. A criação da OTAN (Organização do Tratado do Atlântico Norte) e do Pacto de Varsóvia representou, respectivamente:",
-        options: [
-          "a) acordos puramente comerciais para a livre circulação de mercadorias agrícolas.",
-          "b) alianças militares de defesa mútua lideradas, respectivamente, pelos blocos capitalista e socialista.",
-          "c) tratados de paz assinados após a derrota definitiva do nazismo na Europa.",
-          "d) órgãos de fiscalização dos direitos humanos ligados diretamente à Organização das Nações Unidas.",
-          "e) blocos econômicos voltados para a reconstrução industrial do Japão e da Alemanha."
-        ],
-        answer: "b"
-      }
-    ],
-    url: "#"
   }
-
-
 
         ];
 
