@@ -1,236 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>História em Foco | Portal Futurista</title>
-    
-    
-       <style>
-    /* Definição de Variáveis de Cores (Paleta Futurista) */
-    :root {
-        --bg-color: #05050a;
-        --card-bg: rgba(20, 20, 40, 0.7);
-        --text-color: #e0e0e0;
-        --accent-color: #00f3ff;
-        --accent-glow: rgba(0, 243, 255, 0.3);
-        --font-main: 'Inter', 'Segoe UI', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História em Foco | Prof. Marcelo Oliveira</title>
+    <style>
+        :root {
+            --bg-color: #05050a;
+            --card-bg: rgba(20, 20, 40, 0.7);
+            --text-color: #e0e0e0;
+            --accent-color: #00f3ff;
+            --accent-glow: rgba(0, 243, 255, 0.3);
+            --font-main: "Inter", system-ui, sans-serif;
+        }
 
-    .light-mode {
-        --bg-color: #f0f2f5;
-        --card-bg: rgba(255, 255, 255, 0.9);
-        --text-color: #1a1a1a;
-        --accent-color: #0066ff;
-        --accent-glow: rgba(0, 102, 255, 0.2);
-    }
+        .light-mode {
+            --bg-color: #f0f2f5;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-color: #1a1a1a;
+            --accent-color: #0066ff;
+            --accent-glow: rgba(0, 102, 255, 0.2);
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+        body { background-color: var(--bg-color); color: var(--text-color); transition: 0.4s; line-height: 1.6; min-height: 100vh; }
 
-    body { 
-        background-color: var(--bg-color); 
-        color: var(--text-color); 
-        transition: background 0.4s, color 0.4s;
-        line-height: 1.6;
-        min-height: 100vh;
-    }
+        .nav-bar { background: #1a1a2e; padding: 15px; text-align: center; }
+        .btn-voltar { color: #fff; text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; transition: 0.3s; }
+        
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 40px; }
+        .foto-capa { width: 100%; height: 350px; object-fit: cover; }
+        
+        .search-box input { width: 100%; padding: 18px 25px; border-radius: 50px; background: var(--card-bg); border: 1px solid var(--accent-color); color: var(--text-color); margin-bottom: 30px; }
 
-    /* Hero Effect */
-    .hero-background {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #05050a 100%);
-        z-index: -1;
-    }
+        .cards-carousel { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--card-bg); border-radius: 20px; overflow: hidden; transition: 0.3s; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px var(--accent-glow); }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card-content h4 { color: var(--accent-color); margin-bottom: 8px; }
 
-    .main-container { max-width: 1200px; margin: 0 auto; padding: 40px; }
-
-    /* Barra de Pesquisa Estilizada */
-    .search-box input {
-        width: 100%; padding: 18px 25px; border-radius: 50px;
-        background: var(--card-bg); border: 1px solid var(--accent-color);
-        color: var(--text-color); font-size: 1rem;
-        backdrop-filter: blur(10px); outline: none;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        transition: transform 0.3s, border 0.3s;
-    }
-    .search-box input:focus { transform: scale(1.02); border-color: #fff; }
-
-    /* Cards - Design Moderno */
-    .cards-carousel { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 25px; padding: 20px 0;
-    }
-
-    .card {
-        background: var(--card-bg);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 20px; overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: pointer;
-    }
-    .card:hover { 
-        transform: translateY(-10px); 
-        box-shadow: 0 10px 30px var(--accent-glow);
-    }
-    .card img { width: 100%; height: 160px; object-fit: cover; }
-
-    .card-content { padding: 20px; }
-    .card-content h4 { margin-bottom: 10px; color: var(--accent-color); }
-
-    /* Botão de Tema */
-    .theme-toggle {
-        position: fixed; top: 20px; right: 20px; z-index: 1000;
-        padding: 12px 25px; border-radius: 30px; cursor: pointer;
-        background: var(--accent-color); color: #000; border: none; font-weight: 800;
-        box-shadow: 0 5px 15px var(--accent-glow);
-    }
-
-    /* Modal */
-    .modal {
-        background: rgba(0,0,0,0.95); backdrop-filter: blur(5px);
-    }
-    .modal img { border: 3px solid var(--accent-color); border-radius: 15px; }
-
-    /* Feedback Section */
-    .feedback-section { 
-        background: var(--card-bg); border: none; padding: 40px; 
-        border-radius: 30px; margin-top: 50px;
-    }
-    
-    .comment-item {
-        background: rgba(255,255,255,0.05); padding: 15px;
-        margin-bottom: 10px; border-radius: 10px; border-left: 4px solid var(--accent-color);
-    }
-    .hero-content {
-    display: flex;
-    justify-content: center; /* Centraliza a imagem horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
-    width: 100%;             /* Garante que a div ocupe a largura total */
-}
-
-.hero-content img {
-    max-width: 100%;         /* Garante que a imagem não seja maior que a tela */
-    display: block;
-}
-/* O contêiner que cobre a tela toda */
-.modal {
-    position: fixed;        /* Fixa na tela */
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9); /* O fundo escuro que você queria */
-    display: flex;          /* Essencial para centralizar */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
-    z-index: 9999;           /* Garante que fique acima de tudo */
-}
-
-/* A imagem dentro do modal */
-.modal img {
-    max-width: 90%;          /* Não deixa a imagem estourar a tela */
-    max-height: 80vh;        /* Deixa uma margem nas bordas */
-    border: 3px solid #00f3ff; /* A borda neon que definimos antes */
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.5); /* Efeito brilho */
-}
-           .topo-site {
-    width: 100%;            /* Ocupa toda a largura da tela */
-    height: 350px;          /* Altura da faixa no topo (você pode ajustar, ex: 300px ou 400px) */
-    overflow: hidden;       /* Esconde o que passar do limite */
-}
-
-.foto-capa {
-    width: 100%;            /* Garante que ela ocupe toda a largura */
-    height: 100%;           /* Preenche a altura definida no bloco pai */
-    object-fit: cover;      /* **O segredo:** faz a foto cobrir o espaço inteiro sem distorcer ou esticar */
-    object-position: center; /* Centraliza a foto para focar na parte principal */
-}
+        .theme-toggle { position: fixed; top: 20px; right: 20px; padding: 10px 20px; border-radius: 20px; cursor: pointer; background: var(--accent-color); border: none; font-weight: bold; z-index: 1000; }
     </style>
-    <img src="minha-foto.jpg" alt="Capa do site" class="foto-capa">
 </head>
 <body>
 
-    <button class="theme-toggle" onclick="toggleTheme()">Alternar Tema</button>
-    <div class="hero-background"></div>
+    <button class="theme-toggle" onclick="document.body.classList.toggle('light-mode')">Alternar Tema</button>
 
-    <div id="photoModal" class="modal" onclick="fecharModal()">
-        <span class="close-modal">&times;</span>
-        <img id="modalImg" src="" alt="Zoom da Imagem">
-        <div id="modalCaption" class="modal-caption"></div>
+    <div class="nav-bar">
+        <a href="#" class="btn-voltar">← Voltar para a Home</a>
     </div>
 
+    <img src="https://via.placeholder.com/1200x350" alt="Capa" class="foto-capa">
+
     <div class="main-container">
-        <header class="top-bar">
+        <header>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Pesquisar tema de história..." oninput="filtrarCards()" />
+                <input type="text" id="searchInput" placeholder="Pesquisar tema de história..." oninput="filtrarCards()">
             </div>
         </header>
 
-        <section class="categories-section">
-            <div class="section-title"> SITE EM CONSTRUÇÃO.../ Prof. Marcelo Oliveira - Temas de História</div>
+        <section>
+            <h2 style="margin-bottom: 20px;">Temas de História</h2>
             <div class="cards-carousel" id="cardsContainer"></div>
         </section>
-
-        <div class="feedback-section">
-            <h3>Deixe sua sugestão ou comentário</h3>
-            <div class="feedback-wrapper">
-                <input type="text" id="feedbackInput" placeholder="Escreva aqui..." />
-                <button onclick="adicionarComentario()">Enviar</button>
-            </div>
-            <div class="comments-list" id="commentsList"></div>
-        </div>
     </div>
 
     <script>
-        function toggleTheme() { document.body.classList.toggle('light-mode'); }
-
-        // Comentários iniciais
-        let comentarios = [
-            "Mariana Souza (Aluna): Professor, adorei o resumo sobre a Revolução Industrial!",
-            "Carlos Eduardo (Estudante): Muito top o site! Seria legal um sobre Roma Antiga.",
-            "Profª. Beatriz Lima (História): Parabéns pela iniciativa, Marcelo!",
-            "Lucas Gabriel (9º Ano): As imagens que abrem no meio da tela ficaram iradas!",
-            "Camila Mendes (Aluna): O documento do Egito Antigo está perfeito.",
-            "João Vitor (Visitante): Conteúdo muito bem organizado."
-        ];
-
-        function adicionarComentario() {
-            const input = document.getElementById('feedbackInput');
-            if(input.value.trim() !== "") {
-                comentarios.unshift(input.value.trim());
-                input.value = "";
-                renderizarComentarios();
-            } else {
-                alert("Por favor, escreva alguma coisa antes de enviar.");
-            }
-        }
-
-        function renderizarComentarios() {
-            const lista = document.getElementById('commentsList');
-            lista.innerHTML = "";
-            comentarios.forEach(c => {
-                const item = document.createElement('div');
-                item.className = 'comment-item';
-                item.textContent = c;
-                lista.appendChild(item);
-            });
-        }
-
-        renderizarComentarios();
-
-        function abrirModal(imgSrc, imgTitle) {
-            const modal = document.getElementById('photoModal');
-            modal.style.display = "flex";
-            document.getElementById('modalImg').src = imgSrc;
-            document.getElementById('modalCaption').textContent = imgTitle;
-        }
-
-        function fecharModal() { document.getElementById('photoModal').style.display = "none"; }
-
-        // Lista de Temas
         const artigos = [
+             // Lista de Temas
+        
             {
                 title: "O Período Paleolítico",
                 image: "https://i.pinimg.com/736x/e0/1a/bd/e01abd4502c1723ce64f615b4d29af31.jpg",
@@ -1670,35 +1509,30 @@
   // 26. Os Povos Astecas (História Geral / América Pré-Colombiana)
 
 
+        
         ];
 
-        function exibirCards(listaDeArtigos) {
-            const cardsContainer = document.getElementById('cardsContainer');
-            cardsContainer.innerHTML = "";
-            
-            listaDeArtigos.forEach(artigo => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <img src="${artigo.image}" alt="${artigo.title}" onclick="abrirModal('${artigo.image}', '${artigo.title}')">
+        function renderizarCards(lista) {
+            const container = document.getElementById("cardsContainer");
+            container.innerHTML = lista.map(item => `
+                <div class="card" onclick="window.open('${item.url}', '_blank')">
+                    <img src="${item.image}" alt="${item.title}">
                     <div class="card-content">
-                        <p>${artigo.title}</p>
-                        <a href="${artigo.url}" target="_blank">Acessar Docs</a>
+                        <h4>${item.title}</h4>
+                        <p>Clique para acessar o material.</p>
                     </div>
-                `;
-                cardsContainer.appendChild(card);
-            });
+                </div>
+            `).join('');
         }
 
-        // Função de Pesquisa Ativa
         function filtrarCards() {
-            const termo = document.getElementById('searchInput').value.toLowerCase();
-            const filtrados = artigos.filter(artigo => artigo.title.toLowerCase().includes(termo));
-            exibirCards(filtrados);
+            const termo = document.getElementById("searchInput").value.toLowerCase();
+            const filtrados = artigos.filter(a => a.title.toLowerCase().includes(termo));
+            renderizarCards(filtrados);
         }
 
-        // Inicializa mostrando todos os cards ao carregar a página
-        exibirCards(artigos);
+        // Iniciar
+        renderizarCards(artigos);
     </script>
 </body>
 </html>
