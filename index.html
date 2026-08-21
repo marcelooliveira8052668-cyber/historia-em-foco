@@ -1,185 +1,401 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Acervo de História</title>
     <style>
-        :root {
-            --primary: #2563eb;
-            --secondary: #64748b;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #1e293b;
-        }
+      :root {
+        --primary: #2563eb;
+        --secondary: #64748b;
+        --bg: #f8fafc;
+        --card-bg: #ffffff;
+        --text: #1e293b;
+      }
 
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+      body {
+        font-family: "Segoe UI", system-ui, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
 
-        header {
-            background: #ffffff;
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 1px solid #e2e8f0;
-        }
+      header {
+        background: #ffffff;
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            width: 100%;
-            box-sizing: border-box;
-        }
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
 
-        .card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
+      .card {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+      }
 
-        .card:hover { transform: translateY(-5px); }
+      .card:hover {
+        transform: translateY(-5px);
+      }
 
-        h2 { 
-            color: var(--primary); 
-            font-size: 1.25rem; 
-            margin-top: 0; 
-            border-bottom: 2px solid #eff6ff; 
-            padding-bottom: 0.5rem; 
-        }
+      h2 {
+        color: var(--primary);
+        font-size: 1.25rem;
+        margin-top: 0;
+        border-bottom: 2px solid #eff6ff;
+        padding-bottom: 0.5rem;
+      }
 
-        ul { list-style: none; padding: 0; max-height: 400px; overflow-y: auto; }
-        li { margin: 10px 0; }
+      ul {
+        list-style: none;
+        padding: 0;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      li {
+        margin: 10px 0;
+      }
 
-        a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-        }
+      a {
+        text-decoration: none;
+        color: var(--secondary);
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+      }
 
-        a:hover { color: var(--primary); }
-        a::before { content: "›"; margin-right: 8px; color: var(--primary); font-weight: bold; }
+      a:hover {
+        color: var(--primary);
+      }
+      a::before {
+        content: "›";
+        margin-right: 8px;
+        color: var(--primary);
+        font-weight: bold;
+      }
 
-        .btn-home {
-            display: inline-block;
-            margin-top: 1rem;
-            background: var(--primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-        }
+      .btn-home {
+        display: inline-block;
+        margin-top: 1rem;
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-        <h1>Acervo de História</h1>
-        <p>Documentação e materiais de estudo completos</p>
-        <a href="home.html" class="btn-home">Ir para Home</a>
+      <h1>Acervo de História</h1>
+      <p>Documentação e materiais de estudo completos</p>
+      <a href="home.html" class="btn-home">Ir para Home</a>
     </header>
 
     <div class="container">
-        <div class="grid">
-            
-            <!-- PRÉ-HISTÓRIA -->
-            <div class="card">
-                <h2>Pré-História</h2>
-                <ul>
-                    <li><a href="paleolitico.html" target="_blank">O Período Paleolítico</a></li>
-                    <li><a href="neolitico.html" target="_blank">A Revolução Neolítica</a></li>
-                    <li><a href="metais.html" target="_blank">A Idade dos Metais</a></li>
-                </ul>
-            </div>
-
-            <!-- ANTIGUIDADE -->
-            <div class="card">
-                <h2>Antiguidade</h2>
-                <ul>
-                    <li><a href="fontes-historicas.html" target="_blank">Fontes Históricas</a></li>
-                    <li><a href="mesopotamia-egito.html" target="_blank">Mesopotâmia e Egito Antigo</a></li>
-                    <li><a href="grecia-antiga.html" target="_blank">Grécia Antiga: Democracia e Filosofia</a></li>
-                    <li><a href="roma-antiga.html" target="_blank">Roma Antiga: Da Monarquia ao Fim do Império</a></li>
-                    <li><a href="" target="_blank">A Ascensão e Queda do Império Romano</a></li>
-                    <li><a href="https://docs.google.com/document/d/1jTrqWgciNFEdzYaG_0SA68G6lFzPuq9M/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">Os Mistérios das Pirâmides</a></li>
-                    <li><a href="https://docs.google.com/document/d/1f2-UV0B-tVKlnx2L9P4Re2fuGgYIA1Wj/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">Democracia em Atenas e Esparta</a></li>
-                </ul>
-            </div>
-
-            <!-- IDADE MÉDIA -->
-            <div class="card">
-                <h2>Idade Média</h2>
-                <ul>
-                    <li><a href="https://docs.google.com/document/d/1fTDqhM7Xk9vYNnueupJvyEmCZib8ubk7/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">O Feudalismo e a Igreja Católica</a></li>
-                    <li><a href="https://docs.google.com/document/d/1NKNb4U2kc-q__fIue8OlWAn8Y3A8Qvcl/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">O que foi o Tratado de Verdun?</a></li>
-                    <li><a href="https://docs.google.com/document/d/1ptaED0fHRaFX-8wi69AiPJHqOrxXMsXT/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">O Sistema Feudal e a Vida nos Castelos</a></li>
-                    <li><a href="https://docs.google.com/document/d/1T9f_ct0gFuCcIgCW0R1xdIV1PkaXbzFM/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">As Cruzadas</a></li>
-                    <li><a href="https://docs.google.com/document/d/1ja_ydMKkuEWjdZ_SolMfDNF5H1T5xuh0/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">O Império Mongol de Gêngis Khan</a></li>
-                </ul>
-            </div>
-
-            <!-- IDADE MODERNA -->
-            <div class="card">
-                <h2>Idade Moderna</h2>
-                <ul>
-                    <li><a href="https://docs.google.com/document/d/1cSxLTWN3F58RAOtGQ-mcGOnHJCRVPgLu/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Expansão Marítima Europeia</a></li>
-                    <li><a href="https://docs.google.com/document/d/1JsoJzGDKq8y4h9WhUEVIqakBxP_uYOgI/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Reforma Protestante e Contrarreforma</a></li>
-                    <li><a href="https://docs.google.com/document/d/1ssdcgRIu3a3jyNGo4bgG7RR40p_TKLec/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">Renascimento Cultural e Científico</a></li>
-                    <li><a href="https://docs.google.com/document/d/1a7U5t5nS_oeHas7POLmfei0PfI1Klagb/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">O Iluminismo e o Despotismo Esclarecido</a></li>
-                </ul>
-            </div>
-
-            <!-- BRASIL COLÔNIA E IMPÉRIO -->
-            <div class="card">
-                <h2>Brasil (Colônia e Império)</h2>
-                <ul>
-                    <li><a href="https://docs.google.com/document/d/18lw37DdxGqZRiYGFRtNeRb1H4wQAG3Nk/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">Povos Indígenas Originários</a></li>
-                    <li><a href="https://docs.google.com/document/d/1QDwFum4w2g1oUeFqpvHsRsY5s_8B9Dd-/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">O Ciclo do Ouro e a Mineração</a></li>
-                    <li><a href="https://docs.google.com/document/d/1lIuinUK0GYDS2mUQS5bGHLxrQBGsEfEX/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Independência do Brasil</a></li>
-                    <li><a href="https://docs.google.com/document/d/1ZT7yc-heZJLK7Rz4sfLKedlfzb_SRNTM/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Guerra do Paraguai</a></li>
-                    <li><a href="https://docs.google.com/document/d/1iJAQwsKZD_gnm2RlfPR0Zjotqlk2MSZY/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">Abolição da Escravidão e Lei Áurea</a></li>
-                </ul>
-            </div>
-
-            <!-- IDADE CONTEMPORÂNEA -->
-            <div class="card">
-                <h2>Idade Contemporânea & Século XX</h2>
-                <ul>
-                    <li><a href="https://docs.google.com/document/d/1SmPi9WrGdhktO40zmwPVHmYIFwlxv_9S/edit" target="_blank">A Revolução Industrial</a></li>
-                    <li><a href="https://docs.google.com/document/d/1vDa_TvjsWQcdFA4oOMB-ETym0EwlC__6/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Revolução Francesa</a></li>
-                    <li><a href="https://docs.google.com/document/d/19Ud2OkMjfnAFIXtesPb5PrROpqmb7HYd/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">Independência dos Estados Unidos</a></li>
-                    <li><a href="https://docs.google.com/document/d/1U5k97sjf2dgF5eDSIMQufy_XZBegJjJ3/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Primavera dos Povos (1848)</a></li>
-                    <li><a href="https://docs.google.com/document/d/1CXP-3cKHPZnXk1ApsnyTTNGJaPo3834n/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">O Imperialismo e Partilha da África</a></li>
-                    <li><a href="https://docs.google.com/document/d/1AORvwxIExTXJZRM743MW5HDPd1rF8Lxq/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Primeira Guerra Mundial</a></li>
-                    <li><a href="https://docs.google.com/document/d/1rhFMhzRrSr1V5ushjOpSSpZSyQNlA-hn/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Revolução Russa de 1917</a></li>
-                    <li><a href="https://docs.google.com/document/d/18K9KBkthU6Ivqjl0PhViEmB5OMk6HP47/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">O Modernismo e a Semana de 22</a></li>
-                    <li><a href="https://docs.google.com/document/d/1rkVAQSRrpXb61x7tPpBSw_-JUlv_Qbf1/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Crise de 1929</a></li>
-                    <li><a href="https://docs.google.com/document/d/19Hzrek5UdvhiVQUkSXJA9Kx4Bbg6tKcZ/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Era Vargas</a></li>
-                    <li><a href="https://docs.google.com/document/d/1slFONVa1ARl4AkbikxxoyH_epPhWtCY8/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">Segunda Guerra Mundial</a></li>
-                    <li><a href="https://docs.google.com/document/d/19Lg8HWNsTQSIeVAj4czuYDx0rb5x80Y-/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Guerra Fria</a></li>
-                    <li><a href="https://docs.google.com/document/d/1G5O5-eS42c9EJcylsd0htvVpjC1RHE_x/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">A Corrida Espacial</a></li>
-                    <li><a href="https://docs.google.com/document/d/1JnPhvb6elrwDzaaQdPdL2fLjNliUFZXi/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true" target="_blank">O Golpe de 1964 e a Ditadura Militar</a></li>
-                </ul>
-            </div>
-
+      <div class="grid">
+        <!-- PRÉ-HISTÓRIA -->
+        <div class="card">
+          <h2>Pré-História</h2>
+          <ul>
+            <li>
+              <a href="paleolitico.html" target="_blank"
+                >O Período Paleolítico</a
+              >
+            </li>
+            <li>
+              <a href="neolitico.html" target="_blank">A Revolução Neolítica</a>
+            </li>
+            <li>
+              <a href="metais.html" target="_blank">A Idade dos Metais</a>
+            </li>
+          </ul>
         </div>
-    </div>
 
-</body>
+        <!-- ANTIGUIDADE -->
+        <div class="card">
+          <h2>Antiguidade</h2>
+          <ul>
+            <li>
+              <a href="fontes-historicas.html" target="_blank"
+                >Fontes Históricas</a
+              >
+            </li>
+            <li>
+              <a href="mesopotamia-egito.html" target="_blank"
+                >Mesopotâmia e Egito Antigo</a
+              >
+            </li>
+            <li>
+              <a href="grecia-antiga.html" target="_blank"
+                >Grécia Antiga: Democracia e Filosofia</a
+              >
+            </li>
+            <li>
+              <a href="roma-antiga.html" target="_blank"
+                >Roma Antiga: Da Monarquia ao Fim do Império</a
+              >
+            </li>
+            <li>
+              <a href="" target="_blank"
+                >A Ascensão e Queda do Império Romano</a
+              >
+            </li>
+            <li>
+              <a href="piramides-egito.html" target="_blank"
+                >Os Mistérios das Pirâmides</a
+              >
+            </li>
+            <li>
+              <a href="grecia-antiga-contraste.html" target="_blank"
+                >Democracia em Atenas e Esparta</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- IDADE MÉDIA -->
+        <div class="card">
+          <h2>Idade Média</h2>
+          <ul>
+            <li>
+              <a
+                href="igreja-feudalismo.html"
+                target="_blank"
+                >O Feudalismo e a Igreja Católica</a
+              >
+            </li>
+            <li>
+              <a
+                href="tratado-de-verdun.html"
+                target="_blank"
+                >O que foi o Tratado de Verdun?</a
+              >
+            </li>
+            <li>
+              <a
+                href="idade-media-estrutura-feudalismo.html"
+                target="_blank"
+                >O Sistema Feudal e a Vida nos Castelos</a
+              >
+            </li>
+            <li>
+              <a
+                href="as-cruzadas.html"
+                target="_blank"
+                >As Cruzadas</a
+              >
+            </li>
+            <li>
+              <a
+                href="imperio-mongol.html"
+                target="_blank"
+                >O Império Mongol de Gêngis Khan</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- IDADE MODERNA -->
+        <div class="card">
+          <h2>Idade Moderna</h2>
+          <ul>
+            <li>
+              <a
+                href="expansao-maritima-mercantilismo.html"
+                target="_blank"
+                >A Expansão Marítima Europeia</a
+              >
+            </li>
+            <li>
+              <a
+                href="reforma-protestante-contrarreforma.html"
+                target="_blank"
+                >A Reforma Protestante e Contrarreforma</a
+              >
+            </li>
+            <li>
+              <a
+                href="renascimento-cultural-cientifico.html"
+                target="_blank"
+                >Renascimento Cultural e Científico</a
+              >
+            </li>
+            <li>
+              <a
+                href="iluminismo-despotismo-esclarecido.html"
+                target="_blank"
+                >O Iluminismo e o Despotismo Esclarecido</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- BRASIL COLÔNIA E IMPÉRIO -->
+        <div class="card">
+          <h2>Brasil (Colônia e Império)</h2>
+          <ul>
+            <li>
+              <a
+                href="povos-indigenas-brasil.html"
+                target="_blank"
+                >Povos Indígenas Originários</a
+              >
+            </li>
+            <li>
+              <a
+                href="ciclo-do-ouro.html"
+                target="_blank"
+                >O Ciclo do Ouro e a Mineração</a
+              >
+            </li>
+            <li>
+              <a
+                href="independencia-do-brasil.html"
+                target="_blank"
+                >A Independência do Brasil</a
+              >
+            </li>
+            <li>
+              <a
+                href="guerra-do-paraguai.html"
+                target="_blank"
+                >A Guerra do Paraguai</a
+              >
+            </li>
+            <li>
+              <a
+                href="abolicao-da-escravidao.html"
+                target="_blank"
+                >Abolição da Escravidão e Lei Áurea</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- IDADE CONTEMPORÂNEA -->
+        <div class="card">
+          <h2>Idade Contemporânea & Século XX</h2>
+          <ul>
+            <li>
+              <a
+                href="revolucao-industrial.html"
+                target="_blank"
+                >A Revolução Industrial</a
+              >
+            </li>
+            <li>
+              <a
+                href="revolucao-francesa-artigo12.html"
+                target="_blank"
+                >A Revolução Francesa</a
+              >
+            </li>
+            <li>
+              <a
+                href="independencia-dos-eua.html"
+                target="_blank"
+                >Independência dos Estados Unidos</a
+              >
+            </li>
+            <li>
+              <a
+                href="primavera-dos-povos.html"
+                target="_blank"
+                >A Primavera dos Povos (1848)</a
+              >
+            </li>
+            <li>
+              <a
+                href="imperialismo-e-partilha.html"
+                target="_blank"
+                >O Imperialismo e Partilha da África</a
+              >
+            </li>
+            <li>
+              <a
+                href="primeira-guerra-mundial.html"
+                target="_blank"
+                >A Primeira Guerra Mundial</a
+              >
+            </li>
+            <li>
+              <a
+                href="revolucao-russa.html"
+                target="_blank"
+                >A Revolução Russa de 1917</a
+              >
+            </li>
+            <li>
+              <a
+                href="semana-de-arte-moderna.html"
+                target="_blank"
+                >O Modernismo e a Semana de 22</a
+              >
+            </li>
+            <li>
+              <a
+                href="crise-de-1929.html"
+                target="_blank"
+                >A Crise de 1929</a
+              >
+            </li>
+            <li>
+              <a
+                href="era-vargas.html"
+                target="_blank"
+                >A Era Vargas</a
+              >
+            </li>
+            <li>
+              <a
+                href="segunda-guerra-mundial.html"
+                target="_blank"
+                >Segunda Guerra Mundial</a
+              >
+            </li>
+            <li>
+              <a
+                href="guerra-fria.html"
+                target="_blank"
+                >A Guerra Fria</a
+              >
+            </li>
+            <li>
+              <a
+                href="corrida-espacial.html"
+                target="_blank"
+                >A Corrida Espacial</a
+              >
+            </li>
+            <li>
+              <a
+                href="ditadura-militar.html"
+                target="_blank"
+                >O Golpe de 1964 e a Ditadura Militar</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
