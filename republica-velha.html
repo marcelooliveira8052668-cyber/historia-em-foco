@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A República Velha: Coronelismo e Revoltas Populares | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Brasil: República</h1>
+      <p>Período: República Oligárquica (1889 - 1930)</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A República Velha: Coronelismo e Revoltas Populares</h2>
+        
+        <p>A República Velha (1889-1930) foi o período inicial da história republicana do Brasil, marcado politicamente pela hegemonia das oligarquias agrário-exportadoras de São Paulo e Minas Gerais (a chamada <strong>Política do Café com Leite</strong>) e economicamente pela dependência do mercado externo. Nos bastidores do interior do país, o poder concentrava-se nas mãos dos grandes proprietários de terras, os chamados coroneles.</p>
+        
+        <p>O <strong>coronelismo</strong> sustentava-se por meio do controle social e do "voto de cabresto", onde o eleitor era coagido ou manipulado a votar nos candidatos indicados pelo chefe político local. As fraudes eleitorais eram generalizadas, garantidas pela "degola" parlamentar na Comissão de Verificação de Poderes. Contudo, essa ordem excludente gerou profundas insatisfações sociais, urbanas e rurais, culminando em importantes revoltas populares.</p>
+
+        <p>Movimentos como a <strong>Guerra de Canudos</strong> (BA), a <strong>Guerra do Contestado</strong> (SC/PR), a <strong>Revolta da Vacina</strong> (RJ) e a <strong>Revolta da Chibata</strong> (RJ) expressaram o descontentamento das camadas populares contra o autoritarismo estatal, o saneamento violento, o abandono social e a opressão militar, revelando que a jovem república estava longe de ser democrática para a maioria da população.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Característico da República Oligárquica, o coronelismo fundamentava-se em práticas políticas clientelistas que garantiam a dominação das elites agrárias sobre as instâncias de poder. Um dos mecanismos centrais que assegurava o controle político desse sistema era:</p>
+        <ul>
+          <li>A) a instituição do voto secreto e universal para todas as mulheres e analfabetos em âmbito nacional.</li>
+          <li>B) o uso da máquina pública e da coerção local, consubstanciadas no chamado "voto de cabresto".</li>
+          <li>C) a descentralização radical dos impostos que favorecia o fortalecimento dos operários urbanos.</li>
+          <li>D) a proibição absoluta de alianças políticas entre os estados de São Paulo e Minas Gerais.</li>
+          <li>E) a valorização salarial do trabalhador rural por meio de leis trabalhistas consolidadas.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O coronelismo utilizava a dependência econômica do camponês e a violência de capangas para obrigá-lo a votar nos candidatos da oligarquia (voto de cabresto). O voto secreto não existia de forma eficaz nessa fase.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"As revoltas que pipocaram durante a República Velha — de Canudos ao Contestado, passando pela Revolta da Vacina e da Chibata — muitas vezes foram tratadas de forma marginal pelas elites da época como meros distúrbios de ignorantes. No entanto, elas representaram contestações profundas à exclusão social e à violência modernizadora do Estado."</em> O texto destaca que as revoltas populares daquele período expressaram:</p>
+        <ul>
+          <li>A) a perfeita harmonia entre as decisões reformistas do governo federal e os interesses das comunidades sertanejas.</li>
+          <li>B) a adesão em massa das populações marginalizadas aos ideais do socialismo científico soviético.</li>
+          <li>C) a reação contra o arrocho ditatorial, a opressão das forças armadas e o autoritarismo das reformas urbanas e rurais.</li>
+          <li>D) a consolidação imediata de uma democracia participativa com forte apoio das oligarquias cafeeiras.</li>
+          <li>E) o desinteresse completo dos cidadãos em relação aos rumos políticos e econômicos da nação.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> As revoltas da República Velha (como a Vacina contra a imposição sanitária truculenta e a Chibata contra os castigos físicos na Marinha) refletiram a revolta das camadas populares contra o caráter excludente, violento e elitista das políticas estatais da época.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Ascensão e Queda do Império Romano | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Antiguidade</h1>
+      <p>Período: 753 a.C. - 476 d.C.</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Ascensão e Queda do Império Romano</h2>
+        
+        <p>Da fundação mítica de Roma em 753 a.C. até a sua queda oficial em 476 d.C., a civilização romana ergueu um dos maiores impérios da história ocidental. Passando de uma monarquia modesta para uma república expansionista e, finalmente, para um vasto império centralizado sob o comando dos Césares, Roma unificou toda a bacia do Mediterrâneo (o <em>Mare Nostrum</em>), impondo sua cultura, sua complexa rede de estradas, o direito romano e o latim.</p>
+        
+        <p>A fase de ascensão e auge imperial esteve profundamente atrelada ao <strong>modo de produção escravista</strong>. As guerras de conquista alimentavam a economia com milhões de prisioneiros transformados em escravos, barateando a produção e sustentando a grandiosidade urbana e militar. Contudo, quando o império atingiu sua máxima expansão por volta do século II d.C., as conquistas territoriais estagnaram, provocando uma grave escassez de mão de obra escrava e o enfraquecimento da economia monetária.</p>
+
+        <p>A crise do século III inaugurou o lento processo de decadência: pressões de povos germânicos nas fronteiras, inflação galopante, corrupção política e a ruralização da sociedade — com o surgimento do <em>colonato</em>, embrião do feudalismo. Para tentar administrar o colapso, o império foi dividido em dois (Ocidente e Oriente). Incapaz de resistir às invasões germânicas e esgotado internamente, o Império Romano do Ocidente ruiu em 476 d.C., marcando tradicionalmente o fim da Idade Antiga.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A expansão militar romana durante a República e o início do Império alterou profundamente a estrutura socioeconômica de Roma, criando uma dependência estrutural em relação a um fator específico de produção. Esse fator caracterizava-se por:</p>
+        <ul>
+          <li>A) utilizar mão de obra livre e assalariada nos latifúndios exportadores de cereais.</li>
+          <li>B) basear-se na exploração maciça do trabalho escravo obtido por meio das guerras de conquista.</li>
+          <li>C) promover a industrialização urbana intensiva com o uso de máquinas a vapor.</li>
+          <li>D) fundamentar-se em guildas artesanais autônomas controladas por conselhos de camponeses.</li>
+          <li>E) instituir o trabalho servil coletivo obrigatório gerido diretamente pelo senado.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A economia do Império Romano girava em torno do escravismo. Com as conquistas militares, um enorme contingente de prisioneiros era escravizado e direcionado para as grandes propriedades (latifúndios) e minas.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A decadência do Império Romano do Ocidente não ocorreu de um dia para o outro, nem foi causada apenas pelos ataques dos chamados 'bárbaros'. Ela foi o resultado de uma crise estrutural profunda que incluiu a crise do escravismo, a ruralização da economia e a descentralização do poder político que deu origem a novas formas de laços de dependência."</em> O texto aponta para o fator interno fundamental que contribuiu para o colapso romano:</p>
+        <ul>
+          <li>A) a abolição imediata de todas as formas de impostos cobrados nas províncias ultramarinas.</li>
+          <li>B) a substituição definitiva do latifúndio escravista por pequenas propriedades comunais autogeridas.</li>
+          <li>C) o esgotamento do modelo expansionista e escravista, que levou à crise econômica e à transição para o colonato.</li>
+          <li>D) a aliança militar pacífica e duradoura firmada entre Roma e as tribos germânicas orientais.</li>
+          <li>E) a imposição da democracia ateniense direta em substituição ao poder autocrático dos imperadores.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> O fim das guerras de conquista reduziu a entrada de escravos, desestruturando a base econômica romana. Isso gerou a fuga das cidades (ruralização) e o fortalecimento do sistema de colonato, onde os camponeses ficavam presos à terra, antecipando traços do feudalismo medieval.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>
