@@ -1,9 +1,10 @@
 {
+  "homepage": "https://seu-usuario.github.io/nome-do-repositorio",
   "name": "historia-em-foco",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://marcelooliveira8052668-cyber.github.io/historia-em-foco/",
+  
   "scripts": {
     "dev": "vite",
     "build": "vite build",
