@@ -9,7 +9,7 @@ export const topics = [
     readTime: "6 min",
     image: "https://i.pinimg.com/736x/e0/1a/bd/e01abd4502c1723ce64f615b4d29af31.jpg",
     excerpt: "Conheça o período mais longo da humanidade, marcado pelo uso da pedra lascada, pelo nomadismo e pela descoberta do fogo.",
-    url: "https://docs.google.com/document/d/10twRP8iNChhVP50zht4lRvotao9LCHzm/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+    url: "https://docs.google.com/document/d/10twRP8iNChhVP50zht4lRvotao9LCHzm/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd/preview",
   },
   {
     id: 0,
