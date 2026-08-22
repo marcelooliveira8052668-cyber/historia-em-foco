@@ -1,13 +1,445 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>historia-em-foco</title>
+    <title>Acervo de História</title>
+    <!-- Fonte limpa e legível (Segoe UI já é padrão do sistema, mas garantida aqui) -->
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --comment-bg: #101827;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --comment-bg: #f8fafc;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      /* Botão de dia/noite limpo e visível */
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+      }
+
+      .btn-theme {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .btn-theme:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        color: var(--accent-pink);
+        font-size: 1.15rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        max-height: 380px;
+        overflow-y: auto;
+      }
+
+      li {
+        margin: 10px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        transition: color 0.2s ease;
+      }
+
+      a:hover {
+        color: var(--primary);
+      }
+
+      a::before {
+        content: "›";
+        margin-right: 8px;
+        color: var(--primary);
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      /* Seção de Comentários Clara e Confortável */
+      .comments-section {
+        max-width: 1200px;
+        margin: 3rem auto 2rem auto;
+        padding: 0 1rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .comments-box {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+
+      .comments-box h3 {
+        color: var(--primary);
+        font-size: 1.1rem;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .comment-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 25px;
+      }
+
+      .comment-input, .comment-textarea {
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-color);
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 0.95rem;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .comment-input:focus, .comment-textarea:focus {
+        border-color: var(--primary);
+      }
+
+      .comment-textarea {
+        resize: vertical;
+        height: 80px;
+      }
+
+      .btn-submit {
+        align-self: flex-start;
+        background: var(--primary);
+        color: white;
+        border: none;
+        font-weight: 600;
+        padding: 8px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: inherit;
+      }
+
+      .btn-submit:hover {
+        background: var(--primary-hover);
+      }
+
+      .comment-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .comment-card {
+        background: var(--comment-bg);
+        border: 1px solid var(--border-color);
+        padding: 12px 16px;
+        border-radius: 6px;
+      }
+
+      .comment-author {
+        color: var(--primary);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .comment-text {
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+
+      /* Rodapé */
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <header>
+      <div class="top-controls">
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Acervo de História</h1>
+      <p>Documentação e materiais de estudos completos</p>
+    </header>
+
+    <div class="container">
+      <div class="grid">
+        <!-- PRÉ-HISTÓRIA -->
+        <div class="card">
+          <h2>Pré-História</h2>
+          <ul>
+            <li><a href="paleolitico.html" target="_blank">O Período Paleolítico</a></li>
+            <li><a href="neolitico.html" target="_blank">A Revolução Neolítica</a></li>
+            <li><a href="metais.html" target="_blank">A Idade dos Metais</a></li>
+          </ul>
+        </div>
+
+        <!-- ANTIGUIDADE -->
+        <div class="card">
+          <h2>Antiguidade</h2>
+          <ul>
+            <li><a href="fontes-historicas.html" target="_blank">Fontes Históricas</a></li>
+            <li><a href="mesopotamia-egito.html" target="_blank">Mesopotâmia e Egito Antigo</a></li>
+            <li><a href="grecia-antiga.html" target="_blank">Grécia Antiga: Democracia e Filosofia</a></li>
+            <li><a href="roma-antiga.html" target="_blank">Roma Antiga: Da Monarquia ao Fim do Império</a></li>
+            <li><a href="" target="_blank">A Ascensão e Queda do Império Romano</a></li>
+            <li><a href="piramides-egito.html" target="_blank">Os Mistérios das Pirâmides</a></li>
+            <li><a href="grecia-antiga-contraste.html" target="_blank">Democracia em Atenas e Esparta</a></li>
+          </ul>
+        </div>
+
+        <!-- IDADE MÉDIA -->
+        <div class="card">
+          <h2>Idade Média</h2>
+          <ul>
+            <li><a href="igreja-feudalismo.html" target="_blank">O Feudalismo e a Igreja Católica</a></li>
+            <li><a href="tratado-de-verdun.html" target="_blank">O que foi o Tratado de Verdun?</a></li>
+            <li><a href="idade-media-estrutura-feudalismo.html" target="_blank">O Sistema Feudal e a Vida nos Castelos</a></li>
+            <li><a href="as-cruzadas.html" target="_blank">As Cruzadas</a></li>
+            <li><a href="imperio-mongol.html" target="_blank">O Império Mongol de Gêngis Khan</a></li>
+          </ul>
+        </div>
+
+        <!-- IDADE MODERNA -->
+        <div class="card">
+          <h2>Idade Moderna</h2>
+          <ul>
+            <li><a href="expansao-maritima-mercantilismo.html" target="_blank">A Expansão Marítima Europeia</a></li>
+            <li><a href="reforma-protestante-contrarreforma.html" target="_blank">A Reforma Protestante e Contrarreforma</a></li>
+            <li><a href="renascimento-cultural-cientifico.html" target="_blank">Renascimento Cultural e Científico</a></li>
+            <li><a href="iluminismo-despotismo-esclarecido.html" target="_blank">O Iluminismo e o Despotismo Esclarecido</a></li>
+          </ul>
+        </div>
+
+        <!-- BRASIL COLÔNIA E IMPÉRIO -->
+        <div class="card">
+          <h2>Brasil (Colônia e Império)</h2>
+          <ul>
+            <li><a href="povos-indigenas-brasil.html" target="_blank">Povos Indígenas Originários</a></li>
+            <li><a href="ciclo-do-ouro.html" target="_blank">O Ciclo do Ouro e a Mineração</a></li>
+            <li><a href="independencia-do-brasil.html" target="_blank">A Independência do Brasil</a></li>
+            <li><a href="guerra-do-paraguai.html" target="_blank">A Guerra do Paraguai</a></li>
+            <li><a href="abolicao-da-escravidao.html" target="_blank">Abolição da Escravidão e Lei Áurea</a></li>
+          </ul>
+        </div>
+
+        <!-- IDADE CONTEMPORÂNEA -->
+        <div class="card">
+          <h2>Idade Contemporânea & Século XX</h2>
+          <ul>
+            <li><a href="revolucao-industrial.html" target="_blank">A Revolução Industrial</a></li>
+            <li><a href="revolucao-francesa-artigo12.html" target="_blank">A Revolução Francesa</a></li>
+            <li><a href="independencia-dos-eua.html" target="_blank">Independência dos Estados Unidos</a></li>
+            <li><a href="primavera-dos-povos.html" target="_blank">A Primavera dos Povos (1848)</a></li>
+            <li><a href="imperialismo-e-partilha.html" target="_blank">O Imperialismo e Partilha da África</a></li>
+            <li><a href="primeira-guerra-mundial.html" target="_blank">A Primeira Guerra Mundial</a></li>
+            <li><a href="revolucao-russa.html" target="_blank">A Revolução Russa de 1917</a></li>
+            <li><a href="semana-de-arte-moderna.html" target="_blank">O Modernismo e a Semana de 22</a></li>
+            <li><a href="crise-de-1929.html" target="_blank">A Crise de 1929</a></li>
+            <li><a href="era-vargas.html" target="_blank">A Era Vargas</a></li>
+            <li><a href="segunda-guerra-mundial.html" target="_blank">Segunda Guerra Mundial</a></li>
+            <li><a href="guerra-fria.html" target="_blank">A Guerra Fria</a></li>
+            <li><a href="corrida-espacial.html" target="_blank">A Corrida Espacial</a></li>
+            <li><a href="ditadura-militar.html" target="_blank">O Golpe de 1964 e a Ditadura Militar</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de Comentários -->
+    <div class="comments-section">
+      <div class="comments-box">
+        <h3>Deixe seu comentário ou dúvida</h3>
+        <form class="comment-form" id="commentForm">
+          <input type="text" class="comment-input" id="commentAuthor" placeholder="Seu nome" required />
+          <textarea class="comment-textarea" id="commentText" placeholder="Escreva seu comentário aqui..." required></textarea>
+          <button type="submit" class="btn-submit">Enviar Comentário</button>
+        </form>
+
+        <div class="comment-list" id="commentList">
+          <div class="comment-card">
+            <div class="comment-author">Professor</div>
+            <div class="comment-text">Bem-vindos ao acervo! Usem este espaço para dúvidas sobre os textos.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados ao Professor Marcelo Oliveira.</p>
+    </footer>
+
+    <script>
+      // Alternância de Tema (Modo Dia / Noite)
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+
+      // Sistema interativo de comentários
+      const commentForm = document.getElementById('commentForm');
+      const commentAuthor = document.getElementById('commentAuthor');
+      const commentText = document.getElementById('commentText');
+      const commentList = document.getElementById('commentList');
+
+      commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const authorVal = commentAuthor.value.trim();
+        const textVal = commentText.value.trim();
+
+        if(authorVal && textVal) {
+          const card = document.createElement('div');
+          card.className = 'comment-card';
+
+          const authorDiv = document.createElement('div');
+          authorDiv.className = 'comment-author';
+          authorDiv.textContent = authorVal;
+
+          const textDiv = document.createElement('div');
+          textDiv.className = 'comment-text';
+          textDiv.textContent = textVal;
+
+          card.appendChild(authorDiv);
+          card.appendChild(textDiv);
+
+          commentList.prepend(card);
+
+          commentAuthor.value = '';
+          commentText.value = '';
+        }
+      });
+    </script>
   </body>
 </html>

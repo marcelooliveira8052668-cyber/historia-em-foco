@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História em Foco | Prof. Marcelo Oliveira</title>
+    <style>
+        :root {
+            --bg-color: #05050a;
+            --card-bg: rgba(20, 20, 40, 0.7);
+            --text-color: #e0e0e0;
+            --accent-color: #00f3ff;
+            --accent-glow: rgba(0, 243, 255, 0.3);
+            --font-main: "Inter", system-ui, sans-serif;
+        }
+
+        .light-mode {
+            --bg-color: #f0f2f5;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-color: #1a1a1a;
+            --accent-color: #0066ff;
+            --accent-glow: rgba(0, 102, 255, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+        body { background-color: var(--bg-color); color: var(--text-color); transition: 0.4s; line-height: 1.6; min-height: 100vh; }
+
+        .nav-bar { background: #1a1a2e; padding: 15px; text-align: center; }
+        .btn-voltar { color: #fff; text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; transition: 0.3s; }
+        
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 40px; }
+        .foto-capa { width: 100%; height: 350px; object-fit: cover; }
+        
+        .search-box input { width: 100%; padding: 18px 25px; border-radius: 50px; background: var(--card-bg); border: 1px solid var(--accent-color); color: var(--text-color); margin-bottom: 30px; }
+
+        .cards-carousel { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--card-bg); border-radius: 20px; overflow: hidden; transition: 0.3s; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px var(--accent-glow); }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card-content h4 { color: var(--accent-color); margin-bottom: 8px; }
+
+        .theme-toggle { position: fixed; top: 20px; right: 20px; padding: 10px 20px; border-radius: 20px; cursor: pointer; background: var(--accent-color); border: none; font-weight: bold; z-index: 1000; }
+        
+    </style>
+</head>
+<body>
+<a href="index.html">← Voltar para o Sumário</a>
+    <button class="theme-toggle" onclick="document.body.classList.toggle('light-mode')">Alternar Tema</button>
+
+    <div class="nav-bar">
+        <a href="#" class="btn-voltar">← Voltar para a Home</a>
+    </div>
+
+    <img src="https://tse1.mm.bing.net/th/id/OIP.lwFo7bfnDCL6sXpW9M_FxwHaEn?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Capa" class="foto-capa">
+<p>Site em construção...</p>
+    <div class="main-container">
+        <header>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Pesquisar tema de história..." oninput="filtrarCards()">
+            </div>
+        </header>
+
+        <section>
+            <h2 style="margin-bottom: 20px;">Temas de História</h2>
+            <div class="cards-carousel" id="cardsContainer"></div>
+        </section>
+    </div>
+
+    <script>
+        const artigos = [
+             // Lista de Temas
+        
+            {
+                title: "O Período Paleolítico",
+                image: "https://i.pinimg.com/736x/e0/1a/bd/e01abd4502c1723ce64f615b4d29af31.jpg",
+                url: "paleolitico.html"
+            },
+            {
+                title: "A Revolução Neolítica",
+                image: "https://1.bp.blogspot.com/-eXprArqL2WI/YDvte-w6WqI/AAAAAAAAjic/995A8P3P2AcruwoaFjrb0NnRugX8uU-9QCLcBGAsYHQ/s728/2.jpg",
+                url: "neolitico.html"
+            },
+            {
+                title: "A Idade dos Metais",
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdmVcin7vA1HTFwJhVgLDWZQVGMvqtqOSdmzwVrNAQnY4lKA2n5fDvRyzwwBrtBisTKaKv1wqtLl86rLZUNdPus2Z2Karms9PUyZu0NF944l-rVGpvZaL1oB6SDqdF9q2P3da3IHXFjkrkCPx2jRslJsvaVuF0EnfkE5YErgNUXXEWq60fPchdlXR8a60Z/s1536/Infografico%20sobre%20Idade%20dos%20Metais.png",
+                url: "metais.html"
+            },
+            {
+                title: "Fontes Históricas",
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaQOsX6ndKWs5Nos0vcxZnxq8zQS8WTECfzSeZdcZMOw1JzbEwMnS_6l6Lf9Uiq2qI4pg0oeKlCqJUZA3YMa4IhWB03GaJhv0PdsO9lCuQ2Ao8x4uI8fUTdIJWz-G-4-_hZk98ZiU8QVmkj1j82P30-PP-xK2aUUHeBNqyp8dcKJ04SKsgP2SPbLWO/s2240/BannerHJ2023_21.jpg",
+                url: "fontes-historicas.html"
+            },
+            {
+                title: "Mesopotâmia e Egito Antigo",
+                image: "https://blog.explicae.com.br/wp-content/uploads/2022/08/1-5.png",
+                url: "mesopotamia-egito.html"
+            },
+            {
+                title: "Idade Média: O Papel da Igreja Católica no feudalismo",
+                image: "https://tse2.mm.bing.net/th/id/OIP.P9ScNDse_ex0KG_oI120rAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+                url: "igreja-feudalismo.html"
+            },
+            {
+                title: "A Revolução Industrial",
+                image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=800&auto=format&fit=crop&q=80",
+                url: "revolucao-industrial.html"
+            },
+            {
+                title: "Segunda Guerra Mundial",
+                image: "https://1.bp.blogspot.com/--HwaIUOQPDQ/X2DakNtiuhI/AAAAAAAAG1s/IUTRvV-YkOsDtTp9oYraVUB4w503VzwpACLcBGAsYHQ/s2048/POST_Fascismo-e-Nazismo.png",
+               url: "segunda-guerra.html"
+            },
+        {
+          id: 5,
+          category: "Geral",
+          title: "Grécia Antiga: Democracia e Filosofia",
+          period: "Antiguidade Clássica",
+          readTime: "7 min",
+          image:
+            "https://lh5.googleusercontent.com/yApPLJExUcFwClZ8h4kw0EXy56AnnoqL1mRjS0SafXkUJDmzwtEYnNcBoaLQoBwTF5pmEW7C5-Bgaq9FvqwSneP8uoF9jF2leY0WQdzbwfMr-mdvlrgKJc84n1oSn7CdlgoVD9q5XbjiOfT0k3ZExw=w640-h519",
+          excerpt:
+            "A formação das pólis (Atenas e Esparta), o nascimento da democracia, os mitos e o legado filosófico para o Ocidente.",
+          url: "grecia-antiga.html",
+        },
+        {
+          id: 6,
+          category: "Geral",
+          title: "Roma Antiga: Da Monarquia ao Fim do Império",
+          period: "Antiguidade Clássica",
+          readTime: "7 min",
+          image:
+            "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&auto=format&fit=crop&q=80",
+          excerpt:
+            "A expansão militar pelo Mediterrâneo, a crise institucional, a transição para o Império e o Direito Romano.",
+          url: "roma-antiga.html",
+        },
+        {
+          id: 7,
+          category: "Geral",
+          title: "Idade Média: O Feudalismo ",
+          period: "Idade Média",
+          readTime: "6 min",
+          image:
+            "https://maps4study.com.br/wp-content/uploads/2026/01/FEUDALISMO-RESUMIDO-E-EXPLICADO_upscayl_4800px_upscayl-lite-4x.jpg",
+          excerpt:
+            "A descentralização do poder, a sociedade estamental (senhores, clero e servos), a cultura teocêntrica e as Cruzadas.",
+          url: "feudalismo.html",
+        },
+        {
+          id: 8,
+          category: "Geral",
+          title: "O que foi o Tratado de Verdun?",
+          period: "Idade Média",
+          readTime: "6 min",
+          image:
+            "https://escolaeducacao.com.br/wp-content/uploads/2020/05/tratado-verdun-3-1024x768.jpg",
+          excerpt:
+            "Descubra como o Tratado de Verdun (843 d.C.) dividiu o Império Carolíngio entre os netos de Carlos Magno, descentralizando o poder e consolidando o feudalismo na Europa.",
+          url: "tratado-verdun.html",
+        },
+        {
+          id: 9,
+          category: "Geral",
+          title: "A Expansão Marítima Europeia e o Mercantilismo",
+          period: "Idade Moderna (Séculos XV-XVI)",
+          readTime: "6 min",
+          image:
+            "https://static.escolakids.uol.com.br/2023/08/mapa-das-expedicoes-espanhola-e-portuguesa-durante-a-expansao-maritima.png",
+          excerpt:
+            "O pioneirismo ibérico, as rotas para das Índias, o pacto colonial e a acumulação primitiva de capital.",
+          url: "expansao-maritima.html",
+        },
+        {
+          id: 10,
+          category: "Geral",
+          title: "A Reforma Protestante e a Contrarreformação",
+          period: "Idade Moderna (Século XVI)",
+          readTime: "7 min",
+          image:
+            "https://tse3.mm.bing.net/th/id/OIP.N6efQndc0Ow6v9dbHMRGpAHaFj?r=0&pid=ImgDet&w=474&h=355&rs=1&o=7&rm=3",
+          excerpt:
+            "As críticas de Martinho Lutero e João Calvino à Igreja Católica e a resposta católica através do Concílio de Trento.",
+          url: "reforma-protestante.html",
+        },
+        {
+          id: 11,
+          category: "Geral",
+          title: "Renascimento Cultural e Científico",
+          period: "Idade Moderna",
+          readTime: "6 min",
+          image: "https://i.ytimg.com/vi/j9RGn4VXv60/maxresdefault.jpg",
+          excerpt:
+            "O humanismo, o antropocentrismo, a redescoberta dos clásicos greco-romanos e as inovações artísticas na Europa.",
+          url: "renascimento.html",
+        },
+        {
+          id: 12,
+          category: "Brasil",
+          title: "Povos Indígenas Originários do Brasil",
+          period: "Pré-Colonial",
+          readTime: "5 min",
+          image: "https://en-academic.com/pictures/enwiki/75/Kaiapos.jpeg",
+          excerpt:
+            "A diversidade cultural, os troncos linguísticos (Tupi, Macro-Jê), os hábitos alimentares e a organização social antes de 1500.",
+          url: "povos-indigenas.html",
+        },
+        {
+          id: 13,
+          category: "Brasil",
+          title: "O Ciclo do Ouro e a Sociedade Mineradora",
+          period: "Brasil Colônia (Século XVIII)",
+          readTime: "6 min",
+          image:
+            "https://blogdoenem.com.br/wp-content/uploads/2014/07/O-ciclo-do-Ouro-sociedade-mineradora-d.jpg",
+          excerpt:
+            "A interiorização da colônia, a mudança do eixo econômico para Minas Gerais, o barroco mineiro e a fiscalização metropolitana.",
+          url: "ciclo-do-ouro.html",
+        },
+        {
+          id: 14,
+          category: "Geral",
+          title: "O Iluminismo e o Despotismo Esclarecido",
+          period: "Idade Moderna (Século XVIII)",
+          readTime: "6 min",
+          image:
+            "https://imgv2-2-f.scribdassets.com/img/document/932051227/original/c3beb84ad7/1?v=1",
+          excerpt:
+            "A centralidade da razão, as ideias de Voltaire, Rousseau e Montesquieu, e o impacto na queda do Absolutismo.",
+          url: "iluminismo.html",
+        },
+      
+        {
+          id: 16,
+          category: "Geral",
+          title: "A Queda da Bastilha e o Início da Revolução Francesa",
+          period: "Século XVIII",
+          readTime: "7 min",
+          image:
+            "https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/4695278/image/3c2ce8171132c327f9fc74a266bc45a5",
+          excerpt:
+            "Como a insatisfação com o Antigo Regime moldou os conceitos modernos de liberdade, igualdade e fraternidade.",
+          url: "https://docs.google.com/document/d/1vDa_TvjsWQcdFA4oOMB-ETym0EwlC__6/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 17,
+          category: "Geral",
+          title: "A Independência dos Estados Unidos",
+          period: "Idade Contemporânea (1776)",
+          readTime: "6 min",
+          image: "https://i.ytimg.com/vi/Q3Vy854Q1I0/maxresdefault.jpg",
+          excerpt:
+            "A insatisfação com a metrópole britânica, as Leis Intoleráveis, a Declaração de Independência e o Iluminismo na prática.",
+          url: "https://docs.google.com/document/d/19Ud2OkMjfnAFIXtesPb5PrROpqmb7HYd/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 18,
+          category: "Brasil",
+          title: "A Independência do Brasil: Mitos e Rupturas",
+          period: "Século XIX",
+          readTime: "5 min",
+          image:
+            "https://3.bp.blogspot.com/_226uk8w2krY/THza6FmM5LI/AAAAAAAABH0/942HPHcGaKE/s1600/10.jpg",
+          excerpt:
+            "Entenda os bastidores políticos, os acordos internacionais e o papel real das camadas populares no 7 de Setembro.",
+          url: "https://docs.google.com/document/d/1lIuinUK0GYDS2mUQS5bGHLxrQBGsEfEX/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 19,
+          category: "Geral",
+          title: "A Primavera dos Povos e as Revoluções de 1848",
+          period: "Idade Contemporânea (Século XIX)",
+          readTime: "6 min",
+          image:
+            "https://uploads.jovemnerd.com.br/wp-content/uploads/2023/03/vitrine_767_a__203ruaj.jpg",
+          excerpt:
+            "O surgimento do socialismo científico (Marx e Engels), o liberalismo e o nacionalismo sacudindo as monarquias europeias.",
+          url: "https://docs.google.com/document/d/1U5k97sjf2dgF5eDSIMQufy_XZBegJjJ3/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 20,
+          category: "Brasil",
+          title: "A Guerra do Paraguai",
+          period: "Segundo Reinado (1864-1870)",
+          readTime: "7 min",
+          image:
+            "https://i.pinimg.com/originals/f6/d5/44/f6d544a78798bb01e967077c5e2ff980.jpg",
+          excerpt:
+            "O contexto da Tríplice Aliança contra o Paraguai, os impactos econômicos e demográficos, e a crise do Império.",
+          url: "https://docs.google.com/document/d/1ZT7yc-heZJLK7Rz4sfLKedlfzb_SRNTM/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 21,
+          category: "Geral",
+          title: "O Imperialismo e a Partilha da África e da Ásia",
+          period: "Idade Contemporânea (Século XIX-XX)",
+          readTime: "7 min",
+          image:
+            "https://escolaeducacao.com.br/wp-content/uploads/2020/01/partilha-africa-2-689x430.jpg",
+          excerpt:
+            "A busca por mercados consumidores e matérias-primas pela Segunda Revolução Industrial e a justificativa do 'fardo do homem branco'.",
+          url: "https://docs.google.com/document/d/1CXP-3cKHPZnXk1ApsnyTTNGJaPo3834n/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 22,
+          category: "Brasil",
+          title: "A Abolição da Escravidão e a Lei Áurea",
+          period: "Século XIX (1888)",
+          readTime: "5 min",
+          image:
+            "https://th.bing.com/th/id/OIP.H3C9Cp4SpKVlF1ZWPNEjxQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+          excerpt:
+            "Os movimentos abolicionistas, a forte resistência negra e os limites da inclusão social após a assinatura de 1888.",
+          url: "https://docs.google.com/document/d/1iJAQwsKZD_gnm2RlfPR0Zjotqlk2MSZY/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 23,
+          category: "Brasil",
+          title: "A República Velha: Coronelismo e Revoltas Populares",
+          period: "República Oligárquica (1889-1930)",
+          readTime: "7 min",
+          image:
+            "https://i.pinimg.com/474x/20/93/9e/20939e0ca884f7e71f532ec41dcb5a63.jpg?nii=t",
+          excerpt:
+            "A Política dos Governadores, o voto de cabresto, e as revoltas sociais (Canudos, Contestado, Revolta da Vacina e da Chibata).",
+          url: "https://docs.google.com/document/d/1_2L2gw-mtN6CZF181iMh_jKNRCWSweZO/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        
+        {
+          id: 25,
+          category: "Geral",
+          title: "A Revolução Russa de 1917",
+          period: "Idade Contemporânea (1917)",
+          readTime: "7 min",
+          image:
+            "https://outroladodahistoria.com/wp-content/uploads/2025/05/ChatGPT-Image-26-de-mai.-de-2025-20_23_14.png",
+          excerpt:
+            "A queda do Czarismo, a oposição entre Mencheviques e Bolcheviques, e a fundação do primeiro Estado socialista do mundo (URSS).",
+          url: "https://docs.google.com/document/d/1rhFMhzRrSr1V5ushjOpSSpZSyQNlA-hn/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 26,
+          category: "Brasil",
+          title: "O Modernismo e a Semana de 22",
+          period: "Século XX (1922)",
+          readTime: "5 min",
+          image:
+            "https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2021/07/Semana-de-Arte-Moderna-de-1922.jpg?quality=70&strip=info&w=1280&h=720&crop=1",
+          excerpt:
+            "A ruptura estética no Teatro Municipal de São Paulo e a busca por uma identidade cultural genuinamente brasileira.",
+          url: "https://docs.google.com/document/d/18K9KBkthU6Ivqjl0PhViEmB5OMk6HP47/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 27,
+          category: "Geral",
+          title: "A Crise de 1929 e a Grande Depressão",
+          period: "Idade Contemporânea (1929)",
+          readTime: "6 min",
+          image:
+            "https://www.historiaemcortes.com.br/wp-content/uploads/2025/03/33088fc0-b94f-4704-aa53-bcc86bf04a0c-1024x585.webp",
+          excerpt:
+            "A superprodução americana, a quebra da Bolsa de Nova York e as consequências econômicas e políticas globais (New Deal e ascensão do nazifascismo).",
+          url: "https://docs.google.com/document/d/1rkVAQSRrpXb61x7tPpBSw_-JUlv_Qbf1/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 28,
+          category: "Brasil",
+          title: "A Era Vargas: Industrialização e Populismo",
+          period: "Século XX",
+          readTime: "6 min",
+          image:
+            "https://image.slidesharecdn.com/eravargas-2024-250522220042-9c4918b6/85/Era-Vargas-industrializacao-populismo-e-ditadura-1-320.jpg",
+          excerpt:
+            "Análise do Estado Novo, as leis trabalhistas e o impacto da política de massas na sociedade brasileira.",
+          url: "https://docs.google.com/document/d/19Hzrek5UdvhiVQUkSXJA9Kx4Bbg6tKcZ/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 29,
+          category: "Geral",
+          title: "A Guerra Fria: O Mundo Bipolarizado",
+          period: "Século XX",
+          readTime: "8 min",
+          image:
+            "https://image2.slideserve.com/4121713/mundo-bipolarizado-l.jpg",
+          excerpt:
+            "Corrida espacial, conflitos por procuração e a divisão ideológica entre Estados Unidos e União Soviética.",
+          url: "https://docs.google.com/document/d/19Lg8HWNsTQSIeVAj4czuYDx0rb5x80Y-/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+        {
+          id: 30,
+          category: "Geral",
+          title: "A Corrida Espacial: A Conquista do Além",
+          period: "Século XX (1957-1975)",
+          readTime: "6 min",
+          image:
+            "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
+          excerpt:
+            "A disputa tecnológica e ideológica entre Estados Unidos e União Soviética que levou o homem à Lua.",
+          url: "https://docs.google.com/document/d/1G5O5-eS42c9EJcylsd0htvVpjC1RHE_x/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+        },
+       
+    
+        
+  {
+    id: 51,
+    category: "Antiguidade",
+    title: "A Ascensão e Queda do Império Romano",
+    period: "753 a.C. - 476 d.C.",
+    readTime: "7 min",
+    image: "https://0701.static.prezi.com/preview/v2/t4mvqf3etizubxejtft5oaemax6jc3sachvcdoaizecfr3dnitcq_3_0.png",
+    excerpt: "Descubra como uma pequena cidade na península Itálica se tornou um dos maiores impérios da história humana.",
+    url: "https://docs.google.com/document/d/1AeSQtg9he-I-ffFah5peP1LckmTrOrSM/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 52,
+    category: "Egito Antigo",
+    title: "Os Mistérios da Construção das Pirâmides",
+    period: "Antigo Império (c. 2686 - 2181 a.C.)",
+    readTime: "6 min",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxVLWCID9WhuugSYuCU1JvElSUbApoLZds8A_3qVMZD1cDx97Twyg_txbZt1gCNP8ncCHGorGbnQfNYvnODlWQWrEVwD_MaYRE5EmM78k6fsRDuQ-RFJDp0_g9s84FXLXBTob_5Ui5ziCB74JNwOZnjH0GwKzbui2V1ZiUCvDkpAk-uz6K2TlXQwy_DmhK/w1200-h630-p-k-no-nu/Constru%C3%A7%C3%A3o%20das%20Pir%C3%A2mides.webp",
+    excerpt: "Compreenda os métodos de engenharia, a mão de obra e o significado religioso por trás das tumbas dos faraós.",
+    url: "https://docs.google.com/document/d/1jTrqWgciNFEdzYaG_0SA68G6lFzPuq9M/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 53,
+    category: "Grécia Antiga",
+    title: "A Democracia em Atenas e o Poder de Esparta",
+    period: "Século V a.C.",
+    readTime: "8 min",
+    image: "https://escolaeducacao.com.br/wp-content/uploads/2020/02/democracia-ateniense-1-750x430.jpg",
+    excerpt: "Analise o contraste entre o berço da democracia ocidental e a sociedade militarizada espartana.",
+    url: "https://docs.google.com/document/d/1f2-UV0B-tVKlnx2L9P4Re2fuGgYIA1Wj/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 54,
+    category: "Idade Média",
+    title: "O Sistema Feudal e a Vida nos Castelos",
+    period: "Século V - Século XV",
+    readTime: "5 min",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGNffwSUdmTZ-q3dWw9luaIDwt0v2fJaWw5Z4n77qWkV8yI-mFK64bkC7ANM6zRPDbAqrN-1HDf4GD7xv6CAe6pg1xfjp0w9DsABQpisYbgMvkhmMch4wgYbNw620dBwElq1KEWmM3kz8/w1200-h630-p-k-no-nu/mediaval++novas0007.jpg",
+    excerpt: "Explore as relações de suserania e vassalagem, o papel dos cavaleiros e a rotina da nobreza medieval.",
+    url: "https://docs.google.com/document/d/1ptaED0fHRaFX-8wi69AiPJHqOrxXMsXT/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 55,
+    category: "Idade Média",
+    title: "As Cruzadas: Choque de Mundos no Oriente Médio",
+    period: "1096 - 1291",
+    readTime: "7 min",
+    image: "https://sobrehistoria.com/wp-content/uploads/2016/05/cruzadas-600x479.jpg",
+    excerpt: "Entenda as motivações religiosas, políticas e econômicas das expedições militares rumo à Terra Santa.",
+    url: "https://docs.google.com/document/d/1T9f_ct0gFuCcIgCW0R1xdIV1PkaXbzFM/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 56,
+    category: "História da Ásia",
+    title: "O Império Mongol de Gêngis Khan",
+    period: "1206 - 1368",
+    readTime: "6 min",
+    image: "https://static.mundoeducacao.uol.com.br/mundoeducacao/2025/10/mapa-imperio-mongol-1.jpg",
+    excerpt: "Conheça a história dos cavaleiros estepários que construíram o maior império contínuo de terras da história.",
+    url: "https://docs.google.com/document/d/1ja_ydMKkuEWjdZ_SolMfDNF5H1T5xuh0/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 57,
+    category: "Brasil Colônia",
+    title: "O Ciclo da Cana-de-Açúcar no Nordeste",
+    period: "Século XVI - Século XVII",
+    readTime: "6 min",
+    image: "https://i.ytimg.com/vi/ZrB7-Ge_CPY/maxresdefault.jpg",
+    excerpt: "Saiba como funcionavam os engenhos, a economia colonial e o sistema de plantation no Brasil.",
+    url: "https://docs.google.com/document/d/1SkrZCUOH_aBW9PiPYU-Npt8TpeHNT945/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 58,
+    category: "Brasil Colônia",
+    title: "As Invasões Holandesas no Nordeste",
+    period: "1630 - 1654",
+    readTime: "7 min",
+    image: "https://i.ytimg.com/vi/cSvfTWo1JzM/maxresdefault.jpg",
+    excerpt: "Analise o governo de Maurício de Nassau e a luta pela expulsão dos holandeses de Pernambuco.",
+    url: "https://docs.google.com/document/d/1FzDrsAeQcB6goVE9ELqipE9Xx5eyhfyw/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 59,
+    category: "Brasil Colônia",
+    title: "O Quilombo dos Palmares e Zumbi",
+    period: "Século XVII",
+    readTime: "8 min",
+    image: "https://static1.thmais.com.br/wp-content/uploads/2023/11/zumbi-dos-palmares-conheca-a-historia-do-lider-quilombola-1024x683.jpg",
+    excerpt: "A trajetória de resistência da maior comunidade de escravizados fugitivos do período colonial brasileiro.",
+    url: "https://docs.google.com/document/d/1Q1Br28k7MNZMuFAL_2I7wW0sZekuhT1t/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 60,
+    category: "Brasil Colônia",
+    title: "A Corrida do Ouro e o Ciclo da Mineração",
+    period: "Século XVIII",
+    readTime: "7 min",
+    image: "https://politicagens.com/wp-content/uploads/2025/10/Ciclo-do-Ouro-com-Escravos-1.jpg",
+    excerpt: "Descubra como a descoberta do ouro deslocou o eixo econômico da colônia para Minas Gerais.",
+    url: "https://docs.google.com/document/d/12IWjQr7romD6niccGGWkZwCSOVAEaFbJ/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 61,
+    category: "Brasil Colônia",
+    title: "A Inconfidência Mineira e Tiradentes",
+    period: "1789",
+    readTime: "6 min",
+    image: "https://i.ytimg.com/vi/CzpeE1b0gXM/maxresdefault.jpg",
+    excerpt: "Os ideais iluministas e a conspiração contra o domínio português nas alterosas mineiras.",
+    url: "https://docs.google.com/document/d/1uHFurjgB6bWs6nDTSF3AZD1tNzn9_Tio/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 62,
+    category: "Brasil Império",
+    title: "A Chegada da Família Real Portuguesa",
+    period: "1808",
+    readTime: "6 min",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgu1x1ZVac_HmoMTQskescalxC7-SKTc2PY0HZUbmypNt5eZJ21O56GHnmPwWhuSVaCTtdxUrTGac6rfVS435linS8zrsW5d6cQG44ZTgdQCmhZBYnkzyl3-kTR0mHmSSDXjlzIcGbct0ePm166TgKxpcg4ZO-_br_9fGJhQEDpLzoY8tT1PhzJmBL-/w1600/chegada-familia-real.webp",
+    excerpt: "Como a fuga de D. João VI da Europa transformou a colônia tropical em sede do Império Português.",
+    url: "https://docs.google.com/document/d/1X2FkP6uBRPrSUPR-9_bqdWsCik2TexUM/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 63,
+    category: "Brasil Império",
+    title: "A Independência do Brasil: O Grito do Ipiranga",
+    period: "1822",
+    readTime: "7 min",
+    image: "https://4.bp.blogspot.com/-0IG1k8XEYUw/V9Ax4r_EupI/AAAAAAAARaM/SRldXmx_Tso04wIkVtCBgSSvlVhl4dK0ACLcB/s1600/independencia-brasil-semana-patria.jpg",
+    excerpt: "Os bastidores políticos, econômicos e diplomáticos que romperam os laços entre Brasil e Portugal.",
+    url: "https://docs.google.com/document/d/14fIkgNNcrYq8uCCCBogbiok1DFk_aiIO/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 64,
+    category: "Brasil Império",
+    title: "O Primeiro Reinado e a Abdicação de D. Pedro I",
+    period: "1822 - 1831",
+    readTime: "6 min",
+    image: "https://i.ytimg.com/vi/Z-DCe8Dm6KU/maxresdefault.jpg",
+    excerpt: "As crises políticas e a forte oposição que forçaram o primeiro imperador brasileiro a deixar o trono.",
+    url: "https://docs.google.com/document/d/1ZSycGjgAZpfWgx-SUiz5x6AXC03Vti02/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 65,
+    category: "Brasil Império",
+    title: "O Período Regencial: Revoltas e Instabilidade",
+    period: "1831 - 1840",
+    readTime: "7 min",
+    image: "https://cdn.slidesharecdn.com/ss_thumbnails/perodoregencial-150120082422-conversion-gate01-thumbnail.jpg?width=600&height=600&fit=bounds",
+    excerpt: "Conheça as rebeliões provinciais (Cabanagem, Farroupilha, Sabinada) que ameaçaram a unidade do país.",
+    url: "https://docs.google.com/document/d/1h4DehR_a0aXGuB3x5T3fxLkF26nFAKDw/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+    
+  },
+  {
+    id: 68,
+    category: "Idade Moderna",
+    title: "As Grandes Navegações e a Era dos Descobrimentos",
+    period: "Século XV - Século XVII",
+    readTime: "7 min",
+    image: "https://imgv2-2-f.scribdassets.com/img/document/775989561/original/78e830917a/1?v=1",
+    excerpt: "Como portugueses e espanhóis expandiram os horizontes do planeta em busca de rotas para as Índias.",
+    url: "https://docs.google.com/document/d/1wHIO0aw7kVXMsEmafYl9CvLOK0Xmx_SA/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 69,
+    category: "Idade Moderna",
+    title: "O Renascimento Cultural na Europa",
+    period: "Século XIV - Século XVII",
+    readTime: "8 min",
+    image: "https://image.slidesharecdn.com/apresentaorenascimentoculturalecientifico-240427130631-33f0252b/85/Apresentacao-renascimento-cultural-e-cientifico-pptx-9-320.jpg",
+    excerpt: "O florescer das artes, da ciência e do humanismo com gênios como Leonardo da Vinci e Michelangelo.",
+    url: "https://docs.google.com/document/d/1AU9Mu4Y5ASwXxr1Bf2U3HxLDf364zoId/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 70,
+    category: "Idade Moderna",
+    title: "A Reforma Protestante de Martinho Lutero",
+    period: "1517",
+    readTime: "7 min",
+    image: "https://3.bp.blogspot.com/-1tLg_gTtqxE/WROoqMPj9hI/AAAAAAAAKec/49fmOyfBAssuElW5NWzZmKRoNMn7OsatwCLcB/s1600/Martinho%2Blutero%2Breforma%2Bprotestante.jpg",
+    excerpt: "O impacto das 95 teses na fragmentação da cristandade ocidental e o nascimento do protestantismo.",
+    url: "https://docs.google.com/document/d/1Bsr2yGx-Cuvk-iZ_S38BBVG06f7bIPGh/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 71,
+    category: "Idade Contemporânea",
+    title: "A Revolução Francesa: Liberdade, Igualdade e Fraternidade",
+    period: "1789 - 1799",
+    readTime: "8 min",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtZLxPhfaKyNWcbl-48tXa1VdJ9t-MoEFXZT_blIkqD5FTaFb_cVGSjIveW2rh0s8ybTEJhH0371JtTyuvbCI_9ArvdzBDMEjAK3AQbgGhfGNz_QX_1b64m1P2tYcA2G1C3yOb53mRM3S1/s1600/16092422195035.png",
+    excerpt: "A derrocada do absolutismo monárquico e a transformação radical da sociedade europeia.",
+    url: "https://docs.google.com/document/d/1RLrnBM4ybFfmK9xHxK1NUHhUBh5DSUuW/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 72,
+    category: "Idade Contemporânea",
+    title: "A Era Napoleônica e as Guerras Napoleônicas",
+    period: "1799 - 1815",
+    readTime: "7 min",
+    image: "https://conhecimentocientifico.r7.com/wp-content/uploads/2020/11/guerras-napoleonicas-o-que-foram-por-que-elas-sao-tao-importantes-3.png",
+    excerpt: "A trajetória militar e política de Napoleão Bonaparte e sua reconfiguração do mapa europeu.",
+    url: "https://docs.google.com/document/d/1_-KtBLrjbZbvfJSTK7btma7VsnXWPepl/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 73,
+    category: "Idade Contemporânea",
+    title: "A Revolução Industrial e a Máquina a Vapor",
+    period: "Século XVIII - Século XIX",
+    readTime: "7 min",
+    image: "https://image3.slideserve.com/7065955/m-quina-vapor-l.jpg",
+    excerpt: "Como a transição para a produção industrial mudou para sempre as cidades, o trabalho e a economia.",
+    url: "https://docs.google.com/document/d/1pO88-y5Ni0AI9UgcPDzupAypV35MaWcc/edit?usp=drive_link&rtpof=true&sd=true",
+  },
+  {
+    id: 74,
+    category: "História da América",
+    title: "A Guerra Civil Americana",
+    period: "1861 - 1865",
+    readTime: "8 min",
+    image: "https://www.fflch.usp.br/sites/fflch.usp.br/files/inline-images/Guerra%20Secessao%20capa.jpg",
+    excerpt: "O confronto entre Norte e Sul dos Estados Unidos em torno da escravidão e do modelo de federação.",
+    url: "https://docs.google.com/document/d/1xe_phacR17Z7gScovdycO1hrQPZaQrKp/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 75,
+    category: "Século XX",
+    title: "A Primeira Guerra Mundial",
+    period: "1914 - 1918",
+    readTime: "9 min",
+    image: "https://4.bp.blogspot.com/-LxBVUXlQ3SI/U87f4eBs88I/AAAAAAAACO4/4Ib-_QUGm9c/s1600/Imagem1.png",
+    excerpt: "As trincheiras, as novas tecnologias bélicas e o colapso dos grandes impérios centrais europeus.",
+    url: "https://docs.google.com/document/d/1gkvxLEPpReWVU_YEW5o9_otOxH0j6Q3H/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+ 
+ 
+  {
+    id: 78,
+    category: "Século XX",
+    title: "A Segunda Guerra Mundial",
+    period: "1939 - 1945",
+    readTime: "10 min",
+    image: "https://tse3.mm.bing.net/th/id/OIP.P-ARBARJi-_1LrBhbK0EmAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    excerpt: "O conflito mais letal da história humana: o avanço do Eixo, o Holocausto e o desfecho atômico.",
+    url: "https://docs.google.com/document/d/1GgA_1uNgudzZrYvcHQWiOX6N7GnLYXhb/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+            
+{
+  "id": 79,
+  "categoria": "História e Literatura Latino-Americana",
+  "title": "As Veias Abertas da América Latina: A Espoliação de um Continente",
+  "period": "1492 - Século XX",
+  "slug": "as-veias-abertas-da-america-latin-a-espoliacao-de-um-continente",
+  "url": "https://docs.google.com/document/d/1ukVruabiZ0VIfX5Agv6xEoIyNsdJiNwr/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  "sinopse": "Obra clássica do escritor uruguaio Eduardo Galeano, o livro faz uma radiografia profunda da história latino-americana desde a chegada dos colonizadores europeus no século XV até a segunda metade do século XX. A obra denuncia como a riqueza natural do continente — do ouro e prata colonial ao petróleo e minérios modernos — serviu historicamente para financiar o desenvolvimento dos países centrais (primeiro europeus, depois norte-americanos), enquanto impôs à América Latina a pobreza, a dependência econômica, o subdesenvolvimento estrutural e o massacre sistemático dos povos nativos.",
+  image: "https://down-br.img.susercontent.com/file/a9e67a7e9ec1f93c7a66b93d63d1e7f4"
+},
+
+  {
+    id: 80,
+    category: "Brasil República",
+    title: "A Proclamação da República e a República da Espada",
+    period: "1889 - 1894",
+    readTime: "6 min",
+    image: "https://tse4.mm.bing.net/th/id/OIP.uunxwnWx2Yp7u4JRDtnhaQHaFO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    excerpt: "O golpe militar liderado por Marechal Deodoro da Fonseca que encerrou o império brasileiro.",
+    url: "https://docs.google.com/document/d/1n4gaw0tdPZ_HtqjLA6dFwZKsGzsu-veV/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 81,
+    category: "Brasil República",
+    title: "A República do Café com Leite e a Oligarquia",
+    period: "1894 - 1930",
+    readTime: "7 min",
+    image: "https://image1.slideserve.com/2323822/a-pol-tica-caf-com-leite-n.jpg",
+    excerpt: "Como São Paulo e Minas Gerais alternavam o controle político do país na Primeira República.",
+    url: "https://docs.google.com/document/d/1v_fCbOcA5dICXhq7kY36tw-RZu-P0h4h/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 82,
+    category: "Brasil República",
+    title: "A Revolta da Vacina e a Revolta da Chibata",
+    period: "1904 - 1910",
+    readTime: "6 min",
+    image: "https://www.conasems.org.br/wp-content/uploads/2022/06/SUS-Cena08-pg07-Revolta-da-Vacina-1.jpg",
+    excerpt: "Conflitos populares urbanos e revoltas marinhas contra a opressão e o autoritarismo no Rio de Janeiro.",
+    url: "https://docs.google.com/document/d/1huWdYvcfhILevPKPkU9iiM8ZO1_-VmpM/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 83,
+    category: "Brasil República",
+    title: "A Era Vargas: O Estado Novo e os Direitos Trabalhistas",
+    period: "1930 - 1945",
+    readTime: "8 min",
+    image: "https://cdn.historiamundum.com/brazilian%20economy%20vargas%20era%20-%20workers%20have%20their%20place%20at%20the%20Estado%20Novo.jpg",
+    excerpt: "A industrialização, a CLT e o regime populista e centralizador de Getúlio Vargas.",
+    url: "https://docs.google.com/document/d/1T0Twi0V8ENGHUIzTF4nfU1jWp9aZmNeq/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 84,
+    category: "Brasil República",
+    title: "Juscelino Kubitschek e a Construção de Brasília",
+    period: "1956 - 1961",
+    readTime: "7 min",
+    image: "https://image.slidesharecdn.com/centro-oestedobrasil-251111131636-99116b21/85/Centro-Oeste-do-Brasil-regiao-centro-oeste-5-320.jpg",
+    excerpt: "O plano de metas, o '50 anos em 5' e a ousada interiorização da capital federal.",
+    url: "https://docs.google.com/document/d/1PnlpWshWF-yFuMA_oKi6b4LF1B1j29Fq/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 85,
+    category: "Brasil República",
+    title: "A Ditadura Militar no Brasil",
+    period: "1964 - 1985",
+    readTime: "9 min",
+    image: "https://s2-g1.glbimg.com/RNZqTkxb48iTt3LpXRwm81iBG74=/2048x0/filters:format(jpeg)/https://i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2023/4/s/uEYjjKTraSLBWyOq67nw/protesto-contra-a-ditadura-militar-arquivo-nacional.jpg",
+    excerpt: "O golpe civil-militar, a censura, a repressão política e o movimento de resistência armada.",
+    url: "ditadura-militar.html",
+  },
+  {
+    id: 86,
+    category: "Brasil República",
+    title: "A Diretas Já e a Redemocratização",
+    period: "1983 - 1988",
+    readTime: "7 min",
+    image: "https://beduka.com/blog/wp-content/uploads/2020/12/imagem-fotografia-preta-e-branco-do-movimento-ou-manifesta%C3%A7ao-diretas-ja-na-epoca-da-redemocratiza%C3%A7ao-do-brasil-pedindo-pelo-direito-ao-voto-no-brasil-pos-ditadura-militar-em-1974.jpg",
+    excerpt: "A mobilização popular pelo voto direto e a promulgação da Constituição Cidadã de 1988.",
+    url: "https://docs.google.com/document/d/1RABLRJ8TBS2GkF508k7l29mQEXdSBujC/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 87,
+    category: "Mitologia",
+    title: "Mitologia Grega: Os Doze Deuses do Olimpo",
+    period: "Antiguidade Clássica",
+    readTime: "8 min",
+    image: "https://tse1.mm.bing.net/th/id/OIP.I5pps6I8JGFzixEEXL6-GQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    excerpt: "Conheça Zeus, Hera, Poseidon e as lendas que moldaram a cosmovisão da Grécia Antiga.",
+    url: "https://docs.google.com/document/d/1ALq-TxSbILBsnY3myUPNntBTP8DIV64j/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 88,
+    category: "Mitologia",
+    title: "Mitologia Nórdica: Deuses, Valquírias e o Ragnarök",
+    period: "Era Viking",
+    readTime: "7 min",
+    image: "https://th.bing.com/th/id/OIP.LjDv2Xa3vmNYibDPoHzKrgHaD4?w=310&h=198&c=7&rs=1&bgcl=fffffd&r=0&o=6&pid=AlgoBlockDebug",
+    excerpt: "As histórias de Odin, Thor, Loki e a visão escandinava sobre o fim e recomeço do mundo.",
+    url: "https://docs.google.com/document/d/1wrSKAFzaxMciPqg6vzYTpZMrdx535te-/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 89,
+    category: "Mitologia",
+    title: "Mitologia Egípcia: Os Segredos de Osíris e Ísis",
+    period: "Antiguidade",
+    readTime: "7 min",
+    image: "https://www.fantasticacultural.com.br/img/thumbs_auto_jpg/202309022328570-osiris_e_isis_deuses_mitologia_egito_antigo.jpg",
+    excerpt: "O panteão egípcio, o julgamento de Anúbis e a crença na vida após a morte.",
+    url: "https://docs.google.com/document/d/1iSZwGAXvsh_H007cLGdGt1DmW5tCY7Sl/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 90,
+    category: "Povos Indígenas",
+    title: "Os Maias: Astronomia e Cidades Perdidas na Selva",
+    period: "2000 a.C. - 1500 d.C.",
+    readTime: "8 min",
+    image: "https://thumbnails.odycdn.com/card/s:1280:720/quality:85/plain/https://thumbs.odycdn.com/e025615ad20c6e2e58b6685e0cdece2c.webp",
+    excerpt: "O desenvolvimento matemático, os calendários complexos e a arquitetura monumental maia.",
+    url: "https://docs.google.com/document/d/1pX9Q7LyK7jeZpUnN8S03s9izFaBECwT-/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 91,
+    category: "Povos Indígenas",
+    title: "O Império Asteca e a Queda de Tenochtitlán",
+    period: "1325 - 1521",
+    readTime: "7 min",
+    image: "https://www.worldhistory.org/uploads/images/14181-pt.png?v=1764966988-1766260801",
+    excerpt: "A civilização guerreira do Vale do México e o dramático encontro com Hernán Cortés.",
+    url: "https://docs.google.com/document/d/1JgE3K2cQyh9q3SYQsqyeOgsm6h0iYx6j/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 92,
+    category: "Povos Indígenas",
+    title: "O Império Inca: Os Engenheiros dos Andes",
+    period: "1438 - 1572",
+    readTime: "7 min",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwKkCaOtzwekNpwbeggjbAguXkBlespDeOsE1BvhjyQVtEtv4dN9x37g7P8b3woyuvRbtkyyYNh_iahpXaIsynjJgp_z_auPyZ0B62hMR9kO2YXbGndV6ywP41GE06LElAeIwvGGsBqLTDcWCqXV0EwSgQp9nHeH2fOSi_KwgbC7qA9uaVjaR1mkU-kF4/s2752/unnamed%20(16).png",
+    excerpt: "Como os incas dominaram a Cordilheira dos Andes com estradas de pedra e Machu Picchu.",
+    url: "https://docs.google.com/document/d/1Ng7KAF6g6UL3jhHkA4dVEEFXvEKqo99o/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 93,
+    category: "História da África",
+    title: "O Império de Mali e a Riqueza de Mansa Musa",
+    period: "Século XIII - Século XVII",
+    readTime: "6 min",
+    image: "https://m.media-amazon.com/images/I/61HYZXf+5SL._SY425_.jpg",
+    excerpt: "A história do homem mais rico da história e o centro cultural e comercial de Timbuctu.",
+    url: "https://docs.google.com/document/d/1T-fiOJ83bJ09uEWI3UG3ND-msBKov-Ej/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 94,
+    category: "História da África",
+    title: "O Antigo Reino de Kush e as Pirâmides do Sudão",
+    period: "1070 a.C. - 350 d.C.",
+    readTime: "6 min",
+    image: "https://museuegipcioerosacruz.org.br/wp-content/uploads/2024/03/As-piramides-de-Kush.jpg",
+    excerpt: "Os faraós negros que governaram o Vale do Nilo e rivalizaram com o Egito.",
+    url: "https://docs.google.com/document/d/1538NyG130GUjDjnGEuAuDuT-bb9Cxk_R/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 95,
+    category: "História da Ásia",
+    title: "A Dinastia Ming e a Grande Muralha da China",
+    period: "1368 - 1644",
+    readTime: "7 min",
+    image: "https://www.todoestudo.com.br/wp-content/uploads/2018/01/Muralha-da-China-1536x1028.jpg",
+    excerpt: "O apogeu da porcelana, as navegações de Zheng He e a fortificação defensiva chinesa.",
+    url: "https://docs.google.com/document/d/1pCy99ZFUKVIaZfLg52nV5G6IhukRic3a/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 96,
+    category: "História da Ásia",
+    title: "O Japão Feudal: Samurais, Xoguns e o Código Bushido",
+    period: "Século XII - Século XIX",
+    readTime: "8 min",
+    image: "https://cdn.librosdetexto.online/online/primaria/6/HIS/098.jpg",
+    excerpt: "A honra, as espadas katana e a estrutura militar que dominou o arquipélago japonês por séculos.",
+    url: "https://docs.google.com/document/d/1XVRsid54a57tbhdr7sL6JcSz8Pt1wxbe/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 97,
+    category: "História Global",
+    title: "A Rota da Seda: Comércio e Conexão Oriente-Ocidente",
+    period: "130 a.C. - 1453 d.C.",
+    readTime: "7 min",
+    image: "https://imgv2-2-f.scribdassets.com/img/document/950847619/original/6748295f1d/1?v=1",
+    excerpt: "A rede de rotas comerciais que uniu a China ao Mediterrâneo, trocando especiarias e ideias.",
+    url: "https://docs.google.com/document/d/1t1Fi8J7r5TPUrpVI3ZNP01Z81Pp3Wok4/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 98,
+    category: "História Global",
+    title: "A Peste Negra: A Pandemia que Transformou a Europa",
+    period: "1346 - 1353",
+    readTime: "7 min",
+    image: "https://m.media-amazon.com/images/I/91gAPyEMxJL._SY385_.jpg",
+    excerpt: "O impacto demográfico, social e religioso da epidemia de peste bubônica na Idade Média.",
+    url: "#",
+  },
+  {
+    id: 99,
+    category: "História Moderna",
+    title: "A Inquisição Espanhola e a perseguição religiosa",
+    period: "1478 - 1834",
+    readTime: "6 min",
+    image: "https://images-us.bookshop.org/ingram/9798690778910.jpg?height=500&v=v2",
+    excerpt: "O tribunal eclesiástico criado para manter a ortodoxia católica na monarquia espanhola.",
+    url: "#",
+  },
+  {
+    id: 100,
+    category: "História Moderna",
+    title: "A Colonização das Américas pelas Potências Europeias",
+    period: "Século XVI - Século XVIII",
+    readTime: "8 min",
+    image: "https://image.slidesharecdn.com/acolonizaodaamrica-120508181614-phpapp02/95/a-colonizao-da-amrica-9-728.jpg?cb=1336501037",
+    excerpt: "O mercantilismo, o choque cultural e a exploração colonial nas terras do Novo Mundo.",
+    url: "#",
+  },
+  {
+    id: 101,
+    category: "História Contemporânea",
+    title: "A Comuna de Paris de 1871",
+    period: "1871",
+    readTime: "6 min",
+    image: "https://www.pcp.pt/sites/default/files/imagecache/600x338/images/dossiers/comuna_paris/capa.jpg",
+    excerpt: "A primeira experiência de governo operário e socialista na história contemporânea francesa.",
+    url: "#",
+  },
+  {
+    id: 102,
+    category: "História Contemporânea",
+    title: "O Imperialismo Europeu na África e a Partilha",
+    period: "1884 - 1914",
+    readTime: "7 min",
+    image: "https://image.slidesharecdn.com/auladeacaciaehellen-imperialismo-140727093614-phpapp01/95/aula-de-acacia-e-hellen-imperialismo-11-638.jpg?cb=1406453861",
+    excerpt: "A Conferência de Berlim e a exploração colonial predatória do continente africano.",
+    url: "#",
+  },
+  {
+    id: 103,
+    category: "Século XX",
+    title: "O Fascismo na Itália de Benito Mussolini",
+    period: "1922 - 1943",
+    readTime: "7 min",
+    image: "https://s3.castbox.fm/62/24/48/1ab70d486fa2779d21a1b58d78.jpg",
+    excerpt: "A ascensão do totalitarismo de extrema-direita e o projeto de ressurgimento do Império Romano.",
+    url: "#",
+  },
+  {
+    id: 104,
+    category: "Século XX",
+    title: "O Nazismo na Alemanha e o Terceiro Reich",
+    period: "1933 - 1945",
+    readTime: "9 min",
+    image: "https://www.fflch.usp.br/sites/fflch.usp.br/files/inline-images/HnH_2018.03.21_0.jpg",
+    excerpt: "A ascensão de Adolf Hitler, o totalitarismo racial e os horrores da Segunda Guerra Mundial.",
+    url: "#",
+  },
+  {
+    id: 105,
+    category: "Século XX",
+    title: "A Guerra do Vietnã e a Oposição Global",
+    period: "1955 - 1975",
+    readTime: "8 min",
+    image: "https://s2.glbimg.com/sZTE9tFad3MO_-lnd7I-xOttjCI=/e.glbimg.com/og/ed/f/original/2019/08/06/32692270064_a15b305750_b.jpg",
+    excerpt: "O conflito emblemático da Guerra Fria na Ásia e o impacto na opinião pública ocidental.",
+    url: "#",
+  },
+  {
+    id: 106,
+    category: "Século XX",
+    title: "A Revolução Cubana e o Socialismo no Caribe",
+    period: "1959",
+    readTime: "7 min",
+    image: "https://image2.slideserve.com/4984273/slide1-l.jpg",
+    excerpt: "Fidel Castro, Che Guevara e a guinada comunista a poucos quilômetros dos Estados Unidos.",
+    url: "#",
+  },
+  {
+    id: 107,
+    category: "Século XX",
+    title: "O Apartheid na África do Sul e a Luta de Mandela",
+    period: "1948 - 1994",
+    readTime: "8 min",
+    image: "https://tse2.mm.bing.net/th/id/OIP._mlkB2Mv5TerecZR2V1ZpAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    excerpt: "A segregação racial institucionalizada e a longa jornada pela democracia liderada por Nelson Mandela.",
+    url: "#",
+  },
+  {
+    id: 108,
+    category: "Século XX",
+    title: "A Queda do Muro de Berlim e o Fim da URSS",
+    period: "1989 - 1991",
+    readTime: "7 min",
+    image: "https://descomplica.com.br/blog/_next/image/?url=https:%2F%2Flandings-blogs-staging.s3.sa-east-1.amazonaws.com%2Fwp-content%2Fuploads%2Fblogs%2F2016%2F09%2F25105324%2Fqueda-do-muro-de-berlim.webp&w=3840&q=75",
+    excerpt: "O colapso do bloco soviético e o encerramento oficial da Guerra Fria.",
+    url: "#",
+  },
+  {
+    id: 109,
+    category: "História da Ciência",
+    title: "A Revolução Científica de Galileu e Newton",
+    period: "Século XVI - Século XVII",
+    readTime: "8 min",
+    image: "https://image.slidesharecdn.com/conhecimentocientfico1-110208102606-phpapp01/85/Conhecimento-cientifico-evolucao-metodologia-ciencia-13-320.jpg",
+    excerpt: "A transição do modelo geocêntrico para o heliocentrismo e as leis da física clássica.",
+    url: "#",
+  },
+  {
+    id: 110,
+    category: "História da Ciência",
+    title: "A Teoria da Relatividade de Albert Einstein",
+    period: "1905 - 1915",
+    readTime: "7 min",
+    image: "https://www.lpm.com.br/livros/imagens/teoria_relatividade_9788525428509_hd.jpg",
+    excerpt: "Como as descobertas de Einstein redefiniram os conceitos de espaço, tempo e gravidade.",
+    url: "#",
+  },
+  {
+    id: 111,
+    category: "História da Arte",
+    title: "O Impressionismo na Pintura Francesa",
+    period: "Século XIX",
+    readTime: "6 min",
+    image: "https://m.media-amazon.com/images/I/71jyQ8i-AcL._SY342_.jpg",
+    excerpt: "Monet, Renoir e a quebra de regras acadêmicas focando na luz e nas pinceladas soltas.",
+    url: "#",
+  },
+ 
+  {
+    id: 113,
+    category: "Filosofia e Pensamento",
+    title: "O Iluminismo e os Filósofos da Razão",
+    period: "Século XVIII",
+    readTime: "8 min",
+    image: "https://s3.static.brasilescola.uol.com.br/be/2023/12/mosaico-com-as-fotos-e-nomes-dos-principais-filosofos-iluministas.jpg",
+    excerpt: "Voltaire, Rousseau e Montesquieu defendendo a liberdade de expressão, ciência e direitos civis.",
+    url: "#",
+  },
+  {
+    id: 114,
+    category: "Filosofia e Pensamento",
+    title: "O Manifesto Comunista de Marx e Engels",
+    period: "1848",
+    readTime: "7 min",
+    image: "https://m.magazineluiza.com.br/a-static/420x420/livro-o-manifesto-comunista-de-editoras-internacionais-international-publishers-co-inc/nocnocestadosunidos/buybox-cp0717802418/bc584e5d353b87937638aa390f6f4e89.jpeg",
+    excerpt: "A crítica ao capitalismo industrial e a proposta da luta de classes como motor da história.",
+    url: "#",
+  },
+  {
+    id: 115,
+    category: "Geopolítica",
+    title: "A Criação do Estado de Israel e o Conflito no Oriente Médio",
+    period: "1948 - Presente",
+    readTime: "9 min",
+    image: "https://files.cursoenemgratuito.com.br/uploads/2018/10/area-de-tensao-na-questao-de-israel.jpg",
+    excerpt: "As raízes históricas, as guerras árabes-israelenses e a complexa questão palestina.",
+    url: "#",
+  },
+  {
+    id: 116,
+    category: "Geopolítica",
+    title: "A Descolonização da Índia e Mahatma Gandhi",
+    period: "1947",
+    readTime: "7 min",
+    image: "https://cdn.thecollector.com/wp-content/uploads/2022/08/india-independence-movement.jpg",
+    excerpt: "A resistência pacífica, a desobediência civil e a independência indiana do Império Britânico.",
+    url: "#",
+  },
+  {
+    id: 117,
+    category: "Brasil República",
+    title: "A Era do Rádio e a Bossa Nova",
+    period: "1930 - 1960",
+    readTime: "6 min",
+    image: "https://pt.quizur.com/_image?href=https:%2F%2Fdev-beta.quizur.com%2Fstorage%2Fv1%2Fobject%2Fpublic%2F%2Fimagens%2F%2F20784861%2F2524776a-75c3-4066-b7b6-1ffb5204553b.png&w=600&h=600&f=webp",
+    excerpt: "A consolidação da identidade cultural brasileira através da música popular e dos meios de comunicação.",
+    url: "#",
+  },
+  {
+    id: 118,
+    category: "Brasil República",
+    title: "O Plano Real e a Estabilização da Economia",
+    period: "1993 - 1994",
+    readTime: "7 min",
+    image: "https://media.licdn.com/dms/image/v2/D4D22AQE4LSmXBvYMPg/feedshare-shrink_800/feedshare-shrink_800/0/1723052475298?e=2147483647&v=beta&t=3A4zR_H2h8CrNkilrughkzNJyz_gnmaGNR9c4nX1v0w",
+    excerpt: "Como o Brasil derrotou a hiperinflação e criou a moeda Real sob o governo de Itamar Franco.",
+    url: "#",
+  },
+  {
+    id: 119,
+    category: "Antiguidade",
+    title: "A Mesopotâmia: O Berço da Civilização e a Escrita Cuneiforme",
+    period: "c. 3500 a.C.",
+    readTime: "7 min",
+    image: "https://image.slidesharecdn.com/mesopotmia-250919020259-b8b2d8bd/85/MESOPOTAMIA-uma-sociedade-conhecida-como-o-berco-da-civilizacao-18-320.jpg",
+    excerpt: "Os sumérios, babilônios e assiríos entre os rios Tigre e Eufrates e a invenção da escrita.",
+    url: "#",
+  },
+  {
+    id: 120,
+    category: "Antiguidade",
+    title: "O Código de Hamurabi: 'Olho por Olho, Dente por Dente'",
+    period: "c. 1750 a.C.",
+    readTime: "6 min",
+    image: "https://lh5.ggpht.com/-fw8Z3ECzTXc/UlOat7J-zUI/AAAAAAAAO28/miWsQp3i_i4/hamurabi_thumb1_thumb.jpg?imgmax=800",
+    excerpt: "Analise uma das primeiras compilações de leis escritas da história da humanidade na Babilônia.",
+    url: "#",
+  },
+  {
+    id: 121,
+    category: "Antiguidade",
+    title: "A Pérsia Antiga e o Império de Ciro, o Grande",
+    period: "550 a.C. - 330 a.C.",
+    readTime: "7 min",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvpEhOkOORCsMiNVAd4QalRz3JLSJG3tJ51uBT1vSDv1rNuNDP4wsO5vseowuMEIkQZ8tSY_AHjGwrc5lj0UD_xamIoiL8lvcoIzLbVqaTWSXqNYDiDi-xJM3BrqYDJAl1rNEYdjytiJi2dk0xY9IGqu-QbLS4EIYI7QSAsSy4Xd5eF_tVH-hGs80UsbD-/s1536/imperio%20persa.png",
+    excerpt: "A tolerância administrativa, as estradas reais e a vastidão do Império Aquemênida.",
+    url: "#",
+  },
+  {
+    id: 122,
+    category: "Antiguidade",
+    title: "Alexandre, o Grande e o Helenismo",
+    period: "336 a.C. - 323 a.C.",
+    readTime: "8 min",
+    image: "https://i.ytimg.com/vi/chpR436FD28/maxresdefault.jpg",
+    excerpt: "As conquistas relâmpago do rei macedônio que fundiram a cultura grega com a oriental.",
+    url: "#",
+  },
+  {
+    id: 123,
+    category: "Idade Média",
+    title: "O Império Bizantino e a Magnificência de Constantinopla",
+    period: "330 - 1453",
+    readTime: "8 min",
+    image: "https://static.todamateria.com.br/upload/ma/pa/mapaimperiobizantino-0-cke.jpg",
+    excerpt: "A herança romana no Oriente, o imperador Justiniano e a imponente Igreja de Santa Sofia.",
+    url: "#",
+  },
+  {
+    id: 124,
+    category: "Idade Média",
+    title: "A Expansão do Islamismo e o Califado Omíada",
+    period: "Século VII - Século VIII",
+    readTime: "7 min",
+    image: "https://http2.mlstatic.com/D_NQ_NP_756831-MLB83937617460_042025-O-livro-o-califado-omiada-a-historia-e-o-legado-do.webp",
+    excerpt: "O nascimento do Islã na Península Arábica e sua vertiginosa expansão até a Espanha.",
+    url: "#",
+  },
+  {
+    id: 125,
+    category: "Idade Média",
+    title: "A Magna Carta e os Limites do Poder Real na Inglaterra",
+    period: "1215",
+    readTime: "6 min",
+    image: "https://image3.slideserve.com/5837250/o-que-foi-a-magna-carta-l.jpg",
+    excerpt: "O documento histórico que limitou pela primeira vez os poderes absolutos de um monarca.",
+    url: "#",
+  },
+  {
+    id: 126,
+    category: "Idade Moderna",
+    title: "O Império Otomano: A Queda de Constantinopla",
+    period: "1453",
+    readTime: "7 min",
+    image: "https://i.ytimg.com/vi/BgjalgzuhF4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDZEKWGc3JbYxA9YASjLka1DqZNjg",
+    excerpt: "A tomada da capital bizantina pelos turcos otomanos e o fim oficial da Idade Média.",
+    url: "#",
+  },
+  {
+    id: 127,
+    category: "Idade Moderna",
+    title: "A Revolução Científica e Copérnico",
+    period: "Século XVI",
+    readTime: "7 min",
+    image: "https://tse2.mm.bing.net/th/id/OIP.6ZRNyTJjT6NdzkadDs3TZAHaD4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    excerpt: "Como Nicolau Copérnico revolucionou a astronomia ao colocar o Sol no centro do sistema.",
+    url: "#",
+  },
+  {
+    id: 128,
+    category: "Idade Contemporânea",
+    title: "A Independência das Colônias Espanholas na América",
+    period: "1810 - 1826",
+    readTime: "8 min",
+    image: "https://image.slidesharecdn.com/amricaespanhola-120920073202-phpapp01-130428194150-phpapp01/95/independncia-das-colnias-da-amrica-espanhola-1-638.jpg?cb=1367178629",
+    excerpt: "A epopeia de Simón Bolívar e José de San Martín na libertação da América Hispânica.",
+    url: "#",
+  },
+  
+  {
+    id: 130,
+    category: "Idade Contemporânea",
+    title: "A Unificação da Itália e da Alemanha",
+    period: "1860 - 1871",
+    readTime: "8 min",
+    image: "https://maps4study.com.br/wp-content/uploads/2025/02/3-8.jpg",
+    excerpt: "Como estados fragmentados se fundiram sob a liderança de Cavour, Garibaldi e Bismarck.",
+    url: "#",
+  },
+  {
+    id: 131,
+    category: "Século XX",
+    title: "A Gripe Espanhola de 1918",
+    period: "1918 - 1920",
+    readTime: "6 min",
+    image: "https://fotos.perfil.com/2020/05/04/trim/950/534/gripe-espanola-1918-949977.jpg",
+    excerpt: "A pandemia global que infectou um terço da população mundial logo após a Primeira Guerra.",
+    url: "#",
+  },
+  {
+    id: 132,
+    category: "Século XX",
+    title: "A Era de Ouro de Hollywood e o Cinema Mudo",
+    period: "1920 - 1950",
+    readTime: "6 min",
+    image: "https://jazzigo.com/wp-content/uploads/2024/03/Filmes-Classicos-1.jpg",
+    excerpt: "O surgimento da indústria cinematográfica moderna, os estúdios e os grandes ícones das telas.",
+    url: "#",
+  },
+  {
+    id: 133,
+    category: "Século XX",
+    title: "A Crise dos Mísseis em Cuba",
+    period: "1962",
+    readTime: "7 min",
+    image: "https://ichef.bbci.co.uk/news/1024/branded_portuguese/17D01/production/_127073579_crisismisiles_promocover_1920.png",
+    excerpt: "Os treze dias em que o mundo esteve mais perto de uma guerra nuclear total entre EUA e URSS.",
+    url: "https://docs.google.com/document/d/1WOlaN_VKMHyn1gzAQOFoIGJnONWak2_r/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 134,
+    category: "Século XX",
+    title: "A Corrida Espacial: A Chegada do Homem à Lua",
+    period: "1969",
+    readTime: "7 min",
+    image: "https://s04.video.glbimg.com/x720/3512675.jpg",
+    excerpt: "A missão Apollo 11, Neil Armstrong e o marco histórico da exploração espacial humana.",
+    url: "#",
+  },
+  {
+    id: 135,
+    category: "Século XX",
+    title: "Os Movimentos de Contracultura e 1968",
+    period: "1968",
+    readTime: "8 min",
+    image: "https://imgv2-2-f.scribdassets.com/img/document/806676296/original/fcf23b4fce/1?v=1",
+    excerpt: "Protestos estudantis globais, o movimento hippie, pacifismo e a luta por direitos civis.",
+    url: "#",
+  },
+  {
+    id: 136,
+    category: "Século XXI",
+    title: "Os Atentados de 11 de Setembro e a 'Guerra ao Terror'",
+    period: "2001 - Presente",
+    readTime: "8 min",
+    image: "https://portaldafloresta.com.br/wp-content/uploads/2025/09/5hw75x3n0ebopq0uugu1gn1g81.jpg",
+    excerpt: "O evento que alterou profundamente a segurança global, as leis de imigração e o cenário geopolítico.",
+    url: "#",
+  },
+  {
+    id: 137,
+    category: "Século XXI",
+    title: "A Crise Financeira Global de 2008",
+    period: "2008",
+    readTime: "7 min",
+    image: "https://www.infoescola.com/wp-content/uploads/2019/03/crise-2008-19061461.jpg",
+    excerpt: "O colapso do mercado imobiliário americano e a pior crise econômica desde 1929.",
+    url: "#",
+  },
+  {
+    id: 138,
+    category: "História da Tecnologia",
+    title: "A Invenção da Imprensa por Johannes Gutenberg",
+    period: "c. 1440",
+    readTime: "6 min",
+    image: "https://historiamania.com/wp-content/uploads/2025/09/johannes-gutenberg-e-a-imprensa-a-revolucao-que-mudou-o-mundo-1-1024x585.jpg",
+    excerpt: "Como a prensa de tipos móveis democratizou o acesso ao conhecimento e acelerou a modernidade.",
+    url: "#",
+  },
+  {
+    id: 139,
+    category: "História da Tecnologia",
+    title: "A Revolução Digital e a Criação da Internet",
+    period: "Século XX - Século XXI",
+    readTime: "8 min",
+    image: "https://www.todoestudo.com.br/wp-content/uploads/2018/10/linha-do-tempo-da-internet.jpg",
+    excerpt: "Da ARPANET aos computadores pessoais e redes sociais: a transformação conectada da humanidade.",
+    url: "https://docs.google.com/document/d/1k-rjI4PflCwFWXz7hZ5KkCPmEv-8UQjR/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true",
+  },
+  {
+    id: 140,
+    category: "História dos Esportes",
+    title: "A Origem dos Jogos Olímpicos na Grécia Antiga",
+    period: "776 a.C. - 393 d.C.",
+    readTime: "6 min",
+    image: "https://image.slidesharecdn.com/7e-osjogosolmpicosnagrciaantiga-100228155853-phpapp02/95/os-jogos-olmpicos-na-grcia-antiga-22-1024.jpg?cb=1267373780",
+    excerpt: "O festival religioso e atlético em homenagem a Zeus que unia as cidades-estado helênicas.",
+    url: "#",
+  },
+  {
+    id: 141,
+    category: "História dos Esportes",
+    title: "A História da Copa do Mundo de Futebol",
+    period: "1930 - Presente",
+    readTime: "7 min",
+    image: "https://imgv2-2-f.scribdassets.com/img/document/698096393/original/c69a7be311/1?v=1",
+    excerpt: "Como o torneio da FIFA se transformou no evento esportivo mais assistido do planeta.",
+    url: "#",
+  },
+  {
+    id: 142,
+    category: "História das Mulheres",
+    title: "O Movimento das Sufragistas pelo Direito ao Voto",
+    period: "Final do Século XIX - Início do XX",
+    readTime: "7 min",
+    image: "https://files.cursoenemgratuito.com.br/uploads/2019/05/MOVIMENTO-SUFRAGISTA-.jpg",
+    excerpt: "A corajosa luta das mulheres na Europa e nas Américas pela igualdade de direitos políticos.",
+    url: "#",
+  },
+  {
+    id: 143,
+    category: "História das Mulheres",
+    title: "Marie Curie: A Pioneira da Radioatividade",
+    period: "1867 - 1934",
+    readTime: "6 min",
+    image: "https://m.media-amazon.com/images/I/51Lm2elV-xL._SX342_SY445_ML2_.jpg",
+    excerpt: "A trajetória da única cientista a vencer dois prêmios Nobel em áreas científicas distintas.",
+    url: "#",
+  },
+ 
+  {
+    id: 145,
+    category: "Arqueologia",
+    title: "Pompeia: A Cidade Congelada pelo Vesúvio",
+    period: "79 d.C.",
+    readTime: "7 min",
+    image: "https://www.correiobraziliense.com.br/cbradar/wp-content/uploads/2026/04/freepik_ruinas-de-pompeia-com-o-m_2742718183.jpeg",
+    excerpt: "A erupção vulcânica que soterrou a cidade romana e preservou seu cotidiano por milênios.",
+    url: "#",
+  },
+  {
+    id: 146,
+    category: "História da Medicina",
+    title: "A Descoberta da Penicilina por Alexander Fleming",
+    period: "1928",
+    readTime: "6 min",
+    image: "https://minio.scielo.br/documentstore/1678-4774/jY6NfbwqjkMQTbCdFBRbp4M/2c17ab6f46e3f1966e02e4d7fbfe848ce4404caa.jpg",
+    excerpt: "O acaso científico que deu origem ao primeiro antibiotico moderno e salvou milhões de vidas.",
+    url: "#",
+  },
+  {
+    id: 147,
+    category: "História Naval",
+    title: "O Naufrágio do Titanic",
+    period: "1912",
+    readTime: "7 min",
+    image: "https://i.ytimg.com/vi/tOVPcxIPurQ/maxresdefault.jpg",
+    excerpt: "A tragédia do transatlântico considerado 'inafundável' em sua viagem inaugural no Atlântico Norte.",
+    url: "#",
+  },
+  {
+    id: 148,
+    category: "História Naval",
+    title: "A Batalha de Trafalgar e a Supremacia dos Mares",
+    period: "1805",
+    readTime: "6 min",
+    image: "https://i.ytimg.com/vi/kVygvODDepk/maxresdefault.jpg",
+    excerpt: "O confronto naval onde o Almirante Nelson derrotou a frota franco-espanhola de Napoleão.",
+    url: "#",
+  },
+  {
+    id: 149,
+    category: "Arquitetura Histórica",
+    title: "As Sete Maravilhas do Mundo Antigo",
+    period: "Antiguidade",
+    readTime: "7 min",
+    image: "https://i.pinimg.com/736x/7f/55/95/7f5595aae2c544bc6dc542382534cbc9.jpg",
+    excerpt: "Conheça os monumentos arquitetônicos mais impressionantes cultuados pelos povos antigos.",
+    url: "#",
+  },
+  {
+    id: 150,
+    category: "Arquitetura Histórica",
+    title: "Os Castelos do Loire e a Renascença Francesa",
+    period: "Século XV - Século XVI",
+    readTime: "6 min",
+    image: "https://guiaviajarmelhor.com.br/wp-content/uploads/2018/05/Vale-do-Loire-castelos-dicas-1.jpg",
+    excerpt: "A beleza arquitetônica dos palácios reais construídos nas margens do rio Loire na França.",
+    url: "#",
+  },
+  {
+    title: "O Gado Muares e o Café",
+    image: "https://cptstatic.s3.amazonaws.com/imagens/enviadas/materias/materia8166/saiba-mais-sobre-muares-artigos-cursos-cpt.jpg",
+    url: "https://docs.google.com/document/d/1pSl04Y-pdkJ30VV4RlzHoW4Ormi27MXx/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true"
+},
+{
+      id: 151,
+      category: "História Geral",
+      title: "A Fascinante História da Matemática",
+      period: "Antiguidade - Modernidade",
+      readTime: "7 min",
+      image: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&auto=format&fit=crop&q=80",
+      excerpt: "Do osso de Ishango na pré-história, passando pela geometria egípcia, o zero árabe até o cálculo de Newton.",
+      url: "https://docs.google.com/document/d/18YHQb2na-okePJogv8wdPI4eWvaHbU-D/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true"
+  },
+
+  // 14. A História dos Computadores e da Tecnologia (História Geral / Cotidiano)
+  {
+      id: 152,
+      category: "Cotidiano e Tecnologia",
+      title: "A História dos Computadores e da Era Digital",
+      period: "Século XX - Presente",
+      readTime: "6 min",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80",
+      excerpt: "Das gigantescas válvulas da Segunda Guerra Mundial, passando por Alan Turing até a criação da internet e dos smartphones.",
+      url: "https://docs.google.com/document/d/1n2Rtuf3JuFB4ntRtlCQeRzUUMr-t0Tmy/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true"
+  },
+
+  // 15. A História do Futebol (História Geral / Cotidiano)
+  {
+      id: 153,
+      category: "Cotidiano e Tecnologia",
+      title: "A História do Futebol: De Jogo Antigo à Paixão Mundial",
+      period: "Século XIX - Presente",
+      readTime: "6 min",
+      image: "https://conectapiaui.com.br/media/image_bank/2023/7/thumbs/primeiro-jogo-entre-selecoes-do-mundo.jpg.700x0_q95_crop.webp",
+      excerpt: "Como as regras modernas nasceram nas escolas da Inglaterra e como o esporte se transformou no maior fenômeno cultural do planeta.",
+      url: "https://docs.google.com/document/d/11l9IdcXs70UYtqpJp_BSQHzSmJsBp_pZ/edit?usp=drive_link&ouid=106663079074906571016&rtpof=true&sd=true"
+  },
+  // 16. A Guerra do Futebol (Curiosidade / História Geral)
+  {
+      id: 15,
+      category: "Curiosidades Históricas",
+      title: "A Guerra do Futebol: Quando uma Partida Causou um Conflito",
+      period: "Século XX",
+      readTime: "6 min",
+      image: "https://i.ytimg.com/vi/8_A0PiglPdQ/maxresdefault.jpg",
+      excerpt: "Como uma partida eliminatória para a Copa do Mundo de 1970 entre Honduras e El Salvador virou estopim para uma guerra.",
+      url: "https://docs.google.com/document/d/SEU_LINK_AQUI/edit"
+  },
+
+  // 17. A Dança da Peste de 1518 (Curiosidade / História Geral)
+  {
+      id: 16,
+      category: "Curiosidades Históricas",
+      title: "A Dança da Peste de 1518: O Surto Bizarro em Estrasburgo",
+      period: "Idade Moderna",
+      readTime: "6 min",
+      image: "https://static.wixstatic.com/media/1349e7_079847bcdedb4eb49dc862ebc4d6ec95~mv2.jpg/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1349e7_079847bcdedb4eb49dc862ebc4d6ec95~mv2.jpg",
+      excerpt: "Conheça o misterioso e trágico evento em que centenas de pessoas dançaram sem conseguir parar até morrerem de exaustão.",
+      url: "https://docs.google.com/document/d/SEU_LINK_AQUI/edit"
+  },
+
+  // 18. A Grande Inundação de Cerveja de Londres (Curiosidade / História Geral)
+  {
+      id: 17,
+      category: "Curiosidades Históricas",
+      title: "A Grande Inundação de Cerveja de Londres de 1814",
+      period: "Século XIX",
+      readTime: "5 min",
+      image: "https://i.ytimg.com/vi/FR2rsXuKaLY/maxresdefault.jpg",
+      excerpt: "O dia em que um tanque estourou em uma cervejaria inglesa e liberou uma onda gigantesca de cerveja pelas ruas da cidade.",
+      url: "https://docs.google.com/document/d/SEU_LINK_AQUI/edit"
+  },
+
+  // 19. Cleópatra e as Pirâmides (Curiosidade / História Antiga)
+  {
+      id: 18,
+      category: "Curiosidades Históricas",
+      title: "Cleópatra: Mais Próxima da Lua que das Pirâmides",
+      period: "Antiguidade",
+      readTime: "5 min",
+      image: "https://revistaoeste.com/oestegeral/wp-content/uploads/2026/05/cleo-2-1-1024x576.jpg",
+      excerpt: "Uma linha do tempo surpreendente que revela como os monumentos do Egito Antigo eram milenares na época da última rainha.",
+      url: "https://docs.google.com/document/d/SEU_LINK_AQUI/edit"
+  },
+
+  // 20. A Crise dos Mísseis em Cuba (História Geral / Guerra Fria)
+  {
+      id: 19,
+      category: "História Geral",
+      title: "A Crise dos Mísseis em Cuba e os 13 Dias de Tensão",
+      period: "Guerra Fria",
+      readTime: "7 min",
+      image: "https://www.naval.com.br/blog/wp-content/uploads/2023/10/Cuban-Missile-Crisis-1962-US-Navy-map-3-1024x550.jpg",
+      excerpt: "O momento em que o mundo esteve mais próximo de uma guerra nuclear total entre EUA e União Soviética em outubro de 1962.",
+      url: "https://docs.google.com/document/d/SEU_LINK_AQUI/edit"
+  },
+  // 21. A Corrida Espacial e a Chegada à Lua (História Geral / Guerra Fria)
+  {
+      id: 20,
+      category: "História Geral",
+      title: "A Corrida Espacial: Da Guerra Fria à Conquista da Lua",
+      period: "Guerra Fria",
+      readTime: "7 min",
+      image: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=800&auto=format&fit=crop&q=80",
+      excerpt: "Como a rivalidade tecnológica entre Estados Unidos e União Soviética impulsionou a humanidade a pisar em solo lunar em 1969.",
+      url: "https://docs.google.com/document/d/SEU_LINK_AQUI/edit"
+  },
+
+  // 22. A Peste Negra na Europa Medieval (História Geral / Idade Média)
+  {
+      id: 21,
+      category: "História Geral",
+      title: "A Peste Negra: A Pandemia que Transformou a Idade Média",
+      period: "Idade Média",
+      readTime: "7 min",
+      image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh31DNXp3sHJbUJi-gLW7yLx2RAO18koKDh2HMd2LoXogtQkzxaGfzNaQ0ZGRkhIJGxrNb33zfj1eOG7Eh0kPCGGDISg40y3ytukJXbf9-Qaa1wiu6qs9ZLqRR5QOU-PsJgCIpD_trlgkLfQ_f3mVQnI9zfd9JsNANl1ZUuarGnURuyX4VGFvKBiOoQwOo8/w1200-h630-p-k-no-nu/Peste%20Negra%20na%20Idade%20M%C3%A9dia%20com%20ratos%20(1).png",
+      excerpt: "O impacto devastador da peste bubônica no século XIV, dizimando um terço da população europeia e abalando o feudalismo.",
+      url: "https://docs.google.com/document/d/SEU_LINK_AQUI/edit"
+  },
+
+  // 23. A Descoberta da Tumba de Tutancâmon (Curiosidade / História Antiga)
+  {
+      id: 22,
+      category: "Curiosidades Históricas",
+      title: "A Descoberta da Tumba de Tutancâmon e a Maldição do Faraó",
+      period: "Antiguidade",
+      readTime: "6 min",
+      image: "https://1.bp.blogspot.com/-C-E7Fi_zKZ8/WhVjJvpqSRI/AAAAAAAAEWQ/PAC8nu83uMQ0QpW_tpD8djoqlUqn3XnlwCLcBGAs/s1600/Tutanc%25C3%25A2mon%2BEsquema%2Btumba-de-Tutancamon_900px.jpg",
+      excerpt: "Como o arqueólogo Howard Carter encontrou em 1922 o único túmulo real quase intocado no Vale dos Reis, gerando mitos e lendas.",
+      url: "https://docs.google.com/document/d/SEU_LINK_AQUI/edit"
+  },
+
+  // 24. A Revolução Industrial: A Máquina a Vapor e as Fábricas (História Geral / Idade Contemporânea)
+  {
+      id: 23,
+      category: "História Geral",
+      title: "A Revolução Industrial: A Máquina a Vapor e a Nova Sociedade",
+      period: "Século XVIII - XIX",
+      readTime: "8 min",
+      image: "https://tse3.mm.bing.net/th/id/OIP.VluOsw8XSPBSKm8zs4kCcgHaEO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      excerpt: "Como a invenção da máquina a vapor na Inglaterra mudou para sempre a produção, o trabalho humano e a paisagem urbana.",
+      url: "https://tse3.mm.bing.net/th/id/OIP.VluOsw8XSPBSKm8zs4kCcgHaEO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+  },
+
+  // 25. A Pedra de Roseta e a Descodificação dos Hieróglifos (História Antiga / Arqueologia)
+  {
+      id: 24,
+      category: "Curiosidades Históricas",
+      title: "A Pedra de Roseta: A Chave para Decifrar os Hieróglifos",
+      period: "Antiguidade",
+      readTime: "6 min",
+      image: "https://imagensblogs.nyc3.digitaloceanspaces.com/religiao/2023/11/28235653/pedra-roseta-decifrando-segredos-egito.webp",
+      excerpt: "A fascinante história de como um bloco de granito encontrado no Egito permitiu aos estudiosos lerem os segredos dos faraós.",
+      url: "https://docs.google.com/document/d/SEU_LINK_AQUI/edit"
+  },
+  // 26. Os Povos Astecas (História Geral / América Pré-Colombiana)
+
+
+        
+        ];
+
+        function renderizarCards(lista) {
+            const container = document.getElementById("cardsContainer");
+            container.innerHTML = lista.map(item => `
+                <div class="card" onclick="window.open('${item.url}', '_blank')">
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="card-content">
+                        <h4>${item.title}</h4>
+                        <p>Clique para acessar o material.</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filtrarCards() {
+            const termo = document.getElementById("searchInput").value.toLowerCase();
+            const filtrados = artigos.filter(a => a.title.toLowerCase().includes(termo));
+            renderizarCards(filtrados);
+        }
+
+        // Iniciar
+        renderizarCards(artigos);
+    </script>
+</body>
+</html>
