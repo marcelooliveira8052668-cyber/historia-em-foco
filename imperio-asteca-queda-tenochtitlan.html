@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Império Asteca e a Queda de Tenochtitlán | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Povos Indígenas</h1>
+      <p>Período: 1325 - 1521</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>O Império Asteca e a Queda de Tenochtitlán</h2>
+        <img src="https://www.worldhistory.org/uploads/images/14181-pt.png?v=1764966988-1766260801" width="500" alt="">
+        
+        <p>Fundada em 1325 nas margens do lago Texcoco, a colossal cidade de **Tenochtitlán** ergueu-se como a vibrante capital do Império Asteca (ou mexica), no atual Vale do México. Os astecas, que originalmente migraram como um povo nômade de caçadores-coletores para o centro do planalto mexicano, transformaram-se em uma formidable potência militar e hegemônica. Através da inovação agrícola das **chinampas** — ilhas artificiais construídas sobre o lago pantanoso cobertas por lodo fértil —, conseguiram sustentar uma densa concentração urbana de centenas de milhares de habitantes. Politicamente, organizaram a **Tríplice Aliança** (unindo Tenochtitlán, Texcoco e Tlacopan), impondo tributos severos, mercadorias e prisioneiros para sacrifício religioso sobre dezenas de povos subjugados da região.</p>
+        
+        <p>A grandiosidade e a soberania asteca sofreram um colapso dramático em **1521**, marcando um dos episódios mais decisivos da conquista da América pelos espanhóis. Liderados por Hernán Cortés, os conquistadores aproveitaram-se habilmente das profundas insatisfações políticas e dos ressentimentos alimentados pelos povos submetidos ao jugo de Tenochtitlán (como os Tlaxcaltecas), arregimentando milhares de aliados indígenas. Além da superioridade bélica inicial de armas de fogo e cavalos, o fator decisivo para a dizimação da população nativa foi o impacto devastador das **epidemias de varíola** trazidas pelos europeus, contra as quais os indígenas não possuíam imunidade biológica. Após um prolongado e sangrento cerco à ilha, o último tlatoani (imperador) asteca, Cuauhtémoc, foi capturado, selando a derrocada definitiva de Tenochtitlán e abrindo caminho para a fundação da Cidade do México sobre as ruínas do antigo império.</p>
+
+        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A expansão do Império Asteca no Vale do México apoiava-se fortemente na cobrança de tributos e na subjugação militar de povos vizinhos por meio da Tríplice Aliança. Historicamente, essa dinâmica de dominação imperial gerou uma vulnerabilidade estrutural que foi decisiva para a conquista espanhola liderada por Hernán Cortés em 1521, pois:</p>
+        <ul>
+          <li>A) os povos tributários e descontentes viram na chegada dos espanhóis uma oportunidade estratégica de aliança para se libertarem do pesado domínio mexica.</li>
+          <li>B) os astecas abandonaram completamente suas táticas militares para adotar a diplomacia pacífica com os europeus.</li>
+          <li>C) a capital Tenochtitlán foi voluntariamente desmontada e transferida para o interior da floresta tropical séculos antes da invasão.</li>
+          <li>D) os espanhóis respeitaram integralmente a soberania política e religiosa do império sem recorrer a conflitos armados.</li>
+          <li>E) a economia baseada exclusivamente no comércio marítimo atlântico impediu qualquer resistência terrestre.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> O império asteca exercia um controle centralizador e duro sobre os povos vizinhos (exigindo tributos e prisioneiros). Essa divisão interna foi habilmente explorada por Hernán Cortés, que encontrou em etnias rivais (como os tlaxcaltecas) aliados cruciais para cercar e derrotar Tenochtitlán.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A queda de Tenochtitlán não pode ser explicada apenas pela audácia militar dos conquistadores ou pelo armamento de fogo. Fatores biológicos, ecológicos e estruturais desempenharam papéis fundamentais na catástrofe demográfica que atingiu os astecas no século XVI."</em> Entre esses fatores determinantes, destaca-se:</p>
+        <ul>
+          <li>A) o uso generalizado de técnicas agrícolas europeias altamente avançadas que despoluíram o lago Texcoco.</li>
+          <li>B) o isolamento geográfico absoluto da cidade, que evitou qualquer contato com o exterior durante a guerra.</li>
+          <li>C) a propagação de doenças infectocontagiosas, como a varíola, que dizimaram rapidamente a população nativa desprovida de imunidade biológica.</li>
+          <li>D) a migração voluntária de toda a população asteca para o continente sul-americano antes do cerco final.</li>
+          <li>E) a abolição imediata da escravidão por parte da coroa espanhola no momento do desembarque.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> O choque microbiano (o impacto das doenças trazidas pelos europeus, especialmente a varíola) causou uma verdadeira catástrofe demográfica entre os povos mesoamericanos, enfraquecendo decisivamente a capacidade de resistência militar dos astecas durante o cerco de Tenochtitlán.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

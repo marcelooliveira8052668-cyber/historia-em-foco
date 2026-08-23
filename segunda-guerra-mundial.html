@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Segunda Guerra Mundial | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeTaggle" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Século XX</h1>
+      <p>Período: 1939 - 1945</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Segunda Guerra Mundial</h2>
+        
+        <p>A **Segunda Guerra Mundial** (1939–1945) foi o maior e mais destrutivo conflito armado da história humana, envolvendo direta ou indiretamente mais de 30 países e resultando em dezenas de milhões de mortes, com forte impacto sobre civis. O conflito colocou em choque dois grandes blocos geopolíticos: os **Aliados** (liderados inicialmente por Reino Unido e França, e posteriormente integrados pela União Soviética e pelos Estados Unidos) e o **Eixo** (formado por Alemanha nazista, Itália fascista e o Império do Japão).</p>
+        
+        <p>As raízes da guerra encontram-se no revanchismo e na crise econômica gerados pelo Tratado de Versalhes, na ascensão dos totalitarismos de extrema-direita na Europa e na ineficiência da Liga das Nações frente às políticas expansionistas e militaristas da Alemanha (como a anexação da Áustria e dos Sudetos) e da Itália. O estopim ocorreu em 1 de setembro de 1939, com a invasão da Polônia pelas tropas alemãs, o que levou britânicos e franceses a declararem guerra ao Terceiro Reich. A guerra expandiu-se globalmente com a abertura de frentes na Europa, no Norte da África, no Pacífico (após o ataque japonês a Pearl Harbor em 1941) e na Frente Oriental, onde a colossal Batalha de Stalingrado representou a grande virada militar contra o nazismo. O conflito também ficou marcado por atrocidades sem precedentes, incluindo o Holocausto — o extermínio sistemático de seis milhões de judeus e outras minorias pelos nazistas —, culminando em agosto de 1945 com os bombardeios atômicos americanos sobre Hiroshima e Nagasaki, que forçaram a rendição japonesa.</p>
+
+        <p>As consequências do pós-guerra redefiniram a ordem internacional: a Europa perdeu sua hegemonia global, cedendo espaço para a ascensão de duas superpotências rivais (os Estados Unidos e a União Soviética) e inaugurando o período da **Guerra Fria**, além da criação da Organização das Nações Unidas (ONU) para tentar assegurar a paz mundial e os direitos humanos.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Fatores de ordem política, econômica e ideológica convergiram para a eclosão da Segunda Guerra Mundial em 1939. Entre os antecedentes imediatos que propiciaram o avanço das potências do Eixo e precipitaram o conflito, destaca-se:</p>
+        <ul>
+          <li>A) a rigorosa fiscalização e punição imposta pela Liga das Nações à Alemanha, que impediu qualquer tipo de rearmamento militar alemão antes de 1938.</li>
+          <li>B) a política de apaziguamento adotada pelas democracias ocidentais (como Reino Unido e França) perante as sucessivas anexações territoriais promovidas por Adolf Hitler na Europa central.</li>
+          <li>C) a aliança militar imediata firmada entre os Estados Unidos e o Japão para conter o avanço comunista na Manchúria.</li>
+          <li>D) a desocupação pacífica e voluntária de todos os territórios coloniais ultramarinos pelas potências europeias em 1937.</li>
+          <li>E) o estabelecimento de um pacto comercial exclusivo entre a URSS e a Alemanha nazista para a divisão industrial da América Latina.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A política de apaziguamento (*appeasement*) praticada pelas potências ocidentais nos anos 1930 tolerou as primeiras agressões territoriais e violações do Tratado de Versalhes por parte da Alemanha nazista (como a anexação da Áustria e de partes da Tchecoslováquia), na vã tentativa de evitar um novo conflito de proporções mundiais.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O término da Segunda Guerra Mundial em 1945 não apenas redesenhou o mapa político e econômico do planeta, mas também sepultou a centralidade europeia nos assuntos mundiais, fazendo emergir um novo sistema bipolar dominado por potências extra-europeias."</em> O desdobramento geopolítico direto desse novo cenário internacional foi:</p>
+        <ul>
+          <li>A) a criação da Organização do Tratado do Atlântico Norte (OTAN) e do Pacto de Varsóvia, marcando o início das tensões político-ideológicas da Guerra Fria entre os EUA e a URSS.</li>
+          <li>B) a consolidação do isolacionismo diplomático total dos Estados Unidos em relação aos problemas de segurança no continente europeu.</li>
+          <li>C) a restauração imediata do Império Austro-Húngaro e do Império Otomano sob supervisão conjunta de Paris e Londres.</li>
+          <li>D) a unificação militar de todas as repúblicas socialistas sob a liderança econômica direta do Japão pós-guerra.</li>
+          <li>E) a abolição definitiva de todas as armas nucleares e a desmobilização completa dos exércitos regulares em âmbito global.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> O vazio de poder deixado pela derrocada europeia deu espaço à bipolaridade da Guerra Fria, estruturada em blocos antagônicos liderados pelos Estados Unidos (capitalista) e pela União Soviética (socialista), materializados em alianças militares como a OTAN e o Pacto de Varsóvia.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

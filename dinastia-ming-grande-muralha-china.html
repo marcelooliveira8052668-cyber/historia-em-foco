@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Dinastia Ming e a Grande Muralha da China | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #eceff5;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var--text-color;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var--text-color;
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        post-size: 0.9rem;
+        color: var--text-muted;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>História da Ásia</h1>
+      <p>Período: 1368 - 1644</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Dinastia Ming e a Grande Muralha da China</h2>
+        <img src="https://entrebrasucas.com/wp-content/uploads/2021/04/Muralha-da-China-4.png" width="500" alt="">
+        
+        <p>A **Dinastia Ming** (1368–1644) marcou um dos períodos mais brilhantes, prósperos e estáveis da história imperial chinesa. O império nasceu após a bem-sucedida rebelião liderada por Zhu Yuanzhang (o imperador Hongwu) contra a dinastia Yuan, de origem mongol. Sob os Ming, a China recuperou o controle político nativo, consolidou sua soberania territorial, reestruturou a administração pública com base nos rigorosos exames imperiais confucianos e experimentou um expressivo renascimento cultural, econômico e demográfico.</p>
+        
+        <p>Foi durante o período Ming que a China projetou ao mundo sua grandiosidade arquitetônica e militar, destacando-se pela monumental reconstrução e expansão da **Grande Muralha**. Embora fundações de muralhas defensivas existissem desde milênios anteriores, o sistema imponente de tijolos e pedra que hoje conhecemos — dotado de torres de vigia, quartéis e fortificações contínuas — foi erguido massivamente pelos Ming para conter as constantes ameaças de incursões de tribos nômades vindas das estepes do norte. Paralelamente, o império projetou seu poder além das fronteiras terrestres: no início do século XV, o imperador Yongle patrocinou as espetaculares expedições marítimas do almirante **Zheng He**, cujas imensas frotas de "navios do tesouro" navegaram pelo Oceano Índico até o Sudeste Asiático, a Índia, o Oriente Médio e a costa oriental da África, demonstrando o ápice tecnológico e comercial chinês antes de o império adotar políticas mais isolacionistas no final do período.</p>
+
+        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A Dinastia Ming (1368-1644) representou a restauração do poder imperial chinês sob a liderança de imperadores de etnia Han, após o fim do domínio mongol da Dinastia Yuan. Entre as grandes realizações estruturais e defensivas associadas a esse período, destaca-se:</p>
+        <ul>
+          <li>A) a construção de muralhas de terra batida e fortificações em pedra de proporções colossais no norte do país para conter invasões de povos nômades das estepes.</li>
+          <li>B) a fundação de colônias comerciais exclusivamente voltadas para a exploração de metais preciosos na América.</li>
+          <li>C) a adoção do feudalismo descentralizado nos moldes da Europa Ocidental.</li>
+          <li>D) o abandono total do sistema burocrático de exames baseados na filosofia confuciana.</li>
+          <li>E) a aliança militar permanente com o Império Romano do Oriente.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> A Grande Muralha da China, em grande parte como é vista hoje (com o uso intensivo de tijolos e blocos de pedra e o sistema defensivo integrado), foi grandemente fortificada e expandida pela Dinastia Ming para proteger o império das incursões de povos nômades do norte.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"No início do século XV, a Dinastia Ming enviou frotas colossais lideradas pelo eunuco Zheng He através do Oceano Índico, estabelecendo rotas diplomáticas e comerciais que alcançaram a costa africana."</em> Historicamente, essas expedições navais lideradas por Zheng He simbolizaram:</p>
+        <ul>
+          <li>A) a consolidação de colônias chinesas de exploração escravista no continente americano.</li>
+          <li>B) a superioridade tecnológica naval da China e sua capacidade de projeção geopolítica e comercial antes da posterior adoção de medidas de isolamento.</li>
+          <li>C) a dependência militar da China em relação aos reinos europeus no setor marítimo.</li>
+          <li>D) a migração forçada de toda a população urbana chinesa para a Ásia Central.</li>
+          <li>E) a abolição imediata do comércio externo e das trocas culturais na Ásia.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> As expedições de Zheng He comprovaram o impressionante avanço naval e tecnológico da China Ming (através dos grandiosos "navios do tesouro"), projetando influência política, recolhendo tributos e estimulando trocas antes que os imperadores seguintes limitassem o comércio exterior.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

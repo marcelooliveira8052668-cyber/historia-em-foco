@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Revolta da Vacina e a Revolta da Chibata | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        content: "";
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        content: "";
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Brasil República</h1>
+      <p>Período: 1904 - 1910</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Revolta da Vacina e a Revolta da Chibata</h2>
+        <img src="https://www.conasems.org.br/wp-content/uploads/2022/06/SUS-Cena08-pg07-Revolta-da-Vacina-1.jpg" width="500" alt="">
+        <img src="https://imgs.casasbahia.com.br/1558998486/1xg.jpg" width="500" alt="">
+        <p>A Primeira República brasileira (1889–1930) foi pontuada por intensas tensões sociais urbanas e corporativas que revelaram o caráter excludente, autoritário e elitista do processo de modernização do país. Duas manifestações emblemáticas desse descontentamento popular e das Forças Armadas foram a **Revolta da Vacina** (1904) e a **Revolta da Chibata** (1910), ocorridas no Rio de Janeiro, então capital federal.</p>
+        
+        <p>A **Revolta da Vacina (1904)** eclodiu em decorrência da política de modernização urbana e saneamento liderada pelo prefeito Pereira Passos e pelo médico sanitarista Oswaldo Cruz. Para erradicar epidemias históricas (como febre amarela, peste bubônica e varíola) que prejudicavam a imagem comercial do Brasil no exterior, o governo promoveu reformas que demoliram cortiços centrais — expulsando a população pobre para os morros e periferias (o nascimento das favelas) — e instituiu a **vacinação obrigatória contra a varíola** através de uma lei altamente impositiva. A falta de diálogo do governo, o autoritarismo dos agentes sanitários na invasão de domicílios e boatos alarmistas geraram uma revolta popular generalizada nas ruas cariocas, misturando insatisfação social com manipulação política de opositores da República. Já a **Revolta da Chibata (1910)** ocorreu no âmbito da Marinha de Guerra e foi protagonizada por marinheiros — em sua maioria negros e mestiços. Sob a liderança de **João Cândido** (o "Almirante Negro"), a revolta contestava as condições desumanas de trabalho nos navios de guerra, os baixos salários e, sobretudo, o uso contínuo de **castigos físicos** (chibatadas), herança escravocrata que a hierarquia militar insistia em manter. Os marinheiros tomaram o controle de encouraçados potentes na Baía de Guanabara e ameaçaram bombardear o Rio de Janeiro caso as punições corporais não fossem abolidas e anistia concedida.</p>
+
+        <p>Ambos os movimentos escancararam a violência estrutural do Estado brasileiro na transição para a modernidade urbana e industrial, evidenciando o fosso intransponível entre as elites governantes e as classes subalternas.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A Revolta da Vacina, ocorrida no Rio de Janeiro em novembro de 1904, expressou o malestar da população urbana pobre com as reformas sanitárias e urbanísticas autoritárias implementadas pelo governo federal. Um dos fatores centrais que alimentou a insatisfação popular e desencadeou o levante foi:</p>
+        <ul>
+          <li>A) a parceria igualitária entre o governo e os moradores dos cortiços para a construção de moradias populares subsidiadas.</li>
+          <li>B) o autoritarismo e a violência institucional na imposição da vacinação obrigatória e nas desapropriações de habitações populares no centro da cidade sem o devido amparo social.</li>
+          <li>C) a recusa da população em aceitar o fim da escravidão nos centros urbanos industriais.</li>
+          <li>D) a aliança estabelecida entre os operários anarquistas e os grandes proprietários de café para derrubar a República Oligárquica.</li>
+          <li>E) a proibição total da circulação de jornais de oposição na capital do país.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A Revolta da Vacina foi a reação popular contra a truculência do Estado nas reformas urbanas (bota-abaixo) e na obrigatoriedade da vacina contra a varíola, que invadia a privacidade dos lares sem esclarecimento público prévio.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A Revolta da Chibata, liderada por João Cândido em 1910, teve como palco os modernos navios de guerra da Marinha brasileira ancorados na Baía de Guanabara. O movimento exigia o fim dos castigos corporais inspirados na tradição escravocrata ainda vigentes nos quartéis e a revisão da tabela de soldos."</em> Esse episódio histórico demonstra que:</p>
+        <ul>
+          <li>A) a Marinha brasileira havia abolido qualquer resquício de discriminação racial logo após a Proclamação da República.</li>
+          <li>B) as Forças Armadas da Primeira República eram imunes a conflitos internos e operavam em perfeita harmonia democrática.</li>
+          <li>C) a modernização tecnológica dos armamentos navais contrastava com a permanência de práticas punitivas arcaicas e de cunho racista herdadas do período escravista.</li>
+          <li>D) os marinheiros rebelados pretendiam restaurar a monarquia parlamentarista com o apoio de potências europeias.</li>
+          <li>E) o governo federal atendeu prontamente a todas as demandas salariais e puniu com rigor os oficiais que apoiavam os castigos físicos.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A Revolta da Chibata escancarou a contradição de uma Marinha que comprava encouraçados de última geração no exterior, mas mantinha em seu interior práticas violentas, desumanas e com raízes diretas na escravidão colonial contra marinheiros negros e pobres.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

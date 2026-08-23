@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Diretas Já e a Redemocratização | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        fn-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Brasil República</h1>
+      <p>Período: 1983 - 1988</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Diretas Já e a Redemocratização</h2>
+        
+        <p>O período compreendido entre **1983 e 1988** marcou o epílogo da ditadura militar e a transição institucional para a ordem democrática no Brasil. Em meio a uma grave crise econômica caracterizada por inflação crescente e desemprego, a sociedade civil mobilizou-se em massa na campanha cívica conhecida como **Diretas Já** (1984). O movimento pedia a aprovação da Emenda Dante de Oliveira, que restabeleceria as eleições diretas para a presidência da República ainda naquele ano. Embora a emenda tenha sido rejeitada por poucos votos na Câmara dos Deputados em abril de 1984 devido à resistência da base governista, a imensa pressão popular nas ruas exerceu papel decisivo na derrocada final do regime autoritário. Com isso, a sucessão presidencial ocorreu de forma indireta pelo Colégio Eleitoral em janeiro de 1985, resultando na vitória de Tancredo Neves e do vice José Sarney, pondo fim a vinte e um anos de governos militares.</p>
+        
+        <p>A redemocratização institucional consolidou-se definitivamente com a convocação e os trabalhos da Assembleia Nacional Constituinte instalada em 1987, que culminou na promulgação da nova carta magna em 5 de outubro de 1988 — batizada por Ulysses Guimarães como a **"Constituição Cidadã"**. O novo texto constitucional representou um marco histórico na ampliação de direitos fundamentais, consagrando o sufrágio universal e secreto (estendendo o direito de voto aos analfabetos), a garantia de liberdades civis e sindicais, a criação do Sistema Único de Saúde (**SUS**) e a proteção aos direitos sociais e indígenas, sepultando o arcabouço jurídico da ditadura e instituindo o Estado Democrático de Direito no país.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A campanha das "Diretas Já", ocorrida em 1984, mobilizou milhões de brasileiros em comícios públicos pelas principais cidades do país. Embora a Emenda Dante de Oliveira não tenha obtido o quórum necessário no Congresso Nacional para ser aprovada, o movimento teve como significado político essencial:</p>
+        <ul>
+          <li>A) a aceitação pacífica e silenciosa da continuidade da ditadura militar por todas as classes sociais.</li>
+          <li>B) a demonstração da força da mobilização civil organizada, que acelerou o processo de desgaste e desmonte institucional do regime autoritário.</li>
+          <li>C) a aliança imediata entre os militares da linha-dura e os sindicatos operários para a criação de um partido único.</li>
+          <li>D) a abolição definitiva das eleições municipais e estaduais em todo o território nacional.</li>
+          <li>E) a substituição imediata da Constituição de 1967 por um decreto ditatorial temporário.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A campanha das Diretas Já representou o ápice da articulação da sociedade civil contra o regime militar. Mesmo com a rejeição da emenda no parlamento, a pressão das ruas demonstrou a inviabilidade política da manutenção da ditadura, abrindo caminho para a transição.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Promulgada em 5 de outubro de 1988, a Constituição Federal brasileira ficou conhecida como a 'Constituição Cidadã' por ampliar expressivamente os direitos civis, políticos e sociais no pós-ditadura."</em> Entre as inovações institucionais e sociais introduzidas por essa carta magna, destaca-se:</p>
+        <ul>
+          <li>A) a restrição do voto apenas aos cidadãos alfabetizados com renda superior a dez salários mínimos.</li>
+          <li>B) a extinção de qualquer direito trabalhista garantido anteriormente pela Consolidação das Leis do Trabalho (CLT).</li>
+          <li>C) a instituição do sufrágio universal com o direito de voto estendido aos analfabetos e a criação do Sistema Único de Saúde (SUS).</li>
+          <li>D) a centralização absoluta de todos os poderes administrativos e fiscais nas mãos do presidente da República.</li>
+          <li>E) a adoção formal do parlamentarismo como única forma de governo no país.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A Constituição de 1988 consagrou a ampliação da cidadania ao estender o direito ao voto aos analfabetos (tornando o voto universal) e estruturou a seguridade social com a criação do SUS, garantindo a universalização do atendimento à saúde pública.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

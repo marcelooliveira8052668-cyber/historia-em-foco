@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Império Inca: Os Engenheiros dos Andes | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Povos Indígenas</h1>
+      <p>Período: 1438 - 1572</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>O Império Inca: Os Engenheiros dos Andes</h2>
+        <img src="https://historiamania.com/wp-content/uploads/2025/11/civilizacao-inca-o-imperio-das-montanhas-1024x585.jpg" width="500" alt="">
+        
+        <p>Conhecido formalmente como **Tahuantinsuyu** ("o império das quatro regiões"), o Império Inca ergueu-se como a maior e mais estruturada civilização pré-colombiana da América do Sul. A partir da expansão político-militar liderada pelo soberano Pachacuti em 1438, a partir de sua capital sagrada em **Cuzco**, os incas subjugaram diversos povos e dominaram a imensa cordilheira dos Andes, estendendo seus domínios por milhares de quilômetros ao longo da costa do Pacífico e de territórios que hoje integram Peru, Bolívia, Equador, Chile e Colômbia.</p>
+        
+        <p>Os incas ficaram mundialmente célebres como engenheiros prodigiosos capazes de dominar um relevo montanhoso extremamente hostil e acidentado. Para garantir a produção alimentar em encostas íngremes, desenvolveram a técnica dos **terraços de cultivo** (*andenes*), acompanhada por elaborados sistemas de irrigação e armazenamento de excedentes em silos estatais (*tambos*). A coesão do vasto império dependia de uma imensa rede de estradas e pontes suspensas — o **Capac Ñan** —, que cobria mais de 30 mil quilômetros, permitindo o trânsito rápido de exércitos e mensageiros imperiais (*chasquis*), que utilizavam o **quipu** (sistema de cordas com nós) para o controle contábil e demográfico. A organização socioeconômica baseava-se na reciprocidade e na mita (sistema de tributação em forma de trabalho obrigatório comunitário nas obras públicas, minas e terras do Estado). O império sofreu um golpe fatal a partir de 1532 com a chegada dos conquistadores espanhóis liderados por Francisco Pizarro, que se aproveitaram de uma violenta guerra de sucessão dinástica e executaram o imperador Atahualpa, embora a resistência andina tenha persistido em redutos isolados até a queda de Vilcabamba em 1572.</p>
+
+        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O Império Inca destacou-se na América pré-colombiana por sua notável capacidade de organização estatal e integração territorial em uma região geográfica de relevo montanhoso e extremo. Entre as inovações tecnológicas e administrativas adotadas pelos incas para garantir a subsistência e o controle de seu vasto território, destaca-se:</p>
+        <ul>
+          <li>A) a criação de um sistema monetário metálico baseado exclusivamente na cunhagem de moedas de ouro em circulação livre.</li>
+          <li>B) a construção de terraços agrícolas nas encostas dos Andes (*andenes*) e a estruturação de uma vasta rede de estradas e caminhos (*Capac Ñan*) para circulação e comunicação.</li>
+          <li>C) a abolição de qualquer forma de tributação ou prestação de trabalho obrigatório por parte das comunidades locais.</li>
+          <li>D) o abandono da agricultura em favor de uma economia estritamente voltada para a navegação oceânica comercial transatlântica.</li>
+          <li>E) a descentralização política absoluta, que impedia o governo central de interferir nas províncias distantes.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> Os incas adaptaram-se com genialidade ao ambiente andino por meio da engenharia agrícola dos terraços (*andenes*) e da integração de seu império centralizado através da monumental rede de estradas do *Capac Ñan*, fundamental para o controle administrativo e militar.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O sistema de tributação no Império Inca não se apoiava no pagamento de moedas ou mercadorias físicas individualizadas, mas sim na prestação de trabalho temporário obrigatório prestado à comunidade e ao Estado, conhecido como mita."</em> Historicamente, o funcionamento dessa instituição socioeconômica indicava que:</p>
+        <ul>
+          <li>A) a sociedade inca era igualitária, sem estratificação social ou autoridades centralizadas.</li>
+          <li>B) o Estado imperial exercia controle direto sobre a força de trabalho coletiva para a execução de grandes obras públicas e manutenção da economia redistributiva.</li>
+          <li>C) o trabalho era inteiramente voluntário e realizado de forma esporádica sem planejamento governamental.</li>
+          <li>D) os camponeses eram remunerados com altos salários em espécie pelo imperador em Cuzco.</li>
+          <li>E) a economia do Tahuantinsuyu dependia unicamente do comércio internacional com povos da Ásia.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A mita era o pilar da economia e da organização do Estado inca. Os súditos dedicavam parte de seu tempo ao cultivo das terras do imperador e do Sol, bem como à construção de estradas, pontes e templos, garantindo a centralização e a infraestrutura do Tahuantinsuyu.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

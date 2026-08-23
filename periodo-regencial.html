@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Período Regencial: Revoltas e Instabilidade | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Brasil Império</h1>
+      <p>Período: 1831 - 1840</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>O Período Regencial: Revoltas e Instabilidade</h2>
+        <img src="https://s5.static.brasilescola.uol.com.br/be/2024/12/mapa-mental-sobre-as-revoltas-regenciais.jpg" width="500" alt="">
+        
+        <p>O **Período Regencial** (1831–1840) foi um dos momentos mais intensos, conturbados e politicamente experimentais da história do Império do Brasil. Com a abdicação de Dom Pedro I, seu herdeiro, Dom Pedro de Alcântara, tinha apenas cinco anos de idade e não podia assumir o trono. Conforme determinava a Constituição, o país passou a ser governado por regências. Essa fase inicial caracterizou-se pelo esvaziamento temporário do poder central forte, dando espaço para debates intensos entre liberais moderados, liberais exaltados e restauradores, além de descentralizações administrativas consagradas pelo **Ato Adicional de 1834**.</p>
+        
+        <p>A ausência de uma figura moderadora forte no topo do Estado e as profundas disparidades regionais, econômicas e sociais do país deflagraram uma série de graves revoltas regenciais espalhadas por várias províncias. Entre elas destacam-se: a **Cabanagem** (no Pará, envolvendo camadas populares e indígenas revoltadas contra a elite local); a **Revolução Farroupilha** (no Rio Grande do Sul, o mais longo conflito separatista liderado por estancieiros descontentes com os impostos sobre o charque); a **Sabinada** (na Bahia, com forte caráter separatista e republicano urbano); e a **Rei dos Malês** (em Salvador, a maior revolta de escravizados urbanos muçulmanos da história brasileira). No Maranhão, eclodiu também a **Balaiada**, unindo vaqueiros, artesãos e escravizados fugidos.</p>
+
+        <p>Diante do risco iminente de fragmentação territorial e do caos social generalizado — o que ameaçava a própria integridade do latifúndio e do sistema escravista —, as elites políticas brasileiras uniram-se em torno de uma manobra institucional para restabelecer a ordem e a centralização do poder. Através do chamado **Golpe da Maioridade** em 1840, os liberais anteciparam a maioridade de Dom Pedro de Alcântara, que foi coroado imperador aos 14 anos sob o título de Dom Pedro II, encerrando a instabilidade regencial.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O Período Regencial brasileiro (1831-1840) foi marcado por forte instabilidade política e institucional, tendo como um dos seus traços mais notáveis a ocorrência de inúmeras rebeliões em várias províncias do país. Uma das principais causas estruturais para a eclosão dessas revoltas foi:</p>
+        <ul>
+          <li>A) a abolição imediata da escravidão em todo o território nacional decretada pelos regentes liberais.</li>
+          <li>B) o vácuo de poder centralizado decorrente da menoridade do herdeiro do trono, somado às desigualdades regionais e à descentralização administrativa momentânea.</li>
+          <li>C) a aliança militar formal estabelecida entre as províncias do Sul e os Estados Unidos para implantar o modelo republicano federativo.</li>
+          <li>D) a estatização de todas as terras cultiváveis do país sob o controle exclusivo das câmaras municipais.</li>
+          <li>E) a imposição de um regime teocrático fundamentalista católico em substituição à Constituição de 1824.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A vacância temporária do trono imperial devido à menoridade de Pedro II gerou um vácuo de autoridade central. Isso, aliado às tensões provinciais e às reformas descentralizadoras (como o Ato Adicional de 1834), propiciou o surgimento de revoltas populares e separatistas.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A sucessão de revoltas provinciais armadas que ameaçavam desmembrar o território e colocar em risco a ordem escravista fez com que a classe política imperial percebesse a urgência de recentralizar o poder. A solução encontrada foi antecipar o processo sucessório antes mesmo da idade legal."</em> O texto faz referência direta ao desfecho do Período Regencial, que consistiu em:</p>
+        <ul>
+          <li>A) a proclamação da República dos Estados Unidos do Brasil liderada por oficiais republicanos gaúchos.</li>
+          <li>B) a divisão do Império em duas repúblicas independentes: uma ao Norte e outra ao Sul.</li>
+          <li>C) o Golpe da Maioridade, que elevou Dom Pedro II prematuramente ao trono para restaurar a autoridade central e apaziguar as elites.</li>
+          <li>D) a intervenção militar direta da Coroa Portuguesa para recolonizar as províncias rebeldes do Nordeste.</li>
+          <li>E) a outorga de uma nova constituição de caráter socialista e igualitário por assembleia popular.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> O Golpe da Maioridade (1840) foi a estratégia política articulada pelos liberais para coroar Dom Pedro II aos 14 anos, unificando as elites e encerrando o ciclo de instabilidade e revoltas do Período Regencial por meio da volta da figura moderadora forte.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

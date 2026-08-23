@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mitologia Grega: Os Doze Deuses do Olimpo | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Mitologia</h1>
+      <p>Período: Antiguidade Clássica</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>Mitologia Grega: Os Doze Deuses do Olimpo</h2>
+        <img src="https://tse1.mm.bing.net/th/id/OIP.I5pps6I8JGFzixEEXL6-GQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+        
+        <p>A **Mitologia Grega** constitui o conjunto de narrativas, mitos, crenças e rituais originados na Grécia Antiga que buscavam explicar a origem do universo, os fenômenos da natureza, os ciclos das estações e a própria condição humana. Longe de ser apenas um compêndio de contos fantásticos, a mitologia grega funcionava como um pilar estruturante da identidade cultural, religiosa e cívica das cidades-estado (*pólis*), exercendo profunda influência na filosofia, na literatura clássica e nas artes ocidentais.</p>
+        
+        <p>No centro desse panteão politeísta destacam-se os **Doze Deuses do Olimpo**, divindades maiores que habitavam o monte mais alto da Grécia e personificavam forças cósmicas e atributos humanos elevados à potência divina. Sob a liderança de **Zeus** (soberano dos deuses e senhor do raio e do céu), o conselho olímpico integrava figuras célebres como **Hera** (rainha dos deuses, protetora do casamento e da família), **Poseidon** (deus dos mares e dos terremotos), **Atena** (deusa da sabedoria, da estratégia militar e das artes), **Apolo** (deus da luz, da profecia, da música e da cura), **Artemis** (deusa da caça e da lua), **Afrodite** (deusa do amor e da beleza), **Ares** (deus da guerra violenta e sanguinária), **Hefesto** (deus do fogo e da metalurgia), **Hermes** (o mensageiro alado, patrono do comércio e dos viajantes), **Deméter** (deusa da agricultura e das colheitas) e **Héstia** ou **Dionísio** (dependendo da tradição, associados ao lar ou ao vinho e ao êxtase). Caracterizados por traços antropomórficos — portadores de virtudes heroicas, mas também de paixões intensas, ciúmes, iras e fragilidades humanas —, esses deuses eram homenageados em festivais públicos, cultos cívicos e jogos pan-helênicos.</p>
+
+        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Na Grécia Antiga, os mitos não representavam mentiras ou fabulações infantis, mas sim narrativas dotadas de sentido sagrado e cosmológico que ajudavam a comunidade a compreender o mundo e a si mesma. Uma característica marcante do panteão da mitologia grega, especialmente em relação aos Doze Deuses do Olimpo, é:</p>
+        <ul>
+          <li>A) o monoteísmo rígido, que impunha a adoração exclusiva a uma divindade criadora e onipotente.</li>
+          <li>B) o antropomorfismo, pelo qual as divindades possuíam forma, sentimentos, paixões, virtudes e defeitos semelhantes aos dos seres humanos.</li>
+          <li>C) a condenação absoluta de qualquer forma de manifestação artística, literária ou cívica por parte da sociedade grega.</li>
+          <li>D) a crença de que os deuses viviam isolados do mundo terrestre, sem qualquer interferência nos destinos humanos ou naturais.</li>
+          <li>E) a separação rigorosa entre religião e política nas cidades-estado democráticas.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> Os deuses gregos do Olimpo eram essencialmente antropomórficos: além de assumirem feições humanas, manifestavam emoções tipicamente humanas como inveja, amor, ira e ciúme, diferenciando-se dos deuses de religiões estritamente abstratas ou monoteístas.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A mitologia grega cumpria um papel fundamental na coesão cultural e na educação dos cidadãos das pólis, cujos valores eram transmitidos por poetas como Homero e Hesíodo."</em> Historicamente, a relevância social dessas narrativas míticas refletia-se na:</p>
+        <ul>
+          <li>A) subordinação política de todas as cidades gregas a um único império teocrático centralizado.</li>
+          <li>B) formulação de leis imutáveis ditadas diretamente pelos sacerdotes sem participação popular.</li>
+          <li>C) estruturação de uma base cultural comum compartilhada por falantes da língua grega, reforçando o sentimento de pertença e identidade helênica frente aos chamados "bárbaros".</li>
+          <li>D) abolição total do comércio marítimo em prol de uma economia autossuficiente e fechada.</li>
+          <li>E) eliminação do pensamento filosófico e racional em todo o território da Hélade.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> Embora a Grécia Antiga fosse politicamente fragmentada em dezenas de *pólis* autônomas, a mitologia greco-romana e os festivais pan-helênicos (como os Jogos Olímpicos) funcionavam como poderosos elementos aglutinadores da identidade cultural helênica.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

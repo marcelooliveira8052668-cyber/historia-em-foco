@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Independência do Brasil: O Grito do Ipiranga | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</>
+      </div>
+      <h1>Brasil Império</h1>
+      <p>Período: 1822</p>
+      <img src="independencia-do-brasil.jpg" alt="">
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Independência do Brasil: O Grito do Ipiranga</h2>
+        
+        <p>O processo de independência do Brasil, consolidado no ano de **1822**, distinguiu-se radicalmente das demais emancipações latino-americanas por não ter sido fruto de uma revolução popular ou de uma guerra sangrenta de descolonização com amplas reformas estruturais. Ao contrário, configurou-se como um arranjo político liderado por setores da elite agrária exportadora em conjunto com o próprio herdeiro do trono português, o príncipe Dom Pedro.</p>
+        
+        <p>As raízes do rompimento encontram-se na Revolução Liberal do Porto (1820), em Portugal, cujas cortes exigiam o retorno do Brasil à condição estrita de colônia e a volta imediata de Dom Pedro para Lisboa. A elite brasileira, que já desfrutava de relativa autonomia comercial e administrativa desde 1808, organizou-se em torno do partido brasileiro para barrar as tentativas de recolonização. Figuras influentes como José Bonifácio de Andrada e Silva atuaram decisivamente ao lado de Dom Pedro, pressionando-o a permanecer no país — o que se concretizou no famoso <strong>Dia do Fico</strong> (9 de janeiro de 1822).</p>
+
+        <p>O ponto de ruptura definitiva ocorreu às margens do riacho Ipiranga, em São Paulo, em 7 de setembro de 1822, após Dom Pedro receber novas ordens severas e revogações de Lisboa. O célebre "Grito do Ipiranga" selou a separação política de Portugal. Em dezembro do mesmo ano, Dom Pedro foi coroado imperador constitucional do Brasil sob o título de Dom Pedro I. Apesar da separação política, a nova nação manteve intocados os pilares tradicionais da estrutura colonial: a grande propriedade de terras (latifúndio), a economia voltada para a exportação e a escravidão em massa.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A Independência do Brasil, proclamada em 1822, ocorreu sob uma dinâmica política singular se comparada aos processos emancipatórios das colônias espanholas na América. Essa singularidade consistiu fundamentalmente em:</p>
+        <ul>
+          <li>A) promover uma revolução agrária radical com redistribuição imediata de terras aos camponeses pobres.</li>
+          <li>B) romper totalmente com a Grã-Bretanha e estatizar o comércio exterior de açúcar e algodão.</li>
+          <li>C) preservar a unidade territorial, a monarquia e a estrutura socioeconômica escravista sob a liderança de um herdeiro da dinastia de Bragança.</li>
+          <li>D) abolir a escravidão por decreto imperial logo nos primeiros meses do regime republicano instaurado.</li>
+          <li>E) descentralizar o poder político por meio da criação de repúblicas autônomas em cada província costeira.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A independência brasileira foi um pacto conservador liderado pela elite agrária e pelo príncipe regente, preservando a monarquia, a integridade territorial e o latifúndio escravista, evitando mudanças sociais profundas.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"As pressões vindas das Cortes de Lisboa em 1821 e 1822, exigindo o rebaixamento político do Brasil e o retorno do príncipe regente Dom Pedro, funcionaram como o catalisador decisivo para a união entre a elite agrária nativa e a figura do herdeiro do trono."</em> O texto contextualiza os antecedentes imediatos de 1822, destacando que o movimento emancipatório brasileiro foi impulsionado por:</p>
+        <ul>
+          <li>A) o desejo das elites coloniais de instaurar o sufrágio universal e igualitário para todas as classes populares.</li>
+          <li>B) a reação das lideranças econômicas locais contra as medidas de recolonização metropolitana que ameaçavam sua autonomia.</li>
+          <li>C) a intervenção direta dos Estados Unidos através da Doutrina Monroe em defesa do republicanismo sul-americano.</li>
+          <li>D) o colapso completo do latifúndio monocultor em decorrência da escassez de terras cultiváveis no Sudeste.</li>
+          <li>E) a aliança militar entre os escravizados urbanos e o exército regular português contra a Coroa.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A tentativa das Cortes portuguesas de recolonizar o Brasil gerou forte rejeição na elite agrária nacional, que viu na independência liderada por Dom Pedro a melhor forma de garantir seus privilégios e autonomia econômica conquistados desde 1808.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

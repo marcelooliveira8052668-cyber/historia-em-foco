@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mitologia Egípcia: Os Segredos de Osíris e Ísis | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back-hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Mitologia</h1>
+      <p>Período: Antiguidade</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>Mitologia Egípcia: Os Segredos de Osíris e Ísis</h2>
+        <img src="https://www.fantasticacultural.com.br/img/thumbs_auto_jpg/202309022328570-osiris_e_isis_deuses_mitologia_egito_antigo.jpg" width="500" alt="">
+        
+        <p>A **Mitologia Egípcia** representa um dos sistemas religiosos e cosmológicos mais complexos, duradouros e influenciadores da Antiguidade. Desenvolvida ao longo de mais de três milênios nas margens férteis do rio Nilo, a religião egípcia integrava de forma indissociável a natureza, a agricultura, o poder faraônico e a obsessão pela vida após a morte (*Duat*). O panteão era povoado por divindades com traços zoomorfos e antropomórficos, cujos mitos justificavam a ordem cósmica (*Maat*) frente às ameaças do caos.</p>
+        
+        <p>No centro desse imaginário destaca-se o ciclo mítico de **Osíris e Ísis**, considerado a narrativa fundadora mais importante da espiritualidade egípcia. Osíris, soberano justo e civilizador que ensinou a agricultura e as leis aos homens, foi traiçoeiramente assassinado e esquartejado por seu irmão invejoso, **Set** (deus do caos e do deserto). Movida por profunda devoção e astúcia mágica, **Ísis** (deusa da magia, da maternidade e da fidelidade) reuniu os pedaços dispersos do corpo do marido, aplicando os primeiros ritos de embalsamamento e criando a primeira múmia. Com o auxílio de Anúbis e utilizando seus poderes, Ísis ressuscitou temporariamente Osíris para conceber seu herdeiro, **Horus**. Após crescer, Horus vingou o pai derrotando Set em uma célebre disputa pelo trono do Egito. Osíris tornou-se então o soberano e juiz supremo do reino dos mortos, enquanto Ísis permaneceu como a grande protetora mágica. Esse mito forneceu a base teológica para a prática da mumificação, a crença na ressurreição e a esperança de julgamento favorável no pós-morte para todo o povo egípcio.</p>
+
+        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Na religião do Egito Antigo, o mito de Osíris e Ísis desempenhava um papel central na consolidação das crenças sobre a morte e a imortalidade. A prática da mumificação e a elaboração do Livro dos Mortos estavam diretamente vinculadas a esse mito porque:</p>
+        <ul>
+          <li>A) os egípcios acreditavam que a alma humana desaparecia por completo logo após o falecimento física, sem qualquer perspectiva de continuidade.</li>
+          <li>B) o processo de mumificação imitava o rito realizado por Ísis ao preservar e recompor o corpo de Osíris, permitindo a transição bem-sucedida para a vida eterna no além-túmulo.</li>
+          <li>C) a religião egípcia rejeitava categoricamente qualquer forma de culto aos deuses associados à agricultura ou ao rio Nilo.</li>
+          <li>D) o faraó abdicava de seus títulos divinos em favor de uma organização política puramente laica e secular.</li>
+          <li>E) a preservação corpórea era exigida apenas para punir criminosos condenados pelos tribunais reais.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O mito de Osíris é o arquétipo da ressurreição no Egito Antigo. Ao embalsamar e recompor Osíris, Ísis estabeleceu o modelo sagrado seguido pelos sacerdotes egípcios através da mumificação, assegurando que o falecido pudesse habitar o mundo dos mortos sob a proteção de Osíris.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O rio Nilo e suas cheias regulares eram vistos pelos antigos egípcios como uma manifestação direta da generosidade divina, associada intimamente ao ciclo de morte e renascimento de Osíris."</em> Historicamente, a forte dependência da sociedade egípcia em relação ao regime das águas do Nilo refletia-se na sua estrutura cultural e religiosa por meio da:</p>
+        <ul>
+          <li>A) fundação de um império baseado exclusivamente no nomadismo pastoril pelo deserto do Saara.</li>
+          <li>B) sacralização dos ciclos naturais e agrícolas, cujas divindades personificavam a fertilidade da terra, a cheia anual e a renovação perpétua da vida.</li>
+          <li>C) abolição de qualquer atividade ligada à agricultura intensiva em favor da pesca oceânica.</li>
+          <li>D) adoção de um sistema político descentralizado sem qualquer intervenção do Estado na economia.</li>
+          <li>E) recusa generalizada em construir obras de infraestrutura hidráulica, como canais e diques.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A civilização egípcia estruturou-se como uma teocracia hidráulica. Os mitos — como o de Osíris, frequentemente ligado à vegetação e à fertilidade do solo irrigado pelo Nilo — traduziam a necessidade de explicar e sacralizar os ciclos ecológicos vitais para a sobrevivência da sociedade.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

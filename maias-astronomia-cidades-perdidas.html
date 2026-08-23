@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Os Maias: Astronomia e Cidades Perdidas na Selva | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        category-color: var(--accent-pink);
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Povos Indígenas</h1>
+      <p>Período: 2000 a.C. - 1500 d.C.</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>Os Maias: Astronomia e Cidades Perdidas na Selva</h2>
+        <img src="https://thumbnails.odycdn.com/card/s:1280:720/quality:85/plain/https://thumbs.odycdn.com/e025615ad20c6e2e58b6685e0cdece2c.webp" width="500" alt="">
+        
+        <p>A civilização **maia** floresceu na Mesoamérica — região que abrange o sudeste do México, Guatemala, Belize, Honduras e El Salvador — ao longo de mais de três milênios (c. 2000 a.C. até a chegada dos conquistadores espanhóis no século XVI). Diferente de impérios centralizados como o dos incas, os maias nunca constituíram um Estado unificado sob um único soberano; organizavam-se em uma complexa rede de **cidades-estado autônomas** (como Tikal, Palenque, Copán e Calakmul) unidas por uma língua, uma cosmovisão religiosa e intensas trocas comerciais e culturais, mas frequentemente em rivalidades políticas e militares.</p>
+        
+        <p>Renomados por sua arquitetura monumental pontilhada de imponentes pirâmides escalonadas, palácios e observatórios astronômicos integrados à densa selva tropical, os maias alcançaram um nível extraordinário de desenvolvimento científico. Desenvolveram o único sistema de **escrita hieroglífica** plenamente funcional das Américas pré-colombianas e criaram um sofisticado sistema numérico vigesimal que incorporava o conceito do **zero** de forma independente. Sua fascinante maestria na **astronomia** permitiu-lhes calcular com precisão milimétrica os ciclos lunares, os eclipses solares e a órbita de Vênus, estruturando calendários complexos — como o solar (*Haab'*) e o sagrado (*Tzolkin*) — fundamentais para orientar a agricultura de milho e os rituais religiosos. O declínio político das grandes cidades maias das Terras Baixas ocorreu séculos antes da conquista europeia devido a fatores combinados de superpopulação, degradação ambiental e secas prolongadas, embora centros menores tenham persistido até a colonização.</p>
+
+        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Ao contrário de impérios como o romano ou o inca, que se caracterizavam pela forte centralização administrativa e territorial sob um único poder imperial, a civilização maia estruturou-se politicamente por meio de:</p>
+        <ul>
+          <li>A) cidades-estado independentes que compartilhavam traços culturais, religiosos e linguísticos, mantendo entre si laços de comércio e rivalidades políticas.</li>
+          <li>B) tribos nômades pastoris que rejeitavam qualquer forma de sedentarismo agrícola ou construção urbana permanente.</li>
+          <li>C) um sistema teocrático centralizado na capital única de Tenochtitlán, controlando militarmente todo o continente.</li>
+          <li>D) confederações militares estritamente pacíficas que aboliram o uso de exércitos e guerras regionais.</li>
+          <li>E) colônias ultramarinas estabelecidas diretamente nas costas do Oceano Atlântico.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> A organização política clássica dos maias era descentralizada, baseada em cidades-estado soberanas (como Tikal e Palenque) que interagiam por meio de alianças comerciais, casamentos dinásticos e conflitos bélicos, assemelhando-se ao modelo das pólis da Grécia Antiga.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O alto grau de precisão dos calendários maias e o desenvolvimento de seus conhecimentos astronômicos e matemáticos, incluindo o uso do zero, demonstram a sofisticação intelectual desse povo pré-colombiano."</em> Historicamente, a principal motivação prática que impulsionou o avanço da astronomia e da contagem do tempo entre os maias foi:</p>
+        <ul>
+          <li>A) a necessidade de prever rotas marítimas comerciais transatlânticas para a Europa.</li>
+          <li>B) a estruturação dos ciclos agrícolas (como o plantio e a colheita do milho) e a organização dos rituais religiosos cíclicos.</li>
+          <li>C) a obrigação de registrar impostos cobrados em moeda metálica de ouro por um imperador central.</li>
+          <li>D) a invenção de relógios mecânicos de bolso importados da Ásia.</li>
+          <li>E) o estabelecimento de leis civis voltadas exclusivamente para o direito comercial marítimo.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A ciência e a matemática entre os maias estavam profundamente atreladas à religião e à sobrevivência material. O domínio dos ciclos astronômicos permitia prever as estações chuvosas e secas, regulando rigorosamente o calendário agrícola do milho e as festividades litúrgicas.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>
