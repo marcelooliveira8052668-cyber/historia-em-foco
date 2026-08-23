@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Revolução Francesa: Liberdade, Igualdade e Fraternidade | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Idade Contemporânea</h1>
+      <p>Período: 1789 - 1799</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Revolução Francesa: Liberdade, Igualdade e Fraternidade</h2>
+        
+        <p>A **Revolução Francesa** (1789–1799) constitui um dos marcos mais decisivos da história ocidental, assinalando o fim da Idade Moderna e o início da **Idade Contemporânea**. O movimento implodiu as estruturas do Antigo Regime na França — caracterizado pelo absolutismo monárquico e pela desigualdade estamental baseada no privilégio de nascimento —, sacudindo as bases do feudalismo remanescente e abrindo caminho para a consolidação da ordem burguesa e capitalista liberal.</p>
+        
+        <p>A crise estrutural francesa no final do século XVIII combinava colapsos agrícolas, déficits financeiros crônicos agravados pelo apoio à independência dos EUA e o peso tributário exclusivo recaindo sobre o **Terceiro Estado** (composto por burgueses, camponeses e trabalhadores urbanos), enquanto o Primeiro Estado (clero) e o Segundo Estado (nobreza) gozavam de isenções fiscais. A insatisfação popular e burguesa explodiu em julho de 1789 com a **Queda da Bastilha**, símbolo da opressão absolutista. O processo desdobrou-se em fases distintas: a Assembleia Constituinte (que aboliu os privilégios feudais e promulgou a *Declaração dos Direitos do Homem e do Cidadão*), a Monarquia Constitucional, a radicalização da **Convenção Nacional** (marcada pela proclamação da República, execução de Luís XVI e o período do Terror jacobino liderado por Robespierre) e, finalmente, o **Diretório**, fase de instabilidade que abriu espaço para a ascensão militar de Napoleão Bonaparte em 1799.</p>
+
+        <p>O impacto da Revolução Francesa transcendeu as fronteiras da França. Ao consagrar os ideais iluministas de <em>liberdade, igualdade e fraternidade</em>, a revolução inspirou revoltas anticoloniais nas Américas (como a Revolução Haitiana) e transformou permanentemente a concepção de cidadania, soberania popular e direitos civis em todo o mundo ocidental.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A Revolução Francesa de 1789 rompeu com a ordem absolutista e estamental do Antigo Regime. Entre os fatores de ordem social e econômica que precipitaram o descontentamento do Terceiro Estado contra as classes privilegiadas, destaca-se:</p>
+        <ul>
+          <li>A) a aliança militar entre a nobreza feudal e o campesinato para abolir o pagamento de impostos à coroa.</li>
+          <li>B) o monopólio exclusivo do clero e da nobreza sobre as terras produtivas, somado à total isenção tributária dessas classes em contraste com os pesados impostos pagos pelo restante da população.</li>
+          <li>C) a decisão real de estatizar o comércio internacional de tecidos em benefício direto das corporações de ofício medievalescas.</li>
+          <li>D) a abolição da escravidão colonial decretada pelos monarcas absolutistas franceses no início do século XVIII.</li>
+          <li>E) a implementação de um sistema democrático direto de sufrágio universal masculino controlado pelos camponeses.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A sociedade francesa do Antigo Regime era estamental e profundamente desigual. O Primeiro Estado (clero) e o Segundo Estado (nobreza) detinham privilégios e não pagavam impostos, sobrecarregando o Terceiro Estado (burguesia, trabalhadores e camponeses), principal fator de insatisfação que motivou a revolução.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A Declaração dos Direitos do Homem e do Cidadão, aprovada em 1789 pela Assembleia Constituinte francesa, sintetizou os ideais iluministas ao proclamar a liberdade individual, a igualdade jurídica perante a lei e a inviolabilidade da propriedade privada."</em> Esse documento histórico expressa diretamente os interesses políticos e econômicos de qual grupo social em ascensão?</p>
+        <ul>
+          <li>A) Da alta hierarquia da Igreja Católica, interessada em ampliar o poder temporal sobre o Estado secular.</li>
+          <li>B) Dos senhores feudais absolutistas, defensores da restauração dos antigos domínios senhoriais.</li>
+          <li>C) Da burguesia, que buscava derrubar os entraves mercantis e jurídicos do Antigo Regime para consolidar o liberalismo econômico e político.</li>
+          <li>D) Dos monarcas absolutistas, que pretendiam centralizar ainda mais os poderes executivos em suas mãos.</li>
+          <li>E) Do proletariado industrial urbano, que já detinha o controle legislativo completo do país durante a fase inicial da revolução.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A Declaração de 1789 refletiu fundamentalmente os anseios da burguesia, que liderou a primeira fase da Revolução Francesa visando à garantia da liberdade contratual, da igualdade jurídica e da proteção à propriedade privada, pilares fundamentais do capitalismo liberal.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

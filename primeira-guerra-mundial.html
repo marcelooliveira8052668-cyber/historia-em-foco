@@ -1,66 +1,241 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Primeira Guerra Mundial: Do Imperialismo à Destruição | História em Foco</title>
+    <title>A Primeira Guerra Mundial | Acervo de História</title>
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        content: "";
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        content: "";
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
     </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Século XX</h1>
+      <p>Período: 1914 - 1918</p>
+    </header>
 
     <div class="container">
-        <h1>A Primeira Guerra Mundial: Do Imperialismo à Destruição 🌍💣</h1>
+      <div class="article-card">
+        <h2>A Primeira Guerra Mundial</h2>
+        
+        <p>A **Primeira Guerra Mundial** (1914–1918) representou um marco trágico de ruptura na história contemporânea, caracterizando-se como o primeiro conflito de proporções planetárias e industriais da humanidade. O terreno para a guerra foi fertilizado por décadas de tensões imperialistas acirradas decorrentes da Segunda Revolução Industrial, disputas por mercados e colônias na África e na Ásia, pelo nacionalismo exacerbado (como o pangermanismo e o paneslavismo) e pela intensa **"Paz Armada"**, período em que as grandes potências europeias acumularam arsenais bélicos massivos e firmaram alianças militares defensivas e ofensivas rígidas, dividindo o continente entre a **Tríplice Entente** (França, Reino Unido e Rússia) e a **Tríplice Aliança** (Alemanha, Áustria-Hungria e Itália — embora esta última tenha mudado de lado posteriormente).</p>
+        
+        <p>O estopim para o irrompimento das hostilidades ocorreu em 28 de junho de 1914, com o **Atentado de Sarajevo**, no qual o arquiduque Francisco Ferdinando, herdeiro do trono austro-húngaro, foi assassinado por um nacionalista sérvio. Esse evento ativou o sistema de alianças em cadeia, arrastando as nações para a guerra. Após uma fase inicial de movimentação rápida, o conflito estagnou na famosa **Guerra de Trincheiras** (1915–1917), marcada pelo uso letal de novas tecnologias bélicas mortíferas, como metralhadoras, tanques, lança-chamas, aviões de combate e armas químicas (gases venenosos). Em 1917, dois fatos alteraram os rumos da guerra: a saída da Rússia czarista, abalada pela Revolução Russa, e a entrada decisiva dos Estados Unidos ao lado da Entente, fornecendo fôlego financeiro e militar insuperável. O colapso das Potências Centrais culminou no armistício de novembro de 1918.</p>
 
-        <img src="https://i.pinimg.com/736x/87/1b/30/871b30b4274c3e34b46c6e7a6857189a.jpg" alt="A Primeira Guerra Mundial" />
+        <p>As consequências geopolíticas foram sísmicas: o desmantelamento de quatro grandes impérios seculares (Alemão, Austro-Húngaro, Otomano e Russo), a reconfiguração territorial do mapa mundial, a criação da Liga das Nações e a imposição do punitivo *Tratado de Versalhes* à Alemanha, cujo revanchismo econômico e social plantou as sementes para a eclosão da Segunda Guerra Mundial duas décadas mais tarde.</p>
 
-        <p>A <strong>Primeira Guerra Mundial (1914–1918)</strong> foi o resultado de décadas de tensões acumuladas pelo imperialismo, nacionalismo exacerbado e pela corrida armamentista (Paz Armada). O estopim do conflito foi o assassinato do arquiduque Francisco Ferdinando, ativando o sistema de alianças na Europa.</p>
-
-        <h2>1. Os Blocos e a Guerra de Trincheiras</h2>
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O período que antecedeu a Primeira Guerra Mundial ficou conhecido como "Paz Armada", caracterizado pela corrida armamentista e pela formação de blocos militares antagônicos na Europa. Sobre as causas estruturais que deflagraram esse conflito, é correto afirmar que:</p>
         <ul>
-            <li><strong>Alianças Militares:</strong> Dividida entre a <em>Tríplice Entente</em> (Reino Unido, França e Rússia) e a <em>Tríplice Aliança</em> (Alemanha, Império Austro-Húngaro e Itália).</li>
-            <li><strong>O Horror das Trincheiras:</strong> O conflito estagnou em valas precárias na terra, marcadas por lama, doenças e pelo uso de tecnologias industriais mortíferas (metralhadoras, tanques e armas químicas).</li>
+          <li>A) decorreu exclusivamente de desentendimentos religiosos entre o Vaticano e os governos seculares da Ásia central.</li>
+          <li>B) resultou das disputas imperialistas por mercados consumidores, matérias-primas e colônias na África e na Ásia, somadas ao nacionalismo agressivo e às rivalidades geopolíticas europeias.</li>
+          <li>C) foi motivado pela tentativa conjunta das potências europeias de conter o expansionismo militar do Império Japonês sobre o Mar Mediterrâneo.</li>
+          <li>D) originou-se do acordo pacífico de desarmamento geral assinado por todas as potências industriais no Congresso de Viena.</li>
+          <li>E) decorreu da crise agrária mundial provocada pela escassez de trigo na América do Norte.</li>
         </ul>
-
-        <h2>2. O Tratado de Versalhes e o Revanchismo</h2>
-        <p>A derrota alemã em 1918 levou ao rigoroso <strong>Tratado de Versalhes (1919)</strong>. Altamente punitivo, impôs à Alemanha a perda de territórios, severas reduções militares, pesadas indenizações e a exclusão da "Cláusula de Culpa" exclusiva pela guerra. Essa humilhação alimentou um profundo sentimento de revanchismo, abrindo caminho para a ascensão do Nazismo.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Considerando o papel do Imperialismo na eclosão da Primeira Guerra Mundial, é correto afirmar que os conflitos entre as potências europeias eram movidos principalmente pela:</p>
-        <p>A) Necessidade de cooperar economicamente para o desenvolvimento sustentável das nações.<br>B) Disputa por mercados consumidores, matérias-primas e zonas de influência colonial.<br>C) Vontade de extinguir a indústria pesada e retornar ao modo artesanal.<br>D) Defesa ferrenha da democracia liberal por parte de todas as monarquias.</p>
         <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: A busca desenfreada por mercados, matérias-primas e colônias na África e na Ásia gerou rivalidades geopolíticas profundas que culminaram no conflito mundial.</em>
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A Grande Guerra teve raízes profundas nas disputas imperialistas geradas pelo capitalismo industrial avançado, na corrida colonial e na exaltação de nacionalismos ferrenhos, que alimentaram a desconfiança mútua e a corrida armamentista entre as potências europeias.</p>
         </div>
 
-        <p><strong>Questão 2</strong><br>A guerra de trincheiras incorporava tecnologias modernas de destruição. Essa mudança na dinâmica militar provocou na vida dos soldados uma realidade marcada por:</p>
-        <p>A) Estratégias baseadas no combate corpo a corpo em campos abertos e cavalheirescos.<br>B) Um conflito ágil decidido pela superioridade da cavalaria montada.<br>C) Longos períodos de confinamento em valas precárias, sob fogo constante de artilharia e uso de armas químicas, gerando traumas e mortes industriais.<br>D) Ausência total de baixas e preservação da infraestrutura civil.</p>
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Durante a maior parte da Primeira Guerra Mundial, o conflito terrestre na frente ocidental caracterizou-se pela estagnação tática das trincheiras, onde os soldados enfrentavam lama, doenças, artilharia pesada e gases tóxicos, sem conseguir avançar significativamente sobre as linhas inimigas."</em> Essa modalidade de combate prolongado foi diretamente influenciada por:</p>
+        <ul>
+          <li>A) o avanço tecnológico industrial aplicado à defesa militar, que tornou o poder de fogo das armas (metralhadoras e artilharia) muito superior à capacidade de mobilidade e avanço da infantaria.</li>
+          <li>B) a ausência total de armamento moderno, o que obrigava os exércitos a combaterem exclusivamente com espadas e lanças medievais.</li>
+          <li>C) a decisão unânime dos generais de evitar qualquer tipo de confronto direto para preservar integralmente a vida das tropas.</li>
+          <li>D) a proibição internacional do uso de ferrovias e automóveis nos teatros de operações militares europeus.</li>
+          <li>E) o isolamento geográfico absoluto dos campos de batalha, situados em ilhas desérticas do Oceano Pacífico.</li>
+        </ul>
         <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: A guerra moderna transformou o campo de batalha em uma linha industrial de morte, confinando os soldados a trincheiras sob artilharia pesada e gases tóxicos.</em>
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> A guerra de trincheiras reflete o impacto da Segunda Revolução Industrial no campo de batalha: as inovações defensivas, como metralhadoras e arames farpados, superaram em eficiência tática as táticas tradicionais de avanço a pé, gerando o imobilismo e o alto índice de mortalidade.</p>
         </div>
-
-        <p><strong>Questão 3</strong><br>O sentimento de revanchismo alemão gerado pelas cláusulas do Tratado de Versalhes foi um fator determinante para:</p>
-        <p>A) O fortalecimento da diplomacia internacional pacifista.<br>B) A transição imediata da Alemanha para um regime democrático pacífico.<br>C) A crise econômica persistente e a subsequente ascensão de movimentos nacionalistas radicais, como o Nazismo.<br>D) A formação de uma aliança militar permanente entre Alemanha e França.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: As duras sanções de Versalhes arruinaram a economia alemã e geraram revolta social, criando o terreno fértil para a promessa extremista e nacionalista do Nazismo.</em>
-        </div>
+      </div>
     </div>
-</body>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
 </html>

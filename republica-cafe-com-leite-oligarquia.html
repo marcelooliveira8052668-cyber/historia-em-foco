@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A República do Café com Leite e a Oligarquia | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Brasil República</h1>
+      <p>Período: 1894 - 1930</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A República do Café com Leite e a Oligarquia</h2>
+        
+        <p>A fase compreendida entre **1894 e 1930**, conhecida na historiografia brasileira como a **República Oligárquica**, representou o período de consolidação do regime republicano sob o domínio político de elites agrárias regionais. O eixo central dessa estrutura de poder apoiava-se na chamada **"Política do Café com Leite"**, um arranjo informal de revezamento na presidência da República protagonizado principalmente pelos estados de **São Paulo** (maior produtor mundial e potência cafeeira) e de **Minas Gerais** (destaque na produção leiteira e maior colégio eleitoral do país). Esse pacto interestadual garantia a estabilidade e a preservação dos interesses das oligarquias dominantes, marginalizando outras forças políticas regionais e impedindo a alternância democrática ampla.</p>
+        
+        <p>A sustentação dessa engrenagem política apoiava-se em pilares como a **Política dos Governadores** — idealizada por Campos Salles, consistia em uma aliança mútua em que o governo federal apoiava os governadores estaduais e estes garantiam a eleição de bancadas fiéis no Congresso Nacional — e o robusto **coronelismo**, sistema de controle político local exercido por grandes proprietários de terras (os coronéis) que utilizavam a coerção, a dependência econômica e a fraude eleitoral generalizada (o voto de cabresto) para ditar a vontade dos eleitores rurais. No plano econômico, o foco principal era a proteção da economia cafeeira através de intervenções estatais diretas, como o <em>Convênio de Taubaté</em> (1906), que garantia a compra e o armazenamento dos estoques excedentes de café pelo governo para evitar a queda dos preços internacionais. Contudo, essa concentração de poder gerou profundas resistências e revoltas populares urbanas e rurais (como a Revolta da Vacina, a Revolta da Chibata, a Guerra de Canudos e o Contestado) e o descontentamento militar corporativo expresso no **Tenentismo**, culminando na Revolução de 1930, que rompeu com a hegemonia oligárquica e encerrou a Primeira República.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Durante a República Oligárquica (1894-1930), a estabilidade política do regime era garantida por mecanismos de controle institucional e poder local, sintetizados na chamada Política dos Governadores e no coronelismo. Sobre o funcionamento do coronelismo e do voto de cabresto nesse contexto, é correto afirmar que:</p>
+        <ul>
+          <li>A) a fiscalização eleitoral rigorosa exercida por tribunais independentes impediu qualquer tipo de fraude ou manipulação nas urnas do interior brasileiro.</li>
+          <li>B) o voto secreto universal foi prontamente aplicado em 1891, garantindo total liberdade de escolha aos camponeses frente aos grandes proprietários de terras.</li>
+          <li>C) os chefes políticos locais utilizavam a dependência socioeconômica, a violência e a coação para obrigar os eleitores rurais a votarem nos candidatos indicados pelas oligarquias.</li>
+          <li>D) os partidos operários urbanos detinham o monopólio das indicações políticas em aliança direta com os barões do café.</li>
+          <li>E) o governo federal intervia sistematicamente nos estados para destituir governadores oligárquicos e promover eleições multipartidárias livres.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> O coronelismo fundamentava-se no poder dos grandes proprietários rurais (os coronéis), que exploravam a vulnerabilidade e a dependência da população local para impor o voto direcionado (voto de cabresto), assegurando a vitória dos candidatos da máquina oligárquica.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O Convênio de Taubaté, assinado em 1906 por governadores de estados produtores de café, estabeleceu um compromisso de intervenção do governo federal na economia cafeeira, assumindo o ônus financeiro de comprar e estocar o excesso de produção."</em> Essa política econômica adotada na Primeira República evidencia que:</p>
+        <ul>
+          <li>A) o Estado brasileiro atuava de forma liberal estrita, recusando-se a socorrer qualquer setor produtivo agrícola em crise.</li>
+          <li>B) os interesses da principal oligarquia exportadora do país dictavam as diretrizes econômicas estatais, transferindo prejuízos privados para o conjunto da sociedade através da socialização das pérdidas do café.</li>
+          <li>C) a industrialização urbana foi priorizada em detrimento da agricultura de exportação desde o início do século XX.</li>
+          <li>D) os preços internacionais do café eram controlados diretamente por sindicatos operários em âmbito global.</li>
+          <li>E) o setor leiteiro mineiro financiava integralmente o desenvolvimento industrial da região sul do país.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A política cafeeira da Primeira República protegia os lucros dos grandes produtores de café por meio da intervenção estatal, socializando as perdas e garantindo a rentabilidade do setor agrário dominante à custa dos cofres públicos.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>

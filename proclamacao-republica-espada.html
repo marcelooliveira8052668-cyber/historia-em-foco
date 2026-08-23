@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Proclamação da República e a República da Espada | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2.2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Brasil República</h1>
+      <p>Período: 1889 - 1894</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Proclamação da República e a República da Espada</h2>
+        
+        <p>A **Proclamação da República**, ocorrida em **15 de novembro de 1889**, encerrou o período imperial brasileiro (1822–1889) sob a liderança de um movimento cívico-militar liderado pelo marechal Deodoro da Fonseca. A queda da monarquia não foi fruto de uma revolução popular ampla, mas sim o desfecho da perda de sustentação política do regime de Dom Pedro II. O Império alienou progressivamente suas bases tradicionais de apoio: a Igreja Católica (após a Questão Religiosa), os grandes proprietários de terras e escravos (descontentes com a Abolição da Escravidão de 1888 sem indenizações, o que os afastou do trono) e os setores militares modernizantes (os "jangadeiros" e positivistas da Escola Militar da Praia Vermelha), que exigiam maior autonomia política, valorização profissional e reformas estruturais.</p>
+        
+        <p>O período inicial da nova forma de governo, que se estendeu de 1889 a 1894, ficou conhecido na historiografia como a **República da Espada**, marcado diretamente pelo controle do poder executivo por presidentes militares: o próprio **Marechal Deodoro da Fonseca** (1889–1891) e o **Marechal Floriano Peixoto** (1891–1894). Essa fase inaugural foi intensamente turbulenta e caracterizada por forte centralização autoritária, disputas institucionais e crises econômicas. Destaque para a consolidação da primeira Constituição republicana em 1891, a nefasta crise financeira do *Encilhamento* (provocada por uma política de emissão descontrolada de papel-moeda voltada ao estímulo industrial que gerou inflação e especulação galopante) e graves revoltas armadas de oposição, como a Revolta da Armada e a Revolução Federalista.</p>
+
+        <p>Com a renúncia de Deodoro e a condução firme de Floriano Peixoto na contenção das oposições, a República da Espada pavimentou o caminho para a transição definitiva ao poder civil oligárquico, inaugurando em 1894 a chamada República Oligárquica com a posse de Prudente de Morais.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A Proclamação da República no Brasil, em 15 de novembro de 1889, resultou de uma articulação entre o Exército e insatisfeitos com a monarquia. A frase atribuída a Aristides Lobo — <em>"o povo assistiu a tudo bestializado, atônito, surpreso, sem compreender o que significava"</em> — reflete a seguinte característica desse processo histórico:</p>
+        <ul>
+          <li>A) a ampla participação popular direta nas ruas que exigia o sufrágio universal e a reforma agrária radical.</li>
+          <li>B) o caráter essencialmente elitista e militar da mudança de regime, na qual a população urbana e rural não foi consultada nem integrou ativamente a conspiração política.</li>
+          <li>C) a aliança imediata entre os republicanos históricos e os antigos líderes escravocratas para instaurar o socialismo agrário.</li>
+          <li>D) a preservação intacta de todas as instituições e títulos nobiliárquicos do Império sob a nova bandeira nacional.</li>
+          <li>E) a descentralização radical do poder que transferiu o comando político para os conselhos populares municipais.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A Proclamação da República brasileira foi um golpe militar articulado por elites agrárias e oficiais do Exército, ocorrendo sem mobilização ou mobilidade das camadas populares, que assistiram passivamente à queda do Império.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A fase inaugural da República brasileira, denominada República da Espada (1889-1894), foi marcada por intensos conflitos políticos, crises econômicas especulativas e pela centralização do poder nas mãos de presidentes militares."</em> Entre os episódios econômicos e institucionais que marcaram esse período específico, destaca-se:</p>
+        <ul>
+          <li>A) a consolidação da política do café com leite e o revezamento pacífico entre paulistas e mineiros na presidência.</li>
+          <li>B) a crise do Encilhamento, caracterizada por forte especulação financeira, emissão desenfreada de moeda e inflação elevada decorrentes de reformas econômicas liberais fracassadas.</li>
+          <li>C) a abolição definitiva do latifúndio e a imediata distribuição de títulos de terra a todos os ex-escravizados.</li>
+          <li>D) a assinatura de acordos militares com o Império Britânico para restaurar a monarquia parlamentarista.</li>
+          <li>E) o estabelecimento do parlamentarismo às avessas com ampla autonomia dos gabinetes ministeriais perante o parlamento.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A política econômica implementada por Rui Barbosa no início da República da Espada, conhecida como Encilhamento, visava estimular a industrialização via facilitação de crédito e emissão de papel-moeda, resultando em uma enorme bolha especulativa, inflação crônica e desestabilização econômica.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+</html>
