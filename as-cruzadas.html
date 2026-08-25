@@ -1,124 +1,392 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>As Cruzadas: Choque de Mundos e Transformações | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As Cruzadas: Choque de Mundos e Transformações — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1599725841764-16a84d2847d0?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .btn-theme {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .btn-theme:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .btn-theme { position: static; margin: 0 auto 1.5rem auto; width: fit-content; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <button class="btn-theme" id="themeToggle"><span>☀️ / 🌙</span> Tema</button>
+      <div class="header-badge">Idade Média Ocidental e Oriental</div>
+      <h1>As Cruzadas: Choque de Mundos e Transformações</h1>
+    </header>
 
     <div class="container">
-        <h1>As Cruzadas: Choque de Mundos e Transformações ⚔️✝️</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. Contexto e Motivações das Cruzadas</h2>
+        <p>As Cruzadas foram expedições militares e religiosas organizadas pela cristandade ocidental entre os séculos XI e XIII, com o objetivo oficial de reconquistar Jerusalém e os Lugares Santos que estavam sob o domínio muçulmano. O apelo oficial foi lançado pelo Papa Urbano II em 1095, no Concílio de Clermont, prometendo a remissão de pecados aos combatentes.</p>
+        
+        <p>No entanto, por trás do discurso estritamente religioso, havia profundas motivações socioeconômicas e políticas. A Europa vivia o apogeu do feudalismo, marcado pelo crescimento demográfico, pela escassez de terras cultiváveis (devido à primogenitura, onde apenas o filho mais velho herdava os bens) e pela inquietação de uma classe militar nobre (os cavaleiros) acostumada a constantes guerras internas.</p>
 
-        <img src="https://imgv2-1-f.scribdassets.com/img/document/1012536590/original/6ed56580fe/1?v=1" alt="As Cruzadas e o Oriente Médio" />
+        <h2>2. A Dinâmica dos Conflitos e o Choque Cultural</h2>
+        <p>Ao longo de oito cruzadas principais (além de expedições menores e populares), cruzados europeus entraram em contato direto com civilizações altamente desenvolvidas, como o Império Bizantino e o mundo islâmico. Esse contato gerou um intenso intercâmbio cultural e científico.</p>
 
-        <p>As Cruzadas (séculos XI a XIII) foram expedições militares e religiosas promovidas pela cristandade ocidental. Oficialmente voltadas para a reconquista de Jerusalém, elas refletiram complexos interesses políticos, sociais e econômicos da Baixa Idade Média.</p>
-
-        <h2>1. Contexto e Motivações</h2>
-        <ul>
-            <li><strong>Pressão Demográfica e Primogenitura:</strong> O crescimento populacional e a lei em que apenas o filho mais velho herdava os bens deixaram muitos nobres sem terras e guerreiros ociosos.</li>
-            <li><strong>Apelo Papal:</strong> Em 1095, o Papa Urbano II convocou as campanhas prometendo remissão de pecados e novas oportunidades de terras no Oriente.</li>
-            <li><strong>Interesses Comerciais:</strong> As repúblicas marítimas italianas viram na expansão a chance de reabrir e dominar as rotas comerciais no mar Mediterrâneo.</li>
-        </ul>
-
-        <h2>2. O Impacto Histórico e o Renascimento Comercial</h2>
-        <p>Apesar do controle temporário de Jerusalém, o principal legado das Cruzadas foi a intensificação do intercâmbio cultural e comercial com o Oriente Próximo. O fluxo de especiarias e produtos exóticos estimulou a circulação monetária, impulsionando o crescimento das cidades (burgos) e enfraquecendo gradualmente as estruturas do feudalismo.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Entre os fatores que impulsionaram as Cruzadas entre os séculos XI e XIII, destaca-se:</p>
-        <p>A) O isolamento total e permanente entre a Europa e o Oriente Médio.<br>B) A pressão demográfica na Europa, a escassez de terras decorrente da regra de herança e a busca por novas rotas e riquezas comerciais.<br>C) A consolidação absoluta da descentralização feudal e o encarecimento drástico dos produtos.<br>D) A imposição de um sistema econômico igualitário.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: As Cruzadas foram alimentadas por fatores socioeconômicos, como o crescimento populacional, a falta de terras para os filhos mais novos da nobreza e o interesse das cidades italianas.</em>
+        <div class="highlight-box">
+          <p><strong>🌍 Intercâmbio e Conhecimento:</strong> Enquanto militarmente as Cruzadas tiveram resultados mistos (com conquistas efêmeras de reinos cristãos no Oriente e o recrudescimento das rivalidades religiosas), culturalmente elas propiciaram a reabertura do Mar Mediterrâneo, permitindo o fluxo de conhecimentos clássicos preservados pelos árabes, avanços na medicina, matemática e o contato com especiarias orientais.</p>
         </div>
 
-        <p><strong>Questão 2</strong><br>A partir do contato com os mercados do Oriente Próximo proporcionado pelo movimento cruzadista, a principal consequência econômica para a Europa ocidental foi:</p>
-        <p>A) A estagnação completa do comércio monetário e retorno aos feudos isolados.<br>B) O fortalecimento exclusivo do poder dos senhores feudais locais.<br>C) O renascimento comercial e urbano, que contribuiu para o enfraquecimento gradual das estruturas do sistema feudal.<br>D) A transição imediata para o capitalismo industrial.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: O intercâmbio dinamizou o comércio de longa distância e o uso da moeda, impulsionando os burgos e enfraquecendo a autossuficiência do feudalismo.</em>
+        <h2>3. O Declínio do Feudalismo e o Renascimento Comercial</h2>
+        <p>As consequências econômicas das Cruzadas foram fundamentais para a crise da Idade Média central. A necessidade de transporte, abastecimento e financiamento das tropas reativou rotas comerciais terrestres e marítimas, impulsionando cidades comerciais italianas (como Veneza e Gênova).</p>
+        <p>Além disso, muitos senhores feudais faleceram nas batalhas ou venderam suas terras/concederam liberdades a servos em troca de dinheiro para custear a viagem, enfraquecendo o poder descentralizado do feudalismo e fortalecendo gradualmente a autoridade dos reis e o ressurgimento da vida urbana e monetária.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">As Cruzadas, embora motivadas oficialmente pelo fervor religioso de libertar Jerusalém, inseriram-se num contexto mais amplo de transformações da sociedade feudal europeia no final do século XI. O crescimento demográfico associado à regra da primogenitura gerou uma massa de cavaleiros errantes e sem terras, enquanto a Igreja buscava canalizar a violência endógena da nobreza para o exterior.</p>
+          <p>Com base no texto e nos desdobramentos históricos do movimento cruzadista, qual foi o seu principal impacto na estrutura socioeconômica da Europa Ocidental?</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A consolidação definitiva do isolamento econômico dos feudos, eliminando o comércio de longa distância.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O fortalecimento do poder político dos senhores feudais locais em detrimento da autoridade centralizada dos monarcas.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O reaquecimento das rotas comerciais no Mar Mediterrâneo e o estímulo ao renascimento urbano e mercantil.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A abolição imediata da servidão em toda a Europa devido à escassez de mão de obra provocada pelas mortes nas guerras.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A submissão total da Igreja Católica ao poder militar dos impérios orientais conquistados.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> O movimento cruzadista reabriu as rotas do Mediterrâneo, conectando o Ocidente ao Oriente e impulsionando o comércio de especiarias e produtos de luxo, o que dinamizou as cidades e enfraqueceu o modelo estritamente autossuficiente do feudalismo.</p>
+          </div>
         </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“As expedições cruzadas colocaram em contato mundos até então distantes e culturalmente distintos. A Europa feudal, de economia agrária e forte controle ideológico da Igreja, deparou-se com o esplendor urbano e científico do mundo islâmico e do Império Bizantino. Desse choque e intercâmbio resultou uma ampla circulação de saberes, textos clássicos e mercadorias.”</p>
+          <p>O texto enfatiza que o movimento cruzadista, para além do conflito militar armado, gerou um importante processo de:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Homogeneização cultural absoluta, que apagou as diferenças entre o Ocidente cristão e o Oriente muçulmano.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Intercâmbio cultural e circulação de conhecimentos que estimularam o desenvolvimento intelectual europeu.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Estagnação científica decorrente do fechamento das universidades medievais frente aos saberes estrangeiros.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Colonização agrária europeia do Oriente Médio, transplantando o modelo feudal de servidão para as terras árabes permanentemente.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Supremacia econômica exclusiva das tribos nômades da Ásia Central sobre o comércio mediterrâneo.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O contato com o Oriente permitiu aos europeus resgatar e absorver conhecimentos avançados em áreas como medicina, matemática e filosofia (muitos preservados e ampliados pelos árabes), o que oxigenou a cultura escolástica e preparou o terreno para futuras transformações intelectuais na Europa.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>As Cruzadas: Choque de Mundos e Transformações | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>As Cruzadas: Choque de Mundos e Transformações ⚔️✝️</h1>
-
-        <img src="https://i.pinimg.com/736x/87/1b/30/871b30b4274c3e34b46c6e7a6857189a.jpg" alt="As Cruzadas e o Oriente Médio" />
-
-        <p>As Cruzadas (séculos XI a XIII) foram expedições militares e religiosas promovidas pela cristandade ocidental. Oficialmente voltadas para a reconquista de Jerusalém, elas refletiram complexos interesses políticos, sociais e econômicos da Baixa Idade Média.</p>
-
-        <h2>1. Contexto e Motivações</h2>
-        <ul>
-            <li><strong>Pressão Demográfica e Primogenitura:</strong> O crescimento populacional e a lei em que apenas o filho mais velho herdava os bens deixaram muitos nobres sem terras e guerreiros ociosos.</li>
-            <li><strong>Apelo Papal:</strong> Em 1095, o Papa Urbano II convocou as campanhas prometendo remissão de pecados e novas oportunidades de terras no Oriente.</li>
-            <li><strong>Interesses Comerciais:</strong> As repúblicas marítimas italianas viram na expansão a chance de reabrir e dominar as rotas comerciais no mar Mediterrâneo.</li>
-        </ul>
-
-        <h2>2. O Impacto Histórico e o Renascimento Comercial</h2>
-        <p>Apesar do controle temporário de Jerusalém, o principal legado das Cruzadas foi a intensificação do intercâmbio cultural e comercial com o Oriente Próximo. O fluxo de especiarias e produtos exóticos estimulou a circulação monetária, impulsionando o crescimento das cidades (burgos) e enfraquecendo gradualmente as estruturas do feudalismo.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Entre os fatores que impulsionaram as Cruzadas entre os séculos XI e XIII, destaca-se:</p>
-        <p>A) O isolamento total e permanente entre a Europa e o Oriente Médio.<br>B) A pressão demográfica na Europa, a escassez de terras decorrente da regra de herança e a busca por novas rotas e riquezas comerciais.<br>C) A consolidação absoluta da descentralização feudal e o encarecimento drástico dos produtos.<br>D) A imposição de um sistema econômico igualitário.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: As Cruzadas foram alimentadas por fatores socioeconômicos, como o crescimento populacional, a falta de terras para os filhos mais novos da nobreza e o interesse das cidades italianas.</em>
-        </div>
-
-        <p><strong>Questão 2</strong><br>A partir do contato com os mercados do Oriente Próximo proporcionado pelo movimento cruzadista, a principal consequência econômica para a Europa ocidental foi:</p>
-        <p>A) A estagnação completa do comércio monetário e retorno aos feudos isolados.<br>B) O fortalecimento exclusivo do poder dos senhores feudais locais.<br>C) O renascimento comercial e urbano, que contribuiu para o enfraquecimento gradual das estruturas do sistema feudal.<br>D) A transição imediata para o capitalismo industrial.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: O intercâmbio dinamizou o comércio de longa distância e o uso da moeda, impulsionando os burgos e enfraquecendo a autossuficiência do feudalismo.</em>
-        </div>
-    </div>
-</body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>
