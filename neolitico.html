@@ -1,155 +1,400 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Revolução Neolítica | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Revolução Neolítica: Da Terra à Aldeia — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">Pré-História e Revolução Agrícola</div>
+      <h1>A Revolução Neolítica: Da Terra à Aldeia</h1>
+    </header>
 
     <div class="container">
-        <h1>A Revolução Neolítica: Da Terra à Aldeia 🌾🏡</h1>
-
-        <img src="neolitico.jpg" alt="Revolução Neolítica" />
-
-        <p>O <strong>Neolítico</strong> (ou Idade da Pedra Polida) representa uma das maiores transformações da história da humanidade. Se no Paleolítico o ser humano dependia inteiramente do que a natureza oferecia de forma espontânea, no Neolítico ele aprendeu a produzir o próprio alimento.</p>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Ruptura Agrícola e o Surgimento do Sedentarismo</h2>
+        <p>Por volta de 10.000 a.C., as mudanças climáticas decorrentes do fim da última Era Glacial alteraram drasticamente a flora e a fauna do planeta. Nesse contexto, em regiões como o Crescente Fértil (Oriente Médio), os seres humanos desenvolveram a agricultura (cultivo de cereais como trigo e cevada) e a domesticação de animais (como cabras, ovelhas e porcos).</p>
         
-        <p>Essa grande reviravolta é conhecida como <strong>Revolução Agrícola</strong> e mudou para sempre a organização social e o modo como vivemos até hoje:</p>
+        <p>Essa transformação profunda é historicamente chamada de <strong>Revolução Neolítica</strong> ou Idade da Pedra Polida. O controle sobre a produção de alimentos substituiu a antiga economia puramente coletora e caçadora, permitindo que os grupos humanos abandonassem o nomadismo e se fixassem na terra, dando origem aos primeiros povoados e aldeias estáveis.</p>
 
-        <ul>
-            <li><strong>A Agricultura e a Pecuária:</strong> Ao perceberem que as sementes caídas germinavam e que animais podiam ser criados e reproduzidos em cativeiro, os grupos humanos deixaram de ser apenas coletores e caçadores. Eles agora podiam plantar trigo, cevada, criar ovelhas, cabras e porcos.</li>
-            <li><strong>O Fim do Nomadismo e o Sedentarismo:</strong> Como a agricultura exigia cuidados constantes com o plantio, a rega e a colheita, as famílias não podiam mais mudar de lugar o tempo todo. Surgiram, então, as primeiras aldeias fixas (sedentarismo), com a construção de moradias mais resistentes feitas de barro, madeira e pedra.</li>
-            <li><strong>Novas Tecnologias e Organização Social:</strong> Com a fixação nas aldeias, houve tempo para o desenvolvimento da cerâmica (para armazenar grãos e cozinhar), da tecelagem (com fibras de plantas e lã) e de ferramentas de pedra polida. O excedente de comida gerado também permitiu o início do comércio e a divisão do trabalho na comunidade.</li>
-        </ul>
+        <h2>2. Novas Tecnologias e a Divisão do Trabalho</h2>
+        <p>A vida nas aldeias exigiu o desenvolvimento de novas tecnologias. A pedra polida substituiu as lascas rústicas, oferecendo ferramentas mais duráveis e eficientes para o corte e o manejo do solo. Além disso, surgiram a tecelagem (com o uso de fibras vegetais e lã) e a cerâmica, essencial para o armazenamento e cozimento dos excedentes alimentares.</p>
 
-        <p><em>Prof. Marcelo Oliveira — História Geral.</em></p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões estilo ENEM para testar seus conhecimentos 📝</h2>
-
-        <p><strong>Questão 1 (Enem - Adaptada)</strong><br>
-        A passagem do modo de vida caçador-coletor para o modo de vida sedentário e agrícola, ocorrida durante o período Neolítico, provocou profundas alterações nas estruturas sociais e econômicas das comunidades humanas. Uma das principais consequências desse processo foi:</p>
-        <p>
-        A) A intensificação do nomadismo em busca de novas fontes de caça em regiões distantes.<br>
-        B) A abolição completa de qualquer forma de divisão social do trabalho dentro dos clãs.<br>
-        C) A fixação dos grupos humanos em aldeias permanentes, viabilizada pelo controle da produção de alimentos.<br>
-        D) A extinção do uso de ferramentas de pedra, substituídas imediatamente pela metalurgia do ferro.<br>
-        E) O abandono da domesticação de animais devido aos riscos de transmissão de doenças.
-        </p>
-        <div class="gabarito">
-            <strong>Gabarito comentado:</strong> Letra C. <em>Explicação: O Neolítico é marcado pelo sedentarismo. A necessidade de cuidar das plantações e rebanhos fez com que os seres humanos abandonassem o nomadismo e se organizassem em aldeias fixas.</em>
+        <div class="highlight-box">
+          <p><strong>🌾 O Excedente e a Complexidade Social:</strong> Com o aumento da produtividade agrícola, passou a existir um excedente de alimentos. Isso propiciou a divisão social do trabalho (enquanto alguns produziam no campo, outros dedicavam-se ao artesanato ou a funções rituais), o crescimento demográfico acelerado e o embrião das futuras desigualdades sociais e de poder.</p>
         </div>
 
-        <p><strong>Questão 2 (Enem - Adaptada)</strong><br>
-        "A chamada Revolução Neolítica não aconteceu da noite para o dia, mas representou uma mutação profunda na história humana. Ao dominar a terra e os animais, o homem deixou de ser um mero predador do meio ambiente para se tornar um produtor, alterando a paisagem e o seu próprio destino."</p>
-        <p>Considerando as inovações técnicas e sociais do Neolítico, essa transformação econômica resultou diretamente em:</p>
-        <p>
-        A) Geração de excedente alimentar, permitindo o armazenamento de recursos, o crescimento demográfico e o surgimento do comércio local.<br>
-        B) Retração drástica da população mundial devido à escassez de fontes naturais de água potável.<br>
-        C) Centralização imediata do poder político nas mãos de imperadores divinizados com exércitos profissionais.<br>
-        D) Proibição do uso de cerâmica e de tecidos de algodão ou linho nas aldeias primitivas.<br>
-        E) Retorno definitivo ao isolamento absoluto entre as comunidades, sem trocas comerciais ou culturais.
-        </p>
-        <div class="gabarito">
-            <strong>Gabarito comentado:</strong> Letra A. <em>Explicação: Com a agricultura e a pecuária, as comunidades passaram a produzir mais do que consumiam imediatamente (excedente). Esse excedente garantiu segurança alimentar, impulsionou o crescimento das populações e viabilizou o comércio.</em>
+        <h2>3. Da Aldeia às Primeiras Cidades</h2>
+        <p>O crescimento contínuo das aldeias neolíticas, aliado à necessidade de obras de irrigação e controle de cheias nos grandes rios, pavimentou o caminho para a urbanização. As pequenas comunidades deram lugar a cidades complexas, marcadas pela centralização política, pelo surgimento do Estado e, posteriormente, pela invenção da escrita.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">A chamada Revolução Neolítica representou uma verdadeira virada na trajetória humana. Ao dominar as técnicas de cultivo da terra e a domesticação de animais, o homem deixou de ser um mero predador extrativista para se tornar produtor de sua própria subsistência, alterando profundamente sua relação com o espaço geográfico.</p>
+          <p>Qual foi a principal consequência direta da Revolução Neolítica para a organização social dos grupos humanos?</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A intensificação do nomadismo em busca de novas pastagens sazonais.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A fixação das comunidades à terra, inaugurando o sedentarismo e a fundação de aldeias.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A extinção completa de qualquer forma de divisão social do trabalho.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A regressão tecnológica com o abandono do uso de instrumentos de pedra.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A padronização igualitária de rendas e terras entre todos os habitantes.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A prática da agricultura e da pecuária exigiu o acompanhamento contínuo do ciclo de plantio e colheita, o que fixou os grupos à terra e impulsionou a transição para o modo de vida sedentário e a formação de aldeias.</p>
+          </div>
         </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“A produção de excedentes agrícolas no Neolítico não apenas garantiu a segurança alimentar contra as oscilações da natureza, mas gerou transformações estruturais nas comunidades. Com a sobra de alimentos, tornou-se possível sustentar indivíduos dedicados a outras funções para além da lavoura, como o artesanato especializado e a organização comunal.”</p>
+          <p>O texto destaca que a geração de excedentes agrícolas no período neolítico propiciou:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> O retorno imediato ao sistema de trocas estritamente igualitário do Paleolítico.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A divisão social do trabalho e o início da complexificação das relações econômicas e sociais.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O colapso demográfico das aldeias devido ao desperdício de mantimentos.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A proibição absoluta do comércio de cerâmica e tecidos entre povoados vizinhos.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A centralização democrática de poderes em assembleias abertas a todos os camponeses.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O excedente alimentar permitiu que parte da população se especializasse em outras atividades produtivas (como a cerâmica e a tecelagem), rompendo com a autossubsistência total e iniciando a diferenciação social nas comunidades.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Revolução Neolítica | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>A Revolução Neolítica: Da Terra à Aldeia 🌾🏡</h1>
-
-        <img src="neolitico.jpg" alt="Revolução Neolítica" />
-
-        <p>O <strong>Neolítico</strong> (ou Idade da Pedra Polida) representa uma das maiores transformações da história da humanidade. Se no Paleolítico o ser humano dependia inteiramente do que a natureza oferecia de forma espontânea, no Neolítico ele aprendeu a produzir o próprio alimento.</p>
-        
-        <p>Essa grande reviravolta é conhecida como <strong>Revolução Agrícola</strong> e mudou para sempre a organização social e o modo como vivemos até hoje:</p>
-
-        <ul>
-            <li><strong>A Agricultura e a Pecuária:</strong> Ao perceberem que as sementes caídas germinavam e que animais podiam ser criados e reproduzidos em cativeiro, os grupos humanos deixaram de ser apenas coletores e caçadores. Eles agora podiam plantar trigo, cevada, criar ovelhas, cabras e porcos.</li>
-            <li><strong>O Fim do Nomadismo e o Sedentarismo:</strong> Como a agricultura exigia cuidados constantes com o plantio, a rega e a colheita, as famílias não podiam mais mudar de lugar o tempo todo. Surgiram, então, as primeiras aldeias fixas (sedentarismo), com a construção de moradias mais resistentes feitas de barro, madeira e pedra.</li>
-            <li><strong>Novas Tecnologias e Organização Social:</strong> Com a fixação nas aldeias, houve tempo para o desenvolvimento da cerâmica (para armazenar grãos e cozinhar), da tecelagem (com fibras de plantas e lã) e de ferramentas de pedra polida. O excedente de comida gerado também permitiu o início do comércio e a divisão do trabalho na comunidade.</li>
-        </ul>
-
-        <p><em>Prof. Marcelo Oliveira — História Geral.</em></p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões estilo ENEM para testar seus conhecimentos 📝</h2>
-
-        <p><strong>Questão 1 (Enem - Adaptada)</strong><br>
-        A passagem do modo de vida caçador-coletor para o modo de vida sedentário e agrícola, ocorrida durante o período Neolítico, provocou profundas alterações nas estruturas sociais e econômicas das comunidades humanas. Uma das principais consequências desse processo foi:</p>
-        <p>
-        A) A intensificação do nomadismo em busca de novas fontes de caça em regiões distantes.<br>
-        B) A abolição completa de qualquer forma de divisão social do trabalho dentro dos clãs.<br>
-        C) A fixação dos grupos humanos em aldeias permanentes, viabilizada pelo controle da produção de alimentos.<br>
-        D) A extinção do uso de ferramentas de pedra, substituídas imediatamente pela metalurgia do ferro.<br>
-        E) O abandono da domesticação de animais devido aos riscos de transmissão de doenças.
-        </p>
-        <div class="gabarito">
-            <strong>Gabarito comentado:</strong> Letra C. <em>Explicação: O Neolítico é marcado pelo sedentarismo. A necessidade de cuidar das plantações e rebanhos fez com que os seres humanos abandonassem o nomadismo e se organizassem em aldeias fixas.</em>
-        </div>
-
-        <p><strong>Questão 2 (Enem - Adaptada)</strong><br>
-        "A chamada Revolução Neolítica não aconteceu da noite para o dia, mas representou uma mutação profunda na história humana. Ao dominar a terra e os animais, o homem deixou de ser um mero predador do meio ambiente para se tornar um produtor, alterando a paisagem e o seu próprio destino."</p>
-        <p>Considerando as inovações técnicas e sociais do Neolítico, essa transformação econômica resultou diretamente em:</p>
-        <p>
-        A) Geração de excedente alimentar, permitindo o armazenamento de recursos, o crescimento demográfico e o surgimento do comércio local.<br>
-        B) Retração drástica da população mundial devido à escassez de fontes naturais de água potável.<br>
-        C) Centralização imediata do poder político nas mãos de imperadores divinizados com exércitos profissionais.<br>
-        D) Proibição do uso de cerâmica e de tecidos de algodão ou linho nas aldeias primitivas.<br>
-        E) Retorno definitivo ao isolamento absoluto entre as comunidades, sem trocas comerciais ou culturais.
-        </p>
-        <div class="gabarito">
-            <strong>Gabarito comentado:</strong> Letra A. <em>Explicação: Com a agricultura e a pecuária, as comunidades passaram a produzir mais do que consumiam imediatamente (excedente). Esse excedente garantiu segurança alimentar, impulsionou o crescimento das populações e viabilizou o comércio.</em>
-        </div>
-    </div>
-</body>
-</html>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
