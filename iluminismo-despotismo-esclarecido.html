@@ -1,124 +1,402 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O Iluminismo e o Despotismo Esclarecido | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Iluminismo e o Despotismo Esclarecido — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        fn-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">História Moderna e Filosofia Política</div>
+      <h1>O Iluminismo e o Despotismo Esclarecido</h1>
+    </header>
 
     <div class="container">
-        <h1>O Iluminismo e o Despotismo Esclarecido 💡👑</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Século das Luzes e a Razão Crítica</h2>
+        <p>O **Iluminismo** (ou Ilustração) foi um movimento intelectual e filosófico que ganhou força na Europa do século XVIII, tendo a França como seu principal epicentro. Os pensadores iluministas defendiam o primazia da **razão** como a única luz capaz de iluminar as trevas da ignorância, do fanatismo religioso e do absolutismo monárquico.</p>
+        
+        <p>O movimento opunha-se firmemente ao Antigo Regime, criticando os privilégios da nobreza e do clero, a censura e o mercantilismo intervencionista. Um dos maiores marcos editoriais e intelectuais desse período foi a publicação da **Enciclopédia**, organizada por Diderot e D'Alembert, que buscava sistematizar e democratizar todo o conhecimento científico e filosófico acumulado pela humanidade até então.</p>
 
-        <img src="https://cdn.slidesharecdn.com/ss_thumbnails/iluminismoedespotismoesclarecido-1-cpia-160531121128-thumbnail.jpg?width=640&height=640&fit=bounds" alt="" />
-
-        <p>Durante o século XVIII, o <strong>Iluminismo</strong> (ou Século das Luzes) defendeu a razão como a principal ferramenta para combater as trevas da ignorância, do fanatismo religioso e do absolutismo monárquico, buscando liberdade, igualdade e progresso científico.</p>
-
-        <h2>1. Os Grandes Filósofos e suas Ideias</h2>
-        <ul>
-            <li><strong>Voltaire:</strong> Defensor ferrenho da liberdade de expressão, da tolerância religiosa e crítico implacável do clero católico.</li>
-            <li><strong>Montesquieu:</strong> Formulou a Teoria da Separação dos Poderes (Executivo, Legislativo e Judiciário) para evitar a tirania.</li>
-            <li><strong>Jean-Jacques Rousseau:</strong> Defensor da democracia, da soberania popular e da igualdade jurídica e social (autor de <em>O Contrato Social</em>).</li>
-        </ul>
-
-        <h2>2. O Despotismo Esclarecido</h2>
-        <p>Com medo de revoluções, alguns monarcas absolutistas (como Frederico II na Prússia e Catarina a Grande na Rússia) adotaram ideias iluministas em suas administrações — modernizando a economia e investindo na educação —, mas sem abrir mão do poder absoluto, resumido na máxima: <em>"Tudo para o povo, mas sem o povo"</em>.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Entre as propostas políticas formuladas pelos pensadores iluministas do século XVIII, aquela que exerceu maior impacto direto na estruturação das modernas democracias liberais foi:</p>
-        <p>A) A manutenção do direito divino dos reis e a censura prévia aos jornais.<br>B) A divisão do poder político em instâncias independentes (Executivo, Legislativo e Judiciário).<br>C) A subordinação completa do Estado aos dogmas da Igreja Católica.<br>D) A abolição imediata da propriedade privada.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: A Teoria da Separação dos Poderes de Montesquieu tornou-se o pilar fundamental do constitucionalismo moderno para impedir o arbítrio e a tirania.</em>
+        <h2>2. Principais Filósofos e Suas Teorias</h2>
+        <div class="highlight-box">
+        <p><strong>💡 Ícones do Pensamento Ilustrado:</strong> 
+          <br>• <strong>John Locke:</strong> Considerado o pai do liberalismo clássico, defendia os direitos naturais inalienáveis (vida, liberdade e propriedade privada) e o direito de resistência contra governos tirânicos.
+          <br>• <strong>Montesquieu:</strong> Formulou a teoria da **separação dos poderes** em Executivo, Legislativo e Judiciário, visando evitar o despotismo e garantir a liberdade política.
+          <br>• <strong>Voltaire:</strong> Incansável defensor da liberdade de expressão, da tolerância religiosa e ferrenho crítico do clero e do fanatismo.
+          <br>• <strong>Jean-Jacques Rousseau:</strong> Defensor da soberania popular, da democracia direta e da ideia de que a desigualdade social nasce com a propriedade privada (*Contrato Social*).</p>
         </div>
 
-        <p><strong>Questão 2</strong><br>A estratégia política adotada pelos déspotas esclarecidos na segunda metade do século XVIII visava essencialmente:</p>
-        <p>A) Instaurar repúblicas democráticas e entregar o governo ao povo.<br>B) Consolidar reformas administrativas e econômicas para fortalecer o Estado, evitando revoluções radicais que ameaçassem seus tronos.<br>C) Extinguir totalmente a cobrança de impostos e desmantelar exércitos.<br>D) Financiar o retorno do feudalismo medieval.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: O despotismo esclarecido foi uma tentativa das monarquias de se adaptarem aos novos tempos adotando racionalizações inspiradas no Iluminismo, mantendo intacto o controle político do rei.</em>
+        <h2>3. O Despotismo Esclarecido</h2>
+        <p>Alarmados pela força das críticas iluministas, alguns monarcas absolutistas europeus — conhecidos como déspotas esclarecidos — decidiram adotar reformas administrativas, educacionais e econômicas inspiradas nos filósofos das Luzes, sem, contudo, abrirem mão de seu poder autocrático. O lema informal desse grupo era *"Tudo para o povo, nada pelo povo"*. Exemplos marcantes incluem Frederico II na Prússia, Catarina a Grande na Rússia e o Marquês de Pombal (ministro de D. José I) em Portugal.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“O Iluminismo representou uma profunda revolução cultural na Europa do século XVIII. Ao elevar a razão humana ao posto de guia supremo para a compreensão do universo e da sociedade, os filósofos ilustrados questionaram as bases do Antigo Regime, contestando o direito divino dos reis e a tutela ideológica exercida pela Igreja Católica.”</p>
+          <p>Dentre as propostas políticas formuladas pelos pensadores iluministas que exerceram impacto direto sobre as estruturas do Estado moderno, destaca-se:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A concentração absoluta de todos os poderes estatais nas mãos da figura eclesiástica do Papa.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A defesa intransigente da censura prévia e da intolerância religiosa como pilares da ordem pública.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A divisão funcional dos poderes estatais em Executivo, Legislativo e Judiciário, proposta por Montesquieu.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A supressão absoluta do direito à propriedade privada e a abolição de qualquer forma de governo.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O fortalecimento do mercantilismo estrito e dos monopólios comerciais corporativos medievais.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> Montesquieu, em sua obra *O Espírito das Leis*, propôs a separação dos poderes para frear os abusos do absolutismo. Essa divisão tornou-se a base fundamental das constituições democráticas liberais modernas.</p>
+          </div>
         </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O Despotismo Esclarecido configurou-se como uma tentativa pragmática de conciliar o absolutismo monárquico com as ideias filosóficas do Iluminismo. Monarcas europeus implementaram reformas modernizadoras na economia, na administração pública e na educação, procurando modernizar seus reinos sem renunciar à autoridade soberana.”</p>
+          <p>O comportamento político dos déspotas esclarecidos refletia a seguinte contradição:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A abolição imediata da monarquia e a implantação de sufrágio universal em todos os reinos europeus.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A adoção de princípios racionais de administração inspirados no Iluminismo mantendo intacto o poder autocrático do rei.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A transferência total do poder legislativo para o controle direto das assembleias populares camponesas.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O combate ferrenho ao avanço da ciência moderna e o fechamento de academias e universidades.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A subordinação completa do Estado e do exército às diretrizes pacifistas formuladas pelas igrejas protestantes.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Os déspotas esclarecidos utilizaram conceitos iluministas utilitários (como reforma educacional e incentivo às ciências) para modernizar o Estado e aumentar sua eficiência, mas preservaram o poder absoluto da Coroa.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O Iluminismo e o Despotismo Esclarecido | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>O Iluminismo e o Despotismo Esclarecido 💡👑</h1>
-
-        <img src="" alt="" />
-
-        <p>Durante o século XVIII, o <strong>Iluminismo</strong> (ou Século das Luzes) defendeu a razão como a principal ferramenta para combater as trevas da ignorância, do fanatismo religioso e do absolutismo monárquico, buscando liberdade, igualdade e progresso científico.</p>
-
-        <h2>1. Os Grandes Filósofos e suas Ideias</h2>
-        <ul>
-            <li><strong>Voltaire:</strong> Defensor ferrenho da liberdade de expressão, da tolerância religiosa e crítico implacável do clero católico.</li>
-            <li><strong>Montesquieu:</strong> Formulou a Teoria da Separação dos Poderes (Executivo, Legislativo e Judiciário) para evitar a tirania.</li>
-            <li><strong>Jean-Jacques Rousseau:</strong> Defensor da democracia, da soberania popular e da igualdade jurídica e social (autor de <em>O Contrato Social</em>).</li>
-        </ul>
-
-        <h2>2. O Despotismo Esclarecido</h2>
-        <p>Com medo de revoluções, alguns monarcas absolutistas (como Frederico II na Prússia e Catarina a Grande na Rússia) adotaram ideias iluministas em suas administrações — modernizando a economia e investindo na educação —, mas sem abrir mão do poder absoluto, resumido na máxima: <em>"Tudo para o povo, mas sem o povo"</em>.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Entre as propostas políticas formuladas pelos pensadores iluministas do século XVIII, aquela que exerceu maior impacto direto na estruturação das modernas democracias liberais foi:</p>
-        <p>A) A manutenção do direito divino dos reis e a censura prévia aos jornais.<br>B) A divisão do poder político em instâncias independentes (Executivo, Legislativo e Judiciário).<br>C) A subordinação completa do Estado aos dogmas da Igreja Católica.<br>D) A abolição imediata da propriedade privada.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: A Teoria da Separação dos Poderes de Montesquieu tornou-se o pilar fundamental do constitucionalismo moderno para impedir o arbítrio e a tirania.</em>
-        </div>
-
-        <p><strong>Questão 2</strong><br>A estratégia política adotada pelos déspotas esclarecidos na segunda metade do século XVIII visava essencialmente:</p>
-        <p>A) Instaurar repúblicas democráticas e entregar o governo ao povo.<br>B) Consolidar reformas administrativas e econômicas para fortalecer o Estado, evitando revoluções radicais que ameaçassem seus tronos.<br>C) Extinguir totalmente a cobrança de impostos e desmantelar exércitos.<br>D) Financiar o retorno do feudalismo medieval.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: O despotismo esclarecido foi uma tentativa das monarquias de se adaptarem aos novos tempos adotando racionalizações inspiradas no Iluminismo, mantendo intacto o controle político do rei.</em>
-        </div>
-    </div>
-</body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>
