@@ -1,349 +1,402 @@
-<<<<<<< HEAD
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Independência dos Estados Unidos | História em Foco</title>
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Independência dos Estados Unidos — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-      :root {
-        --bg-color: #05050a;
-        --card-bg: rgba(20, 20, 40, 0.7);
-        --text-color: #e0e0e0;
-        --accent-color: #00f3ff;
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
-        font-family: sans-serif;
-        line-height: 1.6;
-        padding: 20px;
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
-      .nav-bar {
-        margin-bottom: 20px;
-      }
-      .btn-voltar {
-        color: var(--accent-color);
-        text-decoration: none;
-        font-weight: bold;
-        border: 1px solid var(--accent-color);
-        padding: 8px 15px;
-        border-radius: 20px;
-      }
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: var(--card-bg);
-        padding: 30px;
-        border-radius: 20px;
-      }
-      h1 {
-        color: var(--accent-color);
-        margin-bottom: 20px;
-        font-size: 1.8rem;
-      }
-      h2 {
-        color: var(--accent-color);
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-size: 1.4rem;
-      }
-      img {
-        width: 30%;
-        border-radius: 15px;
-        margin-bottom: 20px;
-        height: 350px;
-        object-fit: cover;
-      }
-      p {
-        margin-bottom: 15px;
-      }
-      ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
-      }
-      li {
-        margin-bottom: 10px;
-      }
-      .gabarito {
-        background: rgba(0, 243, 255, 0.1);
-        padding: 15px;
-        border-left: 4px solid var(--accent-color);
-        border-radius: 5px;
-        margin-bottom: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="nav-bar">
-      <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
 
-    <div class="container">
-      <h1>A Independência dos Estados Unidos 🇺🇸🗽</h1>
-
-      <img
-        src="independencia-dos-eua.jpg"
-        alt="A Independência dos Estados Unidos"
-      />
-
-      <p>
-        A formação dos Estados Unidos iniciou-se com a colonização das Treze
-        Colônias inglesas na América do Norte. Enquanto o Norte focava no
-        trabalho livre e comércio interno, o Sul baseava-se no latifúndio
-        escravista. Após a Guerra dos Sete Anos, o fim da "negligência salutar"
-        e a imposição de leis fiscais geraram o estopim para a ruptura.
-      </p>
-
-      <h2>1. Insatisfação e as Leis Restritivas</h2>
-      <ul>
-        <li>
-          <strong>Leis Fiscais:</strong> Lei do Açúcar, Lei do Selo e a Lei do
-          Chá, que resultou no protesto da Festa do Chá de Boston (1773).
-        </li>
-        <li>
-          <strong>Leis Intoleráveis (1774):</strong> Medidas punitivas severas
-          impostas pela Inglaterra contra Massachusetts, intensificando a
-          revolta colonial.
-        </li>
-      </ul>
-
-      <h2>2. Iluminismo e a Declaração de Independência</h2>
-      <p>
-        Em 4 de julho de 1776, o Congresso Continental aprovou a
-        <strong>Declaração de Independência</strong> (redigida por Thomas
-        Jefferson), consagrando os ideais iluministas de direitos naturais
-        (vida, liberdade e busca pela felicidade) e soberania popular. Com o
-        apoio militar da França e Espanha, a independência foi consolidada pelo
-        Tratado de Paris (1783).
-      </p>
-
-      <hr
-        style="
-          border: 0;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          margin: 30px 0;
-        "
-      />
-
-      <h2>Questões Estilo ENEM 📝</h2>
-
-      <p>
-        <strong>Questão 1</strong><br />O principal fator político e ideológico
-        que fundamentou a redação da Declaração de Independência dos Estados
-        Unidos foi:
-      </p>
-      <p>
-        A) A defesa do direito divino dos reis absolutistas.<br />B) A aplicação
-        prática dos princípios iluministas de liberdade, direitos naturais e
-        soberania popular.<br />C) O retorno imediato ao pacto colonial
-        mercantilista.<br />D) A imposição de um regime teocrático
-        fundamentalista.
-      </p>
-      <div class="gabarito">
-        <strong>Gabarito:</strong> B.
-        <em
-          >Explicação: Inspirada no pensamento iluminista (como John Locke), a
-          Declaração defendeu a liberdade individual e o direito de resistência
-          contra governos tirânicos.</em
-        >
-      </div>
-
-      <p>
-        <strong>Questão 2</strong><br />Apesar da ruptura com a Inglaterra e do
-        pioneirismo na república constitucional, a consolidação da nova ordem
-        norte-americana caracterizou-se por:
-      </p>
-      <p>
-        A) Abolição imediata de toda forma de escravidão em todas as
-        províncias.<br />B) Preservação de estruturas excludentes, mantendo a
-        escravidão dos negros africanos e a exclusão dos povos indígenas.<br />C)
-        Instauração de um sistema monárquico absolutista centralizado.<br />D)
-        Estatização total de todas as terras agrícolas.
-      </p>
-      <div class="gabarito">
-        <strong>Gabarito:</strong> B.
-        <em
-          >Explicação: A independência nasceu mantendo profundas contradições
-          sociais: a escravidão foi preservada no Sul e os nativos continuaram
-          sendo expulsos de seus territórios.</em
-        >
-      </div>
-    </div>
-  </body>
-</html>
-=======
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Independência dos Estados Unidos | História em Foco</title>
-    <style>
-      :root {
-        --bg-color: #05050a;
-        --card-bg: rgba(20, 20, 40, 0.7);
-        --text-color: #e0e0e0;
-        --accent-color: #00f3ff;
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
       }
-      body {
-        background-color: var(--bg-color);
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
         color: var(--text-color);
-        font-family: sans-serif;
-        line-height: 1.6;
-        padding: 20px;
-      }
-      .nav-bar {
-        margin-bottom: 20px;
-      }
-      .btn-voltar {
-        color: var(--accent-color);
-        text-decoration: none;
-        font-weight: bold;
-        border: 1px solid var(--accent-color);
-        padding: 8px 15px;
-        border-radius: 20px;
-      }
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
         background: var(--card-bg);
-        padding: 30px;
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
         border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
       }
-      h1 {
-        color: var(--accent-color);
-        margin-bottom: 20px;
-        font-size: 1.8rem;
-      }
+
       h2 {
-        color: var(--accent-color);
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-size: 1.4rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
-      img {
-        width: 30%;
-        border-radius: 15px;
-        margin-bottom: 20px;
-        height: 350px;
-        object-fit: cover;
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
+
       p {
-        margin-bottom: 15px;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
-      ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
       }
-      li {
-        margin-bottom: 10px;
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
       }
-      .gabarito {
-        background: rgba(0, 243, 255, 0.1);
-        padding: 15px;
-        border-left: 4px solid var(--accent-color);
-        border-radius: 5px;
-        margin-bottom: 20px;
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        content: "";
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
-    <div class="nav-bar">
-      <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+</head>
+<body>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">História Moderna e Contemporânea</div>
+      <h1>A Independência dos Estados Unidos 🇺🇸</h1>
+    </header>
 
     <div class="container">
-      <h1>A Independência dos Estados Unidos 🇺🇸🗽</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Colonização e a Negligência Salutar</h2>
+        <p>A colonização das Treze Colônias inglesas na América do Norte desenvolveu-se de maneira distinta entre o Norte (focado na policultura, trabalho livre e mercado interno) e o Sul (baseado no latifúndio exportador, monocultura e trabalho escravizado). Durante um longo período, a metrópole adotou uma postura de **negligência salutar**, permitindo ampla autonomia administrativa e comercial (*comércio triangular*) aos colonos.</p>
+        
+        <p>Esse panorama mudou drasticamente após a **Guerra dos Sete Anos** (1756–1763). Embora vitoriosa ao lado dos colonos contra a França, a Inglaterra acumulou enormes dívidas públicas e decidiu transferir o fardo financeiro para as colônias americanas através de leis fiscais rígidas.</p>
 
-      <img
-        src="independencia-dos-eua.jpg"
-        alt="A Independência dos Estados Unidos"
-      />
+        <h2>2. A Escalada do Conflito e a Ruptura</h2>
+        <div class="highlight-box">
+          <p><strong>📜 Fatores Críticos da Independência:</strong> 
+          <br>• <strong>Leis Restritivas:</strong> Medidas como a Lei do Açúcar, a Lei do Selo e a Lei do Chá geraram revolta generalizada sob o lema <em>"No taxation without representation"</em> (Sem tributação sem representação).
+          <br>• <strong>A Festa do Chá de Boston (1773):</strong> Protesto icônico em que colonos disfarçados jogaram carregamentos de chá ao mar, resultando nas Leis Intoleráveis impostas pela Coroa Britânica.
+          <br>• <strong>A Declaração de Independência (4 de julho de 1776):</strong> Inspirada nos ideais iluministas de John Locke, formalizou a ruptura oficial redigida por Thomas Jefferson, consagrando os direitos inalienáveis à vida, à liberdade e à busca da felicidade.</p>
+        </div>
 
-      <p>
-        A formação dos Estados Unidos iniciou-se com a colonização das Treze
-        Colônias inglesas na América do Norte. Enquanto o Norte focava no
-        trabalho livre e comércio interno, o Sul baseava-se no latifúndio
-        escravista. Após a Guerra dos Sete Anos, o fim da "negligência salutar"
-        e a imposição de leis fiscais geraram o estopim para a ruptura.
-      </p>
+        <h2>3. Consequências e Impacto Global</h2>
+        <p>A vitória militar sobre o exército britânico — com importante apoio financeiro e militar da França e da Espanha — consolidou o surgimento da primeira nação independente nas Américas sob a égide de uma república federalista e democrática (pautada na Constituição de 1787). O processo inspirou fortemente os movimentos liberais e emancipacionistas na Europa e na América Latina, a começar pela Revolução Francesa.</p>
+      </section>
 
-      <h2>1. Insatisfação e as Leis Restritivas</h2>
-      <ul>
-        <li>
-          <strong>Leis Fiscais:</strong> Lei do Açúcar, Lei do Selo e a Lei do
-          Chá, que resultou no protesto da Festa do Chá de Boston (1773).
-        </li>
-        <li>
-          <strong>Leis Intoleráveis (1774):</strong> Medidas punitivas severas
-          impostas pela Inglaterra contra Massachusetts, intensificando a
-          revolta colonial.
-        </li>
-      </ul>
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A vitória britânica na Guerra dos Sete Anos marcou o fim de um período de relativa autonomia administrativa e comercial nas Treze Colônias americanas, conhecido como negligência salutar. Para sanar o rombo financeiro do conflito, a metrópole passou a exigir o cumprimento de leis fiscais e monopólios que geraram profundo descontentamento local.”</p>
+          <p>O principal argumento ideológico utilizado pelos colonos norte-americanos para contestar a imposição de novas taxas pela Coroa britânica foi:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A exigência da abolição imediata da escravidão em todas as províncias do império britânico.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A defesa do princípio de que nenhuma taxa ou imposto legítimo poderia ser cobrado sem a devida representação política dos colonos no Parlamento metropolitano.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O desejo de transferir a capital administrativa da colônia para Paris com o apoio do absolutismo francês.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A recusa completa ao desenvolvimento industrial urbano e a defesa exclusiva do feudalismo agrário.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A submissão irrestrita às decisões da Igreja Anglicana e do rei Jorge III.</li>
+          </ul>
 
-      <h2>2. Iluminismo e a Declaração de Independência</h2>
-      <p>
-        Em 4 de julho de 1776, o Congresso Continental aprovou a
-        <strong>Declaração de Independência</strong> (redigida por Thomas
-        Jefferson), consagrando os ideais iluministas de direitos naturais
-        (vida, liberdade e busca pela felicidade) e soberania popular. Com o
-        apoio militar da França e Espanha, a independência foi consolidada pelo
-        Tratado de Paris (1783).
-      </p>
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O mote principal do movimento emancipacionista foi "No taxation without representation", criticando o fato de o Parlamento inglês legislar sobre tributos coloniais sem que os americanos tivessem representação direta nas instâncias políticas de Londres.</p>
+          </div>
+        </div>
 
-      <hr
-        style="
-          border: 0;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          margin: 30px 0;
-        "
-      />
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“A Declaração de Independência dos Estados Unidos, redigida por Thomas Jefferson em 1776, sintetizou os ideais do Iluminismo ao afirmar que todos os homens são criados iguais e dotados de direitos inalienáveis, como a vida, a liberdade e a busca da felicidade, cabendo aos governos proteger tais prerrogativas.”</p>
+          <p>Essa base filosófica e política que fundamentou a emancipação norte-americana foi fortemente influenciada pelo pensamento de:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Thomas Hobbes e a defesa do absolutismo monárquico centralizado.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Karl Marx e a teoria da luta de classes operárias.</li>
+            <li class="option-item"><span class="option-letter">C)</span> John Locke e a teoria do pacto social e do direito de resistência contra governos tirânicos.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Maquiavel e a supremacia do pragmatismo político estatal.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Santo Agostinho e a primazia da Cidade de Deus sobre a ordem secular.</li>
+          </ul>
 
-      <h2>Questões Estilo ENEM 📝</h2>
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> John Locke foi o principal ideólogo do liberalismo clássico, defendendo que o governo nasce de um contrato social para garantir os direitos naturais (vida, liberdade e propriedade). Caso o governo viole esses direitos, os cidadãos têm o legítimo direito de rebelião.</p>
+          </div>
+        </div>
 
-      <p>
-        <strong>Questão 1</strong><br />O principal fator político e ideológico
-        que fundamentou a redação da Declaração de Independência dos Estados
-        Unidos foi:
-      </p>
-      <p>
-        A) A defesa do direito divino dos reis absolutistas.<br />B) A aplicação
-        prática dos princípios iluministas de liberdade, direitos naturais e
-        soberania popular.<br />C) O retorno imediato ao pacto colonial
-        mercantilista.<br />D) A imposição de um regime teocrático
-        fundamentalista.
-      </p>
-      <div class="gabarito">
-        <strong>Gabarito:</strong> B.
-        <em
-          >Explicação: Inspirada no pensamento iluminista (como John Locke), a
-          Declaração defendeu a liberdade individual e o direito de resistência
-          contra governos tirânicos.</em
-        >
-      </div>
-
-      <p>
-        <strong>Questão 2</strong><br />Apesar da ruptura com a Inglaterra e do
-        pioneirismo na república constitucional, a consolidação da nova ordem
-        norte-americana caracterizou-se por:
-      </p>
-      <p>
-        A) Abolição imediata de toda forma de escravidão em todas as
-        províncias.<br />B) Preservação de estruturas excludentes, mantendo a
-        escravidão dos negros africanos e a exclusão dos povos indígenas.<br />C)
-        Instauração de um sistema monárquico absolutista centralizado.<br />D)
-        Estatização total de todas as terras agrícolas.
-      </p>
-      <div class="gabarito">
-        <strong>Gabarito:</strong> B.
-        <em
-          >Explicação: A independência nasceu mantendo profundas contradições
-          sociais: a escravidão foi preservada no Sul e os nativos continuaram
-          sendo expulsos de seus territórios.</em
-        >
-      </div>
+      </section>
     </div>
-  </body>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
+</body>
 </html>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
