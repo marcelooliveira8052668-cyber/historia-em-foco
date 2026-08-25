@@ -1,244 +1,400 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mitologia Egípcia: Os Segredos de Osíris e Ísis | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitologia Egípcia: Os Segredos de Osíris e Ísis — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back-hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      .btn-back:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
       }
 
       header h1 {
-        color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
         padding: 1rem 1.2rem;
         border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Mitologia</h1>
-      <p>Período: Antiguidade</p>
+      <div class="header-badge">Mitologia e Religião na Antiguidade</div>
+      <h1>Mitologia Egípcia: Os Segredos de Osíris e Ísis</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>Mitologia Egípcia: Os Segredos de Osíris e Ísis</h2>
-        <img src="https://www.fantasticacultural.com.br/img/thumbs_auto_jpg/202309022328570-osiris_e_isis_deuses_mitologia_egito_antigo.jpg" width="500" alt="">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Mito Fundador: Traição, Morte e Ressurreição</h2>
+        <p>No coração da religiosidade do Egito Antigo, o mito de Osíris, Ísis, Seth e Hórus ocupa uma posição central. Osíris, soberano justo e civilizador que ensinou a agricultura e as leis aos humanos, foi tragicamente traído e assassinado por seu irmão invejoso, Seth, o deus do caos e do deserto. Seth esquartejou o corpo de Osíris e espalhou seus pedaços por todo o território egípcio.</p>
         
-        <p>A **Mitologia Egípcia** representa um dos sistemas religiosos e cosmológicos mais complexos, duradouros e influenciadores da Antiguidade. Desenvolvida ao longo de mais de três milênios nas margens férteis do rio Nilo, a religião egípcia integrava de forma indissociável a natureza, a agricultura, o poder faraônico e a obsessão pela vida após a morte (*Duat*). O panteão era povoado por divindades com traços zoomorfos e antropomórficos, cujos mitos justificavam a ordem cósmica (*Maat*) frente às ameaças do caos.</p>
-        
-        <p>No centro desse imaginário destaca-se o ciclo mítico de **Osíris e Ísis**, considerado a narrativa fundadora mais importante da espiritualidade egípcia. Osíris, soberano justo e civilizador que ensinou a agricultura e as leis aos homens, foi traiçoeiramente assassinado e esquartejado por seu irmão invejoso, **Set** (deus do caos e do deserto). Movida por profunda devoção e astúcia mágica, **Ísis** (deusa da magia, da maternidade e da fidelidade) reuniu os pedaços dispersos do corpo do marido, aplicando os primeiros ritos de embalsamamento e criando a primeira múmia. Com o auxílio de Anúbis e utilizando seus poderes, Ísis ressuscitou temporariamente Osíris para conceber seu herdeiro, **Horus**. Após crescer, Horus vingou o pai derrotando Set em uma célebre disputa pelo trono do Egito. Osíris tornou-se então o soberano e juiz supremo do reino dos mortos, enquanto Ísis permaneceu como a grande protetora mágica. Esse mito forneceu a base teológica para a prática da mumificação, a crença na ressurreição e a esperança de julgamento favorável no pós-morte para todo o povo egípcio.</p>
+        <p>Movida por profundo amor e lealdade, Ísis (deusa da magia, da maternidade e da cura) percorreu o Egito reunindo as partes do corpo de seu falecido esposo. Com o auxílio de Anúbis, o primeiro processo de embalsamamento e mumificação foi realizado, devolvendo a Osíris a estabilidade corpórea e transformando-o no senhor do reino dos mortos (Duat).</p>
 
-        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Na religião do Egito Antigo, o mito de Osíris e Ísis desempenhava um papel central na consolidação das crenças sobre a morte e a imortalidade. A prática da mumificação e a elaboração do Livro dos Mortos estavam diretamente vinculadas a esse mito porque:</p>
-        <ul>
-          <li>A) os egípcios acreditavam que a alma humana desaparecia por completo logo após o falecimento física, sem qualquer perspectiva de continuidade.</li>
-          <li>B) o processo de mumificação imitava o rito realizado por Ísis ao preservar e recompor o corpo de Osíris, permitindo a transição bem-sucedida para a vida eterna no além-túmulo.</li>
-          <li>C) a religião egípcia rejeitava categoricamente qualquer forma de culto aos deuses associados à agricultura ou ao rio Nilo.</li>
-          <li>D) o faraó abdicava de seus títulos divinos em favor de uma organização política puramente laica e secular.</li>
-          <li>E) a preservação corpórea era exigida apenas para punir criminosos condenados pelos tribunais reais.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O mito de Osíris é o arquétipo da ressurreição no Egito Antigo. Ao embalsamar e recompor Osíris, Ísis estabeleceu o modelo sagrado seguido pelos sacerdotes egípcios através da mumificação, assegurando que o falecido pudesse habitar o mundo dos mortos sob a proteção de Osíris.</p>
+        <h2>2. A Vingança de Hórus e a Ordem Cósmica (Maat)</h2>
+        <p>Da união mágica com o espírito de Osíris, Ísis deu à luz Hórus, o deus falcão. Adulto, Hórus travou uma luta épica contra Seth para reconquistar o trono do Egito que por direito pertencia a seu pai. Após perder um olho no combate (símbolo de integridade e sacrifício, o famoso Olho de Hórus ou <em>Udyat</em>), Hórus derrotou Seth, restaurando a ordem cósmica, a justiça e o equilíbrio, conceitos fundamentais sintetizados na deusa <strong>Maat</strong>.</p>
+
+        <div class="highlight-box">
+          <p><strong>👁️ O Legado e o Julgamento de Osíris:</strong> O mito de Osíris e Ísis moldou diretamente a crença egípcia na vida após a morte. Os mortos eram julgados no Tribunal de Osíris, onde o coração do falecido era pesado na balança da verdade contra a pena de Maat. A promessa de ressurreição e vida eterna, antes restrita aos faraós, democratizou-se ao longo dos séculos, influenciando profundamente a espiritualidade popular.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O rio Nilo e suas cheias regulares eram vistos pelos antigos egípcios como uma manifestação direta da generosidade divina, associada intimamente ao ciclo de morte e renascimento de Osíris."</em> Historicamente, a forte dependência da sociedade egípcia em relação ao regime das águas do Nilo refletia-se na sua estrutura cultural e religiosa por meio da:</p>
-        <ul>
-          <li>A) fundação de um império baseado exclusivamente no nomadismo pastoril pelo deserto do Saara.</li>
-          <li>B) sacralização dos ciclos naturais e agrícolas, cujas divindades personificavam a fertilidade da terra, a cheia anual e a renovação perpétua da vida.</li>
-          <li>C) abolição de qualquer atividade ligada à agricultura intensiva em favor da pesca oceânica.</li>
-          <li>D) adoção de um sistema político descentralizado sem qualquer intervenção do Estado na economia.</li>
-          <li>E) recusa generalizada em construir obras de infraestrutura hidráulica, como canais e diques.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A civilização egípcia estruturou-se como uma teocracia hidráulica. Os mitos — como o de Osíris, frequentemente ligado à vegetação e à fertilidade do solo irrigado pelo Nilo — traduziam a necessidade de explicar e sacralizar os ciclos ecológicos vitais para a sobrevivência da sociedade.</p>
+        <h2>3. O Culto de Ísis na Antiguidade Clássica</h2>
+        <p>O culto a Ísis transcendeu as fronteiras do Egito faraônico, expandindo-se durante os períodos helenístico e romano por todo o mar Mediterrâneo. Prometendo salvação pessoal, renovação e proteção espiritual, os templos de Ísis tornaram-se alguns dos centros religiosos mais influentes do mundo antigo.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">O mito de Osíris narra o assassinato do deus da agricultura por seu irmão Seth, seguido pelo esquartejamento do corpo e sua posterior reconstituição e mumificação promovida por Ísis. Esse mito constitui a base teológica para a crença na vida além-túmulo e na preservação da identidade física por meio do embalsamamento no Egito Antigo.</p>
+          <p>Qual é a principal função sociocultural exercida por esse mito na sociedade egípcia antiga?</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Justificar o poder absoluto e democrático de assembleias camponesas deliberativas.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Legitimar a crença na imortalidade da alma e na necessidade de rituais funerários complexos para a transição post-mortem.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Estimular o abandono das práticas agrícolas sazonais em favor do comércio marítimo fenício.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Promover a igualdade absoluta de classes e a abolição das diferenças entre sacerdotes e escravos.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Consolidar o politeísmo grego clássico nas províncias do Delta do Nilo.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O mito de Osíris estabelece o precedente divino para a mumificação e a vitória sobre a morte. Ele fundamenta a cosmovisão egípcia de que a vida após a morte dependia diretamente da integridade do corpo e da retidão moral perante os deuses.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“A vitória de Hórus sobre Seth não representava apenas a ascensão de um novo soberano ao trono do Nilo, mas a restauração da Maat — a ordem cósmica, a verdade e a justiça contra as forças do caos e da desarmonia representadas por Seth. No Egito Antigo, o faraó era visto como a própria encarnação de Hórus na Terra, encarregado de manter essa harmonia.”</p>
+          <p>Com base no texto, a figura de Hórus na mitologia egípcia cumpria o papel político de:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Destruir o poder centralizado do Estado em prol de tribos nômades independentes.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Fundamentar a autoridade do faraó como garantidor da estabilidade e da justiça estatal.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Estimular conflitos armados perpétuos contra as civilizações da Mesopotâmia.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Substituir os festivais agrários por rituais estritamente seculares e laicos.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Consolidar o monoteísmo absoluto em substituição aos cultos tradicionais.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Na teocracia egípcia, o faraó legitimava seu poder associando-se diretamente à figura de Hórus, assumindo a responsabilidade sagrada de manter a justiça (Maat) e afastar o caos (Seth) do reino.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
+</body>
 </html>
