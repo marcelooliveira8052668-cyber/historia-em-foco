@@ -1,477 +1,401 @@
-<<<<<<< HEAD
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O Ciclo da Cana-de-Açúcar no Nordeste | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Ciclo da Cana-de-Açúcar no Nordeste — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
         margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
+      p {
         color: var(--text-muted);
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
-      </div>
-      <h1>Brasil Colônia</h1>
-      <p>Período: Século XVI - Século XVII</p>
-    </header>
-
-    <div class="container">
-      <div class="article-card">
-        <h2>O Ciclo da Cana-de-Açúcar no Nordeste</h2>
-        <img src="https://tse1.mm.bing.net/th/id/OIP.jPkpUMHJEt9leAOVxZyyNQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
-        
-        <p>A partir de meados do século XVI, com o fracasso inicial do sistema de capitanias hereditárias em grande parte do território e a alta rentabilidade do açúcar no mercado europeu, a Coroa Portuguesa optou por implantar o <strong>sistema colonial açucareiro</strong> no litoral do Nordeste (principalmente em Pernambuco e na Bahia). O açúcar era um produto de altíssimo valor na Europa, o que garantiu a efetiva colonização e povoamento da terra por meio do <em>pacto colonial</em>.</p>
-        
-        <p>A estrutura socioeconômica desse período apoiava-se no tripé: o <strong>latifúndio</strong> (grandes extensões de terra), a <strong>monocultura</strong> (foco exclusivo na produção de cana) e o <strong>trabalho escravo</strong>. Inicialmente tentou-se a escravização indígena, mas logo o tráfico negreiro transatlântico se consolidou com a compra de africanos escravizados, que sustentaram toda a engrenagem de trabalho pesado nos engenhos.</p>
-
-        <p>A unidade básica de produção era o <strong>engenho</strong>, uma estrutura autossuficiente comandada pelo senhor de engenho, figura que concentrava o poder econômico, político e social na região. A sociedade colonial formou-se profundamente patriarcal, rural e estamental. Essa hegemonia nordestina começou a declinar no final do século XVII, após a expulsão dos holandeses (que passaram a produzir açúcar nas Antilhas), gerando uma grave crise econômica na colônia.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O sistema de plantation implantado por Portugal no Brasil Colônia durante o ciclo da cana-de-açúcar caracterizou-se por estruturar-se economicamente com base em:</p>
-        <ul>
-          <li>A) pequenas propriedades minifundiárias voltadas estritamente para o abastecimento do mercado interno e subsistência local.</li>
-          <li>B) latifúndios monocultores voltados para a exportação metropolitana, utilizando primariamente o trabalho escravo.</li>
-          <li>C) cooperativas agrícolas autogeridas formadas por camponeses livres e assalariados europeus.</li>
-          <li>D) explotação descentralizada de minérios preciosos sob o controle direto de câmaras municipais autônomas.</li>
-          <li>E) comércio livre e intercâmbio mercantil desimpedido com outras potências estrangeiras protestantes.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O modelo de colonização adotado baseava-se no latifúndio, na monocultura agroexportadora e no trabalho escravo (sistema de <em>plantation</em>), rigidamente controlado pelo pacto colonial português.</p>
-        </div>
-
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A grande lavoura canavieira moldou a fisionomia do Brasil colonial, criando uma sociedade fortemente hierarquizada, onde o senhor de engenho detinha o controle não apenas dos meios de produção, mas também exercia jurisdição patriarcal sobre sua extensa clientela e escravaria."</em> O texto retrata a dinâmica social do Nordeste açucareiro, destacando como marca desse período:</p>
-        <ul>
-          <li>A) a total igualdade de direitos políticos e civis entre senhores, homens livres pobres e escravizados.</li>
-          <li>B) a mobilidade social intensa que permitia aos escravos ascenderem rapidamente à elite agrária.</li>
-          <li>C) a concentração de poder nas mãos da aristocracia rural proprietária de terras e escravos, gerando uma sociedade estamental e patriarcal.</li>
-          <li>D) a urbanização acelerada da colônia, com o esvaziamento completo das atividades agrícolas no campo.</li>
-          <li>E) a substituição imediata dos engenhos de açúcar por indústrias têxteis urbanas autônomas.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A concentração fundiária e o poder do senhor de engenho impuseram uma estrutura social estamental, profundamente desigual, rural e patriarcal, onde a mobilidade social era quase inexistente.</p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlRoot = document.documentElement;
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
-      });
-    </script>
-  </body>
-=======
-<!doctype html>
-<html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O Ciclo da Cana-de-Açúcar no Nordeste | Acervo de História</title>
-    <style>
-      :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
-        --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      :root[data-theme="light"] {
-        --bg-color: #f8fafc;
-        --card-bg: #ffffff;
-        --text-color: #1e293b;
-        --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
-        --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
       }
 
-      body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        background-color: var(--bg-color);
+      .highlight-box p {
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      header {
-        background: var(--header-bg);
-        padding: 2rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border-color);
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
         position: relative;
-        box-shadow: var(--shadow);
+        overflow: hidden;
       }
 
-      .top-controls {
+      .question-card::before {
+        content: "";
         position: absolute;
-        top: 20px;
-        right: 30px;
-        display: flex;
-        gap: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
       }
 
-      .btn-theme, .btn-back {
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
         color: var(--text-color);
-        background: var(--input-bg);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
         border: 1px solid var(--border-color);
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 0.85rem;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
         font-weight: 600;
         cursor: pointer;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      .btn-theme:hover, .btn-back:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
+      .btn-reveal:hover {
+        background: var(--primary-hover);
       }
 
-      header h1 {
-        color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
-        font-weight: 700;
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
-        padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
-      }
-
-      .article-card {
-        background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Brasil Colônia</h1>
-      <p>Período: Século XVI - Século XVII</p>
+      <div class="header-badge">História do Brasil Colonial</div>
+      <h1>O Ciclo da Cana-de-Açúcar no Nordeste</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>O Ciclo da Cana-de-Açúcar no Nordeste</h2>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Introdução da Empresa Colonial Açucareira</h2>
+        <p>A partir de meados do século XVI, diante da necessidade de efetivar a posse da terra e garantir lucros expressivos no mercado europeu, a Coroa portuguesa optou por implantar a lavoura cana-de-açúcar na colônia, escolhendo a região nordestina (com destaque para as capitanias de Pernambuco e São Vicente) devido a fatores cruciais como o solo massapê, altamente fértil, e a proximidade relativa com os portos europeus.</p>
         
-        <p>A partir de meados do século XVI, com o fracasso inicial do sistema de capitanias hereditárias em grande parte do território e a alta rentabilidade do açúcar no mercado europeu, a Coroa Portuguesa optou por implantar o <strong>sistema colonial açucareiro</strong> no litoral do Nordeste (principalmente em Pernambuco e na Bahia). O açúcar era um produto de altíssimo valor na Europa, o que garantiu a efetiva colonização e povoamento da terra por meio do <em>pacto colonial</em>.</p>
-        
-        <p>A estrutura socioeconômica desse período apoiava-se no tripé: o <strong>latifúndio</strong> (grandes extensões de terra), a <strong>monocultura</strong> (foco exclusivo na produção de cana) e o <strong>trabalho escravo</strong>. Inicialmente tentou-se a escravização indígena, mas logo o tráfico negreiro transatlântico se consolidou com a compra de africanos escravizados, que sustentaram toda a engrenagem de trabalho pesado nos engenhos.</p>
+        <p>Esse empreendimento econômico estruturou-se sob o modelo de **Plantação**, caracterizado pelo latifúndio, pela monocultura voltada estritamente para a exportação e pelo uso intensivo de mão de obra escravizada. Inicialmente tentou-se o cativeiro indígena, mas a forte resistência e fatores epidemiológicos levaram ao tráfico sistemático e em massa de africanos escravizados, consolidando o eixo estrutural do sistema colonial mercantilista.</p>
 
-        <p>A unidade básica de produção era o <strong>engenho</strong>, uma estrutura autossuficiente comandada pelo senhor de engenho, figura que concentrava o poder econômico, político e social na região. A sociedade colonial formou-se profundamente patriarcal, rural e estamental. Essa hegemonia nordestina começou a declinar no final do século XVII, após a expulsão dos holandeses (que passaram a produzir açúcar nas Antilhas), gerando uma grave crise econômica na colônia.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O sistema de plantation implantado por Portugal no Brasil Colônia durante o ciclo da cana-de-açúcar caracterizou-se por estruturar-se economicamente com base em:</p>
-        <ul>
-          <li>A) pequenas propriedades minifundiárias voltadas estritamente para o abastecimento do mercado interno e subsistência local.</li>
-          <li>B) latifúndios monocultores voltados para a exportação metropolitana, utilizando primariamente o trabalho escravo.</li>
-          <li>C) cooperativas agrícolas autogeridas formadas por camponeses livres e assalariados europeus.</li>
-          <li>D) explotação descentralizada de minérios preciosos sob o controle direto de câmaras municipais autônomas.</li>
-          <li>E) comércio livre e intercâmbio mercantil desimpedido com outras potências estrangeiras protestantes.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O modelo de colonização adotado baseava-se no latifúndio, na monocultura agroexportadora e no trabalho escravo (sistema de <em>plantation</em>), rigidamente controlado pelo pacto colonial português.</p>
+        <h2>2. A Sociedade do Engenho e o Pacto Colonial</h2>
+        <div class="highlight-box">
+          <p><strong>🌾 Pilares do Sistema Canavieiro:</strong> 
+          <br>• <strong>O Engenho:</strong> Complexo produtivo e social centrado na figura do *Senhor de Engenho*, que detinha o poder econômico e político local.
+          <br>• <strong>Trabalho Escravizado:</strong> A base da força de trabalho nas lavouras e na moenda, marcada por profunda violência e opressão.
+          <br>• <strong>O Pacto Colonial:</strong> Exclusivo comercial que obrigava a colônia a comercializar seus produtos apenas com a metrópole (Portugal), garantindo lucros centralizados na Europa.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A grande lavoura canavieira moldou a fisionomia do Brasil colonial, criando uma sociedade fortemente hierarquizada, onde o senhor de engenho detinha o controle não apenas dos meios de produção, mas também exercia jurisdição patriarcal sobre sua extensa clientela e escravaria."</em> O texto retrata a dinâmica social do Nordeste açucareiro, destacando como marca desse período:</p>
-        <ul>
-          <li>A) a total igualdade de direitos políticos e civis entre senhores, homens livres pobres e escravizados.</li>
-          <li>B) a mobilidade social intensa que permitia aos escravos ascenderem rapidamente à elite agrária.</li>
-          <li>C) a concentração de poder nas mãos da aristocracia rural proprietária de terras e escravos, gerando uma sociedade estamental e patriarcal.</li>
-          <li>D) a urbanização acelerada da colônia, com o esvaziamento completo das atividades agrícolas no campo.</li>
-          <li>E) a substituição imediata dos engenhos de açúcar por indústrias têxteis urbanas autônomas.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A concentração fundiária e o poder do senhor de engenho impuseram uma estrutura social estamental, profundamente desigual, rural e patriarcal, onde a mobilidade social era quase inexistente.</p>
+        <h2>3. Conflitos, Crise e o Legado Histórico</h2>
+        <p>O ciclo áureo da economia açucareira nordestina sofreu graves abalos no século XVII, sobretudo após a **União Ibérica (1580-1640)** e a subsequente invasão holandesa no Nordeste. Os holandeses, que antes participavam do transporte e refinamento do açúcar brasileiro, passaram a produzir o adoçante nas Antilhas, gerando forte concorrência e a decadência gradual da hegemonia açucareira lusitana.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A implantação da cultura cana-de-açúcar no litoral nordestino durante o século XVI inaugurou o primeiro grande ciclo econômico do Brasil colonial. Organizada em grandes propriedades agrícolas e voltada ao mercado internacional, essa produção moldou as estruturas sociais e políticas da época.”</p>
+          <p>Dentre as características estruturais que definiram o modelo socioeconômico dos engenhos de açúcar, aponta-se corretamente:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A predominância de minifúndios de policultura voltados exclusivamente para o consumo interno e subsistência comunitária.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O emprego exclusivo de trabalhadores livres assalariados recrutados na Europa e protegidos por leis trabalhistas.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O modelo de plantation baseado no latifúndio, na monocultura agroexportadora e na escravidão africana.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A descentralização absoluta do poder político, sem qualquer interferência das diretrizes administrativas da metrópole.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A total ausência de relações comerciais com o mercado externo europeu ou asiático.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> O modelo colonial açucareiro fundamentou-se no sistema de plantation: grandes extensões de terra (latifúndios), foco em um único produto para exportação (monocultura) e utilização extensiva de mão de obra escravizada.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“Durante o século XVII, a economia açucareira do Nordeste brasileiro enfrentou um período de profunda crise estrutural. Fatores geopolíticos externos e concorrenciais abalaram o monopólio que Portugal mantinha sobre a produção e a comercialização do açúcar nos mercados europeus.”</p>
+          <p>O fator histórico determinante que impulsionou essa crise na produção açucareira brasileira foi:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A descoberta de imensas jazidas de ouro e diamantes na região sudeste, que despovoou o Nordeste instantaneamente.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A introdução da produção concorrente de açúcar pelos holandeses nas Antilhas após a expulsão do território brasileiro.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A assinatura imediata do Tratado de Livre Comércio com a Inglaterra que aboliu todas as tarifas alfandegárias.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A transição pacífica e voluntária para o trabalho assalariado em todas as usinas do Recôncavo Baiano.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A proibição definitiva do cultivo agrícola em solos de massapê por decretos eclesiásticos.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Após as invasões holandesas e sua posterior expulsão do Nordeste, os holandeses passaram a cultivar cana-de-açúcar e a refinar o produto nas ilhas Antilhas, gerando uma forte concorrência que derrubou os preços e reduziu a lucratividade do açúcar brasileiro.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
+</body>
 </html>
