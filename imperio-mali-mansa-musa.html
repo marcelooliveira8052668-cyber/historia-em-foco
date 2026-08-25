@@ -1,238 +1,402 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O Império de Mali e a Riqueza de Mansa Musa | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Império de Mali e a Riqueza de Mansa Musa — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        background-color: white;
-        color: white;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1578593141445-0d41e739265f?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1.2rem;
-        border-radius: 8px;
+      .highlight-box {
+        background: var(--badge-bg);
         border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: footer-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>História da África</h1>
-      <p>Período: Século XIII - Século XVII</p>
+      <div class="header-badge">História da África Medieval e Comércio Transahariano</div>
+      <h1>O Império de Mali e a Riqueza de Mansa Musa</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>O Império de Mali e a Riqueza de Mansa Musa</h2>
-        <img src="https://historiamania.com/wp-content/uploads/2025/10/mansa-musa-e-a-riqueza-do-imperio-mali.jpg" width="500" alt="">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Ascensão do Império de Mali e o Comércio Transahariano</h2>
+        <p>Desenvolvido a partir do século XIII na África Ocidental após a derrocada do Império de Gana, o **Império de Mali** emergiu como uma superpotência regional graças à sua posição estratégica ao longo do rio Niger e ao controle das lucrativas rotas do **comércio transahariano**. Mercadores berberes e árabes cruzavam o deserto do Saara conectando o Mediterrâneo à África subsaariana.</p>
         
-        <p>O **Império de Mali** (c. 1235–1600) emergiu na África Ocidental como uma das potências políticas, comerciais e culturais mais suntuosas da Idade Média global. Fundado por Sundjata Keita — o "Príncipe Leão" —, que unificou os povos mandês após derrotar o reino de Sosso na Batalha de Kirina, o império expandiu-se rapidamente ao longo da bacia do rio Níger. Sua localização estratégica permitiu-lhe controlar as lucrativas rotas do **comércio transariacano**, mediando a circulação de ouro, marfim e sal entre as regiões florestais tropicais do sul e o norte do continente africano, conectado ao mundo islâmico e ao Mediterrâneo.</p>
-        
-        <p>O apogeu político e econômico do Mali atingiu seu zênite sob o reinado de **Mansa Musa** (Musa Keita I), que governou entre 1312 e 1337 e tornou-se mundialmente célebre por sua fabulosa fortuna e por sua monumental peregrinação (*Hajj*) a Meca em 1324. A comitiva do imperador, composta por dezenas de milhares de soldados, arautos e camelos carregados de centenas de quilos de ouro puro, impressionou tanto os cronistas árabes e europeus que a economia do Cairo sofreu inflação temporária devido à enorme quantidade de metal precioso distribuída por Mansa Musa ao longo do caminho. Mais do que sua riqueza material, o soberano impulsionou o desenvolvimento intelectual e urbano, transformando cidades como **Timbuktu** e Gao em grandes centros internacionais de erudição islâmica, com o estabelecimento de prósperas universidades, mesquitas icônicas (como a de Djingareyber) e vastas bibliotecas que guardavam manuscritos sobre medicina, astronomia, direito e filosofia.</p>
+        <p>A economia do império fundamentava-se na exploração de minas de **ouro** de grande abundância e no comércio de **sal** (essencial para a conservação de alimentos), além de produtos agrícolas, marfim e tecidos, transformando cidades como Niani e Gao em prósperos centros urbanos e comerciais.</p>
 
-        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Durante a Idade Média, o Império de Mali destacou-se na África Ocidental como um polo de intensa atividade econômica e circulação cultural. A principal base material que garantiu a projeção internacional e a fabulosa riqueza desse império da savana africana foi:</p>
-        <ul>
-          <li>A) a exploração intensiva de minas de prata e o comércio exclusivo de especiarias asiáticas no Oceano Índico.</li>
-          <li>B) o controle das rotas do comércio transariacano, especialmente a circulação e a exportação de ouro e sal entre o sul florestal e o norte islâmico.</li>
-          <li>C) a dependência absoluta da agricultura de subsistência isolada, sem trocas mercantis com outras regiões.</li>
-          <li>D) a colonização de territórios ultramarinos na América do Sul a partir do século XIV.</li>
-          <li>E) a cobrança de tributos marítimos cobrados de frotas comerciais vindas da Europa ocidental.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O Império de Mali prosperou economicamente ao dominar os nós estratégicos das rotas comerciais transariacanas. O ouro das minas locais e o sal eram as principais moedas de troca que ligavam a África subsaariana ao norte da África e ao Mediterrâneo.</p>
+        <h2>2. O Apogeu sob o Governo de Mansa Musa (1312–1337)</h2>
+        <p>O império atingiu seu auge político, cultural e econômico sob o reinado de **Mansa Musa** (o "rei dos reis" ou imperador). Sob sua administração, o território expandiu-se enormemente, englobando importantes centros comerciais e de saber islâmico.</p>
+
+        <div class="highlight-box">
+          <p><strong>👑 A Célebre Peregrinação a Meca (1324):</strong> Mansa Musa tornou-se mundialmente famoso por sua monumental peregrinação (*Hajj*) rumo a Meca. Acompanhado por dezenas de milhares de soldados, arautos e camelos carregando toneladas de ouro puro, sua passagem pelo Cairo causou tal inflação e impacto na economia egípcia que o valor do ouro desabou temporariamente por mais de uma década.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A famosa peregrinação de Mansa Musa a Meca em 1324 colocou o Império de Mali no mapa político e comercial do mundo islâmico e europeu, revelando não apenas uma imensa riqueza em ouro, mas também um forte investimento na cultura e na erudição."</em> Historicamente, a projeção cultural desse império expressou-se de maneira marcante na:</p>
-        <ul>
-          <li>A) destruição sistemática de todas as cidades e centros de conhecimento na África Ocidental.</li>
-          <li>B) conversão forçada de toda a população europeia ao culto tradicional local.</li>
-          <li>C) transformação de cidades como Timbuktu em celeiros de erudição, abrigando importantes mesquitas, universidades e acervos de manuscritos científicos e religiosos.</li>
-          <li>D) proibição total do comércio de livros e circulação de sábios estrangeiros no território malinês.</li>
-          <li>E) subordinação política do império africano aos reinos feudais da Europa central.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> Sob o patrocínio de governantes como Mansa Musa, o Mali atraiu estudiosos, arquitetos e poetas, consolidando cidades como Timbuktu como centros nevrálgicos de sabedoria e cultura islâmica na África subsaariana medieval.</p>
+        <h2>3. Timbuktu e o Legado Intelectual e Religioso</h2>
+        <p>Mansa Musa utilizou sua colossal riqueza para promover o desenvolvimento cultural e arquitetônico do Mali. Ele transformou a cidade de **Timbuktu** em um dos maiores polos acadêmicos e religiosos do mundo medieval islâmico.</p>
+        
+        <p>Timbuktu abrigou renomadas universidades (como a de Sankoré), mesquitas icônicas construídas em adobe (como a de Djinguereber) e vastas bibliotecas repletas de manuscritos sobre matemática, astronomia, direito e filosofia, projetando a África Ocidental como um farol global de erudição e civilização.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“Durante a Idade Média, o Império de Mali destacou-se como uma das formações políticas mais ricas e poderosas da África Ocidental. Controlando as rotas comerciais transarianas, a economia malinesa baseava-se fortemente na exploração de minas de ouro e no intercâmbio de mercadorias com o norte da África e o Oriente Médio.”</p>
+          <p>A prosperidade e a expansão desse império africano estavam diretamente associadas a:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Ao isolamento comercial absoluto em relação às civilizações do mar Mediterrâneo e do Oriente.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Ao controle estratégico das rotas caravanistas terrestres do comércio de ouro e sal através do deserto do Saara.</li>
+            <li class="option-item"><span class="option-letter">C)</span> À dependência exclusiva da exploração pesqueira oceânica no litoral do oceano Atlântico.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Ao pagamento de pesados tributos impostos pelas Cruzadas europeias na África Central.</li>
+            <li class="option-item"><span class="option-letter">E)</span> À abolição imediata de qualquer atividade urbana em favor do nomadismo pastoral estrito.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O motor da riqueza do Império de Mali foi o comércio transahariano. As caravanas conectavam as minas de ouro da África subsaariana aos mercados do Mediterrâneo, tendo o ouro e o sal como principais produtos de troca.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“A célebre peregrinação de Mansa Musa a Meca em 1324 impressionou os contemporâneos árabes e europeus pela imensidão de sua riqueza em ouro. De volta ao seu reino, o imperador investiu fortemente na conversão e expansão do islamismo, transformando a cidade de Timbuktu em um renomado centro internacional de estudos, com universidades e vastas bibliotecas.”</p>
+          <p>O legado histórico e cultural de Mansa Musa evidencia que a África Ocidental medieval:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Caracterizava-se por sociedades ágrafas e isoladas, desprovidas de centros urbanos ou reflexão intelectual.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Possuía estados altamente organizados, capazes de articular poder político, circulação de riquezas e desenvolvimento acadêmico.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Submetia-se integralmente à tutela militar e cultural do Império Bizantino.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Rejeitava qualquer contato com a religião islâmica ou com influências externas do Oriente Médio.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Limitava sua economia unicamente à agricultura de subsistência de base comunitária primitiva.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A trajetória de Mansa Musa e a consolidação de Timbuktu como polo de saber mostram a alta complexidade política, econômica e cultural dos impérios africanos medievais, refutando visões eurocêntricas sobre o continente.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
+</body>
 </html>
