@@ -1,477 +1,401 @@
-<<<<<<< HEAD
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Chegada da Família Real Portuguesa | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Chegada da Família Real Portuguesa — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
         margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
+      p {
         color: var(--text-muted);
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
-      </div>
-      <h1>Brasil Império</h1>
-      <p>Período: 1808</p>
-    </header>
-
-    <div class="container">
-      <div class="article-card">
-        <h2>A Chegada da Família Real Portuguesa</h2>
-        <img src="https://th.bing.com/th/id/R.e9b4c45d5a240e939f9db3cd080fb33f?rik=9FRl%2bqwdjPz%2fMQ&pid=ImgRaw&r=0" width="500" alt="">
-        
-        <p>O ano de 1808 marcou uma reviravolta sem precedentes na história institucional do Brasil. Pressionada pelo avanço das tropas napoleônicas em direção à península Ibérica e contando com a escolta estratégica da marinha britânica, a Corte portuguesa — liderada pelo Príncipe Regente Dom João (futuro Dom João VI) — transferiu o aparato político do Estado português para a sua principal colônia, desembarcando inicialmente em Salvador e posteriormente fixando-se no Rio de Janeiro.</p>
-        
-        <p>A presença da Família Real exigiu a rápida transformação estrutural da colônia para abrigar a burocracia do Império lusitano. Logo nos primeiros dias em solo brasileiro (janeiro de 1808), Dom João assinou a famosa <strong>Abertura dos Portos às Nações Amigas</strong>, pondo fim ao exclusivo colonial (pacto colonial) que impedia o Brasil de comercializar diretamente com outras potências — medida que beneficiou fortemente a Inglaterra. Nos anos seguintes, foram criados bancos, escolas superiores, a imprensa régia, o Jardim Botânico e instituições culturais que elevaram o Rio de Janeiro à condição de sede do Reino.</p>
-
-        <p>Outro marco fundamental desse período ocorreu em 1815, quando o Brasil foi elevado à categoria de <strong>Reino Unido de Portugal e Algarves</strong>, deixando formalmente de ser uma colônia. Essa mudança jurídica deu aos brasileiros representatividade nos tribunais e inserção internacional, tornando irreversível o processo de autonomia política que culminaria, anos mais tarde, na Independência do Brasil em 1822.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A transferência da Corte portuguesa para o Brasil em 1808 representou uma guinada abrupta nas relações econômicas e político-administrativas da colônia. Um dos atos iniciais desse processo, que rompeu com a lógica tradicional do mercantilismo ibérico, foi:</p>
-        <ul>
-          <li>A) a assinatura do Tratado de Methuen, que garantiu tarifas alfandegárias preferenciais ao vinho brasileiro na Europa.</li>
-          <li>B) a decretação da Abertura dos Portos às Nações Amigas, pondo fim ao exclusivo colonial e beneficiando a economia britânica.</li>
-          <li>C) a abolição imediata da escravidão em troca de apoio militar defensivo da Coroa espanhola.</li>
-          <li>D) a expulsão definitiva de todos os comerciantes estrangeiros estabelecidos nas províncias do Norte e Nordeste.</li>
-          <li>E) a estatização de todas as companhias mercantis operadas por capitais nacionais no litoral fluminense.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A Abertura dos Portos (1808) extinguiu o pacto colonial exclusivo que proibia o Brasil de comerciar com outras nações, abrindo os portos colônias às nações amigas, com destaque para a Inglaterra, que dominava os mares.</p>
-        </div>
-
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Com a chegada de Dom João e de cerca de quinze mil nobres portugueses, o Rio de Janeiro precisou adaptar-se rapidamente para funcionar como a capital de um império europeu. Edifícios foram requisitados, a vida urbana se complexificou e o status jurídico do território mudou substancialmente com a criação do Reino Unido em 1815."</em> O texto evidencia que a fixação da Corte no Brasil gerou como consequência direta:</p>
-        <ul>
-          <li>A) a estagnação cultural e o esvaziamento demográfico da região sudeste ao longo do século XIX.</li>
-          <li>B) a manutenção do estatuto colonial restrito e o isolamento diplomático perante as potências industriais.</li>
-          <li>C) a modernização institucional da colônia e a superação da condição estritamente colonial com a sua elevação a Reino Unido.</li>
-          <li>D) a substituição imediata da monarquia absolutista por um regime democrático parlamentarista eleito pelos colonos.</li>
-          <li>E) o fechamento de todas as escolas superiores e academias militares criadas anteriormente pelos governadores-gerais.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A chegada da Corte provocou uma modernização administrativa e a criação de bases institucionais fundamentais, culminando em 1815 com a elevação do Brasil a Reino Unido, rompendo juridicamente com o colonialismo clássico.</p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlRoot = document.documentElement;
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
-      });
-    </script>
-  </body>
-=======
-<!doctype html>
-<html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Chegada da Família Real Portuguesa | Acervo de História</title>
-    <style>
-      :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
-        --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      :root[data-theme="light"] {
-        --bg-color: #f8fafc;
-        --card-bg: #ffffff;
-        --text-color: #1e293b;
-        --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
-        --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
       }
 
-      body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        background-color: var(--bg-color);
+      .highlight-box p {
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      header {
-        background: var(--header-bg);
-        padding: 2rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border-color);
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
         position: relative;
-        box-shadow: var(--shadow);
+        overflow: hidden;
       }
 
-      .top-controls {
+      .question-card::before {
+        content: "";
         position: absolute;
-        top: 20px;
-        right: 30px;
-        display: flex;
-        gap: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
       }
 
-      .btn-theme, .btn-back {
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
         color: var(--text-color);
-        background: var(--input-bg);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
         border: 1px solid var(--border-color);
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 0.85rem;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
         font-weight: 600;
         cursor: pointer;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      .btn-theme:hover, .btn-back:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
+      .btn-reveal:hover {
+        background: var(--primary-hover);
       }
 
-      header h1 {
-        color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
-        font-weight: 700;
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
-        padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
-      }
-
-      .article-card {
-        background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Brasil Império</h1>
-      <p>Período: 1808</p>
+      <div class="header-badge">História do Brasil Colonial e Império</div>
+      <h1>A Chegada da Família Real Portuguesa</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>A Chegada da Família Real Portuguesa</h2>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. Contexto Geopolítico e as Guerras Napoleônicas</h2>
+        <p>A transferência da corte portuguesa para o Brasil em **1808** representou uma das maiores reviravoltas na história da colonização moderna. Pressionado pelo expansionismo de Napoleão Bonaparte e pelo decreto do **Bloqueio Continental** (que proibia os países europeus de comercializarem com a Inglaterra), o Príncipe Regente Dom João viu-se diante de um dilema intransponível: romper com os ingleses (e sofrer retaliação da poderosa Marinha Real) ou enfrentar a invasão de suas terras pelas tropas francesas.</p>
         
-        <p>O ano de 1808 marcou uma reviravolta sem precedentes na história institucional do Brasil. Pressionada pelo avanço das tropas napoleônicas em direção à península Ibérica e contando com a escolta estratégica da marinha britânica, a Corte portuguesa — liderada pelo Príncipe Regente Dom João (futuro Dom João VI) — transferiu o aparato político do Estado português para a sua principal colônia, desembarcando inicialmente em Salvador e posteriormente fixando-se no Rio de Janeiro.</p>
-        
-        <p>A presença da Família Real exigiu a rápida transformação estrutural da colônia para abrigar a burocracia do Império lusitano. Logo nos primeiros dias em solo brasileiro (janeiro de 1808), Dom João assinou a famosa <strong>Abertura dos Portos às Nações Amigas</strong>, pondo fim ao exclusivo colonial (pacto colonial) que impedia o Brasil de comercializar diretamente com outras potências — medida que beneficiou fortemente a Inglaterra. Nos anos seguintes, foram criados bancos, escolas superiores, a imprensa régia, o Jardim Botânico e instituições culturais que elevaram o Rio de Janeiro à condição de sede do Reino.</p>
+        <p>A solução adotada, com o apoio logístico e escolta da frota britânica, foi a fuga da família real e de toda a alta burocracia do Estado português de Lisboa para o Rio de Janeiro.</p>
 
-        <p>Outro marco fundamental desse período ocorreu em 1815, quando o Brasil foi elevado à categoria de <strong>Reino Unido de Portugal e Algarves</strong>, deixando formalmente de ser uma colônia. Essa mudança jurídica deu aos brasileiros representatividade nos tribunais e inserção internacional, tornando irreversível o processo de autonomia política que culminaria, anos mais tarde, na Independência do Brasil em 1822.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A transferência da Corte portuguesa para o Brasil em 1808 representou uma guinada abrupta nas relações econômicas e político-administrativas da colônia. Um dos atos iniciais desse processo, que rompeu com a lógica tradicional do mercantilismo ibérico, foi:</p>
-        <ul>
-          <li>A) a assinatura do Tratado de Methuen, que garantiu tarifas alfandegárias preferenciais ao vinho brasileiro na Europa.</li>
-          <li>B) a decretação da Abertura dos Portos às Nações Amigas, pondo fim ao exclusivo colonial e beneficiando a economia britânica.</li>
-          <li>C) a abolição imediata da escravidão em troca de apoio militar defensivo da Coroa espanhola.</li>
-          <li>D) a expulsão definitiva de todos os comerciantes estrangeiros estabelecidos nas províncias do Norte e Nordeste.</li>
-          <li>E) a estatização de todas as companhias mercantis operadas por capitais nacionais no litoral fluminense.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A Abertura dos Portos (1808) extinguiu o pacto colonial exclusivo que proibia o Brasil de comerciar com outras nações, abrindo os portos colônias às nações amigas, com destaque para a Inglaterra, que dominava os mares.</p>
+        <h2>2. A Inversão Metropolitana e a Abertura dos Portos</h2>
+        <div class="highlight-box">
+          <p><strong>👑 Principais Transformações Estruturais:</strong> 
+          <br>• <strong>Fim do Pacto Colonial:</strong> Logo na parada em Salvador (janeiro de 1808), Dom João assinou a **Abertura dos Portos às Nações Amigas**, extinguindo o monopólio comercial exclusivo de Portugal e integrando o Brasil ao livre-comércio internacional (favorecendo amplamente os interesses industriais britânicos).
+          <br>• <strong>Modernização Institucional:</strong> Já no Rio de Janeiro, foram fundados o Banco do Brasil, a Imprensa Régia, a Real Academia de Marinha, além de escolas superiores, o Jardim Botânico e a Biblioteca Real.
+          <br>• <strong>Reino Unido (1815):</strong> Em virtude do Congresso de Viena, o Brasil foi elevado à categoria de Reino Unido de Portugal e Algarves, deixando formalmente de ser colônia.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Com a chegada de Dom João e de cerca de quinze mil nobres portugueses, o Rio de Janeiro precisou adaptar-se rapidamente para funcionar como a capital de um império europeu. Edifícios foram requisitados, a vida urbana se complexificou e o status jurídico do território mudou substancialmente com a criação do Reino Unido em 1815."</em> O texto evidencia que a fixação da Corte no Brasil gerou como consequência direta:</p>
-        <ul>
-          <li>A) a estagnação cultural e o esvaziamento demográfico da região sudeste ao longo do século XIX.</li>
-          <li>B) a manutenção do estatuto colonial restrito e o isolamento diplomático perante as potências industriais.</li>
-          <li>C) a modernização institucional da colônia e a superação da condição estritamente colonial com a sua elevação a Reino Unido.</li>
-          <li>D) a substituição imediata da monarquia absolutista por um regime democrático parlamentarista eleito pelos colonos.</li>
-          <li>E) o fechamento de todas as escolas superiores e academias militares criadas anteriormente pelos governadores-gerais.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A chegada da Corte provocou uma modernização administrativa e a criação de bases institucionais fundamentais, culminando em 1815 com a elevação do Brasil a Reino Unido, rompendo juridicamente com o colonialismo clássico.</p>
+        <h2>3. Legado Rumo à Independência</h2>
+        <p>A presença da corte no Rio de Janeiro alterou profundamente a dinâmica política e econômica da América portuguesa. Ao centralizar o aparato estatal na colônia e conceder autonomia administrativa, D. João VI pavimentou o caminho institucional e econômico que culminaria na **Independência do Brasil** em 1822.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A chegada da família real portuguesa ao Brasil em 1808 provocou uma inversão sem precedentes na dinâmica do Antigo Regime colonial: a metrópole passou a ser governada a partir de sua própria colônia. O decreto de Abertura dos Portos às Nações Amigas, assinado logo no desembarque em Salvador, sintetizou essa reviravolta.”</p>
+          <p>A consequência econômica imediata da assinatura desse decreto foi:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> O reforço rigoroso do pacto colonial e a restrição exclusiva do comércio aos navios mercantes lusitanos.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A extinção do monopólio metropolitano, permitindo a livre transação com potências estrangeiras, com destaque para a Inglaterra.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O isolamento absoluto da economia brasileira frente aos mercados capitalistas industriais europeus.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A proibição definitiva de circulação de moedas estrangeiras em todo o território nacional.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A transferência do controle alfandegário integral para as mãos da Coroa espanhola.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A Abertura dos Portos pôs fim ao exclusivo metropolitano (pacto colonial), permitindo ao Brasil negociar diretamente com outros países, beneficiando principalmente a Inglaterra.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O cenário geopolítico europeu do início do século XIX foi determinante para a reorientação da política externa e interna de Portugal. As investidas militares lideradas por Napoleão Bonaparte na Península Ibérica impuseram sérios riscos à soberania da dinastia de Bragança.”</p>
+          <p>O fator estipulante externo que motivou diretamente a transferência do aparato estatal português para o território americano foi:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A imposição do Bloqueio Continental por Napoleão e a iminência da invasão militar de Portugal pelas tropas francesas.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O acordo de paz perpétua firmado entre Portugal e o Império Francês para a partilha comercial das colônias asiáticas.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A pressão popular ejercida pelos movimentos republicanos liberais nas ruas de Lisboa.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A necessidade de expandir as fronteiras agrícolas portuguesas em direção à bacia do rio da Prata.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A falência completa do sistema bancário britânico decorrente de crises financeiras internas.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra A</strong>
+            <p><strong>Resolução:</strong> A decretação do Bloqueio Continental e a consequente marcha das tropas francesas comandadas por Junot sobre Lisboa forçaram a fuga da corte sob proteção da Marinha britânica.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
+</body>
 </html>
