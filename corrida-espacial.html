@@ -1,124 +1,401 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Corrida Espacial: A Conquista do Além | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Corrida Espacial: A Conquista do Além — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.6rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        content-visibility: auto;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        content-visibility: auto;
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.1rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeThemeToggle" onclick="toggleTheme()">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">História Geral / O Século XX</div>
+      <h1>A Corrida Espacial: A Conquista do Além 🚀🌌</h1>
+    </header>
 
     <div class="container">
-        <h1>A Corrida Espacial: A Conquista do Além 🚀🌌</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Vitrine Tecnológica da Guerra Fria</h2>
+        <p>Durante a Guerra Fria, a rivalidade entre os Estados Unidos e a União Soviética extrapolou o plano terrestre e encontrou no cosmos uma arena espetacular de propaganda e demonstração de superioridade ideológica e científica. A **Corrida Espacial** não se tratava apenas de exploração astronômica, mas sim de uma vitrine tecnológica destinada a provar a suposta superioridade do modelo capitalista frente ao modelo socialista, e vice-versa.</p>
+        
+        <p>Os primeiros anos foram dominados de forma incontestável pelos soviéticos (o programa Sputnik), que chocaram o Ocidente ao lançar o primeiro satélite artificial e, posteriormente, ao colocar o primeiro ser humano no espaço, consolidando marcos históricos fundamentais na engenharia aeroespacial.</p>
 
-        <img src="https://i.pinimg.com/736x/87/1b/30/871b30b4274c3e34b46c6e7a6857189a.jpg" alt="A Corrida Espacial" />
-
-        <p>A <strong>Corrida Espacial</strong> foi uma intensa competição tecnológica e ideológica entre os Estados Unidos (EUA) e a União Soviética (URSS) durante a Guerra Fria (aprox. 1957–1975). Mais do que uma disputa científica, era uma vitrine política: cada avanço funcionava como prova definitiva da superioridade do modelo Capitalista ou Socialista.</p>
-
-        <h2>1. Principais Marcos Históricos</h2>
-        <ul>
-            <li><strong>O Pioneirismo Soviético (1957–1961):</strong> A URSS largou na frente com o lançamento do satélite <em>Sputnik 1</em>, enviou a cadela Laika e coroou sua supremacia inicial com Yuri Gagarin, o primeiro humano no espaço.</li>
-            <li><strong>A Resposta Americana (1969):</strong> Pressionado, o presidente John F. Kennedy prometeu levar o homem à Lua. A promessa cumpriu-se em 20 de julho de 1969 com a missão <em>Apollo 11</em> e os astronautas Neil Armstrong e Buzz Aldrin.</li>
-            <li><strong>Fim da Competição e Cooperação (Anos 1970):</strong> Para reduzir tensões e custos, a rivalidade cedeu espaço à cooperação. O marco foi a missão conjunta <em>Apollo-Soyuz</em> (1975).</li>
-        </ul>
-
-        <h2>2. Legado no Cotidiano</h2>
-        <p>O investimento gerou tecnologias usadas até hoje: alimentos desidratados, materiais sintéticos avançados, satélites de comunicação/previsão do tempo e o desenvolvimento inicial dos computadores modernos.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Considerando o contexto da Corrida Espacial, o lançamento do satélite Sputnik pela União Soviética em 1957 provocou nos Estados Unidos:</p>
-        <p>A) Uma aliança militar imediata com os países socialistas do Leste Europeu.<br>B) Um profundo impacto político e educacional, resultando em investimentos massivos em ciência, tecnologia e educação espacial.<br>C) A desistência definitiva de programas de exploração espacial para focar em armas nucleares.<br>D) A imediata dissolução da NASA e a transferência das pesquisas para a iniciativa privada.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: O lançamento do Sputnik gerou o chamado "Sputnik shock" nos EUA, evidenciando o atraso tecnológico e impulsionando a reformulação do ensino de exatas e a criação da NASA em 1958.</em>
+        <h2>2. Os Grandes Marcos e a Resposta Americana</h2>
+        <div class="highlight-box">
+          <p><strong>🛰️ Cronologia da Conquista:</strong> 
+          <br>• <strong>O Pioneirismo Soviético:</strong> Em 1957, o lançamento do <em>Sputnik 1</em> inaugurou a era espacial. Em 1961, o cosmonauta Yuri Gagarin tornou-se o primeiro homem a orbitar a Terra a bordo da nave <em>Vostok 1</em>.
+          <br>• <strong>O Desafio de Kennedy e a Chegada à Lua:</strong> Diante do atraso inicial, o presidente John F. Kennedy prometeu em 1961 colocar um homem na Lua antes do final da década. O objetivo foi alcançado em 20 de julho de 1969, quando a missão norte-americana <em>Apollo 11</em> pousou no satélite natural, com Neil Armstrong e Buzz Aldrin.</p>
         </div>
 
-        <p><strong>Questão 2</strong><br>A chegada do homem à Lua em 1969 representou o ponto culminante da disputa. É correto afirmar que a Corrida Espacial esteve diretamente atrelada a:</p>
-        <p>A) Uma política de eliminação das barreiras alfandegárias entre blocos opostos.<br>B) Um projeto pacifista voltado para a ecologia.<br>C) Uma estratégia de soft power e propaganda da Guerra Fria, onde o sucesso tecnológico validava a superioridade de um modelo ideológico.<br>D) Uma imposição da ONU para a divisão igualitária de foguetes.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: A conquista espacial foi um "duelo sem armas diretas", onde o sucesso em órbita funcionava como vitrine da superioridade política e econômica de cada superpotência para o resto do mundo.</em>
+        <h2>3. Legado Científico e o Fim da Competição</h2>
+        <p>Embora a disputa tenha nascido de motivações militares e geopolíticas — associadas ao desenvolvimento de mísseis balísticos intercontinentais (ICBMs) —, o desenvolvimento tecnológico decorrente da Corrida Espacial revolucionou a sociedade global. Inovações em telecomunicações, satélites meteorológicos, computação avançada e novos materiais transformaram o cotidiano humano, culminando no final da corrida com a distensão das relações e o histórico projeto conjunto Apollo-Soyuz em 1975.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“No contexto da Guerra Fria, a corrida espacial funcionou como uma extensão da disputa geopolítica e ideológica entre Estados Unidos e União Soviética. Cada lançamento bem-sucedido transformava-se em poderoso instrumento de propaganda institucional, projetando a eficácia técnica de cada superpotência para o mundo.”</p>
+          <p>Qual marco tecnológico inicial dessa disputa coube à União Soviética, gerando forte impacto e preocupação nos círculos políticos e militares norte-americanos em 1957?</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> O pouso tripulado da missão Apollo 11 na superfície da Lua.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O lançamento do satélite artificial Sputnik 1, inaugurando oficialmente a era da exploração espacial.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A construção da Estação Espacial Internacional em parceria com o bloco capitalista europeu.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O envio da primeira sonda robótica capaz de mapear a atmosfera do planeta Marte.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O desenvolvimento exclusivo de ônibus espaciais reutilizáveis para fins comerciais civis.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O lançamento do Sputnik 1 em outubro de 1957 surpreendeu os EUA, demonstrando a capacidade soviética de projetar tecnologia de ponta e mísseis de longo alcance, desencadeando o que se chamou de "crise do Sputnik" no planejamento americano.</p>
+          </div>
         </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“Apesar de ter sido impulsionada por lógicas de poder, competição militar e propaganda ideológica durante a Guerra Fria, a Corrida Espacial gerou um conjunto massivo de inovações científicas cujos desdobramentos transformaram profundamente a vida civil nas décadas seguintes.”</p>
+          <p>Dentre os impactos socioeconômicos e tecnológicos gerados por esse processo competitivo, destaca-se:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> O isolamento absoluto das pesquisas científicas, impedindo o compartilhamento de qualquer avanço tecnológico com o restante do mundo.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O retrocesso das indústrias de telecomunicação devido à proibição do uso de satélites artificiais em órbitas terrestres.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O avanço em áreas como a ciência dos materiais, computação, telecomunicações e previsão meteorológica, integrados gradualmente ao cotidiano global.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A extinção definitiva de agências espaciais públicas e a restrição absoluta da astronomia ao financiamento privado individual.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A eliminação total de foguetes balísticos do arsenal militar de ambas as superpotências logo após 1960.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> O esforço maciço de pesquisa e desenvolvimento (P&D) exigido pela conquista espacial resultou em spin-offs (tecnologias derivadas) que revolucionaram a eletrônica, os sistemas de comunicação via satélite, a medicina e a meteorologia modernas.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const htmlRoot = document.documentElement;
+
+      function toggleTheme() {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      }
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Corrida Espacial: A Conquista do Além | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>A Corrida Espacial: A Conquista do Além 🚀🌌</h1>
-
-        <img src="https://i.pinimg.com/736x/87/1b/30/871b30b4274c3e34b46c6e7a6857189a.jpg" alt="A Corrida Espacial" />
-
-        <p>A <strong>Corrida Espacial</strong> foi uma intensa competição tecnológica e ideológica entre os Estados Unidos (EUA) e a União Soviética (URSS) durante a Guerra Fria (aprox. 1957–1975). Mais do que uma disputa científica, era uma vitrine política: cada avanço funcionava como prova definitiva da superioridade do modelo Capitalista ou Socialista.</p>
-
-        <h2>1. Principais Marcos Históricos</h2>
-        <ul>
-            <li><strong>O Pioneirismo Soviético (1957–1961):</strong> A URSS largou na frente com o lançamento do satélite <em>Sputnik 1</em>, enviou a cadela Laika e coroou sua supremacia inicial com Yuri Gagarin, o primeiro humano no espaço.</li>
-            <li><strong>A Resposta Americana (1969):</strong> Pressionado, o presidente John F. Kennedy prometeu levar o homem à Lua. A promessa cumpriu-se em 20 de julho de 1969 com a missão <em>Apollo 11</em> e os astronautas Neil Armstrong e Buzz Aldrin.</li>
-            <li><strong>Fim da Competição e Cooperação (Anos 1970):</strong> Para reduzir tensões e custos, a rivalidade cedeu espaço à cooperação. O marco foi a missão conjunta <em>Apollo-Soyuz</em> (1975).</li>
-        </ul>
-
-        <h2>2. Legado no Cotidiano</h2>
-        <p>O investimento gerou tecnologias usadas até hoje: alimentos desidratados, materiais sintéticos avançados, satélites de comunicação/previsão do tempo e o desenvolvimento inicial dos computadores modernos.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Considerando o contexto da Corrida Espacial, o lançamento do satélite Sputnik pela União Soviética em 1957 provocou nos Estados Unidos:</p>
-        <p>A) Uma aliança militar imediata com os países socialistas do Leste Europeu.<br>B) Um profundo impacto político e educacional, resultando em investimentos massivos em ciência, tecnologia e educação espacial.<br>C) A desistência definitiva de programas de exploração espacial para focar em armas nucleares.<br>D) A imediata dissolução da NASA e a transferência das pesquisas para a iniciativa privada.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: O lançamento do Sputnik gerou o chamado "Sputnik shock" nos EUA, evidenciando o atraso tecnológico e impulsionando a reformulação do ensino de exatas e a criação da NASA em 1958.</em>
-        </div>
-
-        <p><strong>Questão 2</strong><br>A chegada do homem à Lua em 1969 representou o ponto culminante da disputa. É correto afirmar que a Corrida Espacial esteve diretamente atrelada a:</p>
-        <p>A) Uma política de eliminação das barreiras alfandegárias entre blocos opostos.<br>B) Um projeto pacifista voltado para a ecologia.<br>C) Uma estratégia de soft power e propaganda da Guerra Fria, onde o sucesso tecnológico validava a superioridade de um modelo ideológico.<br>D) Uma imposição da ONU para a divisão igualitária de foguetes.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: A conquista espacial foi um "duelo sem armas diretas", onde o sucesso em órbita funcionava como vitrine da superioridade política e econômica de cada superpotência para o resto do mundo.</em>
-        </div>
-    </div>
-</body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>
