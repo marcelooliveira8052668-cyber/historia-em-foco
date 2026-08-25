@@ -1,477 +1,401 @@
-<<<<<<< HEAD
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>As Grandes Navegações e a Era dos Descobrimentos | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As Grandes Navegações e a Era dos Descobrimentos — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
         margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
+      p {
         color: var(--text-muted);
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
-      </div>
-      <h1>Idade Moderna</h1>
-      <p>Período: Século XV - Século XVII</p>
-    </header>
-
-    <div class="container">
-      <div class="article-card">
-        <h2>As Grandes Navegações e a Era dos Descobrimentos</h2>
-        <img src="https://s5.static.brasilescola.uol.com.br/be/2025/02/1-mapa-das-expansoes-coloniais-portuguesa-e-espanhola-durante-as-grandes-navegacoes.jpg" alt="">
-        
-        <p>A expansão marítima europeia, ocorrida entre os **séculos XV e XVII**, representou uma das transformações mais profundas da história mundial, marcando a transição da Idade Média para a Idade Moderna. Liderados inicialmente por Portugal e Espanha, os Estados Nacionais recém-formados uniram interesses da monarquia absolutista, da Igreja Católica e da burguesia mercantil em busca de novas rotas comerciais para o Oriente. O objetivo central era contornar o monopólio exercido por comerciantes italianos e árabes sobre o Mar Mediterrâneo no comércio de especiarias (como pimenta, cravo e canela) e sedas vindas da Índia e da China.</p>
-        
-        <p>O pioneirismo de <strong>Portugal</strong> explicou-se por fatores como sua precoce centralização política (1385, Revolução de Avis), a estabilidade territorial, a posição geográfica privilegiada voltada para o Atlântico e o desenvolvimento de inovações náuticas e cartográficas (como a caravela, a bússola e o astrolábio). Os navegadores lusos desbravaram a costa africana sistematicamente (o Periplão Africano), culminando na chegada de Vasco da Gama às Índias em 1498. Pouco depois, em 1500, a armada de Pedro Álvares Cabral aportou no Brasil. Paralelamente, a Coroa espanhola apostou no ousado projeto de Cristóvão Colombo de atingir o Oriente navegando para o oeste, o que resultou na chegada à América em 1492.</p>
-
-        <p>As consequências desse processo reconfiguraram o planeta. O eixo econômico europeu deslocou-se progressivamente do Mar Mediterrâneo para o Oceano Atlântico. A exploração colonial inaugurou um violento sistema de dominação baseado no mercantilismo, no pacto colonial, na extração de metais preciosos e na escravidão em larga escala de povos indígenas e africanos. A "Era dos Descobrimentos" integrou continentes pela primeira vez na história, mas também provocou a dizimação de civilizações nativas americanas e consolidou a hegemonia econômica europeia no globo.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A expansão marítima europeia dos séculos XV e XVII esteve atrelada à formação dos Estados Nacionais modernos e ao desenvolvimento do mercantilismo. Como principal fator econômico e geopolítico que impulsionou a busca por novas rotas comerciais marítimas para o Oriente, destaca-se:</p>
-        <ul>
-          <li>A) a exigência das guildas de artesãos medievais para expandir o mercado interno de tecidos sintéticos na Europa central.</li>
-          <li>B) a necessidade de contornar o monopólio exercido por comerciantes italianos e muçulmanos sobre as rotas tradicionais de especiarias no Mediterrâneo.</li>
-          <li>C) o acordo militar firmado entre o Império Romano do Oriente e as repúblicas ibéricas para explorar o Oceano Pacífico.</li>
-          <li>D) a descoberta de imensas reservas de carvão mineral e petróleo bruto nas ilhas atlânticas dos Açores.</li>
-          <li>E) a abolição completa das taxas alfandegárias entre os reinos ibéricos e o Império Otomano.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> Com a tomada de Constantinopla pelos turcos otomanos em 1453 e o controle tradicional exercido por cidades italianas e árabes no Mediterrâneo, as especiarias orientais chegavam caríssimas à Europa. Isso forçou as monarquias ibéricas a buscarem uma rota marítima alternativa para o Oriente.</p>
-        </div>
-
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O pioneirismo ibérico na expansão ultramarina não ocorreu por acaso. Ele foi fruto de uma aliança sólida entre o poder real centralizado e a classe mercantil, somada ao domínio de tecnologias de navegação e a uma posição geográfica estratégica voltada para o Atlântico."</em> O texto destaca o pioneirismo de Portugal e Espanha, ressaltando que esse processo resultou em:</p>
-        <ul>
-          <li>A) a imediata instauração de democracias liberais descentralizadas em todas as colônias ultramarinas.</li>
-          <li>B) o isolamento comercial da Europa face aos impérios asiáticos e africanos.</li>
-          <li>C) o deslocamento do eixo comercial europeu do Mediterrâneo para o Atlântico e a consolidação do sistema colonial mercantilista.</li>
-          <li>D) a extinção definitiva da escravidão africana nas novas terras conquistadas devido às leis humanitárias da época.</li>
-          <li>E) a substituição das monarquias absolutistas por governos parlamentares controlados pelas corporações de ofício.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> As Grandes Navegações mudaram o eixo econômico mundial do Mediterrâneo para o Atlântico, impulsionando o mercantilismo e estruturando a exploração colonial baseada no pacto colonial e no trabalho compulsório.</p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlRoot = document.documentElement;
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
-      });
-    </script>
-  </body>
-=======
-<!doctype html>
-<html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>As Grandes Navegações e a Era dos Descobrimentos | Acervo de História</title>
-    <style>
-      :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
-        --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      :root[data-theme="light"] {
-        --bg-color: #f8fafc;
-        --card-bg: #ffffff;
-        --text-color: #1e293b;
-        --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
-        --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
       }
 
-      body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        background-color: var(--bg-color);
+      .highlight-box p {
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      header {
-        background: var(--header-bg);
-        padding: 2rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border-color);
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
         position: relative;
-        box-shadow: var(--shadow);
+        overflow: hidden;
       }
 
-      .top-controls {
+      .question-card::before {
+        content: "";
         position: absolute;
-        top: 20px;
-        right: 30px;
-        display: flex;
-        gap: 10px;
-      }
-
-      .btn-theme, .btn-back {
-        color: var(--text-color);
-        background: var(--input-bg);
-        border: 1px solid var(--border-color);
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
-      }
-
-      .btn-theme:hover, .btn-back:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
-      }
-
-      header h1 {
-        color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
-        font-weight: 700;
-      }
-
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
-        padding: 0 1.5rem;
+        top: 0;
+        left: 0;
         width: 100%;
-        box-sizing: border-box;
-        flex: 1;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
       }
 
-      .article-card {
-        background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow);
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
       }
 
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+      .question-text {
         color: var(--text-color);
-        font-size: 1rem;
+        font-weight: 500;
       }
 
-      ul {
-        padding-left: 20px;
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
       }
 
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
         padding: 1rem 1.2rem;
         border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Idade Moderna</h1>
-      <p>Período: Século XV - Século XVII</p>
+      <div class="header-badge">História Moderna e Expansão Oceânica</div>
+      <h1>As Grandes Navegações e a Era dos Descobrimentos</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>As Grandes Navegações e a Era dos Descobrimentos</h2>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Alvorecer dos Oceanos e o Fim do Isolamento</h2>
+        <p>A **Era dos Descobrimentos** (entre os séculos XV e XVII) representou uma revolução nas comunicações globais e na cartografia mundial. Impulsionadas pela curiosidade científica, pelo desenvolvimento de instrumentos de orientação (como a bússola, o astrolábio e a carta de portulano) e pela necessidade imperiosa de encontrar novas rotas comerciais para as Índias, as nações da Europa Ocidental romperam os limites do Mar Mediterrâneo e lançaram-se ao Oceano Atlântico e ao Índico.</p>
         
-        <p>A expansão marítima europeia, ocorrida entre os **séculos XV e XVII**, representou uma das transformações mais profundas da história mundial, marcando a transição da Idade Média para a Idade Moderna. Liderados inicialmente por Portugal e Espanha, os Estados Nacionais recém-formados uniram interesses da monarquia absolutista, da Igreja Católica e da burguesia mercantil em busca de novas rotas comerciais para o Oriente. O objetivo central era contornar o monopólio exercido por comerciantes italianos e árabes sobre o Mar Mediterrâneo no comércio de especiarias (como pimenta, cravo e canela) e sedas vindas da Índia e da China.</p>
-        
-        <p>O pioneirismo de <strong>Portugal</strong> explicou-se por fatores como sua precoce centralização política (1385, Revolução de Avis), a estabilidade territorial, a posição geográfica privilegiada voltada para o Atlântico e o desenvolvimento de inovações náuticas e cartográficas (como a caravela, a bússola e o astrolábio). Os navegadores lusos desbravaram a costa africana sistematicamente (o Periplão Africano), culminando na chegada de Vasco da Gama às Índias em 1498. Pouco depois, em 1500, a armada de Pedro Álvares Cabral aportou no Brasil. Paralelamente, a Coroa espanhola apostou no ousado projeto de Cristóvão Colombo de atingir o Oriente navegando para o oeste, o que resultou na chegada à América em 1492.</p>
+        <p>Esse processo não apenas reconfigurou o eixo econômico europeu — transferindo o foco comercial das cidades italianas e árabes para as potências voltadas ao Atlântico (como Portugal, Espanha, Inglaterra, França e Países Baixos) —, mas também inaugurou o sistema de trocas globais conhecido como **Economia-Mundo**. No entanto, essa integração veio acompanhada da exploração intensiva e da desestruturação drástica das civilizações nativas americanas.</p>
 
-        <p>As consequências desse processo reconfiguraram o planeta. O eixo econômico europeu deslocou-se progressivamente do Mar Mediterrâneo para o Oceano Atlântico. A exploração colonial inaugurou um violento sistema de dominação baseado no mercantilismo, no pacto colonial, na extração de metais preciosos e na escravidão em larga escala de povos indígenas e africanos. A "Era dos Descobrimentos" integrou continentes pela primeira vez na história, mas também provocou a dizimação de civilizações nativas americanas e consolidou a hegemonia econômica europeia no globo.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A expansão marítima europeia dos séculos XV e XVII esteve atrelada à formação dos Estados Nacionais modernos e ao desenvolvimento do mercantilismo. Como principal fator econômico e geopolítico que impulsionou a busca por novas rotas comerciais marítimas para o Oriente, destaca-se:</p>
-        <ul>
-          <li>A) a exigência das guildas de artesãos medievais para expandir o mercado interno de tecidos sintéticos na Europa central.</li>
-          <li>B) a necessidade de contornar o monopólio exercido por comerciantes italianos e muçulmanos sobre as rotas tradicionais de especiarias no Mediterrâneo.</li>
-          <li>C) o acordo militar firmado entre o Império Romano do Oriente e as repúblicas ibéricas para explorar o Oceano Pacífico.</li>
-          <li>D) a descoberta de imensas reservas de carvão mineral e petróleo bruto nas ilhas atlânticas dos Açores.</li>
-          <li>E) a abolição completa das taxas alfandegárias entre os reinos ibéricos e o Império Otomano.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> Com a tomada de Constantinopla pelos turcos otomanos em 1453 e o controle tradicional exercido por cidades italianas e árabes no Mediterrâneo, as especiarias orientais chegavam caríssimas à Europa. Isso forçou as monarquias ibéricas a buscarem uma rota marítima alternativa para o Oriente.</p>
+        <h2>2. A Epopeia Ibérica: Estratégias e Descobertas</h2>
+        <div class="highlight-box">
+          <p><strong>🗺️ Dinâmicas de Exploração Marítima:</strong> 
+          <br>• <strong>O Périplo Africano (Portugal):</strong> Estratégia portuguesa de contornar o continente africano rumo ao Oriente. Conquistas fundamentais inclu-iram a chegada ao Cabo da Boa Esperança (Bartolomeu Dias, 1488) e a concretização da rota para Calicute, na Índia (Vasco da Gama, 1498).
+          <br>• <strong>A Aposta Ocidental (Espanha):</strong> Financiamento da arrojada expedição de Cristóvão Colombo (1492) que, ao tentar atingir as Índias navegando para o oeste, aportou nas ilhas do Caribe, inaugurando o encontro (e o subsequente choque) com o continente americano.
+          <br>• <strong>A Partilha do Mundo:</strong> Tratados diplomáticos mediados pela Igreja Católica, como o **Tratado de Tordesilhas (1494)**, que dividiram as áreas de exploração ultramarina entre portugueses e espanhóis.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O pioneirismo ibérico na expansão ultramarina não ocorreu por acaso. Ele foi fruto de uma aliança sólida entre o poder real centralizado e a classe mercantil, somada ao domínio de tecnologias de navegação e a uma posição geográfica estratégica voltada para o Atlântico."</em> O texto destaca o pioneirismo de Portugal e Espanha, ressaltando que esse processo resultou em:</p>
-        <ul>
-          <li>A) a imediata instauração de democracias liberais descentralizadas em todas as colônias ultramarinas.</li>
-          <li>B) o isolamento comercial da Europa face aos impérios asiáticos e africanos.</li>
-          <li>C) o deslocamento do eixo comercial europeu do Mediterrâneo para o Atlântico e a consolidação do sistema colonial mercantilista.</li>
-          <li>D) a extinção definitiva da escravidão africana nas novas terras conquistadas devido às leis humanitárias da época.</li>
-          <li>E) a substituição das monarquias absolutistas por governos parlamentares controlados pelas corporações de ofício.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> As Grandes Navegações mudaram o eixo econômico mundial do Mediterrâneo para o Atlântico, impulsionando o mercantilismo e estruturando a exploração colonial baseada no pacto colonial e no trabalho compulsório.</p>
+        <h2>3. Consequências Históricas e Impacto Geopolítico</h2>
+        <p>As consequências das Grandes Navegações moldaram permanentemente o mundo moderno. O afluxo massivo de metais preciosos (ouro e prata) procedentes da América causou a chamada **Revolução dos Preços** na Europa, inflacionando a economia. Paralelamente, estabeleceu-se o infame **Tráfico Transatlântico de Escravizados**, movimentando o sistema colonial mercantilista e integrando continentes por meio de fluxos comerciais violentos e assimétricos.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A Era dos Descobrimentos alterou profundamente a configuração geopolítica e econômica mundial entre os séculos XV e XVII. A abertura de novas rotas marítimas para o Oriente e para o Ocidente permitiu às monarquias europeias estabelecer o controle sobre vastas redes de comércio global, rompendo monopólios tradicionais terrestres e mediterrâneos.”</p>
+          <p>Assinale a alternativa que aponta corretamente um fator estrutural associado ao pioneirismo ibérico nesse processo:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A adesão imediata ao liberalismo econômico absoluto, abolindo qualquer interferência estatal nas expedições.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A precoce centralização monárquica associada aos interesses expansionistas da burguesia mercantil.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O isolamento político completo em relação às inovações científicas e cartográficas árabes e asiáticas.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A prioridade exclusiva dada à exploração continental interna na Ásia Central em detrimento dos oceanos.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A recusa da Igreja Católica em validar acordos territoriais ou conceder monopólios de exploração ultramarina.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Tanto Portugal quanto a Espanha foram pioneiros nas Grandes Navegações devido à união de seus reinos sob fortes monarquias centrais, capazes de financiar e organizar projetos de longo prazo em parceria com a burguesia mercantil interessada em novos mercados e especiarias.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“As viagens marítimas dos séculos XV e XVI promoveram o primeiro contato em larga escala entre mundos até então separados por oceanos. Acordos como o Tratado de Tordesilhas (1494) refletiam a urgência das potências ibéricas em delimitar esferas de influência sobre os territórios descobertos e a descobrir.”</p>
+          <p>O Tratado de Tordesilhas destacou-se no contexto da expansão marítima por:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Garantir a livre circulação de mercadorias sem impostos alfandegários para todas as nações europeias.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Estabelecer uma linha imaginária de demarcação para partilhar o controle das novas terras entre Portugal e Espanha.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Consolidar a supremacia militar e comercial da Inglaterra e da França sobre os mares do Atlântico Sul.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Estabelecer alianças políticas igualitárias entre os reis europeus e os líderes das civilizações pré-colombianas.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Proibir formalmente a prática de qualquer atividade escravista nos territórios recém-alcançados.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O Tratado de Tordesilhas foi um acordo diplomático mediado pela Igreja entre Portugal e Espanha para dividir as terras do globo através de um meridiano, evitando conflitos bélicos diretos entre as duas maiores potências ibéricas da época.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
+</body>
 </html>
