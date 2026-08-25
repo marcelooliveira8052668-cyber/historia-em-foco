@@ -1,180 +1,402 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      O Tratado de Verdun e a Partilha do Império Carolíngio | História em Foco
-    </title>
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Tratado de Verdun: A Partilha do Império Carolíngio — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-      :root {
-        --bg-color: #05050a;
-        --card-bg: rgba(20, 20, 40, 0.7);
-        --text-color: #e0e0e0;
-        --accent-color: #00f3ff;
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
-        font-family: sans-serif;
-        line-height: 1.6;
-        padding: 20px;
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
-      .nav-bar {
-        margin-bottom: 20px;
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
       }
-      .btn-voltar {
-        color: var(--accent-color);
-        text-decoration: none;
-        font-weight: bold;
-        border: 1px solid var(--accent-color);
-        padding: 8px 15px;
-        border-radius: 20px;
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
       }
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
+
+      .btn-header {
+        color: var(--text-color);
         background: var(--card-bg);
-        padding: 30px;
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
         border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
       }
-      h1 {
-        color: var(--accent-color);
-        margin-bottom: 20px;
-        font-size: 1.8rem;
-      }
+
       h2 {
-        color: var(--accent-color);
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-size: 1.4rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
-      img {
-        width: 60%;
-        border-radius: 15px;
-        margin-bottom: 20px;
-        height: 350px;
-        object-fit: cover;
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
+
       p {
-        margin-bottom: 15px;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
-      ul {
-        margin-bottom: 20px;
-        padding-left: 20px;
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
       }
-      li {
-        margin-bottom: 10px;
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
       }
-      .gabarito {
-        background: rgba(0, 243, 255, 0.1);
-        padding: 15px;
-        border-left: 4px solid var(--accent-color);
-        border-radius: 5px;
-        margin-bottom: 20px;
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
-    <div class="nav-bar">
-      <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+</head>
+<body>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeThemeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">Alta Idade Média e Europa Feudal</div>
+      <h1>O Tratado de Verdun: A Partilha do Império Carolíngio</h1>
+    </header>
 
     <div class="container">
-      <h1>O Tratado de Verdun: A Partilha do Império Carolíngio 👑📜</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Auge e a Fragilidade do Império de Carlos Magno</h2>
+        <p>Durante o reinado de Carlos Magno (768–814), o Império Carolíngio alcançou sua máxima expansão territorial, unificando grande parte da Europa Ocidental e Central sob a aliança estratégica com a Igreja Católica (coroado imperador em 800 d.C.). Esse império caracterizou-se pela tentativa de restauração da unidade imperial romana e pelo fortalecimento de laços de fidelidade pessoal através de missi dominici e concessões de terras.</p>
+        
+        <p>No entanto, a vastidão do território combinada com a fragilidade das vias de comunicação, a ausência de uma economia monetária robusta e a forte descentralização administrativa tornavam o império dependente da liderança carismática e centralizadora de um único soberano.</p>
 
-      <img
-        src="imagem/tratado-verdun.jpg"
-        alt="Tratado de Verdun e Império Carolíngio"
-      />
+        <h2>2. As Disputas Sucessórias e o Tratado de Verdun (843 d.C.)</h2>
+        <p>Com a morte do sucessor de Carlos Magno, Luís, o Piedoso, irrompeu uma violenta guerra civil entre seus três netos: Carlos, o Calvo; Luís, o Germânico; e Lotário I. O conflito dinástico revelou a impossibilidade de manter a coesão territorial de um império tão vasto frente às pressões políticas locais e regionais.</p>
 
-      <p>
-        No final do século VIII e início do século IX, Carlos Magno unificou
-        grande parte da Europa Ocidental, sendo coroado Imperador dos Romanos em
-        800 d.C. Contudo, a estrutura imperial dependia do prestígio pessoal do
-        governante e de laços de vassalagem, carecendo de uma burocracia
-        centralizada forte.
-      </p>
+        <div class="highlight-box">
+          <p><strong>📜 A Divisão Territorial:</strong> Assinado em 843 d.C., o <strong>Tratado de Verdun</strong> encerrou a guerra civil dividindo o Império Carolíngio em três partes distintas: a Frância Ocidental (futura França), a Frância Oriental (futura Alemanha) e a Frância Média (faixa central estendendo-se da Itália ao Mar do Norte, governada por Lotário).</p>
+        </div>
 
-      <h2>1. A Crise Sucessória e o Tratado de Verdun (843 d.C.)</h2>
-      <p>
-        Com a morte de Carlos Magno e de seu herdeiro Luís, o Piedoso, os netos
-        imperiais (Lotário, Luís o Germânico e Carlos o Calvo) travaram uma
-        violenta guerra civil. Para cessar os combates, assinaram em 843 d.C. o
-        <strong>Tratado de Verdun</strong>, dividindo o império em três partes:
-      </p>
-      <ul>
-        <li>
-          <strong>Frância Ocidental:</strong> Base territorial da futura França.
-        </li>
-        <li>
-          <strong>Frância Oriental:</strong> Base territorial da futura
-          Alemanha.
-        </li>
-        <li>
-          <strong>Frância Média:</strong> Faixa central frágil englobando o
-          norte da Itália e os Países Baixos.
-        </li>
-      </ul>
+        <h2>3. Consequências Históricas: A Consolidação do Feudalismo</h2>
+        <p>A partilha de Verdun enfraqueceu de forma definitiva o poder centralizado monárquico na Europa Ocidental. Com a fragmentação do poder político em múltiplos reinos e principados frágeis, os senhores locais e a nobreza guerreira ganharam autonomia absoluta em seus domínios territoriais.</p>
+        
+        <p>Somada às novas vagas de invasões externas do século IX (normandos, magiares e sarracenos), essa fragmentação acelerou o processo de ruralização da sociedade e a consolidação das estruturas do **feudalismo**, onde a proteção passou a ser exercida por senhores locais em troca de fidelidade e obrigações de trabalho.</p>
+      </section>
 
-      <h2>2. Impacto na Formação do Feudalismo</h2>
-      <p>
-        O acordo sepultou a tentativa de unificação imperial centralizada da
-        Europa Ocidental. Ao enfraquecer os monarcas, a partilha transferiu o
-        poder político e militar real para as mãos dos senhores locais (duques,
-        condes e marqueses), consolidando definitivamente as bases do
-        <strong>sistema feudal</strong>.
-      </p>
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">Firmado em 843 d.C. após um período de intensas guerras civis entre os netos de Carlos Magno, o Tratado de Verdun estabeleceu a divisão do Império Carolíngio em três blocos territoriais distintos. Esse acordo político refletiu as dificuldades estruturais de manutenção de um vasto império na Alta Idade Média.</p>
+          <p>Entre as consequências políticas imediatas da assinatura do Tratado de Verdun para a Europa Ocidental, destaca-se:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A centralização absoluta do poder administrativo nas mãos da Igreja Católica em Roma.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O fortalecimento da autoridade imperial unificada em todo o continente europeu.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A fragmentação do poder político central e o avanço da autonomia da nobreza local.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A imediata unificação econômica e monetária entre os reinos germânicos e bizantinos.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A extinção definitiva das relações de vassalagem e suserania em toda a Europa ocidental.</li>
+          </ul>
 
-      <hr
-        style="
-          border: 0;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          margin: 30px 0;
-        "
-      />
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> O Tratado de Verdun marcou a divisão do Império Carolíngio, enfraquecendo o poder central dos reis e abrindo espaço para a descentralização política, que constituiu uma das bases centrais da formação do sistema feudal.</p>
+          </div>
+        </div>
 
-      <h2>Questões Estilo ENEM 📝</h2>
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“A desintegração do Império Carolíngio, oficializada pelo Tratado de Verdun em 843, coincidiu com um período de forte instabilidade externa, marcado pelas incursões de vikings pelo norte, húngaros pelo leste e sarracenos pelo sul. Diante da incapacidade dos reis fragmentados de oferecerem proteção militar eficiente, as populações recorreram aos senhores locais fortificados.”</p>
+          <p>Considerando o contexto descrito, o colapso político carolíngio e a insegurança externa propiciaram:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A expansão do comércio urbano em larga escala e o surgimento de uma burguesia mercantil industrial.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A consolidação das relações de dependência pessoal, suserania, vassalagem e o enraizamento do feudalismo.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A transição para um modelo democrático representativo nas províncias da Frância Ocidental.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A total submissão dos senhores feudais perante as leis unificadas do Império Romano do Oriente.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O abandono completo das atividades agrárias em favor de expedições marítimas comerciais.</li>
+          </ul>
 
-      <p>
-        <strong>Questão 1</strong><br />Do ponto de vista da estruturação
-        política da Europa medieval, a partilha do Império Carolíngio selada
-        pelo Tratado de Verdun (843 d.C.) contribuiu decisivamente para:
-      </p>
-      <p>
-        A) A centralização absolutista precoce nas mãos de reis restaurados.<br />B)
-        O fortalecimento da autoridade papal acima de qualquer soberania
-        secular.<br />C) A fragmentação do poder político e a consolidação das
-        bases do sistema feudal.<br />D) A expansão imediata do comércio urbano
-        de longa distância.
-      </p>
-      <div class="gabarito">
-        <strong>Gabarito:</strong> C.
-        <em
-          >Explicação: A divisão enfraqueceu o poder central do imperador,
-          delegando o controle político e militar local aos senhores de terras,
-          estruturando o feudalismo.</em
-        >
-      </div>
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Com a fragmentação carolíngia e as invasões húngaras, normandas e sarracenas, a segurança local passou a depender de senhores de terras fortificados, impulsionando as redes de vassalagem e a estrutura feudal.</p>
+          </div>
+        </div>
 
-      <p>
-        <strong>Questão 2</strong><br />A Frância Ocidental e a Frância
-        Oriental, originadas a partir dos acordos firmados no Tratado de Verdun
-        no século IX, configuraram as matrizes geográficas e políticas de quais
-        modernas nações europeias continentais?
-      </p>
-      <p>
-        A) Espanha e Portugal.<br />B) França e Alemanha.<br />C) Itália e
-        Grécia.<br />D) Inglaterra e Rússia.
-      </p>
-      <div class="gabarito">
-        <strong>Gabarito:</strong> B.
-        <em
-          >Explicação: A Frância Ocidental deu origem à base territorial da
-          França, enquanto a Frância Oriental originou os territórios de base
-          germânica (Alemanha).</em
-        >
-      </div>
+      </section>
     </div>
-  </body>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeThemeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
+</body>
 </html>
