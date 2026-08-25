@@ -64,10 +64,15 @@
         position: relative;
       }
 
-      .btn-theme {
+      .header-actions {
         position: absolute;
         top: 24px;
         right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
         color: var(--text-color);
         background: var(--card-bg);
         border: 1px solid var(--border-color);
@@ -79,10 +84,11 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        text-decoration: none;
         transition: all 0.2s ease;
       }
 
-      .btn-theme:hover {
+      .btn-header:hover {
         background: var(--primary);
         color: #ffffff;
         border-color: var(--primary);
@@ -281,7 +287,7 @@
 
       @media (max-width: 768px) {
         header h1 { font-size: 2.2rem; }
-        .btn-theme { position: static; margin: 0 auto 1.5rem auto; width: fit-content; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
         .content-section { padding: 2rem; }
       }
     </style>
@@ -289,7 +295,11 @@
 <body>
 
     <header>
-      <button class="btn-theme" id="themeToggle"><span>☀️ / 🌙</span> Tema</button>
+      <div class="header-actions">
+        <!-- Substitua 'index.html' pelo link da sua tela principal/home -->
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
       <div class="header-badge">Teoria e Metodologia da História</div>
       <h1>O que são Fontes Históricas?</h1>
     </header>
@@ -310,7 +320,7 @@
           <li style="margin-bottom: 8px;"><strong style="color: var(--text-color);">Escritas:</strong> Cartas, leis, jornais, diários, testamentos, livros e literatura.</li>
           <li style="margin-bottom: 8px;"><strong style="color: var(--text-color);">Visuais / Iconográficas:</strong> Pinturas, fotografias, charges, cartazes e esculturas.</li>
           <li style="margin-bottom: 8px;"><strong style="color: var(--text-color);">Materiais / Arqueológicas:</strong> Ruínas, utensílios, vestimentas, moedas e ferramentas.</li>
-          <li style="margin-bottom: 8px;"><strong style="color: var(--text-color);">Oraiss / Orais:</strong> Entrevistas, depoimentos, lendas, cantos e memórias repassadas de geração em geração.</li>
+          <li style="margin-bottom: 8px;"><strong style="color: var(--text-color);">Orais:</strong> Entrevistas, depoimentos, lendas, cantos e memórias repassadas de geração em geração.</li>
           <li><strong style="color: var(--text-color);">Digitais / Audiovisuais:</strong> Filmes, gravações em áudio, páginas da web, postagens em redes sociais e arquivos digitais.</li>
         </ul>
 
