@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A República do Café com Leite e a Oligarquia — Portal Acadêmico</title>
+    <title>A Primeira Guerra Mundial (1914-1918) — Portal Acadêmico</title>
     <!-- Google Fonts para tipografia acadêmica -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -260,6 +260,7 @@
       }
 
       .resolution-box p {
+        content-visibility: auto;
         color: var(--text-color);
         margin: 0;
         font-size: 0.95rem;
@@ -286,6 +287,11 @@
         to { opacity: 1; transform: translateY(0); }
       }
 
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
       @media (max-width: 768px) {
         header h1 { font-size: 2.1rem; }
         .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
@@ -300,29 +306,30 @@
         <a href="index.html" class="btn-header">🏠 Início</a>
         <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <div class="header-badge">História do Brasil / República Oligárquica</div>
-      <h1>A República do Café com Leite e a Hegemonia Oligárquica</h1>
+      <div class="header-badge">História Geral / Conflitos Contemporâneos</div>
+      <h1>A Primeira Guerra Mundial (1914–1918)</h1>
     </header>
 
     <div class="container">
       
       <!-- Seção Teórica -->
       <section class="content-section">
-        <h2>1. O Conceito e a Dinâmica do "Café com Leite"</h2>
-        <p>A expressão **República do Café com Leite** sintetiza a aliança político-partidária que dominou a República Velha (1889–1930), fundamentada no revezamento da presidência da República entre representantes das oligarquias de **São Paulo** (maior produtora de café) e de **Minas Gerais** (maior colégio eleitoral e expressiva produção leiteira). Embora outros estados tenham participado ocasionalmente do poder (como Rio Grande do Sul e Paraíba), o eixo SP-MG ditava as diretrizes centrais da política nacional.</p>
+        <h2>1. Antecedentes e a "Paz Armada"</h2>
+        <p>O final do século XIX e o início do século XX foram marcados pelo imperialismo e pela corrida neocolonial, que intensificaram as disputas econômicas e territoriais entre as potências europeias. O período que antecedeu o conflito ficou conhecido como **Paz Armada**: os países europeus não estavam em guerra aberta, mas investiam massivamente na fabricação de armamentos e na formação de alianças militares secretas ou ostensivas, prevendo um inevitável confronto.</p>
         
-        <p>Esse arranjo de alternância no poder garantia a proteção aos interesses agrários exportadores, em especial a sustentação artificial dos preços do café por meio de intervenções estatais, consubstanciadas em acordos como o **Convênio de Taubaté (1906)**, onde o governo federal comprometia-se a comprar os estoques excedentes do grão com empréstimos externos.</p>
+        <p>Destacavam-se dois grandes blocos rivais: a **Tríplice Aliança** (formada inicialmente por Alemanha, Império Austro-Húngaro e Itália — embora esta última tenha mudado de lado posteriormente) e a **Tríplice Entente** (composta por Reino Unido, França e Rússia).</p>
 
-        <h2>2. Os Pilares Institucionais da Dominação Oligárquica</h2>
+        <h2>2. As Causas Estruturais e o Estopim</h2>
         <div class="highlight-box">
-          <p><strong>⚙️ Mecanismos de Sustentação do Sistema:</strong> 
-          <br>• <strong>Política dos Governadores:</strong> Acordo informal idealizado pelo presidente Campos Sales no qual o poder federal apoiava incondicionalmente os governadores estaduais eleitos, e estes, em contrapartida, garantiam bancadas fiéis no Congresso Nacional aptas a aprovar qualquer interesse do Executivo.
-          <br>• <strong>A Degola (Comissão de Verificação de Poderes):</strong> Mecanismo do Congresso responsável por conferir e "verificar" a idoneidade das eleições. Na prática, a Comissão operava a "degola", cassando e impedindo a posse de candidatos opositores vitoriosos, assegurando a homogeneidade governista.
-          <br>• <strong>O Coronelismo e o Clientelismo:</strong> Na base da pirâmide, os chefes políticos locais ("coronéis") utilizavam o controle da terra, favores e violência física para forçar o eleitorado rural a votar nos candidatos indicados pela máquina oficial.</p>
+          <p><strong>💣 O Barril de Pólvora Europeu:</strong> 
+          <br>• <strong>Imperialismo e Nacionalismo:</strong> Choques por mercados consumidores e matérias-primas na Ásia e na África, somados a rivalidades como o Revanchismo Francês (perda da Alsácia-Lorena para a Alemanha em 1870) e o Pan-Slavismo nos Bálcãs.
+          <br>• <strong>O Estopim (Atentado de Sarajevo):</strong> Em 28 de junho de 1914, o arquiduque Francisco Ferdinando, herdeiro do trono austro-húngaro, foi assassinado em Sarajevo por um nacionalista sérvio. Esse evento acionou o sistema de alianças em cadeia, transformando um conflito regional em uma guerra mundial.</p>
         </div>
 
-        <h2>3. Crises e Ruptura do Arranjo Oligárquico</h2>
-        <p>O pacto do Café com Leite começou a ruir na década de 1920 devido a fissuras internas entre as próprias oligarquias (como a reação de estados periféricos na Reação Republicana), ao descontentamento militar com o **Tenentismo** e à crise econômica mundial de 1929. O estopim definitivo ocorreu em 1930, quando o presidente paulista Washington Luís rompeu a aliança ao indicar outro paulista (Júlio Prestes) para sua sucessão, gerando a Revolução de 1930 liderada por Getúlio Vargas.</p>
+        <h2>3. Fases, Novas Tecnologias e Desfecho</h2>
+        <p>A guerra desenrolou-se majoritariamente em duas grandes fases: a **Guerra de Movimento** (rápida expansão e manobras iniciais) e a **Guerra de Trincheiras** (longo período de estagnação estática nas frentes ocidentais, marcado pelo uso de novas tecnologias letais como metralhadoras, tanques, gases tóxicos, aviação e submarinos).</p>
+        
+        <p>Em 1917, a Rússia retirou-se do conflito devido à Revolução Bolchevique, enquanto os Estados Unidos entraram na guerra ao lado da Entente, desequilibrando as forças. Com a derrota econômica e militar das Potências Centrais, assinou-se o Armistício em novembro de 1918, culminando no rigoroso **Tratado de Versalhes (1919)**, cujas punições severas impostas à Alemanha geraram o revanchismo que desembocaria na Segunda Guerra Mundial.</p>
       </section>
 
       <!-- Seção de Exercícios -->
@@ -332,44 +339,44 @@
         <!-- Questão 1 -->
         <div class="question-card">
           <div class="question-title">Questão 1</div>
-          <p class="question-text">“A chamada Política dos Governadores, arquitetada no governo de Campos Sales, consistia em uma troca de favores políticos entre o poder federal e os executivos estaduais. Por meio desse arranjo, o presidente garantia estabilidade legislativa no Congresso, enquanto as oligarquias estaduais consolidavam seu controle político interno sem interferências da União.”</p>
-          <p>Para que esse sistema funcionasse de maneira integrada e sem surpresas eleitorais indesejadas, a engrenagem institucional que completava o controle do processo de apuração final era:</p>
+          <p class="question-text">“O período antecedente à Primeira Guerra Mundial ficou conhecido como 'Paz Armada'. Sob uma aparente estabilidade diplomática e o otimismo da Belle Époque, as potências industriais europeias acumulavam arsenais bélicos sem precedentes e consolidavam blocos de cooperação militar defensiva e ofensiva.”</p>
+          <p>Essa dinâmica geopolítica europeia anterior a 1914 demonstrava que:</p>
           
           <ul class="options-list">
-            <li class="option-item"><span class="option-letter">A)</span> O sufrágio universal direto e secreto garantido por urnas eletrônicas invioláveis geridas por auditores internacionais.</li>
-            <li class="option-item"><span class="option-letter">B)</span> A Comissão de Verificação de Poderes, conhecida como "degola", que eliminava a posse de candidatos de oposição eleitos.</li>
-            <li class="option-item"><span class="option-letter">C)</span> A centralização absoluta do imposto de renda nas mãos do governo federal para financiar as campanhas populares.</li>
-            <li class="option-item"><span class="option-letter">D)</span> A obrigatoriedade de aliança político-militar com os movimentos operários anarquistas das capitais.</li>
-            <li class="option-item"><span class="option-letter">E)</span> O veto supremo concedido aos governadores estaduais sobre as decisões e decretos do Supremo Tribunal Federal.</li>
+            <li class="option-item"><span class="option-letter">A)</span> O desenvolvimento industrial pacífico eliminou por completo a competição colonial nos continentes africano e asiático.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A corrida armamentista e a política de alianças funcionavam como garantias absolutas e duradouras da paz internacional.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A estabilidade econômica europeia impedia qualquer tipo de choque nacionalista na região dos Bálcãs.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O clima de desconfiança mútua e a preparação bélica tornavam iminente o eclodir de um conflito de proporções globais.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Os Estados Unidos lideravam politicamente a contenção de armamentos na Europa por meio da Liga das Nações.</li>
           </ul>
 
           <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
           
           <div class="resolution-box" id="res1">
-            <strong>Gabarito: Letra B</strong>
-            <p><strong>Resolução:</strong> A "degola" (Comissão de Verificação de Poderes do Congresso) era o instrumento institucional que avaliava os diplomas dos deputados eleitos. Caso houvesse vitória de opositores indesejados, a comissão barrava a sua diplomação, impedindo-os de assumir os cargos.</p>
+            <strong>Gabarito: Letra D</strong>
+            <p><strong>Resolução:</strong> A "Paz Armada" foi um período de intensa preparação militar e alianças estratégicas (Tríplice Entente e Tríplice Aliança) motivadas pelas rivalidades imperialistas. Longe de garantir a paz, esse cenário criou um barril de pólvora pronto para explodir ao menor incidente diplomático.</p>
           </div>
         </div>
 
         <!-- Questão 2 -->
         <div class="question-card">
           <div class="question-title">Questão 2</div>
-          <p class="question-text">“O Convênio de Taubaté (1906) representou a consolidação da intervenção do Estado brasileiro na economia em favor dos interesses agrários exportadores. Por meio desse acordo, os governos de São Paulo, Minas Gerais e Rio de Janeiro estabeleceram medidas para valorizar o preço do café, contando com o aval e os empréstimos do governo federal para a compra de excedentes da produção.”</p>
-          <p>A repercussão socioeconômica dessa política para o conjunto da nação brasileira na Primeira República caracterizou-se por:</p>
+          <p class="question-text">“Assinado em 1919, o Tratado de Versalhes impôs duras sanções à Alemanha derrotada. Além da perda de colônias e territórios na Europa, o país foi responsabilizado unilateralmente pela culpa da guerra, tendo de arcar com indenizações financeiras astronômicas e drástica redução de suas forças armadas.”</p>
+          <p>Historicamente, as consequências de longo prazo das imposições contidas no Tratado de Versalhes resultaram em:</p>
           
           <ul class="options-list">
-            <li class="option-item"><span class="option-letter">A)</span> Socializar os prejuízos da superprodução cafeeira entre toda a sociedade brasileira, enquanto os lucros permaneciam privatizados nas mãos dos grandes produtores.</li>
-            <li class="option-item"><span class="option-letter">B)</span> Estimular o crescimento imediato de indústrias de base pesada em detrimento total da economia rural no interior do país.</li>
-            <li class="option-item"><span class="option-letter">C)</span> Promover a reforma agrária radical e a distribuição equitativa de terras para os camponeses nordestinos.</li>
-            <li class="option-item"><span class="option-letter">D)</span> Reduzir drasticamente a inflação e eliminar por completo a dívida externa contraída junto aos bancos britânicos.</li>
-            <li class="option-item"><span class="option-letter">E)</span> Garantir a independência financeira do país por meio da diversificação imediata das exportações agrícolas de subsistência.</li>
+            <li class="option-item"><span class="option-letter">A)</span> A consolidação de uma democracia pacífica e estável na Alemanha ao longo de toda a década de 1930.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O surgimento de um forte sentimento de humilhação nacional e de revanchismo que favoreceu a ascensão do nazifascismo.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A imediata integração da Alemanha como principal potência econômica defensora do Tratado de Paz.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O fim definitivo de todas as disputas territoriais e ideológicas no continente europeu.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A dissolução imediata do Império Britânico e a abolição das fronteiras coloniais na Ásia.</li>
           </ul>
 
           <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
           
           <div class="resolution-box" id="res2">
-            <strong>Gabarito: Letra A</strong>
-            <p><strong>Resolução:</strong> O Convênio de Taubaté transferiu os riscos do negócio cafeeiro para os cofres públicos. Quando o mercado internacional saturava e os preços caíam, o governo comprava o excedente com dinheiro público (empréstimos externos e impostos pagos por toda a população), garantindo o lucro dos fazendeiros (socialização de prejuízos e privatização de lucros).</p>
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O caráter punitivo e humilhante do Tratado de Versalhes gerou profunda crise econômica e revolta social na Alemanha. Esse cenário de terra arrasada econômica e crise institucional alimentou o discurso nacionalista radical, pavimentando o caminho para o surgimento do nazismo.</p>
           </div>
         </div>
 
