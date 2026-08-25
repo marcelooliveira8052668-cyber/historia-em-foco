@@ -1,238 +1,402 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Dinastia Ming e a Grande Muralha da China | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Dinastia Ming e a Grande Muralha da China — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #eceff5;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
-        color: var--text-color;
+        color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1508804185872-d7badad00f7d?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
         margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      p, li {
-        line-height: 1.7;
-        color: var--text-color;
-        font-size: 1rem;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1.2rem;
-        border-radius: 8px;
+      .highlight-box {
+        background: var(--badge-bg);
         border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      footer p {
-        post-size: 0.9rem;
-        color: var--text-muted;
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>História da Ásia</h1>
-      <p>Período: 1368 - 1644</p>
+      <div class="header-badge">História Oriental e Impérios da Ásia</div>
+      <h1>A Dinastia Ming e a Grande Muralha da China</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>A Dinastia Ming e a Grande Muralha da China</h2>
-        <img src="https://entrebrasucas.com/wp-content/uploads/2021/04/Muralha-da-China-4.png" width="500" alt="">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Renascimento Chinês e a Expulsão Mongol</h2>
+        <p>A **Dinastia Ming** (1368–1644) ascendeu ao poder após a derrubada do domínio estrangeiro da Dinastia Yuan (de origem mongol). Fundada por Zhu Yuanzhang (o imperador Hongwu), a dinastia marcou um período de restauração das tradições culturais nativas chinesas, revivendo o confucionismo como base da administração estatal e reorganizando a agricultura, a demografia e a economia do império.</p>
         
-        <p>A **Dinastia Ming** (1368–1644) marcou um dos períodos mais brilhantes, prósperos e estáveis da história imperial chinesa. O império nasceu após a bem-sucedida rebelião liderada por Zhu Yuanzhang (o imperador Hongwu) contra a dinastia Yuan, de origem mongol. Sob os Ming, a China recuperou o controle político nativo, consolidou sua soberania territorial, reestruturou a administração pública com base nos rigorosos exames imperiais confucianos e experimentou um expressivo renascimento cultural, econômico e demográfico.</p>
-        
-        <p>Foi durante o período Ming que a China projetou ao mundo sua grandiosidade arquitetônica e militar, destacando-se pela monumental reconstrução e expansão da **Grande Muralha**. Embora fundações de muralhas defensivas existissem desde milênios anteriores, o sistema imponente de tijolos e pedra que hoje conhecemos — dotado de torres de vigia, quartéis e fortificações contínuas — foi erguido massivamente pelos Ming para conter as constantes ameaças de incursões de tribos nômades vindas das estepes do norte. Paralelamente, o império projetou seu poder além das fronteiras terrestres: no início do século XV, o imperador Yongle patrocinou as espetaculares expedições marítimas do almirante **Zheng He**, cujas imensas frotas de "navios do tesouro" navegaram pelo Oceano Índico até o Sudeste Asiático, a Índia, o Oriente Médio e a costa oriental da África, demonstrando o ápice tecnológico e comercial chinês antes de o império adotar políticas mais isolacionistas no final do período.</p>
+        <p>Durante o século XV, o império alcançou extraordinário desenvolvimento técnico e comercial, simbolizado pelas lendárias expedições marítimas do almirante Zheng He, que projetaram o poder chinês pelo Oceano Índico, costa da África e Oriente Médio.</p>
 
-        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A Dinastia Ming (1368-1644) representou a restauração do poder imperial chinês sob a liderança de imperadores de etnia Han, após o fim do domínio mongol da Dinastia Yuan. Entre as grandes realizações estruturais e defensivas associadas a esse período, destaca-se:</p>
-        <ul>
-          <li>A) a construção de muralhas de terra batida e fortificações em pedra de proporções colossais no norte do país para conter invasões de povos nômades das estepes.</li>
-          <li>B) a fundação de colônias comerciais exclusivamente voltadas para a exploração de metais preciosos na América.</li>
-          <li>C) a adoção do feudalismo descentralizado nos moldes da Europa Ocidental.</li>
-          <li>D) o abandono total do sistema burocrático de exames baseados na filosofia confuciana.</li>
-          <li>E) a aliança militar permanente com o Império Romano do Oriente.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> A Grande Muralha da China, em grande parte como é vista hoje (com o uso intensivo de tijolos e blocos de pedra e o sistema defensivo integrado), foi grandemente fortificada e expandida pela Dinastia Ming para proteger o império das incursões de povos nômades do norte.</p>
+        <h2>2. A Construção e Monumentalidade da Grande Muralha</h2>
+        <p>Apesar de fortificações anteriores erguidas desde o período da China antiga (como na Dinastia Qin), a monumental estrutura da **Grande Muralha da China** que conhecemos hoje foi predominantemente construída, reforçada e expandida durante a Dinastia Ming.</p>
+
+        <div class="highlight-box">
+          <p><strong>🧱 Estratégia de Defesa e Isolamento:</strong> Diante da ameaça constante de incursões militares vindas de povos nômades das estepes do norte (como os mongóis e manchus), os imperadores Ming investiram na construção de milhares de quilômetros de muralhas em pedra e tijolo, equipadas com torres de vigia, quartéis e sistemas de sinalização por fumaça.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"No início do século XV, a Dinastia Ming enviou frotas colossais lideradas pelo eunuco Zheng He através do Oceano Índico, estabelecendo rotas diplomáticas e comerciais que alcançaram a costa africana."</em> Historicamente, essas expedições navais lideradas por Zheng He simbolizaram:</p>
-        <ul>
-          <li>A) a consolidação de colônias chinesas de exploração escravista no continente americano.</li>
-          <li>B) a superioridade tecnológica naval da China e sua capacidade de projeção geopolítica e comercial antes da posterior adoção de medidas de isolamento.</li>
-          <li>C) a dependência militar da China em relação aos reinos europeus no setor marítimo.</li>
-          <li>D) a migração forçada de toda a população urbana chinesa para a Ásia Central.</li>
-          <li>E) a abolição imediata do comércio externo e das trocas culturais na Ásia.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> As expedições de Zheng He comprovaram o impressionante avanço naval e tecnológico da China Ming (através dos grandiosos "navios do tesouro"), projetando influência política, recolhendo tributos e estimulando trocas antes que os imperadores seguintes limitassem o comércio exterior.</p>
+        <h2>3. O Período de Introspecção e a Queda do Império</h2>
+        <p>Posteriormente às viagens de Zheng He, a política externa Ming sofreu uma guinada drástica em direção ao **isolacionismo** (o *Haijin*), restringindo o comércio exterior e proibindo a construção de grandes embarcações oceânicas, com o objetivo de concentrar recursos na defesa terrestre das fronteiras norte.</p>
+        
+        <p>Apesar da robustez militar defensiva da muralha, crises econômicas internas, rebeliões camponesas e a corrupção administrativa enfraqueceram a dinastia, culminando na invasão dos manchus em 1644, que fundaram a última dinastia imperial chinesa: a Qing.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A Dinastia Ming (1368–1644) representou um marco de restauração nacional e cultural na China após o domínio dos mongóis. Embora tenha iniciado o período com ousadas expedições marítimas lideradas por Zheng He, a dinastia posteriormente optou por uma política de forte contenção externa, priorizando a consolidação de defesas terrestres contra invasores do norte através da massiva expansão de fortificações de pedra.”</p>
+          <p>A principal realização arquitetônica e militar associada a essa política defensiva da Dinastia Ming foi:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A construção do Canal de Suez para ligar o mar Vermelho ao mar Mediterrâneo.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A fortificação e expansão monumental da Grande Muralha da China.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O erguimento das pirâmides de Núbia para rituais funerários imperiais.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A abertura de rotas comerciais fluviais desprotegidas em direção à Europa Ocidental.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A demolição total de cidades muradas para incentivar o livre trânsito de nômades.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A maior parte da estrutura atual da Grande Muralha da China — com seus tijolos resistentes e torres de vigia — foi construída durante a Dinastia Ming para conter as invasões dos povos nômades do norte.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“Após o apogeu das expedições marítimas do almirante Zheng He no início do século XV, que alcançaram o oceano Índico e a costa oriental africana, a corte imperial da Dinastia Ming alterou profundamente sua geopolítica, restringindo o comércio marítimo privado e concentrando esforços na defesa continental contra ameaças terrestres.”</p>
+          <p>Essa mudança estratégica na política externa da Dinastia Ming resultou em:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Uma expansão imperial agressiva com a colonização de territórios na América do Sul.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Um processo de isolacionismo comercial e priorização da segurança territorial terrestre.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A imediata industrialização capitalista baseada no livre mercado ocidental.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A abolição total da filosofia confucionista na administração pública do Estado.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A unificação política e militar imediata entre a China e os reinos da Europa feudal.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Os Ming abandonaram a expansão marítima e adotaram uma postura de maior isolamento e proteção continental, direcionando recursos estatais para fortificações como a Grande Muralha contra perigos externos nas fronteiras do norte.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
+</body>
 </html>
