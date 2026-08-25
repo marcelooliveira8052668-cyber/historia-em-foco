@@ -1,238 +1,400 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O Império Asteca e a Queda de Tenochtitlán | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Império Asteca e a Queda de Tenochtitlán — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1512818014073-7d5a591740d7?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
         padding: 1rem 1.2rem;
         border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Povos Indígenas</h1>
-      <p>Período: 1325 - 1521</p>
+      <div class="header-badge">História da América Pré-Colombiana e Conquista</div>
+      <h1>O Império Asteca e a Queda de Tenochtitlán</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>O Império Asteca e a Queda de Tenochtitlán</h2>
-        <img src="https://www.worldhistory.org/uploads/images/14181-pt.png?v=1764966988-1766260801" width="500" alt="">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Formação do Império Mexica (Asteca)</h2>
+        <p>Os astecas (ou mexicas) fixaram-se no Vale do México no século XIV, fundando em 1325 sua espetacular capital, <strong>Tenochtitlán</strong>, construída sobre as ilhas do lago Texcoco. Por meio de inovações agrícolas engenhosas, como as <em>chinampas</em> (ilhas artificiais de cultivo intensivo), e de uma vigorosa confederação militar com cidades-estado vizinhas, construíram um império hegemônico.</p>
         
-        <p>Fundada em 1325 nas margens do lago Texcoco, a colossal cidade de **Tenochtitlán** ergueu-se como a vibrante capital do Império Asteca (ou mexica), no atual Vale do México. Os astecas, que originalmente migraram como um povo nômade de caçadores-coletores para o centro do planalto mexicano, transformaram-se em uma formidable potência militar e hegemônica. Através da inovação agrícola das **chinampas** — ilhas artificiais construídas sobre o lago pantanoso cobertas por lodo fértil —, conseguiram sustentar uma densa concentração urbana de centenas de milhares de habitantes. Politicamente, organizaram a **Tríplice Aliança** (unindo Tenochtitlán, Texcoco e Tlacopan), impondo tributos severos, mercadorias e prisioneiros para sacrifício religioso sobre dezenas de povos subjugados da região.</p>
-        
-        <p>A grandiosidade e a soberania asteca sofreram um colapso dramático em **1521**, marcando um dos episódios mais decisivos da conquista da América pelos espanhóis. Liderados por Hernán Cortés, os conquistadores aproveitaram-se habilmente das profundas insatisfações políticas e dos ressentimentos alimentados pelos povos submetidos ao jugo de Tenochtitlán (como os Tlaxcaltecas), arregimentando milhares de aliados indígenas. Além da superioridade bélica inicial de armas de fogo e cavalos, o fator decisivo para a dizimação da população nativa foi o impacto devastador das **epidemias de varíola** trazidas pelos europeus, contra as quais os indígenas não possuíam imunidade biológica. Após um prolongado e sangrento cerco à ilha, o último tlatoani (imperador) asteca, Cuauhtémoc, foi capturado, selando a derrocada definitiva de Tenochtitlán e abrindo caminho para a fundação da Cidade do México sobre as ruínas do antigo império.</p>
+        <p>A organização política asteca baseava-se na cobrança rigorosa de tributos (em gêneros alimentícios, metais preciosos, tecidos e prisioneiros para sacrifícios rituais) impostos aos povos subjugados da região.</p>
 
-        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A expansão do Império Asteca no Vale do México apoiava-se fortemente na cobrança de tributos e na subjugação militar de povos vizinhos por meio da Tríplice Aliança. Historicamente, essa dinâmica de dominação imperial gerou uma vulnerabilidade estrutural que foi decisiva para a conquista espanhola liderada por Hernán Cortés em 1521, pois:</p>
-        <ul>
-          <li>A) os povos tributários e descontentes viram na chegada dos espanhóis uma oportunidade estratégica de aliança para se libertarem do pesado domínio mexica.</li>
-          <li>B) os astecas abandonaram completamente suas táticas militares para adotar a diplomacia pacífica com os europeus.</li>
-          <li>C) a capital Tenochtitlán foi voluntariamente desmontada e transferida para o interior da floresta tropical séculos antes da invasão.</li>
-          <li>D) os espanhóis respeitaram integralmente a soberania política e religiosa do império sem recorrer a conflitos armados.</li>
-          <li>E) a economia baseada exclusivamente no comércio marítimo atlântico impediu qualquer resistência terrestre.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> O império asteca exercia um controle centralizador e duro sobre os povos vizinhos (exigindo tributos e prisioneiros). Essa divisão interna foi habilmente explorada por Hernán Cortés, que encontrou em etnias rivais (como os tlaxcaltecas) aliados cruciais para cercar e derrotar Tenochtitlán.</p>
+        <h2>2. A Chegada dos Espanhóis e os Fatores da Conquista</h2>
+        <p>Em 1519, o conquistador espanhol Hernán Cortés desembarcou no litoral mexicano à frente de uma pequena tropa. A queda da imponente Tenochtitlán em 1521 não decorreu apenas da superioridade bélica europeia (como armas de fogo, cavalos e armaduras de aço), mas de um complexo conjunto de fatores estruturais e biológicos.</p>
+
+        <div class="highlight-box">
+          <p><strong>⚔️ Alianças Nativas e Impacto Epidemiológico:</strong> Os espanhóis souberam explorar habilmente as profundas insatisfações políticas dos povos tributários submetidos pelos astecas (como os Tlaxcaltecas), arregimentando milhares de aliados indígenas. Além disso, o fator devastador das <strong>doenças trazidas pelos europeus</strong> (como a varíola) dizimou grande parte da população nativa, incluindo o imperador Cuitláhuac.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A queda de Tenochtitlán não pode ser explicada apenas pela audácia militar dos conquistadores ou pelo armamento de fogo. Fatores biológicos, ecológicos e estruturais desempenharam papéis fundamentais na catástrofe demográfica que atingiu os astecas no século XVI."</em> Entre esses fatores determinantes, destaca-se:</p>
-        <ul>
-          <li>A) o uso generalizado de técnicas agrícolas europeias altamente avançadas que despoluíram o lago Texcoco.</li>
-          <li>B) o isolamento geográfico absoluto da cidade, que evitou qualquer contato com o exterior durante a guerra.</li>
-          <li>C) a propagação de doenças infectocontagiosas, como a varíola, que dizimaram rapidamente a população nativa desprovida de imunidade biológica.</li>
-          <li>D) a migração voluntária de toda a população asteca para o continente sul-americano antes do cerco final.</li>
-          <li>E) a abolição imediata da escravidão por parte da coroa espanhola no momento do desembarque.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> O choque microbiano (o impacto das doenças trazidas pelos europeus, especialmente a varíola) causou uma verdadeira catástrofe demográfica entre os povos mesoamericanos, enfraquecendo decisivamente a capacidade de resistência militar dos astecas durante o cerco de Tenochtitlán.</p>
+        <h2>3. O Desmoronamento da Ordem Mesoamericana</h2>
+        <p>Com o cerco militar prolongado, a destruição dos aquedutos que abasteciam a cidade e a devastação demográfica provocada pelas epidemias, Tenochtitlán capitulou sob a liderança do último tlatoani (imperador), Cuauhtémoc. As ruínas da capital asteca serviram de base para a fundação da Cidade do México, inaugurando o período colonial espanhol nas Américas.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A vitória de Hernán Cortés sobre o Império Asteca em 1521 frequentemente é atribuída de forma simplista apenas à superioridade tecnológica das armas de fogo e à surpresa inicial dos nativos. Contudo, historiadores destacam que a queda de Tenochtitlán foi viabilizada por alianças estratégicas locais e por fatores biológicos catastróficos.”</p>
+          <p>Entre os fatores decisivos que enfraqueceram a resistência asteca frente aos conquistadores espanhóis, destaca-se:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A ausência de qualquer estrutura urbana ou forma de agricultura avançada no Vale do México.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O apoio militar de povos indígenas tributários insatisfeitos com a dominação e os tributos exigidos pelos astecas.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A imediata abolição de conflitos tribais promovida pacificamente pela Coroa Espanhola na América.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A total integração pacífica entre a cultura europeia e a religiosidade politeísta mexica.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O isolamento absoluto dos espanhóis, que recusaram qualquer tipo de ajuda militar externa.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Os espanhóis capitalizaram as divisões políticas da região. Vários povos submetidos ao jugo e aos pesados tributos dos astecas (como os tlaxcaltecas) aliaram-se a Cortés para derrotar o império.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“A organização socioeconômica do Império Asteca fundamentava-se na exploração de uma vasta rede de tributos cobrados das províncias conquistadas. A capital, Tenochtitlán, erguida sobre um sistema de ilhas e canais no lago Texcoco, centralizava a administração imperial e os rituais religiosos.”</p>
+          <p>O colapso dessa grandiosa estrutura urbana e política no século XVI resultou diretamente:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Na substituição imediata do poder centralizado pela autonomia democrática das comunidades locais.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Na expansão comercial pacífica dos astecas em direção à Europa e ao norte da África.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Na conquista militar europeia aliada ao impacto devastador de epidemias de doenças até então desconhecidas pelos nativos.</li>
+            <li class="option-item"><span class="option-letter">D)</span> No abandono definitivo do continente americano por parte de todas as potências coloniais ibéricas.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Na conversão voluntária e unânime dos conquistadores espanhóis à religião politeísta asteca.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> A conquista espanhola envolveu confronto militar direto e o choque microbiano (como o contágio por varíola), que dizimou demograficamente a população nativa e desestruturou a capacidade de defesa de Tenochtitlán.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
+</body>
 </html>
