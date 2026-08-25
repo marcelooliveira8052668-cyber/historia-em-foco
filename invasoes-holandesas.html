@@ -1,477 +1,401 @@
-<<<<<<< HEAD
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>As Invasões Holandesas no Nordeste | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As Invasões Holandesas no Nordeste — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
         margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
+      p {
         color: var(--text-muted);
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
-      </div>
-      <h1>Brasil Colônia</h1>
-      <p>Período: 1630 - 1654</p>
-    </header>
-
-    <div class="container">
-      <div class="article-card">
-        <h2>As Invasões Holandesas no Nordeste</h2>
-        <img src="https://i.ytimg.com/vi/tlnh7T3IzvI/hqdefault.jpg" alt="">
-        
-        <p>Entre 1630 e 1654, o Nordeste brasileiro foi palco de um conflito geopolítico e econômico de grande envergadura: as <strong>Invasões Holandesas</strong>. A Holanda (Províncias Unidas), que durante décadas havia participado do transporte, refino e comercialização do açúcar brasileiro na Europa, rompeu relações comerciais com Portugal após a instauração da União Ibérica (1580), quando a coroa espanhola proibiu os holandeses de negociarem com os territórios lusitanos. Para garantir o acesso direto à lucrativa produção açucareira, a Companhia das Índias Ocidentais (WIC) decidiu invadir e conquistar terras brasileiras.</p>
-        
-        <p>Após uma tentativa frustrada na Bahia (1624-1625), os holandeses obtiveram sucesso ao invadir <strong>Pernambuco em 1630</strong>, principal centro produtor de açúcar da colônia. O período de maior destaque dessa dominação ocorreu sob a administração do conde <strong>Maurício de Nassau</strong> (1637-1644), que promoveu a modernização urbana do Recife, garantiu liberdade religiosa, emprestou dinheiro aos senhores de engenho para recompor suas produções e trouxe artistas e cientistas para registrar a fauna, a flora e a sociedade local.</p>
-
-        <p>No entanto, com a saída de Nassau e a cobrança rigorosa dos empréstimos concedidos aos senhores de engenho, além de diferenças culturais e religiosas, iniciou-se uma conspiração de elites que culminou na <strong>Insurreição Pernambucana (1645-1654)</strong>. Apoiados pela Coroa Portuguesa, os colonos expulsaram definitivamente os holandeses em 1654. Como consequência, a Holanda passou a produzir açúcar nas Antilhas, gerando uma grave crise econômica no Nordeste açucareiro colonial.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) As invasões holandesas ao Nordeste do Brasil no século XVII estiveram diretamente associadas a conjunturas econômicas e políticas da Europa, destacando-se como principal motivação para a investida da Companhia das Índias Ocidentais:</p>
-        <ul>
-          <li>A) a descoberta de imensas minas de ouro e diamantes no interior da bacia amazônica pelos exploradores batavos.</li>
-          <li>B) a ruptura do comércio açucareiro imposta pela União Ibérica, que fechou os portos coloniais aos interesses mercantis da Holanda.</li>
-          <li>C) o acordo militar secreto assinado entre Portugal e a Inglaterra para anexar as colônias holandesas da América Central.</li>
-          <li>D) a exigência dos índios potiguares para que a Holanda substituísse o domínio administrativo da Coroa Portuguesa.</li>
-          <li>E) a expansão industrial imediata de tecelagem em Recife financiada inteiramente por capitais protestantes.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A União Ibérica (1580-1640) uniu os tronos de Portugal e Espanha. Como a Espanha era inimiga da Holanda, os holandeses foram proibidos de participar do comércio e refino do açúcar brasileiro, o que motivou a WIC a invadir o Nordeste para retomar o controle do lucro açucareiro.</p>
-        </div>
-
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A administração de Maurício de Nassau no Brasil holandês caracterizou-se por uma política de conciliação de interesses com os senhores de engenho locais, marcada por empréstimos financeiros e tolerância religiosa. Contudo, a posterior cobrança dessas dívidas e o cerco econômico culminaram na Insurreição Pernambucana."</em> O texto retrata um aspecto fundamental do domínio holandês que resultou em:</p>
-        <ul>
-          <li>A) a integração definitiva e pacífica de Pernambuco ao Império dos Países Baixos sem qualquer reação armada.</li>
-          <li>B) a abolição imediata da escravidão africana em todo o território nordestino pelos governantes calvinistas.</li>
-          <li>C) a quebra da aliança inicial entre os colonos e a administração batava, gerando o movimento nativista de expulsão dos holandeses.</li>
-          <li>D) o desenvolvimento autônomo de uma república democrática independente nas províncias do norte.</li>
-          <li>E) a substituição definitiva da cana-de-açúcar pela pecuária extensiva em toda a faixa litorânea.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A lua de mel entre os senhores de engenho e a administração de Nassau acabou quando ele deixou o cargo e a WIC exigiu o pagamento dos empréstimos. Isso uniu os proprietários locais contra os holandeses, dando início à Insurreição Pernambucana.</p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlRoot = document.documentElement;
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
-      });
-    </script>
-  </body>
-=======
-<!doctype html>
-<html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>As Invasões Holandesas no Nordeste | Acervo de História</title>
-    <style>
-      :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
-        --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      :root[data-theme="light"] {
-        --bg-color: #f8fafc;
-        --card-bg: #ffffff;
-        --text-color: #1e293b;
-        --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
-        --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
       }
 
-      body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        background-color: var(--bg-color);
+      .highlight-box p {
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      header {
-        background: var(--header-bg);
-        padding: 2rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border-color);
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
         position: relative;
-        box-shadow: var(--shadow);
+        overflow: hidden;
       }
 
-      .top-controls {
+      .question-card::before {
+        content: "";
         position: absolute;
-        top: 20px;
-        right: 30px;
-        display: flex;
-        gap: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
       }
 
-      .btn-theme, .btn-back {
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
         color: var(--text-color);
-        background: var(--input-bg);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
         border: 1px solid var(--border-color);
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 0.85rem;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
         font-weight: 600;
         cursor: pointer;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
+        font-family: inherit;
+        transition: background-color: 0.2s;
       }
 
-      .btn-theme:hover, .btn-back:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
+      .btn-reveal:hover {
+        background: var(--primary-hover);
       }
 
-      header h1 {
-        color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
-        font-weight: 700;
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
-        padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
-      }
-
-      .article-card {
-        background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Brasil Colônia</h1>
-      <p>Período: 1630 - 1654</p>
+      <div class="header-badge">História do Brasil Colonial</div>
+      <h1>As Invasões Holandesas no Nordeste</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>As Invasões Holandesas no Nordeste</h2>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. Contexto e Motivações Econômicas</h2>
+        <p>As invasões holandesas ao Nordeste brasileiro durante o século XVII não foram meras incursões militares isoladas, mas sim um desdobramento direto de conflitos geopolíticos e econômicos na Europa. Os Países Baixos (Holanda), após lutarem por sua independência contra a Espanha, viram-se diretamente afetados pela **União Ibérica (1580–1640)**, período em que o rei espanhol Filipe II proibiu o comércio holandês com os portos controlados por Portugal.</p>
         
-        <p>Entre 1630 e 1654, o Nordeste brasileiro foi palco de um conflito geopolítico e econômico de grande envergadura: as <strong>Invasões Holandesas</strong>. A Holanda (Províncias Unidas), que durante décadas havia participado do transporte, refino e comercialização do açúcar brasileiro na Europa, rompeu relações comerciais com Portugal após a instauração da União Ibérica (1580), quando a coroa espanhola proibiu os holandeses de negociarem com os territórios lusitanos. Para garantir o acesso direto à lucrativa produção açucareira, a Companhia das Índias Ocidentais (WIC) decidiu invadir e conquistar terras brasileiras.</p>
-        
-        <p>Após uma tentativa frustrada na Bahia (1624-1625), os holandeses obtiveram sucesso ao invadir <strong>Pernambuco em 1630</strong>, principal centro produtor de açúcar da colônia. O período de maior destaque dessa dominação ocorreu sob a administração do conde <strong>Maurício de Nassau</strong> (1637-1644), que promoveu a modernização urbana do Recife, garantiu liberdade religiosa, emprestou dinheiro aos senhores de engenho para recompor suas produções e trouxe artistas e cientistas para registrar a fauna, a flora e a sociedade local.</p>
+        <p>Como a burguesia mercantil dos Países Baixos investia pesadamente no transporte, refino e comercialização do açúcar produzido no Nordeste brasileiro, a interrupção das relações comerciais ameaçava seus lucros. Para restabelecer e controlar diretamente a produção açucareira, a Companhia das Índias Ocidentais (WIC) organizou expedições militares, conquistando inicialmente Salvador (1624) e, de forma mais duradoura, Pernambuco e a região açucareira circunvizinha (1630).</p>
 
-        <p>No entanto, com a saída de Nassau e a cobrança rigorosa dos empréstimos concedidos aos senhores de engenho, além de diferenças culturais e religiosas, iniciou-se uma conspiração de elites que culminou na <strong>Insurreição Pernambucana (1645-1654)</strong>. Apoiados pela Coroa Portuguesa, os colonos expulsaram definitivamente os holandeses em 1654. Como consequência, a Holanda passou a produzir açúcar nas Antilhas, gerando uma grave crise econômica no Nordeste açucareiro colonial.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) As invasões holandesas ao Nordeste do Brasil no século XVII estiveram diretamente associadas a conjunturas econômicas e políticas da Europa, destacando-se como principal motivação para a investida da Companhia das Índias Ocidentais:</p>
-        <ul>
-          <li>A) a descoberta de imensas minas de ouro e diamantes no interior da bacia amazônica pelos exploradores batavos.</li>
-          <li>B) a ruptura do comércio açucareiro imposta pela União Ibérica, que fechou os portos coloniais aos interesses mercantis da Holanda.</li>
-          <li>C) o acordo militar secreto assinado entre Portugal e a Inglaterra para anexar as colônias holandesas da América Central.</li>
-          <li>D) a exigência dos índios potiguares para que a Holanda substituísse o domínio administrativo da Coroa Portuguesa.</li>
-          <li>E) a expansão industrial imediata de tecelagem em Recife financiada inteiramente por capitais protestantes.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A União Ibérica (1580-1640) uniu os tronos de Portugal e Espanha. Como a Espanha era inimiga da Holanda, os holandeses foram proibidos de participar do comércio e refino do açúcar brasileiro, o que motivou a WIC a invadir o Nordeste para retomar o controle do lucro açucareiro.</p>
+        <h2>2. A Administração de Maurício de Nassau e a Insurgência Pernambucana</h2>
+        <div class="highlight-box">
+          <p><strong>🏛️ Fases e Transformações do Domínio Holandês:</strong> 
+          <br>• <strong>O Governo de Maurício de Nassau (1637–1644):</strong> Período áureo da ocupação holandesa. Nassau modernizou a cidade de Recife (Maurícia), implementou tolerância religiosa, investiu em infraestrutura urbana e trouxe cientistas e artistas para registrar a fauna, a flora e a geografia local.
+          <br>• <strong>A Ruptura Econômica:</strong> Com a saída de Nassau e o aumento das cobranças de empréstimos e créditos concedidos aos senhores de engenho, as relações entre colonos e administradores holandeses deterioraram-se rapidamente.
+          <br>• <strong>A Insurgência Pernambucana (1645–1654):</strong> Movimento de revolta armada liderado por proprietários de terra locais (como Fernandes Vieira e Camarão) que, com apoio indireto da Coroa portuguesa, expulsaram definitivamente os holandeses do território nordestino.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A administração de Maurício de Nassau no Brasil holandês caracterizou-se por uma política de conciliação de interesses com os senhores de engenho locais, marcada por empréstimos financeiros e tolerância religiosa. Contudo, a posterior cobrança dessas dívidas e o cerco econômico culminaram na Insurreição Pernambucana."</em> O texto retrata um aspecto fundamental do domínio holandês que resultou em:</p>
-        <ul>
-          <li>A) a integração definitiva e pacífica de Pernambuco ao Império dos Países Baixos sem qualquer reação armada.</li>
-          <li>B) a abolição imediata da escravidão africana em todo o território nordestino pelos governantes calvinistas.</li>
-          <li>C) a quebra da aliança inicial entre os colonos e a administração batava, gerando o movimento nativista de expulsão dos holandeses.</li>
-          <li>D) o desenvolvimento autônomo de uma república democrática independente nas províncias do norte.</li>
-          <li>E) a substituição definitiva da cana-de-açúcar pela pecuária extensiva em toda a faixa litorânea.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A lua de mel entre os senhores de engenho e a administração de Nassau acabou quando ele deixou o cargo e a WIC exigiu o pagamento dos empréstimos. Isso uniu os proprietários locais contra os holandeses, dando início à Insurreição Pernambucana.</p>
+        <h2>3. Consequências Históricas</h2>
+        <p>A expulsão dos holandeses marcou o início da decadência irreversível do açúcar nordestino no mercado internacional. Ao serem expulsos, os holandeses levaram o know-how de produção e começaram a cultivar a cana-de-açúcar nas Antilhas, gerando uma concorrência feroz que derrubou os preços do açúcar brasileiro na Europa e abalou profundamente a economia colonial.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“As invasões holandesas ao Nordeste brasileiro, ocorridas no século XVII, estiveram profundamente atreladas aos interesses comerciais da Companhia das Índias Ocidentais. A suspensão temporária do acesso holandês ao açúcar produzido em Pernambuco, provocada pelo contexto geopolítico europeu da União Ibérica, motivou a ofensiva militar sobre a colônia.”</p>
+          <p>O principal fator econômico que motivou a investida da Holanda sobre o território nordestino foi:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> O desejo de erradicar a escravidão africana nas lavouras e substituí-la por trabalho livre remunerado.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O interesse em controlar diretamente as etapas de produção, refino e transporte do açúcar no mercado europeu.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A exigência da Igreja Católica para que os portos brasileiros fossem abertos ao livre comércio internacional.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A necessidade de expandir o território colonial rumo à bacia Amazônica para a extração de drogas do sertão.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A aliança militar imediata firmada entre os senhores de engenho brasileiros e a marinha protestante holandesa.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Os holandeses controlavam a distribuição, o transporte e o refinamento do açúcar brasileiro na Europa. Com a União Ibérica, perderam esse acesso, decidindo invadir o Nordeste para dominar diretamente a fonte de produção.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“A presença holandesa no Nordeste deixou marcas profundas na história colonial. Enquanto o governo de Maurício de Nassau investiu na modernização urbana e na tolerância cultural, o fim de sua gestão acirrou os conflitos de interesse financeiro, culminando na Insurgência Pernambucana e na expulsão dos neerlandeses.”</p>
+          <p>Uma consequência econômica direta gerada pela expulsão dos holandeses do Brasil foi:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> O fortalecimento absoluto do monopólio açucareiro brasileiro frente a qualquer concorrência externa.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O surgimento da produção concorrente de açúcar nas Antilhas pelos holandeses, gerando crise na economia açucareira colonial.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A abolição imediata do sistema de plantation e a transição para a policultura de subsistência no litoral.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A transferência definitiva da capital administrativa do Brasil para a cidade de Salvador.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O fim de todas as taxas alfandegárias cobradas pela Coroa portuguesa sobre o açúcar exportado.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Ao serem expulsos do Brasil, os holandeses passaram a produzir açúcar nas Antilhas (com técnicas aprendidas aqui), concorrendo diretamente com o produto brasileiro e iniciando a decadência da economia açucareira nordestina.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
+</body>
 </html>
