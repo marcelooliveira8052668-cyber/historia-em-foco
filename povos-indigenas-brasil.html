@@ -1,124 +1,402 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Povos Indígenas Originários do Brasil: Diversidade e Cultura | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Povos Indígenas Originários do Brasil: Diversidade e Cultura — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        content: "";
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">História do Brasil e Antropologia</div>
+      <h1>Povos Indígenas Originários do Brasil: Diversidade e Cultura</h1>
+    </header>
 
     <div class="container">
-        <h1>Povos Indígenas Originários do Brasil: Diversidade e Cultura 🌿🏹</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Pluralidade Étnica e Histórica Antes de 1500</h2>
+        <p>Muito antes da chegada dos colonizadores europeus em 1500, o território que hoje compreende o Brasil era habitado por milhões de pessoas distribuídas em centenas de etnias distintas. Estima-se que existissem entre dois a quatro milhões de indígenas organizados em milhares de aldeias, falando línguas pertencentes a troncos linguísticos diversos, como o **Tupi-Guarani**, o **Macro-Jê**, o **Aruaque** e o **Caribe**.</p>
+        
+        <p>Essa vasta população não era homogênea; possuía complexas estruturas sociais, sistemas agrícolas avançados (como o manejo de terras pretas na Amazônia), saberes botânicos aprofundados e ricas cosmologias. A terra não era concebida como propriedade mercantil, mas sim como um bem coletivo essencial à reprodução física e espiritual do grupo.</p>
 
-        <img src="https://tse1.explicit.bing.net/th/id/OIP.t1QGcL8hV-wy6MKW1pQZEQHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Povos Indígenas Originários do Brasil" />
-
-        <p>Antes de 1500, o território brasileiro era densamente povoado por uma enorme diversidade de povos indígenas. Não se tratava de um grupo homogêneo, mas de centenas de etnias distintas com línguas, organizações sociais e modos de vida adaptados a diferentes ecossistemas.</p>
-
-        <h2>1. Diversidade e Organização Social</h2>
-        <ul>
-            <li><strong>Troncos Linguísticos:</strong> Destacavam-se o <em>Tupi</em> (ocupantes do litoral, agricultores itinerantes e primeiros a contatar os colonizadores) e o <em>Macro-Jê</em> (predominantes no Planalto Central, com aldeias circulares e grande complexidade ritual).</li>
-            <li><strong>Subsistência e Organização:</strong> Economia baseada na agricultura de subsistência (mandioca), caça, pesca e coleta. Sociedades comunitárias sem propriedade privada da terra ou acúmulo de riquezas.</li>
-            <li><strong>Religiosidade:</strong> A natureza era sagrada, com destaque para o xamanismo liderado pelo pajé, elo entre o mundo físico e espiritual e detentor dos saberes medicinais.</li>
-        </ul>
-
-        <h2>2. A Concepção Europeia e o Choque Cultural</h2>
-        <p>Os europeus impuseram uma visão etnocêntrica, considerando os indígenas "bárbaros" por não seguirem padrões cristãos, não usarem roupas europeias ou não praticarem a propriedade privada. Esse olhar serviu de justificativa para a exploração, a escravidão indígena e a imposição da fé cristã.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Sobre a relação dos povos indígenas pré-coloniais com o meio ambiente (como o uso da técnica da coivara), é correto afirmar que:</p>
-        <p>A) O manejo da terra era predatório, resultando no esgotamento total dos solos.<br>B) A agricultura era praticada em larga escala com tração animal para exportação.<br>C) A estratégia de exploração era adaptada aos ciclos da natureza, permitindo a sustentabilidade do ecossistema a longo prazo.<br>D) Os indígenas desconheciam qualquer forma de cultivo.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: O sistema de coivara aliado ao tempo de repouso da terra (pousio) permitia que a floresta se recompusesse, demonstrando profundo conhecimento dos ciclos biológicos.</em>
+        <h2>2. O Impacto da Colonização e a Resistência Centenária</h2>
+        <div class="highlight-box">
+          <p><strong>🛡️ Dinâmicas de Contato e Conflito:</strong> 
+          <br>• <strong>Choque Epidemiológico:</strong> A introdução de doenças europeias (como varíola, sarampo e gripe) dizimou comunidades inteiras que não possuíam imunidade biológica.
+          <br>• <strong>Escravização e Missões:</strong> Tentativas de submeter os indígenas ao trabalho forçado provocaram intensos debates jurídicos e religiosos (como as leis de missões e as atuações jesuíticas).
+          <br>• <strong>Resistência Ativa:</strong> Guerras históricas e revoltas como a Confederação dos Tamoios e a Guerra dos Bárbaros demonstraram que os povos nativos nunca aceitaram passivamente a dominação colonial.</p>
         </div>
 
-        <p><strong>Questão 2</strong><br>Entre os principais elementos de desestruturação das sociedades indígenas após a chegada dos portugueses, destacam-se:</p>
-        <p>A) O respeito incondicional dos colonizadores pelas terras tradicionais.<br>B) A introdução de doenças sem imunidade prévia, a imposição de uma nova lógica de trabalho e valores religiosos.<br>C) A aliança militar imediata e igualitária entre todos os povos e a Coroa.<br>D) O reconhecimento imediato da cidadania indígena pelas leis portuguesas.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: O choque biológico e cultural foi devastador. Doenças dizimaram populações, enquanto a catequese e a escravização alteraram profundamente a estrutura social originária.</em>
+        <h2>3. Direitos Constitucionais e o Protagonismo Contemporâneo</h2>
+        <p>A virada de chave institucional ocorreu com a **Constituição Federal de 1988**, que rompeu com a perspectiva integracionista do passado (que previa a assimilação dos indígenas à comunhão nacional) e reconheceu sua **organização social, costumes, línguas, crenças e os direitos originários sobre as terras que tradicionalmente ocupam**. Hoje, o movimento indígena atua ativamente na defesa ambiental, na demarcação de terras e na valorização de suas identidades socioculturais.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A diversidade dos povos indígenas que habitavam o Brasil no momento do contato europeu contrasta com a visão eurocêntrica e reducionista que os tratava como um bloco homogêneo. Tratava-se de milhares de grupos com línguas, tradições, organizações políticas e formas de manejo ambiental altamente especializadas.”</p>
+          <p>A partir da perspectiva histórica e antropológica atual, a caracterização das sociedades indígenas originárias do Brasil destaca-se por:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Apresentarem um estágio cultural idêntico e primitivo, sem diferenças significativas na organização social.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Manifestarem uma profunda pluralidade étnica e cultural, com saberes próprios adaptados a diferentes biomas.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Praticarem o isolamento absoluto e voluntário de qualquer forma de comércio intertribal regional.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Adotarem o conceito ocidental de propriedade privada individual e acumulação capitalista de riquezas.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Desconhecerem por completo técnicas de agricultura ou manejo sustentável dos recursos naturais.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Os povos originários do Brasil possuíam e possuem enorme diversidade cultural, linguística e social, desenvolvendo tecnologias sofisticadas de manejo ambiental e convivência harmoniosa com ecossistemas como a Amazônia e o Cerrado.</p>
+          </div>
         </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“A Constituição Federal de 1988 representou um marco histórico na relação entre o Estado brasileiro e os povos indígenas. Ao consagrar os direitos originários sobre as terras que tradicionalmente ocupam, o texto constitucional superou velhas diretrizes assimilacionistas.”</p>
+          <p>Essa mudança jurídica e institucional significou para os povos indígenas:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A obrigação legal de abandonar suas línguas nativas em favor da uniformidade cultural urbana.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O reconhecimento oficial de suas identidades étnicas e o direito à posse permanente de seus territórios tradicionais.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A perda definitiva da autonomia comunitária e a subordinação administrativa aos governos estaduais.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A proibição absoluta de acesso a serviços públicos de saúde e educação bilíngue diferenciada.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A transferência compulsória de todas as comunidades para áreas urbanas litorâneas.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A Constituição de 1988 garantiu o direito originário às terras tradicionais e o respeito às diferenças culturais, encerrando a política integracionista que visava transformar os indígenas em mão de obra integrada à sociedade dominante.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Povos Indígenas Originários do Brasil: Diversidade e Cultura | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>Povos Indígenas Originários do Brasil: Diversidade e Cultura 🌿🏹</h1>
-
-        <img src="https://i.pinimg.com/736x/87/1b/30/871b30b4274c3e34b46c6e7a6857189a.jpg" alt="Povos Indígenas Originários do Brasil" />
-
-        <p>Antes de 1500, o território brasileiro era densamente povoado por uma enorme diversidade de povos indígenas. Não se tratava de um grupo homogêneo, mas de centenas de etnias distintas com línguas, organizações sociais e modos de vida adaptados a diferentes ecossistemas.</p>
-
-        <h2>1. Diversidade e Organização Social</h2>
-        <ul>
-            <li><strong>Troncos Linguísticos:</strong> Destacavam-se o <em>Tupi</em> (ocupantes do litoral, agricultores itinerantes e primeiros a contatar os colonizadores) e o <em>Macro-Jê</em> (predominantes no Planalto Central, com aldeias circulares e grande complexidade ritual).</li>
-            <li><strong>Subsistência e Organização:</strong> Economia baseada na agricultura de subsistência (mandioca), caça, pesca e coleta. Sociedades comunitárias sem propriedade privada da terra ou acúmulo de riquezas.</li>
-            <li><strong>Religiosidade:</strong> A natureza era sagrada, com destaque para o xamanismo liderado pelo pajé, elo entre o mundo físico e espiritual e detentor dos saberes medicinais.</li>
-        </ul>
-
-        <h2>2. A Concepção Europeia e o Choque Cultural</h2>
-        <p>Os europeus impuseram uma visão etnocêntrica, considerando os indígenas "bárbaros" por não seguirem padrões cristãos, não usarem roupas europeias ou não praticarem a propriedade privada. Esse olhar serviu de justificativa para a exploração, a escravidão indígena e a imposição da fé cristã.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Sobre a relação dos povos indígenas pré-coloniais com o meio ambiente (como o uso da técnica da coivara), é correto afirmar que:</p>
-        <p>A) O manejo da terra era predatório, resultando no esgotamento total dos solos.<br>B) A agricultura era praticada em larga escala com tração animal para exportação.<br>C) A estratégia de exploração era adaptada aos ciclos da natureza, permitindo a sustentabilidade do ecossistema a longo prazo.<br>D) Os indígenas desconheciam qualquer forma de cultivo.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: O sistema de coivara aliado ao tempo de repouso da terra (pousio) permitia que a floresta se recompusesse, demonstrando profundo conhecimento dos ciclos biológicos.</em>
-        </div>
-
-        <p><strong>Questão 2</strong><br>Entre os principais elementos de desestruturação das sociedades indígenas após a chegada dos portugueses, destacam-se:</p>
-        <p>A) O respeito incondicional dos colonizadores pelas terras tradicionais.<br>B) A introdução de doenças sem imunidade prévia, a imposição de uma nova lógica de trabalho e valores religiosos.<br>C) A aliança militar imediata e igualitária entre todos os povos e a Coroa.<br>D) O reconhecimento imediato da cidadania indígena pelas leis portuguesas.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: O choque biológico e cultural foi devastador. Doenças dizimaram populações, enquanto a catequese e a escravização alteraram profundamente a estrutura social originária.</em>
-        </div>
-    </div>
-</body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>
