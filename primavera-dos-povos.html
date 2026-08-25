@@ -1,124 +1,401 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Primavera dos Povos e as Revoluções de 1848 | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Primavera dos Povos e as Revoluções de 1848 — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">História Contemporânea</div>
+      <h1>A Primavera dos Povos e as Revoluções de 1848</h1>
+    </header>
 
     <div class="container">
-        <h1>A Primavera dos Povos e as Revoluções de 1848 🌍🔥</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Contexto e a Crise do Antigo Sistema de Viena</h2>
+        <p>O ano de 1848 foi marcado por uma imensa onda revolucionária que sacudiu a Europa continental, coletivamente conhecida como a **Primavera dos Povos**. O cenário político europeu ainda tentava ser controlado pelos princípios restauradores do Congresso de Viena (1815), que beneficiavam as antigas dinastias absolutistas. No entanto, profundas transformações socioeconômicas — impulsionadas pela Revolução Industrial, pelo crescimento do operariado urbano e pelo fortalecimento dos ideais liberais e nacionalistas — tornaram esse arranjo insustentável.</p>
+        
+        <p>A crise foi agravada por graves intempéries agrícolas em 1845–1846 (que resultaram em fomes generalizadas, como a crise da batata na Irlanda) e por uma severa recessão financeira e industrial que desempregou milhares de trabalhadores.</p>
 
-        <img src="https://i.pinimg.com/736x/87/1b/30/871b30b4274c3e34b46c6e7a6857189a.jpg" alt="A Primavera dos Povos" />
-
-        <p>O ano de 1848 ficou conhecido na história europeia como a <strong>"Primavera dos Povos"</strong>, uma onda revolucionária sem precedentes que sacudiu simultaneamente diversos países (França, Áustria, Alemanha e Itália), implodindo as tentativas conservadoras de restaurar o absolutismo após o Congresso de Viena.</p>
-
-        <h2>1. As Correntes Ideológicas</h2>
-        <ul>
-            <li><strong>Liberalismo:</strong> Rejeição ao autoritarismo em busca de constituições, sufrágio ampliado, liberdade de imprensa e governos representativos burgueses.</li>
-            <li><strong>Nacionalismo:</strong> Desejo de povos dominados por impérios (como húngaros e eslavos) ou divididos (alemães e italianos) de formarem Estados nacionais soberanos.</li>
-            <li><strong>Socialismo Científico:</strong> Participação ativa dos trabalhadores urbanos exigindo direitos sociais e melhores condições de trabalho.</li>
-        </ul>
-
-        <h2>2. O Manifesto Comunista e o Legado</h2>
-        <p>Foi em 1848 que Karl Marx e Friedrich Engels publicaram o <em>Manifesto do Partido Comunista</em>, estruturando o socialismo científico baseado na luta de classes. Embora a maioria das revoluções de 1848 tenha sido derrotada militarmente a curto prazo, elas sepultaram o Antigo Regime absolutista e inseriram os trabalhadores e as ideias socialistas no centro da política europeia.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>O ano de 1848 marcou a Europa com a "Primavera dos Povos", contando com forte participação operária por direitos sociais. Nesse mesmo ano, ocorreu um marco intelectual e político de enorme relevância:</p>
-        <p>A) A fundação das primeiras corporações de ofício medievais.<br>B) A publicação do Manifesto do Partido Comunista por Karl Marx e Friedrich Engels, estruturando o socialismo científico.<br>C) A assinatura do Tratado de Versalhes.<br>D) A abolição definitiva de toda forma de propriedade industrial na Grã-Bretanha.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: Publicado em 1848, o Manifesto Comunista expressou o clima de revolta e a maturação do proletariado europeu, propondo a luta de classes como motor da história.</em>
+        <h2>2. As Múltiplas Faces das Insurreições</h2>
+        <div class="highlight-box">
+          <p><strong>🌍 Características e Divisão dos Movimentos:</strong> 
+          <br>• <strong>Caráter Polifacetado:</strong> 1848 não foi um movimento homogêneo. Ele uniu o **liberalismo** (combate ao absolutismo e exigência de constituições), o **nacionalismo** (desejo de unificação ou autonomia de povos subjugados, como na Itália, Alemanha e Império Austríaco) e, pela primeira vez com força autônoma, o **socialismo** (reivindicações dos trabalhadores contra a exploração burguesa).
+          <br>• <strong>A Queda de Luís Filipe na França:</strong> O estopim ocorreu em Paris, onde a insurreição derrubou a "Monarquia de Julho" e instaurou a Segunda República Francesa, marcada pela criação das *Oficinas Nacionais* para combater o desemprego.
+          <br>• <strong>O "Manifesto Comunista":</strong> Publicado em fevereiro de 1848 por Karl Marx e Friedrich Engels, forneceu arcabouço teórico para as lutas proletárias que começavam a se desvincular dos interesses da burguesia liberal.</p>
         </div>
 
-        <p><strong>Questão 2</strong><br>Entre os principais objetivos defendidos pelas correntes nacionalistas durante as revoluções de 1848, destaca-se:</p>
-        <p>A) A unificação territorial de nações fragmentadas e a libertação de povos submetidos ao domínio de impérios multinacionais.<br>B) A restauração imediata do feudalismo agrário e da servidão medieval.<br>C) A entrega do controle absoluto dos governos às ordens religiosas.<br>D) A anexação voluntária das repúblicas europeias sob tutela colonial dos EUA.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> A. <em>Explicação: O nacionalismo de 1848 teve forte apelo emancipatório e unitário. Povos esmagados por impérios lutaram pela autonomia, e regiões como Itália e Alemanha iniciaram suas lutas de unificação.</em>
+        <h2>3. O Balanço e o Legado Histórico</h2>
+        <p>Embora a maioria das barricadas revolucionárias de 1848 tenha sido derrotada militarmente pelas forças conservadoras e monárquicas (dando origem a governos autoritários, como o Segundo Império de Napoleão III na França), a Primavera dos Povos deixou marcas irreversíveis. Ela abalou definitivamente as estruturas do absolutismo feudal remanescente, aboliu o trabalho servil em grande parte da Europa Central e colocou o socialismo e os nacionalismos de massas no centro do tabuleiro político mundial.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“O ano de 1848 registrou uma onda revolucionária sem precedentes na história europeia, que ficou conhecida como a ‘Primavera dos Povos’. Diferente dos movimentos anteriores de caráter estritamente burguês, o ano de 1848 trouxe à tona novas demandas sociais e identitárias que sacudiram o mapa político desde Paris até Viena, Berlim e Milão.”</p>
+          <p>Dentre os principais elementos ideológicos e sociais que caracterizaram as insurreições de 1848, destaca-se:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A aliança indissociável entre a Igreja Católica e o proletariado industrial para a restauração do feudalismo agrário.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A confluência entre o liberalismo político, o nacionalismo de povos oprimidos por impérios multinacionais e as primeiras manifestações autônomas do socialismo operário.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A aceitação pacífica das diretrizes conservadoras estabelecidas pelo Congresso de Viena pelas lideranças populares.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A consolidação imediata de repúblicas comunistas duradouras em toda a extensão territorial da Europa ocidental.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A exclusão completa das pautas constitucionais e o foco exclusivo na expansão colonial ultramarina.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> 1848 marcou o momento em que diferentes correntes ideológicas se manifestaram simultaneamente: a burguesia liberal buscava constituições e sufrágio; os povos subjugados (como húngaros, italianos e alemães) exigiam independência ou unificação nacional; e os trabalhadores urbanos lutavam por direitos sociais e econômicos contra a exploração capitalista.</p>
+          </div>
         </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“Apesar de a maioria das revoluções de 1848 ter terminado em derrotas militares para as forças liberais e socialistas, com o retorno de governos conservadores em vários países da Europa, o impacto histórico desse período foi profundo para a configuração política do mundo contemporâneo.”</p>
+          <p>Como consequência indireta e de longo prazo da Primavera dos Povos, pode-se apontar:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> O fortalecimento definitivo do poder absoluto dos reis na França, Áustria e Prússia.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A interrupção permanente de qualquer processo de unificação nacional na Itália e na Alemanha.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A abolição definitiva da servidão no Império Austríaco e a inserção irreversível das massas populares e dos debates sociais na política europeia.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A erradicação completa do capitalismo industrial e o retorno generalizado ao sistema corporativo medieval.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A assinatura de um tratado de paz perpétua entre todas as potências coloniais do globo.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> Embora as revoluções tenham sido contidas pelas armas, as pressões sociais forçaram concessões estruturais, como a extinção da servidão em áreas rurais da Europa Central. Além disso, 1848 evidenciou que a classe trabalhadora e os debates de fundo social não podiam mais ser ignorados pelas elites dirigentes.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Primavera dos Povos e as Revoluções de 1848 | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>A Primavera dos Povos e as Revoluções de 1848 🌍🔥</h1>
-
-        <img src="https://i.pinimg.com/736x/87/1b/30/871b30b4274c3e34b46c6e7a6857189a.jpg" alt="A Primavera dos Povos" />
-
-        <p>O ano de 1848 ficou conhecido na história europeia como a <strong>"Primavera dos Povos"</strong>, uma onda revolucionária sem precedentes que sacudiu simultaneamente diversos países (França, Áustria, Alemanha e Itália), implodindo as tentativas conservadoras de restaurar o absolutismo após o Congresso de Viena.</p>
-
-        <h2>1. As Correntes Ideológicas</h2>
-        <ul>
-            <li><strong>Liberalismo:</strong> Rejeição ao autoritarismo em busca de constituições, sufrágio ampliado, liberdade de imprensa e governos representativos burgueses.</li>
-            <li><strong>Nacionalismo:</strong> Desejo de povos dominados por impérios (como húngaros e eslavos) ou divididos (alemães e italianos) de formarem Estados nacionais soberanos.</li>
-            <li><strong>Socialismo Científico:</strong> Participação ativa dos trabalhadores urbanos exigindo direitos sociais e melhores condições de trabalho.</li>
-        </ul>
-
-        <h2>2. O Manifesto Comunista e o Legado</h2>
-        <p>Foi em 1848 que Karl Marx e Friedrich Engels publicaram o <em>Manifesto do Partido Comunista</em>, estruturando o socialismo científico baseado na luta de classes. Embora a maioria das revoluções de 1848 tenha sido derrotada militarmente a curto prazo, elas sepultaram o Antigo Regime absolutista e inseriram os trabalhadores e as ideias socialistas no centro da política europeia.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>O ano de 1848 marcou a Europa com a "Primavera dos Povos", contando com forte participação operária por direitos sociais. Nesse mesmo ano, ocorreu um marco intelectual e político de enorme relevância:</p>
-        <p>A) A fundação das primeiras corporações de ofício medievais.<br>B) A publicação do Manifesto do Partido Comunista por Karl Marx e Friedrich Engels, estruturando o socialismo científico.<br>C) A assinatura do Tratado de Versalhes.<br>D) A abolição definitiva de toda forma de propriedade industrial na Grã-Bretanha.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: Publicado em 1848, o Manifesto Comunista expressou o clima de revolta e a maturação do proletariado europeu, propondo a luta de classes como motor da história.</em>
-        </div>
-
-        <p><strong>Questão 2</strong><br>Entre os principais objetivos defendidos pelas correntes nacionalistas durante as revoluções de 1848, destaca-se:</p>
-        <p>A) A unificação territorial de nações fragmentadas e a libertação de povos submetidos ao domínio de impérios multinacionais.<br>B) A restauração imediata do feudalismo agrário e da servidão medieval.<br>C) A entrega do controle absoluto dos governos às ordens religiosas.<br>D) A anexação voluntária das repúblicas europeias sob tutela colonial dos EUA.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> A. <em>Explicação: O nacionalismo de 1848 teve forte apelo emancipatório e unitário. Povos esmagados por impérios lutaram pela autonomia, e regiões como Itália e Alemanha iniciaram suas lutas de unificação.</em>
-        </div>
-    </div>
-</body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>
