@@ -1,123 +1,402 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grécia Antiga | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grécia Antiga: Pólis, Filosofia e Cidadania — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">Antiguidade Clássica</div>
+      <h1>Grécia Antiga: Pólis, Filosofia e Cidadania</h1>
+    </header>
 
     <div class="container">
-        <h1>Grécia Antiga: Pólis, Filosofia e Cidadania 🏛️🏺</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Conceito de Pólis e a Fragmentação Política</h2>
+        <p>A civilização grega antiga não se constituiu como um império centralizado unificado, mas sim como um mosaico de cidades-estado autônomas chamadas de <strong>pólis</strong>. Geograficamente isoladas por montanhas, vales e pelo mar Egeu, cada pólis possuía suas próprias leis, governo, moeda e divindades protetoras, embora compartilhassem o mesmo idioma, mitos e sentimentos de helenidade.</p>
+        
+        <p>Dentre as centenas de pólis, destacaram-se duas com modelos políticos e sociais totalmente opostos: <strong>Atenas</strong>, berço da democracia e da valorização do debate público, e <strong>Esparta</strong>, uma sociedade oligárquica, militarista e voltada quase inteiramente para a guerra e a preservação do domínio sobre as populações escravizadas (hilotas).</p>
 
-        <img src="grecia-antiga.jpg" alt="Grécia Antiga" />
+        <h2>2. A Cidadania Ateniense e seus Limites</h2>
+        <p>Em Atenas, especialmente após as reformas democráticas de Clístenes e Péricles, consolidou-se a <em>democracia direta</em>. Nela, os cidadãos reuniam-se na Eclésia (assembleia popular) para debater e votar diretamente as leis da cidade, sob o princípio da <em>isonomia</em> (igualdade perante a lei) e da <em>isegoria</em> (direito à palavra).</p>
 
-        <p>A civilização grega não foi um império centralizado, mas um conjunto de <strong>cidades-estado (pólis)</strong> independentes. Atenas e Esparta são os exemplos mais marcantes deste modelo.</p>
-
-        <h2>1. A Pólis e a Cidadania</h2>
-        <ul>
-            <li><strong>Atenas (Democracia):</strong> Berço da democracia direta, onde cidadãos decidiam na Eclésia. A cidadania era restrita a homens, filhos de pais atenienses; mulheres, estrangeiros e escravos eram excluídos.</li>
-            <li><strong>Esparta (Oligarquia):</strong> Sociedade militarista focada na educação (agogé) para a formação de soldados desde a infância.</li>
-        </ul>
-
-        <h2>2. O Nascimento da Filosofia</h2>
-        <p>Foi nas praças públicas (ágoras) que surgiu a filosofia. Os gregos buscaram explicações racionais para o universo e a sociedade, fazendo a transição do <strong>mito para o logos</strong> (razão). Pensadores como Sócrates, Platão e Aristóteles lançaram as bases do pensamento ocidental.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Sobre a cidadania em Atenas, é correto afirmar que:</p>
-        <p>A) Todos os habitantes possuíam direitos políticos.<br>B) Havia igualdade social entre ricos e pobres.<br>C) A cidadania era um privilégio restrito aos homens livres, maiores de idade, filhos de atenienses, excluindo a maioria da população.<br>D) Escravos eram os principais responsáveis pela política.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: A democracia ateniense era excludente, focada apenas na elite masculina nascida na cidade.</em>
+        <div class="highlight-box">
+          <p><strong>👥 Exclusão Social na Democracia:</strong> Apesar de inovadora, a cidadania ateniense era extremamente restrita. Mulheres, estrangeiros (metecos), escravos e menores de idade não eram considerados cidadãos e, portanto, não participavam das decisões políticas. Estima-se que apenas uma pequena parcela minoritária da população desfrutasse dos direitos democráticos.</p>
         </div>
 
-        <p><strong>Questão 2</strong><br>O surgimento da filosofia na Grécia Antiga está associado a:</p>
-        <p>A) Isolamento geográfico total.<br>B) Controle rígido de ideias por um poder teocrático.<br>C) Desenvolvimento da vida urbana na pólis e à prática do debate político democrático (ágora), que valorizavam o argumento racional.<br>D) Ausência total de conflitos sociais.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: O debate político na ágora forçou o uso da lógica e da retórica em substituição às explicações míticas tradicionais.</em>
+        <h2>3. O Nascimento da Filosofia e a Razão (Logos)</h2>
+        <p>A invenção da pólis e do espaço público propiciou o surgimento da <strong>filosofia</strong>. Ao substituir as explicações puramente míticas (mitos) por investigações racionais baseadas no argumento, na lógica e no debate público (logos), os pensadores gregos transformaram a forma de compreender o cosmos e a sociedade.</p>
+        
+        <p>Nomes como Sócrates, Platão e Aristóteles questionaram a moral, a ética, a política e a natureza humana, consolidando um legado intelectual que continua a estruturar os fundamentos da cultura ocidental moderna.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">Na Atenas clássica, a democracia direta permitia que os cidadãos exercessem o poder político de forma presencial na Assembleia (Eclésia). No entanto, essa prática de participação ativa coexistia com uma estrutura social excludente, na qual a base do trabalho produtivo era sustentada por indivíduos desprovidos de qualquer direito político ou civil.</p>
+          <p>Com base no texto e no contexto histórico da Grécia Antiga, pode-se afirmar que a cidadania ateniense:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Estendia-se de maneira universal a todos os habitantes livres e estrangeiros residentes na Ática.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Caracterizava-se pela restrição excludente, beneficiando apenas uma minoria masculina adulta nascida de pais atenienses.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Garantia igualdade plena e sufrágio universal inclusive para escravos e mulheres nas assembleias.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Dependia exclusivamente da riqueza acumulada no comércio marítimo, independentemente da origem familiar.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Era exercida por meio de representantes eleitos periodicamente em sufrágios indiretos pluripartidários.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A democracia ateniense era restrita a uma parcela minoritária (homens maiores de idade, filhos de pais atenienses). Mulheres, estrangeiros e escravos eram rigorosamente excluídos da vida política.</p>
+          </div>
         </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O surgimento da pólis grega representou uma verdadeira revolução mental. Na praça pública (ágora), os problemas da comunidade deixaram de ser resolvidos pela imposição divina ou pelo arbítrio de um rei, passando a ser debatidos por meio da palavra argumentada, da persuasão e do livre exame das ideias.”</p>
+          <p>O texto aponta que a estruturação da pólis esteve diretamente vinculada ao surgimento de:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Um império absolutista centralizado que eliminou as autonomias locais.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Uma teocracia sacerdotal baseada em livros sagrados e dogmas imutáveis.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Práticas políticas baseadas no debate público e no pensamento filosófico racional.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Sistemas produtivos industriais focados na produção em massa de mercadorias.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Comunidades nômades desprovidas de laços urbanos fixos ou instituições civis.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> O debate na ágora e a necessidade de convencer os pares através da palavra propiciaram a emergência da política participativa e do pensamento filosófico racional (logos).</p>
+          </div>
+        </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grécia Antiga | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>Grécia Antiga: Pólis, Filosofia e Cidadania 🏛️🏺</h1>
-
-        <img src="grecia-antiga.jpg" alt="Grécia Antiga" />
-
-        <p>A civilização grega não foi um império centralizado, mas um conjunto de <strong>cidades-estado (pólis)</strong> independentes. Atenas e Esparta são os exemplos mais marcantes deste modelo.</p>
-
-        <h2>1. A Pólis e a Cidadania</h2>
-        <ul>
-            <li><strong>Atenas (Democracia):</strong> Berço da democracia direta, onde cidadãos decidiam na Eclésia. A cidadania era restrita a homens, filhos de pais atenienses; mulheres, estrangeiros e escravos eram excluídos.</li>
-            <li><strong>Esparta (Oligarquia):</strong> Sociedade militarista focada na educação (agogé) para a formação de soldados desde a infância.</li>
-        </ul>
-
-        <h2>2. O Nascimento da Filosofia</h2>
-        <p>Foi nas praças públicas (ágoras) que surgiu a filosofia. Os gregos buscaram explicações racionais para o universo e a sociedade, fazendo a transição do <strong>mito para o logos</strong> (razão). Pensadores como Sócrates, Platão e Aristóteles lançaram as bases do pensamento ocidental.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Sobre a cidadania em Atenas, é correto afirmar que:</p>
-        <p>A) Todos os habitantes possuíam direitos políticos.<br>B) Havia igualdade social entre ricos e pobres.<br>C) A cidadania era um privilégio restrito aos homens livres, maiores de idade, filhos de atenienses, excluindo a maioria da população.<br>D) Escravos eram os principais responsáveis pela política.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: A democracia ateniense era excludente, focada apenas na elite masculina nascida na cidade.</em>
-        </div>
-
-        <p><strong>Questão 2</strong><br>O surgimento da filosofia na Grécia Antiga está associado a:</p>
-        <p>A) Isolamento geográfico total.<br>B) Controle rígido de ideias por um poder teocrático.<br>C) Desenvolvimento da vida urbana na pólis e à prática do debate político democrático (ágora), que valorizavam o argumento racional.<br>D) Ausência total de conflitos sociais.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: O debate político na ágora forçou o uso da lógica e da retórica em substituição às explicações míticas tradicionais.</em>
-        </div>
-    </div>
-</body>
-</html>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
