@@ -1,238 +1,402 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mitologia Nórdica: Deuses, Valquírias e o Ragnarök | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitologia Nórdica: Deuses, Valquírias e o Ragnarök — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
         padding: 1rem 1.2rem;
         border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color: 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToast" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Mitologia</h1>
-      <p>Período: Era Viking</p>
+      <div class="header-badge">Mitologia Germânica e Escandinávia</div>
+      <h1>Mitologia Nórdica: Deuses, Valquírias e o Ragnarök</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>Mitologia Nórdica: Deuses, Valquírias e o Ragnarök</h2>
-        <img src="https://i.ytimg.com/vi/Zh4KysD6kUI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB_GbetJAcuN_EAx6NiBMZ2JjFXrw" alt="">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Cosmogonia e o Panteão Nórdico (Aesir e Vanir)</h2>
+        <p>Desenvolvida pelos povos germânicos da Escandinávia, a mitologia nórdica reflete uma visão de mundo marcada pelas condições severas do norte europeu, pela luta constante pela sobrevivência e pela honra marcial. O universo é estruturado em nove mundos interconectados pela árvore cósmica <strong>Yggdrasil</strong>, tendo no topo Asgard, a morada dos deuses.</p>
         
-        <p>A **Mitologia Nórdica** engloba o sistema de crenças, lendas e cosmologia dos povos germânicos da Escandinávia durante a **Era Viking** (aproximadamente entre os séculos VIII e XI). Diferente de panteões estáticos, a cosmovisão nórdica era profundamente marcada por uma atmosfera de fatalismo heroico, coragem marcial e conexão direta com as intempéries e o relevo rigoroso do norte europeu. O universo nórdico era concebido como um conjunto de nove mundos conectados pela árvore cósmica **Yggdrasil**, habitados por diferentes raças, como deuses, gigantes, elfos, anões e mortais.</p>
-        
-        <p>O panteão dividia-se essencialmente em duas tribos divinas: os **Aesir**, deuses guerreiros e soberanos associados à ordem e ao poder, liderados por **Odin** (o Pai de Todos, deus da sabedoria, da guerra e da poesia, que sacrificou um olho em troca do conhecimento e pendurou-se na Yggdrasil), e **Thor** (o deus do trovão, defensor implacável dos homens e portador do martelo Mjölnir); e os **Vanir**, divindades ligadas à fertilidade, à agricultura e à terra, representados por figuras como **Freyr** e **Freyja**. Outro elemento central dessa cultura eram as **Valquírias**, divindades femininas menores que sobrevoavam os campos de batalha para escolher os guerreiros mais corajosos mortos em combate (os *einherjar*) e conduzi-los ao majestoso **Valhala**, o salão de Odin, onde se preparavam para o conflito final. Esse destino inexorável culminava no **Ragnarök** — o crepúsculo dos deuses —, uma grande catástrofe cósmica que previa a destruição do mundo atual em uma batalha apocalíptica contra forças caóticas, seguida por um renascimento cíclico e regenerador da Terra.</p>
+        <p>O panteão divide-se essencialmente em dois clãs divinos: os <strong>Aesir</strong>, deuses associados à guerra, à lei e à soberania (liderados por Odin, o Pai de Todos, deus da sabedoria e da poesia), e os <strong>Vanir</strong>, divindades ligadas à fertilidade, à terra e à agricultura (como Freyr e Freyja). Outro destaque é Thor, o deus do trovão, protetores dos homens e dos deuses contra as forças do caos.</p>
 
-        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Na mitologia nórdica, o conceito do *Ragnarök* descreve a destruição final do mundo e dos próprios deuses em uma grande batalha contra os gigantes e monstros do caos. Diferente das escatologias lineares de outras tradições religiosas, o mito nórdico do Ragnarök destaca-se por incorporar:</p>
-        <ul>
-          <li>A) a crença de que os deuses eram imunes à morte e imortais sob quaisquer circunstâncias cósmicas.</li>
-          <li>B) uma visão cíclica da existência, na qual, após a destruição e o cataclismo total, o mundo ressurge verde, fértil e habitado por sobreviventes para iniciar um novo ciclo.</li>
-          <li>C) a condenação absoluta da coragem guerreira em favor do pacifismo universal e irrevogável.</li>
-          <li>D) a supremacia pacífica dos mortais sobre as divindades celestes sem intervenção de forças sobrenaturais.</li>
-          <li>E) a ausência completa de conflitos morais entre as divindades do panteão escandinavo.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O Ragnarök representa o fim trágico, mas inevitável, do cosmos nórdico, seguido ciclicamente pelo renascimento de uma nova terra verde e fértil, refletindo a cosmovisão cíclica da natureza presente na cultura escandinava pré-cristã.</p>
+        <h2>2. As Valquírias e o Destino dos Guerreiros</h2>
+        <p>Na sociedade escandinava medieval, a morte em combate era vista com honra suprema. É nesse contexto que se inserem as <strong>Valquírias</strong>, figuras femininas semidivinas a serviço de Odin.</p>
+
+        <div class="highlight-box">
+          <p><strong>⚔️ Os Campos de Valhalla:</strong> As valquírias sobrevoavam os campos de batalha para escolher os guerreiros mais corajosos mortos em combate (os <em>einherjar</em>). Metade desses heróis caídos era levada para o grandioso salão de Odin, Valhalla, onde passavam os dias treinando para a batalha final e as noites banqueteando-se, enquanto a outra metade ia para o reino de Freyja (Fólkvangr).</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"As Valquírias ocupavam um papel de destaque na cultura dos antigos escandinavos, atuando como mensageiras do destino e seletoras daqueles que demonstravam bravura suprema nos campos de batalha."</em> Historicamente, a valorização cultural de figuras míticas associadas ao heroísmo guerreiro e à morte honrosa na Era Viking estava diretamente vinculada à:</p>
-        <ul>
-          <li>A) estrutura de uma sociedade expansionista e marítima que valorizava a excelência militar, a exploração de novas rotas e a glória em combate.</li>
-          <li>B) submissão total dos clãs escandinavos a impérios teocráticos do Mediterrâneo oriental.</li>
-          <li>C) abolição de qualquer forma de atividade comercial ou trocas mercantis na Europa setentrional.</li>
-          <li>D) rejeição generalizada da navegação oceânica em favor de economias estritamente pastoris.</li>
-          <li>E) institucionalização do sufrágio universal democrático em assembleias populares pacíficas.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> A mitologia viking refletia o ethos de uma sociedade guerreira e marítima (a Era Viking), onde a bravura na guerra (*vikingr*) e a morte honrosa em combate eram culturalmente exaltadas como passaportes para o Valhala de Odin.</p>
+        <h2>3. O Ragnarök: O Crepúsculo e Renascimento dos Deuses</h2>
+        <p>Diferente de visões cíclicas ou estáticas de outras cosmologias, a escatologia nórdica é marcada pelo <strong>Ragnarök</strong>, a grande batalha do fim do mundo. Trata-se de um evento inevitável precedido por invernos rigorosos e fratricídio universal, onde as forças do caos (lideradas por Loki, o lobo Fenrir e a serpente Jörmungandr) enfrentam os deuses em Asgard.</p>
+        
+        <p>A maioria das divindades principais, incluindo Odin e Thor, perece no combate, e o mundo é consumido pelo fogo. No entanto, o mito possui um caráter cíclico e regenerativo: após a destruição, a Terra ressurge verde e fértil das águas, repovoada por dois sobreviventes humanos, permitindo um novo alvorecer para o cosmos.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">As narrativas da mitologia nórdica expressavam os valores fundamentais dos antigos povos escandinavos, nos quais a bravura guerreira, a aceitação do destino inexorável e a honra em combate ocupavam o centro da vida social. Essa atmosfera cultural refletia-se diretamente nas crenças sobre a morte e no papel de figuras espirituais como as valquírias, encarregadas de conduzir os caídos mais destemidos aos salões celestiais de Odin.</p>
+          <p>Com base no texto e no contexto cultural dos povos nórdicos, a crença no destino e na morte heroica cumpria a função de:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Promover o pacifismo absoluto e a recusa sistemática de conflitos territoriais entre os clãs escandinavos.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Fortalecer a coragem marcial e a coesão coletiva em uma sociedade voltada para a expansão e a sobrevivência severa.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Submeter politicamente a Escandinávia às leis teocráticas centralizadas do Império Romano do Oriente.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Garantir a igualdade socioeconômica e a abolição das hierarquias militares nas aldeias vikings.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Substituir as práticas agrícolas sazonais por rituais de contemplação filosófica urbana.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A cosmovisão nórdica valorizava a valentia e a combatividade. A crença em Valhalla e nas valquírias estimulava o heroísmo militar, essencial para a estrutura cultural e expansiva da sociedade viking.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O Ragnarök na mitologia escandinávia não representa apenas o fim destrutivo do cosmos e a morte trágica de divindades como Odin e Thor perante as forças do caos. Ele encerra uma estrutura cíclica onde, após o cataclismo do fogo e das águas, a Terra emerge purificada, verde e fértil, dando início a uma nova era povoada por descendentes humanos.”</p>
+          <p>Considerando o fragmento, a concepção de escatologia na mitologia nórdica diferencia-se de visões lineares por incorporar:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A negação total de qualquer forma de vida após o colapso físico do universo.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A ideia de regeneração e renovação perpétua após a destruição estrutural do mundo.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O domínio permanente e imutável das forças do caos sobre os mundos celestes.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A ausência de conflitos éticos ou morais entre deuses e monstros nas lendas germânicas.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A transferência definitiva da humanidade para reinos subterrâneos inacessíveis.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O mito do Ragnarök combina a destruição trágica com a regeneração cósmica. O fim do mundo abre espaço para o renascimento da natureza e da humanidade, evidenciando uma visão cíclica e renovadora.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
+</body>
 </html>
