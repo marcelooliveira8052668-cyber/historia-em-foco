@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="pt-br" data-theme="dark">
   <head>
@@ -235,4 +236,242 @@
       });
     </script>
   </body>
+=======
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>As Grandes Navegações e a Era dos Descobrimentos | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Idade Moderna</h1>
+      <p>Período: Século XV - Século XVII</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>As Grandes Navegações e a Era dos Descobrimentos</h2>
+        
+        <p>A expansão marítima europeia, ocorrida entre os **séculos XV e XVII**, representou uma das transformações mais profundas da história mundial, marcando a transição da Idade Média para a Idade Moderna. Liderados inicialmente por Portugal e Espanha, os Estados Nacionais recém-formados uniram interesses da monarquia absolutista, da Igreja Católica e da burguesia mercantil em busca de novas rotas comerciais para o Oriente. O objetivo central era contornar o monopólio exercido por comerciantes italianos e árabes sobre o Mar Mediterrâneo no comércio de especiarias (como pimenta, cravo e canela) e sedas vindas da Índia e da China.</p>
+        
+        <p>O pioneirismo de <strong>Portugal</strong> explicou-se por fatores como sua precoce centralização política (1385, Revolução de Avis), a estabilidade territorial, a posição geográfica privilegiada voltada para o Atlântico e o desenvolvimento de inovações náuticas e cartográficas (como a caravela, a bússola e o astrolábio). Os navegadores lusos desbravaram a costa africana sistematicamente (o Periplão Africano), culminando na chegada de Vasco da Gama às Índias em 1498. Pouco depois, em 1500, a armada de Pedro Álvares Cabral aportou no Brasil. Paralelamente, a Coroa espanhola apostou no ousado projeto de Cristóvão Colombo de atingir o Oriente navegando para o oeste, o que resultou na chegada à América em 1492.</p>
+
+        <p>As consequências desse processo reconfiguraram o planeta. O eixo econômico europeu deslocou-se progressivamente do Mar Mediterrâneo para o Oceano Atlântico. A exploração colonial inaugurou um violento sistema de dominação baseado no mercantilismo, no pacto colonial, na extração de metais preciosos e na escravidão em larga escala de povos indígenas e africanos. A "Era dos Descobrimentos" integrou continentes pela primeira vez na história, mas também provocou a dizimação de civilizações nativas americanas e consolidou a hegemonia econômica europeia no globo.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A expansão marítima europeia dos séculos XV e XVII esteve atrelada à formação dos Estados Nacionais modernos e ao desenvolvimento do mercantilismo. Como principal fator econômico e geopolítico que impulsionou a busca por novas rotas comerciais marítimas para o Oriente, destaca-se:</p>
+        <ul>
+          <li>A) a exigência das guildas de artesãos medievais para expandir o mercado interno de tecidos sintéticos na Europa central.</li>
+          <li>B) a necessidade de contornar o monopólio exercido por comerciantes italianos e muçulmanos sobre as rotas tradicionais de especiarias no Mediterrâneo.</li>
+          <li>C) o acordo militar firmado entre o Império Romano do Oriente e as repúblicas ibéricas para explorar o Oceano Pacífico.</li>
+          <li>D) a descoberta de imensas reservas de carvão mineral e petróleo bruto nas ilhas atlânticas dos Açores.</li>
+          <li>E) a abolição completa das taxas alfandegárias entre os reinos ibéricos e o Império Otomano.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> Com a tomada de Constantinopla pelos turcos otomanos em 1453 e o controle tradicional exercido por cidades italianas e árabes no Mediterrâneo, as especiarias orientais chegavam caríssimas à Europa. Isso forçou as monarquias ibéricas a buscarem uma rota marítima alternativa para o Oriente.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O pioneirismo ibérico na expansão ultramarina não ocorreu por acaso. Ele foi fruto de uma aliança sólida entre o poder real centralizado e a classe mercantil, somada ao domínio de tecnologias de navegação e a uma posição geográfica estratégica voltada para o Atlântico."</em> O texto destaca o pioneirismo de Portugal e Espanha, ressaltando que esse processo resultou em:</p>
+        <ul>
+          <li>A) a imediata instauração de democracias liberais descentralizadas em todas as colônias ultramarinas.</li>
+          <li>B) o isolamento comercial da Europa face aos impérios asiáticos e africanos.</li>
+          <li>C) o deslocamento do eixo comercial europeu do Mediterrâneo para o Atlântico e a consolidação do sistema colonial mercantilista.</li>
+          <li>D) a extinção definitiva da escravidão africana nas novas terras conquistadas devido às leis humanitárias da época.</li>
+          <li>E) a substituição das monarquias absolutistas por governos parlamentares controlados pelas corporações de ofício.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> As Grandes Navegações mudaram o eixo econômico mundial do Mediterrâneo para o Atlântico, impulsionando o mercantilismo e estruturando a exploração colonial baseada no pacto colonial e no trabalho compulsório.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+>>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>

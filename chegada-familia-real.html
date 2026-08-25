@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="pt-br" data-theme="dark">
   <head>
@@ -235,4 +236,242 @@
       });
     </script>
   </body>
+=======
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Chegada da Família Real Portuguesa | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Brasil Império</h1>
+      <p>Período: 1808</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Chegada da Família Real Portuguesa</h2>
+        
+        <p>O ano de 1808 marcou uma reviravolta sem precedentes na história institucional do Brasil. Pressionada pelo avanço das tropas napoleônicas em direção à península Ibérica e contando com a escolta estratégica da marinha britânica, a Corte portuguesa — liderada pelo Príncipe Regente Dom João (futuro Dom João VI) — transferiu o aparato político do Estado português para a sua principal colônia, desembarcando inicialmente em Salvador e posteriormente fixando-se no Rio de Janeiro.</p>
+        
+        <p>A presença da Família Real exigiu a rápida transformação estrutural da colônia para abrigar a burocracia do Império lusitano. Logo nos primeiros dias em solo brasileiro (janeiro de 1808), Dom João assinou a famosa <strong>Abertura dos Portos às Nações Amigas</strong>, pondo fim ao exclusivo colonial (pacto colonial) que impedia o Brasil de comercializar diretamente com outras potências — medida que beneficiou fortemente a Inglaterra. Nos anos seguintes, foram criados bancos, escolas superiores, a imprensa régia, o Jardim Botânico e instituições culturais que elevaram o Rio de Janeiro à condição de sede do Reino.</p>
+
+        <p>Outro marco fundamental desse período ocorreu em 1815, quando o Brasil foi elevado à categoria de <strong>Reino Unido de Portugal e Algarves</strong>, deixando formalmente de ser uma colônia. Essa mudança jurídica deu aos brasileiros representatividade nos tribunais e inserção internacional, tornando irreversível o processo de autonomia política que culminaria, anos mais tarde, na Independência do Brasil em 1822.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A transferência da Corte portuguesa para o Brasil em 1808 representou uma guinada abrupta nas relações econômicas e político-administrativas da colônia. Um dos atos iniciais desse processo, que rompeu com a lógica tradicional do mercantilismo ibérico, foi:</p>
+        <ul>
+          <li>A) a assinatura do Tratado de Methuen, que garantiu tarifas alfandegárias preferenciais ao vinho brasileiro na Europa.</li>
+          <li>B) a decretação da Abertura dos Portos às Nações Amigas, pondo fim ao exclusivo colonial e beneficiando a economia britânica.</li>
+          <li>C) a abolição imediata da escravidão em troca de apoio militar defensivo da Coroa espanhola.</li>
+          <li>D) a expulsão definitiva de todos os comerciantes estrangeiros estabelecidos nas províncias do Norte e Nordeste.</li>
+          <li>E) a estatização de todas as companhias mercantis operadas por capitais nacionais no litoral fluminense.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A Abertura dos Portos (1808) extinguiu o pacto colonial exclusivo que proibia o Brasil de comerciar com outras nações, abrindo os portos colônias às nações amigas, com destaque para a Inglaterra, que dominava os mares.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Com a chegada de Dom João e de cerca de quinze mil nobres portugueses, o Rio de Janeiro precisou adaptar-se rapidamente para funcionar como a capital de um império europeu. Edifícios foram requisitados, a vida urbana se complexificou e o status jurídico do território mudou substancialmente com a criação do Reino Unido em 1815."</em> O texto evidencia que a fixação da Corte no Brasil gerou como consequência direta:</p>
+        <ul>
+          <li>A) a estagnação cultural e o esvaziamento demográfico da região sudeste ao longo do século XIX.</li>
+          <li>B) a manutenção do estatuto colonial restrito e o isolamento diplomático perante as potências industriais.</li>
+          <li>C) a modernização institucional da colônia e a superação da condição estritamente colonial com a sua elevação a Reino Unido.</li>
+          <li>D) a substituição imediata da monarquia absolutista por um regime democrático parlamentarista eleito pelos colonos.</li>
+          <li>E) o fechamento de todas as escolas superiores e academias militares criadas anteriormente pelos governadores-gerais.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A chegada da Corte provocou uma modernização administrativa e a criação de bases institucionais fundamentais, culminando em 1815 com a elevação do Brasil a Reino Unido, rompendo juridicamente com o colonialismo clássico.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+>>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>

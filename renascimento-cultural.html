@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="pt-br" data-theme="dark">
   <head>
@@ -234,4 +235,242 @@
       });
     </script>
   </body>
+=======
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Renascimento Cultural na Europa | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Idade Moderna</h1>
+      <p>Período: Século XIV - Século XVII</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>O Renascimento Cultural na Europa</h2>
+        
+        <p>O **Renascimento Cultural** foi um vasto movimento de renovação artística, literária, científica e filosófica que floresceu na Europa entre os **séculos XIV e XVII**. Tendo a península Itálica como seu berço inicial (em virtude da intensa atividade comercial de cidades como Florença, Veneza e Gênova), o Renascimento representou uma profunda ruptura com os valores medievais, propondo uma nova visão de mundo fundamentada na valorização da razão, da experiência científica, do individualismo e do **humanismo**.</p>
+        
+        <p>Enquanto a Idade Média fora marcadamente teocêntrica — com o pensamento intelectual focado centralmente em Deus e nos dogmas religiosos —, o Renascimento resgatou e reinterpretou os valores estéticos e filosóficos da **Antiguidade Clássica (Greco-Romana)**, colocando o ser humano e suas potencialidades no centro das indagações intelectuais (**antropocentrismo**). Esse novo espírito manifestou-se na precisão anatômica e no uso da perspectiva na pintura de mestres como Leonardo da Vinci e Michelangelo, na literatura crítica de autores como Erasmo de Roterdã e nas inovações políticas de Nicolau Maquiavel, que dissociou a política da moral religiosa em sua obra <em>O Príncipe</em>.</p>
+
+        <p>O florescimento artístico e intelectual não teria sido possível sem o apoio financeiro do **mecenato**, prática exercida por burgueses enriquecidos (comerciantes e banqueiros, a exemplo da poderosa família Médici), príncipes e papas que financiavam obras de arte para projetar prestígio e poder político. Expandindo-se por toda a Europa, o Renascimento pavimentou o caminho para a Revolução Científica e para a modernidade, transformando permanentemente a relação da humanidade com a ciência, a arte e a natureza.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O Renascimento, movimento artístico e cultural que floresceu na Europa entre os séculos XIV e XVII, teve como uma de suas principais características filosóficas e culturais a oposição ao pensamento estritamente medieval através da valorização do:</p>
+        <ul>
+          <li>A) teocentrismo absoluto e da submissão incondicional do homem aos dogmas escolásticos da Igreja Católica.</li>
+          <li>B) antropocentrismo, do humanismo crítico e da recuperação dos cânones artísticos e filosóficos da Antiguidade greco-romana.</li>
+          <li>C) isolamento comercial e econômico das cidades mercantis italianas em detrimento do desenvolvimento urbano.</li>
+          <li>D) sistema feudal de servidão como o modelo ideal e imutável de organização social e política do período moderno.</li>
+          <li>E) fundamentalismo religioso que proibia estritamente qualquer representação anatômica da figura humana.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O Renascimento marcou a transição para a modernidade ao substituir o teocentrismo medieval pelo antropocentrismo e pelo humanismo, valorizando a razão humana, a ciência e os valores herdados da Antiguidade Clássica.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O berço do Renascimento esteve nas prósperas cidades mercantis do norte da península Itálica, como Florença e Veneza, onde a riqueza acumulada pelo comércio internacional financiou artistas e intelectuais sob a proteção dos chamados mecenas."</em> Esse contexto demonstra que o movimento renascentista esteve fortemente atrelado a:</p>
+        <ul>
+          <li>A) um profundo retrocesso econômico generalizado que paralisou as trocas comerciais no Mar Mediterrâneo.</li>
+          <li>B) ao fim imediato das monarquias absolutistas substituídas por repúblicas comunais igualitárias.</li>
+          <li>C) ao dinamismo da burguesia mercantil urbana e ao patrocínio cultural (mecenato) exercido por elites abastadas e pela alta hierarquia eclesiástica.</li>
+          <li>D) à imposição de um regime teocrático totalitário comandado diretamente por artistas plásticos e pintores.</li>
+          <li>E) ao êxodo rural forçado que despovoou completamente as cidades europeias em prol do campo.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> O Renascimento urbano e comercial propiciou o surgimento de uma burguesia rica disposta a investir capital em arte e cultura (o mecenato), utilizando o prestígio intelectual para consolidar sua projeção social e política.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+>>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>

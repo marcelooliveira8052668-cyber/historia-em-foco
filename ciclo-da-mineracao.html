@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="pt-br" data-theme="dark">
   <head>
@@ -235,4 +236,243 @@
       });
     </script>
   </body>
+=======
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Corrida do Ouro e o Ciclo da Mineração | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        className: 'text-lg font-semibold mt-8';
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>Brasil Colônia</h1>
+      <p>Período: Século XVIII</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Corrida do Ouro e o Ciclo da Mineração</h2>
+        
+        <p>No final do século XVII e ao longo de todo o <strong>século XVIII</strong>, a descoberta de jazidas auríferas nas regiões que hoje compõem Minas Gerais, Mato Grosso e Goiás transformou radicalmente os eixos político, econômico e demográfico do Brasil Colônia. O eixo econômico, antes concentrado no litoral nordestino com a cana-de-açúcar, deslocou-se para o interior (sertão) e para a região Centro-Sul. A corrida do ouro atraiu centenas de milhares de pessoas de Portugal e de outras partes da colônia, gerando o maior surto de urbanização e migração interna do período colonial.</p>
+        
+        <p>A sociedade mineradora diferenciava-se profundamente da sociedade açucareira. Enquanto o açúcar gerava um mundo essencialmente rural, patriarcal e estamental, a mineração promoveu o surgimento de uma sociedade urbana mais dinâmica, com a proliferação de vilas e cidades (como Vila Rica, Ouro Preto, São João del-Rei). Nelas formou-se um mercado interno de consumo diversificado e emergiu uma classe média urbana (composta por artesãos, tropeiros, funcionários públicos, padres e comerciantes), além de uma maior — embora restrita — possibilidade de mobilidade social e alforria para escravizados que conseguiam juntar pecúlio nas chamadas "faiscações".</p>
+
+        <p>Para controlar a exploração e garantir a arrecadação de impostos, a Coroa Portuguesa instituiu um rígido aparato fiscal: criou as <strong>Intendências das Minas</strong>, exigiu a divisão do ouro em quintas partes para o rei (o <strong>Quinto</strong>), estabeleceu as Casas de Fundição (onde o ouro circulava obrigatoriamente transformado em barras timbradas) e aplicou medidas odiosas como a <strong>derrama</strong> (cobrança violenta de impostos atrasados). O esgotamento gradual das minas na segunda metade do século XVIII intensificou a fiscalização e gerou o descontentamento que culminaria nas conjurações e revoltas separatistas.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O ciclo da mineração no Brasil setecentista (século XVIII) provocou profundas transformações na estrutura colonial comparativamente ao período açucareiro anterior. Dentre essas mudanças, destaca-se:</p>
+        <ul>
+          <li>A) a estagnação demográfica do litoral e o isolamento completo das províncias do interior sudeste.</li>
+          <li>B) a fixação exclusiva de uma economia de subsistência comunal desvinculada do mercado atlântico.</li>
+          <li>C) o deslocamento do eixo econômico e demográfico para o interior, estimulando a urbanização e o surgimento de um mercado interno.</li>
+          <li>D) a substituição imediata do trabalho escravo africano por operários livres assalariados vindos da Inglaterra.</li>
+          <li>E) a descentralização administrativa total, com a concessão de autonomia fiscal e alfandegária aos municípios mineradores.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A mineração atraiu fluxos migratórios maciços para o interior, criando vilas e cidades e dinamizando um mercado interno de comércio de alimentos, gado e vestuário que interligava várias regiões da colônia.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A fiscalização da Coroa portuguesa sobre a extração do ouro nas Minas Gerais era implacável. Através de tributos como o Quinto e mecanismos de coerção fiscal como as Casas de Fundição e a derrama, Portugal tentava conter o extravio de riquezas e assegurar sua hegemonia fiscal sobre a colônia."</em> O texto retrata a relação entre a metrópole e a região mineradora, evidenciando que:</p>
+        <ul>
+          <li>A) a autonomia política e financeira das vilas mineiras era plenamente respeitada pelo absolutismo português.</li>
+          <li>B) o controle fiscal rigoroso e a voracidade tributária geravam tensões crescentes entre os colonos e a administração metropolitana.</li>
+          <li>C) a cobrança de impostos baseava-se em doações voluntárias arrecadadas pelas câmaras municipais sem interferência régia.</li>
+          <li>D) o ouro extraído ficava integralmente retido na colônia para financiar a industrialização local.</li>
+          <li>E) a Coroa aboliu os impostos coloniais devido à facilidade na obtenção de minérios de ferro.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A ânsia de Portugal por arrecadar impostos (como o Quinto e a temida derrama) gerou forte pressão fiscal e insatisfação na população mineira, culminando em revoltas contra o domínio metropolitano no final do século.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+>>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>

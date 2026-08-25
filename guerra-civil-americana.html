@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="pt-br" data-theme="dark">
   <head>
@@ -236,4 +237,244 @@
       });
     </script>
   </body>
+=======
+<!doctype html>
+<html lang="pt-br" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Guerra Civil Americana | Acervo de História</title>
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f19;
+        --card-bg: #131c2e;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --primary: #3b82f6;
+        --primary-hover: #2563eb;
+        --accent-pink: #ec4899;
+        --border-color: #1e293b;
+        --input-bg: #090d16;
+        --header-bg: #131c2e;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #1e293b;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --accent-pink: #db2777;
+        --border-color: #e2e8f0;
+        --input-bg: #f1f5f9;
+        --header-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+        background: var(--header-bg);
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      .top-controls {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-theme, .btn-back {
+        color: var(--text-color);
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .btn-theme:hover, .btn-back:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        flex: 1;
+      }
+
+      .article-card {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      h2, h3 {
+        color: var(--accent-pink);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.5rem;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+      }
+
+      p, li {
+        line-height: 1.7;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .gabarito {
+        background: var(--input-bg);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary);
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        background: var(--header-bg);
+        border-top: 1px solid var(--border-color);
+        padding: 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        box-sizing: border-box;
+        box-shadow: var(--shadow);
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top-controls">
+        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
+        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <h1>História da América</h1>
+      <p>Período: 1861 - 1865</p>
+    </header>
+
+    <div class="container">
+      <div class="article-card">
+        <h2>A Guerra Civil Americana</h2>
+        
+        <p>A **Guerra Civil Americana** (também conhecida como a Guerra de Secessão), travada entre **1861 e 1865**, representou o conflito mais sangrento e o ponto de maior inflexão na história dos Estados Unidos. O embate colocou em lados opostos os estados do Norte (a União) e os estados do Sul (os Confederados), que decidiram se separar formalmente do país após a eleição de Abraham Lincoln em 1860. A raiz profunda do conflito residia nas divergências econômicas, sociais e políticas inconciliáveis entre dois modelos de desenvolvimento distintos que coexistiam na mesma nação.</p>
+        
+        <p>Enquanto o **Norte** caracterizava-se por uma economia urbano-industrial em rápida expansão, baseada no trabalho livre, assalariado e na defesa de tarifas protecionistas alfandegárias para resguardar sua produção interna, o **Sul** apoiava-se fortemente no latifúndio agroexportador (focado no algodão e no tabaco), dependente do regime escravista de mão de obra africana e favorável ao livre-câmbio com a Europa. A disputa sobre a expansão da escravidão para os novos territórios oeste e a vitória eleitoral de Lincoln — visto pelos sulistas como uma ameaça aos seus interesses — precipitaram a secessão e o início das hostilidades armadas. Durante o conflito, a promulgação da <em>Proclamação de Emancipação</em> (1863) por Lincoln transformou o caráter da guerra, unindo a preservação da União à abolição da escravatura. Com a vitória definitiva do Norte em 1865, a integridade territorial foi restaurada e a escravidão foi formalmente extinta pela Décima Terceira Emenda constitucional.</p>
+
+        <p>Apesar da reunificação, o pós-guerra deu início ao período conhecido como Reconstrução, marcado por profundos conflitos raciais, o surgimento de leis segregacionistas nos estados sulistas e a consolidação dos Estados Unidos como uma superpotência industrial capitalista moderna.</p>
+
+        <h3>Exercícios Estilo ENEM</h3>
+        
+        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A Guerra Civil Americana (1861–1865) opôs o Norte industrializado ao Sul agrário e escravista. Entre os fatores de ordem econômica e estrutural que motivaram as divergências entre essas duas regiões e culminaram no conflito, destaca-se:</p>
+        <ul>
+          <li>A) a oposição do Norte às tarifas protecionistas, enquanto o Sul exigia a taxação alfandegária elevada para proteger suas lavouras de algodão.</li>
+          <li>B) o modelo produtivo divergente, com o Norte fundamentado no trabalho livre assalariado e no protecionismo industrial, e o Sul baseado no latifúndio agroexportador dependente da escravidão e do livre-câmbio.</li>
+          <li>C) a aliança militar estabelecida entre os estados do Sul e o Império Britânico para invadir e anexar os centros fabris do norte.</li>
+          <li>D) a decisão unânime do congresso americano de estatizar todas as terras agrícolas do sul e distribuí-las aos imigrantes europeus.</li>
+          <li>E) a abolição imediata da escravidão em todo o território nacional decretada décadas antes da guerra por governadores sulistas.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O conflito norte-americano decorreu do choque entre dois sistemas socioeconômicos opostos: o Norte industrial, livre e protecionista, e o Sul agrário, escravista e defensor do livre mercado com potências estrangeiras para escoar sua produção de algodão.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A Proclamação de Emancipação emitida por Abraham Lincoln em 1863 declarou livres todos os escravos nas áreas em rebelião contra a União. Mais do que uma medida militar tática, ela redefiniu o sentido da Guerra Civil, associando a preservação da República à abolição definitiva da escravidão."</em> O desdobramento político e social imediato desse processo para a história norte-americana foi:</p>
+        <ul>
+          <li>A) a imediata integração igualitária e sem conflitos raciais da população negra na sociedade sulista pós-guerra.</li>
+          <li>B) a divisão territorial dos Estados Unidos em duas nações soberanas e independentes reconhecidas internacionalmente.</li>
+          <li>C) a vitória da União, a restauração da integridade nacional e a aprovação de emendas constitucionais que aboliram formalmente a escravidão no país.</li>
+          <li>D) a abolição das indústrias do norte e o retorno de toda a economia americana aos moldes do extrativismo colonial.</li>
+          <li>E) a transferência da capital federal para os estados do sul sob a liderança direta de antigos generais confederados.</li>
+        </ul>
+        <div class="gabarito">
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A vitória do Norte na Guerra Civil garantiu a preservação da União e viabilizou a abolição legal da escravidão através da aprovação da Décima Terceira Emenda à Constituição dos Estados Unidos.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlRoot.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlRoot.setAttribute('data-theme', 'light');
+        } else {
+          htmlRoot.setAttribute('data-theme', 'dark');
+        }
+      });
+    </script>
+  </body>
+>>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>

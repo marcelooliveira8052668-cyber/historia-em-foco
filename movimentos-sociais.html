@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimentos Sociais, Direitos Civis e Cidadania na História Atual — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+           background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.3rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .bncc-box {
+        background: var(--bg-color);
+        border: 1px dashed var(--primary);
+        padding: 1.25rem 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+      }
+
+      .bncc-box h3 {
+        color: var(--primary);
+        font-size: 1rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .bncc-box p {
+        font-size: 0.95rem;
+        margin: 0;
+        color: var(--text-color);
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        content-visibility: auto;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color: 0.2s;
+      
+      
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 1.8rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeThemeToggle" onclick="toggleTheme()">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">História / Sociologia • Ensino Médio</div>
+      <h1>Movimentos Sociais, Direitos Civis e Cidadania na História Atual 📜✊</h1>
+    </header>
+
+    <div class="container">
+      
+      <!-- Seção BNCC e Texto Didático -->
+      <section class="content-section">
+        
+        <!-- Alinhamento BNCC -->
+        <div class="bncc-box">
+          <h3>📌 Alinhamento com a BNCC (Ensino Médio)</h3>
+          <p><strong>Competência Geral / Habilidades:</strong> <em>(EM13CHS101)</em> Identificar, analisar e comparar the andamentos e processos de transformação nas estruturas sociais, econômicas, culturais e políticas, com foco nas lutas por direitos civis e na expansão da cidadania. Promove o exercício da empatia, do diálogo e da resolução pacífica de conflitos.</p>
+        </div>
+
+        <h2>1. A Conquista Histórica da Cidadania</h2>
+        <img src="https://blogdoenem.com.br/wp-content/uploads/2014/09/direitos-cidadania-movimentos-sociais.jpg" width="500" alt="">
+        <p>A cidadania não é uma concessão estática do Estado, mas sim o resultado dinâmico de confrontos, negociações e reivindicações encabeçadas por <strong>movimentos sociais</strong> ao longo da história contemporânea. Segundo a clássica formulação de T.H. Marshall, a cidadania desenvolveu-se em três dimensões sucessivas: os <em>direitos civis</em> (garantidos no século XVIII com as liberdades individuais), os <em>direitos políticos</em> (conquistados no século XIX com o sufrágio) e os <em>direitos sociais</em> (alcançados no século XX com a seguridade e o bem-estar).</p>
+        
+        <p>No entanto, a ampliação efetiva desses direitos para minorias e grupos historicamente marginalizados exigiu o protagonismo coletivo e a pressão política organizada.</p>
+
+        <h2>2. A Diversidade de Pautas na História Recente</h2>
+        <div class="highlight-box">
+          <p><strong>🌐 Agendas e Atores Sociais Contemporâneos:</strong> 
+          <br>• <strong>Movimentos Antirracistas e Indígenas:</strong> Lutas seculares contra o racismo estrutural, demarcação de terras e reparação histórica.
+          <br>• <strong>Movimentos Feministas e LGBTQIA+:</strong> Reivindicações pela equidade de gênero, autonomia sobre o próprio corpo, criminalização de preconceitos e garantia de direitos civis igualitários.
+          <br>• <strong>Movimentos Ambientalistas / Ecologistas:</strong> Contestação do modelo de desenvolvimento predatório e defesa da sustentabilidade planetária como pauta central de sobrevivência coletiva.</p>
+        </div>
+
+        <h2>3. Os Desafios Democráticos do Século XXI</h2>
+        <p>Na história atual, os movimentos sociais utilizam tanto as tradicionais manifestações de rua quanto as redes digitais de mobilização (o ciberativismo). Os principais obstáculos contemporâneos à efetivação dos direitos civis envolvem o retrocesso em pautas democráticas, a violência institucional, a desinformação política e a precarização das condições de vida. A consolidação da cidadania exige, portanto, vigilância democrática permanente e participação ativa na esfera pública.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A cidadania compreende não apenas o direito de votar e ser votado, mas o conjunto de prerrogativas que permitem ao indivíduo participar ativamente da vida em sociedade e ter sua dignidade respeitada. Historicamente, a ampliação desses direitos nas democracias modernas decorre essencialmente da pressão exercida por movimentos sociais organizados.”</p>
+          <p>Com base no texto e nos processos históricos de conquista de direitos, assinala-se que os movimentos sociais:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> desempenham papel secundário, visto que as leis de proteção civil emanam exclusivamente da benevolência do poder legislativo.</li>
+            <li class="option-item"><span class="option-letter">B)</span> atuam como agentes de transformação e pressão política fundamentais para dar visibilidade a demandas e forçar o Estado a ampliar a cidadania.</li>
+            <li class="option-item"><span class="option-letter">C)</span> restringem-se a épocas de estabilidade econômica, dissolvendo-se automaticamente em momentos de crise institucional.</li>
+            <li class="option-item"><span class="option-letter">D)</span> anulam a soberania do Estado ao substituírem as instâncias tradicionais de representação partidária.</li>
+            <li class="option-item"><span class="option-letter">E)</span> configuram ameaças à ordem pública e aos princípios constitucionais de convivência democrática.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Os movimentos sociais organizados exercem papel central na história ao pautar reivindicações de grupos excluídos, mobilizar a opinião pública e pressionar os poderes estatais a reconhecerem e garantirem novos direitos civis, políticos e sociais.</p>
+          </div>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">Nas últimas décadas, a configuração dos movimentos sociais passou por profundas transformações impulsionadas pela redemocratização em diversas nações e pelo advento das tecnologias de comunicação digital. Observa-se a articulação de pautas identitárias, de gênero, étnico-raciais e socioambientais que transcendem os limites tradicionais das lutas estritamente sindicais ou partidárias.</p>
+          <p>Essa nova dinâmica de atuação dos movimentos sociais na história contemporânea evidencia:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> a homogeneização cultural global, que elimina conflitos de interesse locais e regionais.</li>
+            <li class="option-item"><span class="option-letter">B)</span> a fragmentação do tecido social, tornando impossível qualquer forma de solidariedade ou diálogo político institucional.</li>
+            <li class="option-item"><span class="option-letter">C)</span> a pluralidade de pautas e a capacidade de incidência política global por meio de redes de solidariedade e ciberativismo.</li>
+            <li class="option-item"><span class="option-letter">D)</span> a submissão incondicional dos ativismos às diretrizes econômicas das corporações transnacionais.</li>
+            <li class="option-item"><span class="option-letter">E)</span> a extinção do Estado-nação como principal instância garantidora de direitos civis fundamentais.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> A expansão dos movimentos sociais na contemporaneidade caracteriza-se pela pluralidade de pautas transversais (meio ambiente, gênero, raça) e pela utilização de redes digitais e transnacionais para potencializar a mobilização e a pressão pública em escala global.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const htmlRoot = document.documentElement;
+
+      function toggleTheme() {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      }
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
+</body>
+</html>

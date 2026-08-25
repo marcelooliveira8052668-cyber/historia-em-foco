@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globalização, Sociedade Digital e os Desafios do Século XXI — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.4rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        content-visibility: auto;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 1.9rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeThemeToggle" onclick="toggleTheme()">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">Geografia / Sociologia Contemporânea</div>
+      <h1>Globalização, Sociedade Digital e os Desafios do Século XXI 🌐💻</h1>
+    </header>
+
+    <div class="container">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Aldeia Global e as Redes de Informação</h2>
+        <img src="https://lab.xyz.etc.br/wp-content/uploads/2025/04/object-Object-190.png" width="500" alt="">
+        <p>A globalização contemporânea é caracterizada pela compressão do tempo e do espaço, propiciada pelo avanço vertiginoso das tecnologias de informação e comunicação (TICs). A consolidação da internet, da computação em nuvem e das redes sociais criou a chamada <strong>sociedade digital</strong> ou informacional, conceito amplamente estudado por sociólogos como Manuel Castells. Nessa estrutura reticular, as fronteiras nacionais tornam-se fluidas para o capital financeiro, para a cultura de massa e para os fluxos de dados em tempo real.</p>
+        
+        <p>No entanto, essa integração planetária não ocorre de forma homogênea, gerando profundas assimetrias territoriais e sociais.</p>
+
+        <h2>2. A Inclusão Digital e a "Exclusão" Tecnológica</h2>
+        <div class="highlight-box">
+          <p><strong>⚠️ O Fosso Digital (Digital Divide):</strong> 
+          <br>• <strong>Desigualdade de Acesso:</strong> O acesso à banda larga, a equipamentos modernos e à literacia digital é estratificado por classes sociais, recortes geográficos e diferenças geracionais.
+          <br>• <strong>Gig Economy e Precarização:</strong> As plataformas digitais reconfiguraram as relações de trabalho, gerando novas modalidades de emprego informal (como entregadores de aplicativos e motoristas de ride-hailing), muitas vezes destituídas de direitos trabalhistas tradicionais e seguridade social.</p>
+        </div>
+
+        <h2>3. Os Novos Desafios: Algoritmos, Privacidade e Desinformação</h2>
+        <p>No século XXI, a circulação massiva de dados colocou no centro do debate ético e político o uso de algoritmos de inteligência artificial. A curadoria algorítmica de conteúdos nas redes sociais frequentemente isola os usuários em bolhas ideológicas, polarizando o debate público. Além disso, a proliferação de <em>fake news</em> (notícias falsas) e a mercantilização de dados pessoais — submetendo a privacidade individual aos interesses de grandes corporações de tecnologia (as chamadas <em>Big Techs</em>) — constituem alguns dos maiores desafios para a democracia e para o exercício pleno da cidadania moderna.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A sociedade informacional caracteriza-se pela centralidade do conhecimento e da informação como fontes fundamentais de produtividade e poder. Contudo, a expansão global dessas redes digitais não elimina as desigualdades preexistentes; pelo contrário, muitas vezes as reconfigura sob a forma do fosso digital.”</p>
+          <p>Com base na dinâmica da sociedade digital contemporânea, o "fosso digital" expressa:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> a igualdade de oportunidades educacionais e tecnológicas garantida de maneira uniforme a todos os países do globo.</li>
+            <li class="option-item"><span class="option-letter">B)</span> a barreira geográfica e socioeconômica que separa aqueles que possuem acesso pleno às tecnologias de informação daqueles que estão marginalizados desse processo.</li>
+            <li class="option-item"><span class="option-letter">C)</span> a extinção total dos centros urbanos industriais em detrimento de uma sociedade exclusivamente rural e agrária.</li>
+            <li class="option-item"><span class="option-letter">D)</span> o fim do controle estatal sobre os fluxos financeiros internacionais e o desmantelamento das corporações transnacionais.</li>
+            <li class="option-item"><span class="option-letter">E)</span> a completa erradicação do desemprego estrutural por meio da automação robótica generalizada das fábricas.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O fosso digital (ou exclusão digital) reflete a disparidade no acesso, uso ou impacto das tecnologias de informação e comunicação entre diferentes grupos sociais, regiões ou nações, acentuando as desigualdades na sociedade globalizada.</p>
+          </div>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">Nos últimos anos, a expansão das redes sociais e o uso intensivo de algoritmos de recomendação impulsionaram debates cruciais sobre a qualidade da informação circulante na esfera pública. Fenômenos como a propagação em larga escala de notícias falsas (*fake news*) e a formação de bolhas informacionais afetam diretamente a coesão social e os processos democráticos.</p>
+          <p>Dentre os impactos sociopolíticos gerados por essa nova configuração comunicacional na sociedade digital, destaca-se:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> o fortalecimento do pensamento crítico plural decorrente da exposição neutra e imparcial a contrapontos ideológicos cotidianos.</li>
+            <li class="option-item"><span class="option-letter">B)</span> a facilitação da manipulação da opinião pública e a polarização exacerbada decorrente de filtros algorítmicos que reforçam crenças pré-existentes.</li>
+            <li class="option-item"><span class="option-letter">C)</span> a supressão definitiva do poder econômico e político exercido pelas grandes empresas de tecnologia (Big Techs).</li>
+            <li class="option-item"><span class="option-letter">D)</span> a padronização absoluta das leis de privacidade de dados em âmbito mundial sem conflitos de soberania.</li>
+            <li class="option-item"><span class="option-letter">E)</span> o fim da dependência do trabalho humano nas plataformas digitais de prestação de serviços urbanos.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Os algoritmos das redes sociais tendem a priorizar conteúdos que geram maior engajamento (muitas vezes sensacionalistas ou polarizadores), criando câmaras de eco e bolhas informacionais que dificultam o debate público plural e favorecem a desinformação.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const htmlRoot = document.documentElement;
+
+      function toggleTheme() {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      }
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
+</body>
+</html>
