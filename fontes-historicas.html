@@ -1,151 +1,396 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O que são Fontes Históricas? | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que são Fontes Históricas? — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .btn-theme {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .btn-theme:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .btn-theme { position: static; margin: 0 auto 1.5rem auto; width: fit-content; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <button class="btn-theme" id="themeToggle"><span>☀️ / 🌙</span> Tema</button>
+      <div class="header-badge">Teoria e Metodologia da História</div>
+      <h1>O que são Fontes Históricas?</h1>
+    </header>
 
     <div class="container">
-        <h1>O que são Fontes Históricas? 🔍📜</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Conceito e a Ampliação do Ofício do Historiador</h2>
+        <p>As fontes históricas são todos os vestígios deixados pelos seres humanos ao longo do tempo que permitem ao historiador investigar, reconstruir e compreender as sociedades do passado. Durante muito tempo, a historiografia tradicional (sobretudo no século XIX) restringia o conceito de fonte quase que exclusivamente aos documentos escritos oficiais produzidos por elites e estados.</p>
+        
+        <p>Com a renovação historiográfica liderada pela Escola dos Annales no século XX, o conceito de fonte sofreu uma revolução profunda. Passou-se a entender que qualquer elemento produzido, modificado ou utilizado pela ação humana pode servir de documento histórico, ampliando imensamente o leque de investigações.</p>
 
-        <img src="fontes-historicas.jpg" alt="Fontes Históricas" />
-
-        <h2>1. O Trabalho do Historiador: Um Detetive do Passado</h2>
-        <p>Como podemos saber como as pessoas viviam há centenas ou milhares de anos se não estávamos lá para ver? O historiador funciona como um verdadeiro <strong>detetive</strong>. Para descobrir o que aconteceu no passado, ele precisa procurar pistas. Na História, essas pistas são chamadas de <strong>Fontes Históricas</strong>.</p>
-
-        <h2>2. Definindo Fonte Histórica</h2>
-        <p>Fontes Históricas são todos os vestígios, marcas ou registros deixados pelos seres humanos ao longo do tempo. Esses vestígios permitem que os historiadores investiguem, reconstruam e compreendam a forma de vida, a cultura, as crenças e o trabalho das sociedades antigas e de diferentes épocas.</p>
-
-        <h2>3. Tipos de Fontes Históricas</h2>
-        <p>Para facilitar o estudo, as fontes históricas costumam ser divididas em diferentes categorias:</p>
-        <ul>
-            <li><strong>Fontes Escritas:</strong> Documentos que contêm texto registrado, como diários, cartas, jornais, certidões, leis, livros e inscrições em pedra.</li>
-            <li><strong>Fontes Materiais / Arqueológicas:</strong> Objetos concretos produzidos e utilizados no dia a dia, como ferramentas de pedra, utensílios de cerâmica, roupas, moedas, armas e ruínas de construções.</li>
-            <li><strong>Fontes Visuais (Iconográficas):</strong> Imagens que registram um momento ou ideia, como pinturas rupestres nas cavernas, quadros, fotografias, mapas e esculturas.</li>
-            <li><strong>Fontes Orais:</strong> Registros transmitidos pela fala, como entrevistas, depoimentos, lendas, cantigas e histórias contadas pelos mais velhos.</li>
+        <h2>2. Tipos e Classificações das Fontes Históricas</h2>
+        <p>Para fins didáticos e metodológicos, costuma-se classificar as fontes históricas em diferentes categorias, embora na prática da pesquisa elas se cruzem constantemente:</p>
+        
+        <ul style="color: var(--text-muted); padding-left: 20px; margin-bottom: 1.5rem;">
+          <li style="margin-bottom: 8px;"><strong style="color: var(--text-color);">Escritas:</strong> Cartas, leis, jornais, diários, testamentos, livros e literatura.</li>
+          <li style="margin-bottom: 8px;"><strong style="color: var(--text-color);">Visuais / Iconográficas:</strong> Pinturas, fotografias, charges, cartazes e esculturas.</li>
+          <li style="margin-bottom: 8px;"><strong style="color: var(--text-color);">Materiais / Arqueológicas:</strong> Ruínas, utensílios, vestimentas, moedas e ferramentas.</li>
+          <li style="margin-bottom: 8px;"><strong style="color: var(--text-color);">Oraiss / Orais:</strong> Entrevistas, depoimentos, lendas, cantos e memórias repassadas de geração em geração.</li>
+          <li><strong style="color: var(--text-color);">Digitais / Audiovisuais:</strong> Filmes, gravações em áudio, páginas da web, postagens em redes sociais e arquivos digitais.</li>
         </ul>
 
-        <p><em>Prof. Marcelo Oliveira — História Geral.</em></p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Exercícios de Fixação 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Um grupo de arqueólogos encontrou, em um sítio de escavação, machados de pedra polida e vasos de cerâmica utilizados por grupos humanos que viveram há mais de 5.000 anos. Esses objetos são classificados como:</p>
-        <p>A) Fontes Orais<br>B) Fontes Escritas<br>C) Fontes Materiais<br>D) Fontes Digitais</p>
-
-        <p><strong>Questão 2</strong><br>Assinale a alternativa que apresenta um exemplo correto de Fonte Oral:</p>
-        <p>A) A carta enviada por um soldado durante uma guerra.<br>B) Uma fotografia em preto e branco tirada em 1920.<br>C) Um diário pessoal escrito por uma jovem no século XIX.<br>D) Uma entrevista gravada com um morador antigo contando a história do bairro.</p>
-
-        <p><strong>Questão 3</strong><br>As pinturas rupestres feitas nas paredes das cavernas pelos seres humanos da Pré-História são consideradas importantes fontes históricas porque:</p>
-        <p>A) Eram livros de história impressos na Idade Média.<br>B) Permitem compreender o cotidiano, os rituais e a fauna da época através de registros visuais.<br>C) Substituíam os jornais diários que eram distribuídos nas aldeias.<br>D) Eram escritas em latim e explicavam as leis das primeiras cidades.</p>
-
-        <p><strong>Questão 4</strong><br>Por que os vestígios deixados pelos seres humanos no passado são fundamentais para o trabalho do historiador?</p>
-        <p>A) Porque sem essas pistas seria impossível investigar e compreender como as sociedades antigas viviam.<br>B) Porque eles servem apenas para decorar museus e não possuem valor explicativo.<br>C) Porque apenas os documentos escritos modernos dizem a verdade sobre o passado.<br>D) Porque garantem que a história nunca mude ou receba novas interpretações.</p>
-
-        <div class="gabarito">
-            <strong>Gabarito Comentado:</strong><br>
-            <strong>Questão 1:</strong> Resposta C (Objetos físicos e concretos).<br>
-            <strong>Questão 2:</strong> Resposta D (Depoimentos e entrevistas transmitidas pela fala).<br>
-            <strong>Questão 3:</strong> Resposta B (Fontes visuais que mostram o cotidiano da Pré-História).<br>
-            <strong>Questão 4:</strong> Resposta A (Dependência dos vestígios para reconstruir o passado).
+        <div class="highlight-box">
+          <p><strong>🔍 A Neutralidade e a Intencionalidade:</strong> É fundamental destacar que nenhuma fonte é neutra. Todo documento histórico carrega as marcas, os interesses, os preconceitos e a visão de mundo de quem o produziu. O papel do historiador não é aceitar a fonte como uma "verdade absoluta", mas interrogá-la criticamente.</p>
         </div>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">Até o século XIX, a pesquisa histórica esteve fortemente atrelada aos documentos oficiais escritos, guardados em arquivos estatais e eclesiásticos, o que conferia à história o status de uma narrativa voltada primordialmente para os grandes feitos políticos das elites. Contudo, ao longo do século XX, com o advento de novas correntes historiográficas, essa perspectiva foi superada.</p>
+          <p>A ampliação do conceito de fonte histórica a partir do século XX permitiu aos pesquisadores:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Restringir a análise histórica aos registros escritos imparciais produzidos por governantes.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Utilizar vestígios materiais, visuais e orais para dar visibilidade a grupos sociais marginalizados das narrativas oficiais.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Eliminar a necessidade de cruzamento documental, tornando a verdade histórica um dado absoluto e incontestável.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Substituir os documentos textuais por lendas mitológicas desprovidas de qualquer rigor analítico.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Garantir que a história se tornasse uma ciência exata baseada exclusivamente em dados estatísticos lineares.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A ampliação do conceito de fonte histórica incluiu culturas materiais, orais e iconográficas, possibilitando resgatar a história de sujeitos antes ignorados pelas fontes tradicionais (como camponeses, escravizados, mulheres e operários).</p>
+          </div>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O documento não é inocente. O primeiro cuidado do historiador é não o consumir passivamente, aceitando o que ele diz como um reflexo direto da realidade. Todo documento é o resultado de uma montagem, consciente ou inconsciente, da sociedade que o produziu e dos interesses daqueles que o legaram à posteridade.”</p>
+          <p>O texto aponta para uma premissa metodológica essencial no ofício do historiador contemporâneo, que consiste em:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Descartar fontes escritas em favor de fontes orais consideradas livres de qualquer intencionalidade.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Considerar que a veracidade de um fato histórico depende exclusivamente da antiguidade do material analisado.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Exercer a crítica histórica, interrogando os vestígios do passado a partir de seus contextos de produção e interesses subjacentes.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Utilizar as fontes de maneira literal, pois o testemunho original dispensa a interpretação subjetiva.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Anular o papel do pesquisador, permitindo que os documentos falem por si mesmos de forma transparente.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> O fragmento destaca a importância da crítica documental. A fonte histórica não é um espelho neutro da realidade, mas um artefato cultural impregnado de intencionalidades que deve ser questionado pelo historiador.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O que são Fontes Históricas? | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>O que são Fontes Históricas? 🔍📜</h1>
-
-        <img src="fontes-historicas.jpg" alt="Fontes Históricas" />
-
-        <h2>1. O Trabalho do Historiador: Um Detetive do Passado</h2>
-        <p>Como podemos saber como as pessoas viviam há centenas ou milhares de anos se não estávamos lá para ver? O historiador funciona como um verdadeiro <strong>detetive</strong>. Para descobrir o que aconteceu no passado, ele precisa procurar pistas. Na História, essas pistas são chamadas de <strong>Fontes Históricas</strong>.</p>
-
-        <h2>2. Definindo Fonte Histórica</h2>
-        <p>Fontes Históricas são todos os vestígios, marcas ou registros deixados pelos seres humanos ao longo do tempo. Esses vestígios permitem que os historiadores investiguem, reconstruam e compreendam a forma de vida, a cultura, as crenças e o trabalho das sociedades antigas e de diferentes épocas.</p>
-
-        <h2>3. Tipos de Fontes Históricas</h2>
-        <p>Para facilitar o estudo, as fontes históricas costumam ser divididas em diferentes categorias:</p>
-        <ul>
-            <li><strong>Fontes Escritas:</strong> Documentos que contêm texto registrado, como diários, cartas, jornais, certidões, leis, livros e inscrições em pedra.</li>
-            <li><strong>Fontes Materiais / Arqueológicas:</strong> Objetos concretos produzidos e utilizados no dia a dia, como ferramentas de pedra, utensílios de cerâmica, roupas, moedas, armas e ruínas de construções.</li>
-            <li><strong>Fontes Visuais (Iconográficas):</strong> Imagens que registram um momento ou ideia, como pinturas rupestres nas cavernas, quadros, fotografias, mapas e esculturas.</li>
-            <li><strong>Fontes Orais:</strong> Registros transmitidos pela fala, como entrevistas, depoimentos, lendas, cantigas e histórias contadas pelos mais velhos.</li>
-        </ul>
-
-        <p><em>Prof. Marcelo Oliveira — História Geral.</em></p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Exercícios de Fixação 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Um grupo de arqueólogos encontrou, em um sítio de escavação, machados de pedra polida e vasos de cerâmica utilizados por grupos humanos que viveram há mais de 5.000 anos. Esses objetos são classificados como:</p>
-        <p>A) Fontes Orais<br>B) Fontes Escritas<br>C) Fontes Materiais<br>D) Fontes Digitais</p>
-
-        <p><strong>Questão 2</strong><br>Assinale a alternativa que apresenta um exemplo correto de Fonte Oral:</p>
-        <p>A) A carta enviada por um soldado durante uma guerra.<br>B) Uma fotografia em preto e branco tirada em 1920.<br>C) Um diário pessoal escrito por uma jovem no século XIX.<br>D) Uma entrevista gravada com um morador antigo contando a história do bairro.</p>
-
-        <p><strong>Questão 3</strong><br>As pinturas rupestres feitas nas paredes das cavernas pelos seres humanos da Pré-História são consideradas importantes fontes históricas porque:</p>
-        <p>A) Eram livros de história impressos na Idade Média.<br>B) Permitem compreender o cotidiano, os rituais e a fauna da época através de registros visuais.<br>C) Substituíam os jornais diários que eram distribuídos nas aldeias.<br>D) Eram escritas em latim e explicavam as leis das primeiras cidades.</p>
-
-        <p><strong>Questão 4</strong><br>Por que os vestígios deixados pelos seres humanos no passado são fundamentais para o trabalho do historiador?</p>
-        <p>A) Porque sem essas pistas seria impossível investigar e compreender como as sociedades antigas viviam.<br>B) Porque eles servem apenas para decorar museus e não possuem valor explicativo.<br>C) Porque apenas os documentos escritos modernos dizem a verdade sobre o passado.<br>D) Porque garantem que a história nunca mude ou receba novas interpretações.</p>
-
-        <div class="gabarito">
-            <strong>Gabarito Comentado:</strong><br>
-            <strong>Questão 1:</strong> Resposta C (Objetos físicos e concretos).<br>
-            <strong>Questão 2:</strong> Resposta D (Depoimentos e entrevistas transmitidas pela fala).<br>
-            <strong>Questão 3:</strong> Resposta B (Fontes visuais que mostram o cotidiano da Pré-História).<br>
-            <strong>Questão 4:</strong> Resposta A (Dependência dos vestígios para reconstruir o passado).
-        </div>
-    </div>
-</body>
-</html>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
