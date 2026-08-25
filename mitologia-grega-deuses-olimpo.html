@@ -1,238 +1,410 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mitologia Grega: Os Doze Deuses do Olimpo | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitologia Grega: Os Doze Deuses do Olimpo — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
         padding: 1rem 1.2rem;
         border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        div { display: block; }
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Mitologia</h1>
-      <p>Período: Antiguidade Clássica</p>
+      <div class="header-badge">Mitologia Clássica e Cultura Grega</div>
+      <h1>Mitologia Grega: Os Doze Deuses do Olimpo</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>Mitologia Grega: Os Doze Deuses do Olimpo</h2>
-        <img src="https://tse1.mm.bing.net/th/id/OIP.I5pps6I8JGFzixEEXL6-GQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Panteão Olímpico e a Cosmovisão Helênica</h2>
+        <p>A mitologia grega constitui um rico sistema de narrativas sagradas, alegorias e crenças que explicavam a origem do universo, os fenômenos da natureza e a condição humana. No topo da hierarquia divina encontravam-se os <strong>Doze Deuses do Olimpo</strong>, divindades imortais que habitavam o monte Olimpo sob a liderança de Zeus, após derrotarem os titãs na Titanomaquia.</p>
         
-        <p>A **Mitologia Grega** constitui o conjunto de narrativas, mitos, crenças e rituais originados na Grécia Antiga que buscavam explicar a origem do universo, os fenômenos da natureza, os ciclos das estações e a própria condição humana. Longe de ser apenas um compêndio de contos fantásticos, a mitologia grega funcionava como um pilar estruturante da identidade cultural, religiosa e cívica das cidades-estado (*pólis*), exercendo profunda influência na filosofia, na literatura clássica e nas artes ocidentais.</p>
-        
-        <p>No centro desse panteão politeísta destacam-se os **Doze Deuses do Olimpo**, divindades maiores que habitavam o monte mais alto da Grécia e personificavam forças cósmicas e atributos humanos elevados à potência divina. Sob a liderança de **Zeus** (soberano dos deuses e senhor do raio e do céu), o conselho olímpico integrava figuras célebres como **Hera** (rainha dos deuses, protetora do casamento e da família), **Poseidon** (deus dos mares e dos terremotos), **Atena** (deusa da sabedoria, da estratégia militar e das artes), **Apolo** (deus da luz, da profecia, da música e da cura), **Artemis** (deusa da caça e da lua), **Afrodite** (deusa do amor e da beleza), **Ares** (deus da guerra violenta e sanguinária), **Hefesto** (deus do fogo e da metalurgia), **Hermes** (o mensageiro alado, patrono do comércio e dos viajantes), **Deméter** (deusa da agricultura e das colheitas) e **Héstia** ou **Dionísio** (dependendo da tradição, associados ao lar ou ao vinho e ao êxtase). Caracterizados por traços antropomórficos — portadores de virtudes heroicas, mas também de paixões intensas, ciúmes, iras e fragilidades humanas —, esses deuses eram homenageados em festivais públicos, cultos cívicos e jogos pan-helênicos.</p>
+        <p>Diferente de religiões monoteístas estritas, os deuses gregos eram antropomórficos: possuíam feições, paixões, virtudes e defeitos humanos (como inveja, ira, ciúme e vaidade), mas distinguiam-se dos mortais pela imortalidade e pelo poder absoluto sobre forças específicas do cosmos e da vida social.</p>
 
-        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Na Grécia Antiga, os mitos não representavam mentiras ou fabulações infantis, mas sim narrativas dotadas de sentido sagrado e cosmológico que ajudavam a comunidade a compreender o mundo e a si mesma. Uma característica marcante do panteão da mitologia grega, especialmente em relação aos Doze Deuses do Olimpo, é:</p>
+        <h2>2. Principais Divindades e Atribuições</h2>
+        <p>O panteão olímpico refletia a complexidade da sociedade helênica por meio de funções bem distribuídas entre seus membros principais:
         <ul>
-          <li>A) o monoteísmo rígido, que impunha a adoração exclusiva a uma divindade criadora e onipotente.</li>
-          <li>B) o antropomorfismo, pelo qual as divindades possuíam forma, sentimentos, paixões, virtudes e defeitos semelhantes aos dos seres humanos.</li>
-          <li>C) a condenação absoluta de qualquer forma de manifestação artística, literária ou cívica por parte da sociedade grega.</li>
-          <li>D) a crença de que os deuses viviam isolados do mundo terrestre, sem qualquer interferência nos destinos humanos ou naturais.</li>
-          <li>E) a separação rigorosa entre religião e política nas cidades-estado democráticas.</li>
+          <li><strong>Zeus:</strong> Senhor do céu, dos raios e soberano supremo dos deuses e dos homens.</li>
+          <li><strong>Hera:</strong> Esposa de Zeus, deusa do casamento, da família e protetora das mulheres.</li>
+          <li><strong>Poseidon:</strong> Irmão de Zeus, senhor dos oceanos, dos terremotos e dos cavalos.</li>
+          <li><strong>Atena:</strong> Deusa da sabedoria, da justiça estratégica na guerra e patrona da cidade de Atenas.</li>
+          <li><strong>Apolo e Ártemis:</strong> Irmãos gêmeos; Apolo associado à luz, à música, à profecia e à medicina, e Ártemis à caça, à lua e à natureza selvagem.</li>
+          <li><strong>Afrodite e Ares:</strong> Afrodite como deusa do amor e da beleza, e Ares como deus da guerra violenta e sanguinária.</li>
         </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> Os deuses gregos do Olimpo eram essencialmente antropomórficos: além de assumirem feições humanas, manifestavam emoções tipicamente humanas como inveja, amor, ira e ciúme, diferenciando-se dos deuses de religiões estritamente abstratas ou monoteístas.</p>
+        </p>
+
+        <div class="highlight-box">
+          <p><strong>🏛️ Função Social e Literária dos Mitos:</strong> As histórias dos deuses olimpianos eram amplamente difundidas por poetas como Homero (na Ilíada e na Odisseia) e Hesíodo (na Teogonia). Mais do que mero entretenimento, esses mitos estruturavam a identidade comum de todas as pólis gregas, servindo como base pedagógica, moral e artística em todo o mundo helênico.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A mitologia grega cumpria um papel fundamental na coesão cultural e na educação dos cidadãos das pólis, cujos valores eram transmitidos por poetas como Homero e Hesíodo."</em> Historicamente, a relevância social dessas narrativas míticas refletia-se na:</p>
-        <ul>
-          <li>A) subordinação política de todas as cidades gregas a um único império teocrático centralizado.</li>
-          <li>B) formulação de leis imutáveis ditadas diretamente pelos sacerdotes sem participação popular.</li>
-          <li>C) estruturação de uma base cultural comum compartilhada por falantes da língua grega, reforçando o sentimento de pertença e identidade helênica frente aos chamados "bárbaros".</li>
-          <li>D) abolição total do comércio marítimo em prol de uma economia autossuficiente e fechada.</li>
-          <li>E) eliminação do pensamento filosófico e racional em todo o território da Hélade.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> Embora a Grécia Antiga fosse politicamente fragmentada em dezenas de *pólis* autônomas, a mitologia greco-romana e os festivais pan-helênicos (como os Jogos Olímpicos) funcionavam como poderosos elementos aglutinadores da identidade cultural helênica.</p>
+        <h2>3. O Culto, os Oráculos e a Relação com os Mortais</h2>
+        <p>Os gregos cultuavam seus deuses por meio de rituais cívicos, sacrifícios e festivais solenes (como os Jogos Olímpicos, realizados em honra a Zeus). Os oráculos — com destaque para o Oráculo de Delfos, consagrado a Apolo — desempenhavam um papel político e espiritual decisivo, pois reis e cidadãos consultavam as sacerdotisas (pítias) antes de tomar decisões cruciais, como fundar colônias ou declarar guerras.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">Na mitologia grega, as divindades olímpicas caracterizavam-se por possuir forma humana e manifestar sentimentos intensos como ciúme, ira, paixão e ambição. Longe de representarem padrões morais perfeitos ou absolutos, esses deuses encarnavam as forças da natureza e os dilemas da própria existência humana, sendo cultuados por meio de rituais cívicos e festivais públicos.</p>
+          <p>Com base no texto, qual era o papel fundamental exercido pelos mitos e deuses olímpicos na sociedade da Grécia Antiga?</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Impor um código moral estrito e dogmático controlado exclusivamente por uma casta sacerdotal centralizada.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Fundamentar a coesão cultural, a identidade comum e a explicação do mundo entre as diversas pólis fragmentadas.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Substituir por completo o pensamento racional filosófico e a investigação científica da natureza.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Justificar a submissão política de todas as cidades gregas a um único império teocrático unificado.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Promover a abolição das diferenças socioeconômicas entre cidadãos livres e escravos nas assembleias.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Embora politicamente fragmentadas em várias pólis independentes, as populações gregas compartilhavam uma mesma língua, religião e mitologia. Os mitos olimpianos funcionavam como elementos unificadores da identidade helênica.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“Antes de tomar decisões políticas cruciais, como o envio de expedições militares ou a fundação de novas colônias no Mediterrâneo, as cidades-estado gregas costumavam enviar embaixadas ao Santuário de Delfos para consultar o oráculo de Apolo. As respostas, muitas vezes enigmáticas dadas pela sacerdotisa, eram interpretadas pelos líderes locais como diretrizes divinas fundamentais para a condução do Estado.”</p>
+          <p>O texto demonstra que a religiosidade na Grécia Antiga estava estritamente associada a:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Esferas puramente individuais e íntimas, sem qualquer relevância para a vida pública ou política.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Práticas mágicas marginalizadas e combatidas pelas instituições das pólis.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Ações rituais integradas às decisões de interesse cívico e governamental das comunidades.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Dogmas escatológicos focados exclusivamente na salvação individual após a morte física.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Conflitos armados permanentes entre sacerdotes e governantes democráticos.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> Na Grécia Antiga, a religião não estava separada da política. Os rituais, festivais e consultas aos oráculos eram atos cívicos fundamentais que integravam o cotidiano e as decisões administrativas das pólis.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
+</body>
 </html>
