@@ -1,238 +1,402 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O Antigo Reino de Kush e as Pirâmides do Sudão | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Antigo Reino de Kush e as Pirâmides do Sudão — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
-        color: var--text-color;
-        background: var(--input-bg);
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1.2rem;
-        border-radius: 8px;
+      .highlight-box {
+        background: var(--badge-bg);
         border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>História da África</h1>
-      <p>Período: 1070 a.C. - 350 d.C.</p>
+      <div class="header-badge">África Antiga e Civilizações do Nilo</div>
+      <h1>O Antigo Reino de Kush e as Pirâmides do Sudão</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>O Antigo Reino de Kush e as Pirâmides do Sudão</h2>
-        <img src="https://tse3.mm.bing.net/th/id/OIP.vj9_btyfevdlttleK2_geAHaEH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" width="500" alt="">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Localização e as Relações com o Egito</h2>
+        <p>Localizado ao sul do Egito, na região conhecida historicamente como Núbia (atual Sudão), o <strong>Reino de Kush</strong> desenvolveu uma civilização vibrante, altamente sofisticada e profundamente conectada — ora por conflitos, ora por trocas comerciais — com os faraós egípcios. Bacias do rio Nilo fertilizavam a região, permitindo o surgimento de poderosos centros urbanos como Kerma, Napata e Méroi.</p>
         
-        <p>O **Reino de Kush** foi uma civilização africana extraordinária que floresceu ao longo do vale do médio e alto Nilo, na região que hoje corresponde à República do Sudão e ao sul do Egito. Desenvolvendo-se paralelamente ao Egito faraônico, com o qual manteve uma relação profunda de intensa troca comercial, forte influência cultural, mas também de frequentes conflitos militares e conquistas recíprocas, Kush destacou-se como uma das grandes potências do nordeste da África na Antiguidade. Cidades estratégicas como Napata e, posteriormente, Meroé serviram como os centros nevrálgicos de sua soberania.</p>
-        
-        <p>A civilização kushita atingiu momentos de apogeu político marcantes, como no século VIII a.C., quando os soberanos de Kush — liderados pelo rei Piye (Piankhy) — conquistaram o Egito, unificando todo o vale do Nilo sob a governança da **XXV Dinastia** (os chamados "faraós negros"). Mesmo após perderem o controle sobre o Egito devido às invasões dos assírios, os kushitas recuaram para o sul e consolidaram seu poder em **Meroé**, onde desenvolveram uma próspera economia baseada na metalurgia avançada do ferro, no comércio de ouro, marfim e peles, e em uma rede de rotas que ligava o interior africano ao Mar Vermelho. Surpreendentemente para muitos, o Sudão abriga hoje mais pirâmides do que o próprio Egito: as chamadas pirâmides de Meroé, de bases mais estreitas e angulares, construídas para sepultar os reis e rainhas (*kandakes*) kushitas, atestam a perpetuação e a originalidade da arquitetura funerária monumental dessa marcante civilização africana.</p>
+        <p>A influência mútua era intensa: os egípcios cobiçavam o ouro, o marfim, o ébano e os mercenários núbios. Por sua vez, os kushitas absorveram elementos profundos da cultura egípcia, incluindo divindades (como Amon), práticas funerárias e títulos reais. Em um momento marcante de sua história, durante a XXV Dinastia, os próprios reis kushitas conquistaram o Egito, governando-o como faraós negros.</p>
 
-        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O Reino de Kush, localizado na Núbia (atual Sudão), manteve relações históricas estreitas com o Egito Antigo, caracterizadas por influências mútuas e períodos de dominação alternada. Um marco histórico decisivo dessa relação ocorreu no século VIII a.C., quando os soberanos kushitas:</p>
-        <ul>
-          <li>A) foram completamente dizimados por invasores fenícios sem deixar registros arquitetônicos ou urbanos.</li>
-          <li>B) conquistaram o território egípcio e fundaram a XXV Dinastia, governando o Egito sob a liderança de faraós de origem núbia.</li>
-          <li>C) renunciaram à metalurgia e adotaram um estilo de vida estritamente nômade no deserto do Saara.</li>
-          <li>D) estabeleceram uma aliança militar com o Império Romano para invadir a Península Ibérica.</li>
-          <li>E) aboliram qualquer prática religiosa relacionada a divindades funerárias ou construção de monumentos.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> Sob a liderança de reis como Piye, os kushitas expandiram seus domínios para o norte, conquistando o Egito e inaugurando a XXV Dinastia, período em que governantes de origem núbia assumiram o trono faraônico egípcio.</p>
+        <h2>2. As Pirâmides de Méroi: Estilo e Singularidade</h2>
+        <p>Embora o Egito seja mundialmente famoso por suas pirâmides, o Sudão abriga um número muito maior delas. Na antiga capital de Méroi, encontram-se cemitérios reais repletos de estruturas piramidais que diferem marcadamente das egípcias.</p>
+
+        <div class="highlight-box">
+          <p><strong>🔺 Arquitetura Distinta:</strong> As pirâmides de Méroi são consideravelmente menores, possuem bases mais estreitas e inclinações muito mais acentuadas (quase verticais), além de serem acompanhadas por capelas funerárias decoradas com relevos que misturam influências africanas, egípcias e helenísticas.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Meroé, capital do Reino de Kush a partir do século VI a.C., tornou-se um grande centro de produção siderúrgica de ferro e de trocas comerciais internacionais na África Antiga, além de conservar a tradição da construção de pirâmides funerárias."</em> A importância histórica da civilização meroítica reside na:</p>
-        <ul>
-          <li>A) total ausência de originalidade artística e dependência absoluta das leis importadas da Europa medieval.</li>
-          <li>B) consolidação de uma cultura africana autônoma, destacando-se pelo domínio tecnológico da metalurgia do ferro, pela arquitetura monumental própria e pelo papel político de rainhas guerreiras (*kandakes*).</li>
-          <li>C) proibição do comércio com povos vizinhos e isolamento geográfico intransponível.</li>
-          <li>D) subordinação pacífica e imediata ao Império Persa sem qualquer resistência local.</li>
-          <li>E) substituição completa da agricultura irrigada pelo extrativismo mineral exclusivo.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O período meroítico do Reino de Kush marcou o desenvolvimento de traços culturais próprios e altamente autônomos, expressos no aprimoramento da metalurgia do ferro, na escrita própria meroítica, nas pirâmides locais e na forte projeção das rainhas regentes (*kandakes*).</p>
+        <h2>3. Economia do Ferro e Autonomia Cultural</h2>
+        <p>Com o deslocamento do centro político para Méroi, os kushitas tornaram-se um dos maiores polos produtores de ferro do mundo antigo. O domínio da siderurgia impulsionou tanto a agricultura (com ferramentas de corte e arados superiores) quanto a fabricação de armas avançadas.</p>
+        
+        <p>Além disso, Kush desenvolveu sua própria identidade gráfica e linguística: a escrita meroítica, cujos traços originais ainda guardam segredos para decifração total, simbolizando a independência cultural face ao declínio das influências diretas do Egito.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">O Reino de Kush, situado na região da Núbia (atual Sudão), manteve relações milenares com o Egito Antigo, que oscilaram entre guerras de conquista, comércio de metais preciosos e intensa simbiose cultural. Um dos episódios mais expressivos dessa trajetória ocorreu quando soberanos kushitas atravessaram a fronteira norte e assumiram o controle político do próprio Egito, inaugurando a XXV Dinastia.</p>
+          <p>Essa dinâmica histórica entre os reinos africanos do Nilo evidencia que:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> As civilizações da África subsaariana e do nordeste africano desenvolveram-se em absoluto isolamento cultural, sem vínculos comerciais ou políticos.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A relação entre o Egito e a Núbia foi marcada por influências mútuas, intercâmbios e disputas de poder em igualdade regional em determinados períodos.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Os kushitas limitavam-se a imitar passivamente a cultura egípcia, sem construir identidade própria ou inovações tecnológicas.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O expansionismo militar egípcio impediu permanentemente qualquer forma de resistência ou contraofensiva dos reinos núbios.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A economia do ferro meroítico impediu o desenvolvimento de qualquer forma de estado centralizado na região.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A história de Kush e Egito demonstra uma via de mão dupla de trocas comerciais, influências religiosas e conquistas alternadas, desmistificando a ideia eurocêntrica de que a África antiga resumia-se unicamente ao Egito isolado do restante do continente.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“As ruínas de Méroi, no atual Sudão, revelam um conjunto monumental de pirâmides com traços arquitetônicos singulares: torres mais estreitas, paredes íngremes e capelas votivas anexadas. Diferente das tumbas faraônicas do Império Antigo egípcio, as pirâmides meroíticas refletem a consolidação de uma civilização autônoma que dominava a metalurgia do ferro e mantinha rotas comerciais complexas com o Mediterrâneo e o Oriente.”</p>
+          <p>Com base no texto, a presença de pirâmides no Reino de Kush indica que:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A arquitetura monumental e as crenças funerárias sofreram releituras locais, integrando-se à autonomia política e cultural dos kushitas.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Os sudaneses copiavam integralmente e sem modificações estéticas as técnicas de engenharia construtiva do Baixo Egito.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A construção de monumentos funerários era restrita a estrangeiros que habitavam províncias mercantis isoladas.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O ferro era utilizado exclusivamente na fabricação de adornos religiosos, sem aplicação estrutural ou militar.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O declínio do Egito provocou o fim imediato de qualquer manifestação artística ou arquitetônica na Núbia.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra A</strong>
+            <p><strong>Resolução:</strong> Os kushitas adotaram e adaptaram elementos egípcios (como as pirâmides), mas imprimiram uma identidade estética própria e original (pirâmides mais esconsas e estreitas), refletindo sua autonomia e desenvolvimento tecnológico singular.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
+</body>
 </html>
