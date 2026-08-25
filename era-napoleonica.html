@@ -1,477 +1,401 @@
-<<<<<<< HEAD
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Era Napoleônica e as Guerras Napoleônicas | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Era Napoleônica e as Guerras Napoleônicas — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
         margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
+      p {
         color: var(--text-muted);
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
-      </div>
-      <h1>Idade Contemporânea</h1>
-      <p>Período: 1799 - 1815</p>
-    </header>
-
-    <div class="container">
-      <div class="article-card">
-        <h2>A Era Napoleônica e as Guerras Napoleônicas</h2>
-        <img src="https://canal.cecierj.edu.br/032025/af169e1cbc0b4eaf2883086d753c792e.jpg" width="500" alt="">
-        
-        <p>A **Era Napoleônica** (1799–1815) compreende o período em que Napoleão Bonaparte esteve à frente do poder na França, inicialmente como Primeiro-Consulado e, posteriormente, coroado Imperador dos Franceses. A ascensão de Napoleão encerrou a instabilidade política do Diretório gerada após os excessos da Revolução Francesa, consolidando e institucionalizando as conquistas essenciais da burguesia, ao mesmo tempo em que impunha um forte centralismo político e expansionismo militar na Europa.</p>
-        
-        <p>Internamente, o governo napoleônico implementou reformas profundas: criou o <strong>Código Civil Napoleônico</strong> (que garantiu a igualdade civil perante a lei, o direito à propriedade privada e a proibição de greves sindicais), restabeleceu relações com a Igreja Católica por meio da Concordata, organizou o sistema de ensino público nacional e fundou o Banco da França para estabilizar a economia. Externamente, as **Guerras Napoleônicas** deflagraram o choque entre a França expansionista e as monarquias absolutistas europeias coligadas (lideradas principalmente pela Grã-Bretanha, Áustria, Prússia e Rússia). Incapaz de derrotar militarmente a marinha britânica no canal da Mancha, Napoleão decretou o **Bloqueio Continental** (1806), proibindo os países europeus de comercializarem com a Inglaterra — medida que, ao ser desrespeitada por Portugal, motivou a invasão da Península Ibérica e a vinda da família real portuguesa para o Brasil. O desgaste militar decorrente da desastrosa campanha da Rússia em 1812 enfraqueceu o Império, culminando na derrota definitiva de Napoleão na Batalha de Waterloo em 1815 e na posterior reorganização geopolítica do continente pelo Congresso de Viena.</p>
-
-        <p>O legado napoleônico redefiniu o mapa político da Europa e espalhou os princípios liberais burgueses e nacionalistas por vários territórios, estimulando indiretamente os processos de independência na América Latina e moldando as bases do Estado moderno ocidental.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O Código Civil Napoleônico, promulgado em 1804, representou um dos pilares de sustentação da ordem burguesa na França e influenciou legislações em todo o mundo ocidental. Entre os princípios centrais garantidos por esse código jurídico, destaca-se:</p>
-        <ul>
-          <li>A) a abolição completa do direito à propriedade privada e a estatização de todas as empresas industriais.</li>
-          <li>B) a garantia da igualdade jurídica civil, a proteção irrestrita à propriedade privada e a confirmação das aquisições de terras ocorridas durante a Revolução Francesa.</li>
-          <li>C) a instituição do sufrágio universal irrestrito e a obrigatoriedade da autogestão operária nas fábricas.</li>
-          <li>D) o retorno integral aos privilégios feudais e a restauração do poder fiscal absoluto da nobreza tradicional.</li>
-          <li>E) a submissão de todas as leis civis francesas às bulas e dogmas emitidos diretamente pelo Vaticano.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O Código Civil de Napoleão institucionalizou os ideais burgueses da Revolução Francesa, assegurando a igualdade civil perante a lei e a inviolabilidade da propriedade privada, além de legitimar a posse das terras redistribuídas a camponeses e burgueses durante o processo revolucionário.</p>
-        </div>
-
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O Bloqueio Continental, decretado por Napoleão Bonaparte em 1806 através do Decreto de Berlim, determinava o fechamento de todos os portos europeus ao comércio britânico. O objetivo era asfixiar economicamente a principal potência industrial rival, forçando sua rendição."</em> Como desdobramento geopolítico imediato dessa medida sobre o Império Português e a dinâmica colonial americana, ocorreu:</p>
-        <ul>
-          <li>A) a consolidação da aliança militar entre Portugal e a França para anexar as colônias espanholas na América.</li>
-          <li>B) a imediata industrialização de Portugal com base no fornecimento de carvão mineral subsidiado pela Coroa francesa.</li>
-          <li>C) a transferência do aparelho do Estado português para o Brasil com a chegada da família real em 1808 e a consequente abertura dos portos às nações amigas.</li>
-          <li>D) a abolição do pacto colonial em toda a América do Sul sob a supervisão direta de exércitos jacobinos.</li>
-          <li>E) a rendição pacífica da frota britânica no Oceano Atlântico frente às investidas conjuntas da marinha luso-brasileira.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> Como Portugal recusou-se a aderir ao Bloqueio Continental, o país foi invadido pelas tropas de Napoleão. Isso forçou a fuga da Família Real portuguesa para o Brasil em 1808, resultando na abertura dos portos às nações amigas e pondo fim formal ao exclusivo metropolitano (pacto colonial).</p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlRoot = document.documentElement;
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
-      });
-    </script>
-  </body>
-=======
-<!doctype html>
-<html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Era Napoleônica e as Guerras Napoleônicas | Acervo de História</title>
-    <style>
-      :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
-        --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      :root[data-theme="light"] {
-        --bg-color: #f8fafc;
-        --card-bg: #ffffff;
-        --text-color: #1e293b;
-        --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
-        --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
       }
 
-      body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        background-color: var(--bg-color);
+      .highlight-box p {
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      header {
-        background: var(--header-bg);
-        padding: 2rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border-color);
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
         position: relative;
-        box-shadow: var(--shadow);
+        overflow: hidden;
       }
 
-      .top-controls {
+      .question-card::before {
+        content: "";
         position: absolute;
-        top: 20px;
-        right: 30px;
-        display: flex;
-        gap: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
       }
 
-      .btn-theme, .btn-back {
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
         color: var(--text-color);
-        background: var(--input-bg);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
         border: 1px solid var(--border-color);
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 0.85rem;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
         font-weight: 600;
         cursor: pointer;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
+        font-family: inherit;
+        transition: background-color: 0.2s;
       }
 
-      .btn-theme:hover, .btn-back:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
+      .btn-reveal:hover {
+        background: var(--primary-hover);
       }
 
-      header h1 {
-        color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
-        font-weight: 700;
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
-        padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
-      }
-
-      .article-card {
-        background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Idade Contemporânea</h1>
-      <p>Período: 1799 - 1815</p>
+      <div class="header-badge">História Moderna e Contemporânea</div>
+      <h1>A Era Napoleônica e as Guerras Napoleônicas</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>A Era Napoleônica e as Guerras Napoleônicas</h2>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. Do Consulado ao Império (1799–1815)</h2>
+        <p>A instabilidade política do período do Diretório abriu espaço para o golpe de Estado de **18 Brumário** (novembro de 1799), liderado por **Napoleão Bonaparte**. Inicialmente instituído como o *Consulado* (onde concentrava amplos poderes executivos), Napoleão estabilizou a economia francesa, criou o Banco da França e restabeleceu relações diplomáticas com a Igreja Católica por meio da Concordata.</p>
         
-        <p>A **Era Napoleônica** (1799–1815) compreende o período em que Napoleão Bonaparte esteve à frente do poder na França, inicialmente como Primeiro-Consulado e, posteriormente, coroado Imperador dos Franceses. A ascensão de Napoleão encerrou a instabilidade política do Diretório gerada após os excessos da Revolução Francesa, consolidando e institucionalizando as conquistas essenciais da burguesia, ao mesmo tempo em que impunha um forte centralismo político e expansionismo militar na Europa.</p>
-        
-        <p>Internamente, o governo napoleônico implementou reformas profundas: criou o <strong>Código Civil Napoleônico</strong> (que garantiu a igualdade civil perante a lei, o direito à propriedade privada e a proibição de greves sindicais), restabeleceu relações com a Igreja Católica por meio da Concordata, organizou o sistema de ensino público nacional e fundou o Banco da França para estabilizar a economia. Externamente, as **Guerras Napoleônicas** deflagraram o choque entre a França expansionista e as monarquias absolutistas europeias coligadas (lideradas principalmente pela Grã-Bretanha, Áustria, Prússia e Rússia). Incapaz de derrotar militarmente a marinha britânica no canal da Mancha, Napoleão decretou o **Bloqueio Continental** (1806), proibindo os países europeus de comercializarem com a Inglaterra — medida que, ao ser desrespeitada por Portugal, motivou a invasão da Península Ibérica e a vinda da família real portuguesa para o Brasil. O desgaste militar decorrente da desastrosa campanha da Rússia em 1812 enfraqueceu o Império, culminando na derrota definitiva de Napoleão na Batalha de Waterloo em 1815 e na posterior reorganização geopolítica do continente pelo Congresso de Viena.</p>
+        <p>Em 1804, contando com enorme apoio popular e da alta burguesia, coroou-se **Imperador dos Franceses**. Consolidou as principais conquistas burguesas e liberais da revolução por meio do **Código Napoleônico** (ou Código Civil), que garantiu a igualdade jurídica civil, o direito à propriedade privada e a proibição de sindicatos e greves trabalhistas.</p>
 
-        <p>O legado napoleônico redefiniu o mapa político da Europa e espalhou os princípios liberais burgueses e nacionalistas por vários territórios, estimulando indiretamente os processos de independência na América Latina e moldando as bases do Estado moderno ocidental.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O Código Civil Napoleônico, promulgado em 1804, representou um dos pilares de sustentação da ordem burguesa na França e influenciou legislações em todo o mundo ocidental. Entre os princípios centrais garantidos por esse código jurídico, destaca-se:</p>
-        <ul>
-          <li>A) a abolição completa do direito à propriedade privada e a estatização de todas as empresas industriais.</li>
-          <li>B) a garantia da igualdade jurídica civil, a proteção irrestrita à propriedade privada e a confirmação das aquisições de terras ocorridas durante a Revolução Francesa.</li>
-          <li>C) a instituição do sufrágio universal irrestrito e a obrigatoriedade da autogestão operária nas fábricas.</li>
-          <li>D) o retorno integral aos privilégios feudais e a restauração do poder fiscal absoluto da nobreza tradicional.</li>
-          <li>E) a submissão de todas as leis civis francesas às bulas e dogmas emitidos diretamente pelo Vaticano.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O Código Civil de Napoleão institucionalizou os ideais burgueses da Revolução Francesa, assegurando a igualdade civil perante a lei e a inviolabilidade da propriedade privada, além de legitimar a posse das terras redistribuídas a camponeses e burgueses durante o processo revolucionário.</p>
+        <h2>2. As Guerras Napoleônicas e o Bloqueio Continental</h2>
+        <div class="highlight-box">
+          <p><strong>⚔️ A Expansão e o Conflito com a Europa:</strong> 
+          <br>• <strong>Hegemonia Militar:</strong> Graças a reformas profundas no exército, Napoleão derrotou sucessivas coligações de potências monárquicas europeias (Áustria, Prússia e Rússia), reconfigurando o mapa geopolítico do continente.
+          <br>• <strong>O Bloqueio Continental (1806):</strong> Como a França não conseguiu derrotar militarmente a Marinha Real Britânica, Napoleão decretou o fechamento dos portos europeus ao comércio inglês, visando sufocar a economia rival. O descumprimento do decreto por países como Portugal e Rússia motivou desastrosas campanhas militares.
+          <br>• <strong>Declínio e Queda:</strong> O fracasso da invasão da Rússia em 1812 e a derrota na Batalha de Waterloo (1815) selaram o fim do Império e o exílio definitivo de Napoleão na Ilha de Santa Helena.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O Bloqueio Continental, decretado por Napoleão Bonaparte em 1806 através do Decreto de Berlim, determinava o fechamento de todos os portos europeus ao comércio britânico. O objetivo era asfixiar economicamente a principal potência industrial rival, forçando sua rendição."</em> Como desdobramento geopolítico imediato dessa medida sobre o Império Português e a dinâmica colonial americana, ocorreu:</p>
-        <ul>
-          <li>A) a consolidação da aliança militar entre Portugal e a França para anexar as colônias espanholas na América.</li>
-          <li>B) a imediata industrialização de Portugal com base no fornecimento de carvão mineral subsidiado pela Coroa francesa.</li>
-          <li>C) a transferência do aparelho do Estado português para o Brasil com a chegada da família real em 1808 e a consequente abertura dos portos às nações amigas.</li>
-          <li>D) a abolição do pacto colonial em toda a América do Sul sob a supervisão direta de exércitos jacobinos.</li>
-          <li>E) a rendição pacífica da frota britânica no Oceano Atlântico frente às investidas conjuntas da marinha luso-brasileira.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> Como Portugal recusou-se a aderir ao Bloqueio Continental, o país foi invadido pelas tropas de Napoleão. Isso forçou a fuga da Família Real portuguesa para o Brasil em 1808, resultando na abertura dos portos às nações amigas e pondo fim formal ao exclusivo metropolitano (pacto colonial).</p>
+        <h2>3. O Congresso de Viena e o Legado</h2>
+        <p>Após a queda de Napoleão, as potências vencedoras organizaram o **Congresso de Viena** (1814–1815), pautado nos princípios de *legitimidade* (restauração das antigas dinastias absolutistas) e *equilíbrio europeu*, gerando a Santa Aliança para conter surtos revolucionários. Contudo, o expansionismo napoleônico deixou marcas profundas: estimulou o surgimento de nacionalismos na Europa e provocou desdobramentos diretos nas Américas, como a transferência da Família Real portuguesa para o Brasil em 1808.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“O Código Napoleônico, promulgado em 1804, constituiu um marco fundamental na consolidação jurídica da modernidade burguesa. Ao fixar garantias como a igualdade perante a lei, a inviolabilidade da propriedade privada e a laicização do Estado, a legislação refletiu os interesses centrais da classe que ascendeu com a Revolução Francesa.”</p>
+          <p>Apesar de incorporar diversos princípios liberais e burgueses, o Código Napoleônico também expressava limites claros quanto às pautas sociais da época ao:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Restabelecer integralmente os títulos de nobreza e os privilégios tributários do clero feudal medieval.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Proibir o direito de greve e a organização de sindicatos de trabalhadores, mantendo a subordinação operária aos patrões.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Determinar a entrega imediata das terras burguesas ao controle direto da Igreja Católica romana.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Instituir o sufrágio universal absoluto e obrigatório para todas as classes populares camponesas.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Apoiar o retorno imediato da dinastia dos Bourbons ao trono imperial francês.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O Código Napoleônico garantiu a ordem burguesa e a estabilidade econômica, o que incluía a defesa intransigente da propriedade privada e o controle sobre a força de trabalho. Por isso, manteve a proibição de associações sindicais e greves operárias, resguardando os interesses patronais.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“Em 1806, Napoleão Bonaparte decretou o Bloqueio Continental, proibindo os países europeus sob sua influência de comercializarem com a Grã-Bretanha. Essa estratégia econômica gerou profundas repercussões geopolíticas não apenas na Europa, mas também em territórios ultramarinos coloniais, a exemplo do Brasil.”</p>
+          <p>O impacto direto do Bloqueio Continental sobre a colônia portuguesa na América foi:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A imediata industrialização de São Paulo com o apoio financeiro da Coroa britânica.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A transferência da sede da monarquia portuguesa para o Rio de Janeiro e a posterior Abertura dos Portos às Nações Amigas em 1808.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A anexação militar definitiva do território brasileiro pelo Império Russo.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O fim imediato do pacto colonial e a decretação da independência política brasileira no mesmo ano.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A proibição absoluta de qualquer comércio exterior na costa brasileira.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Diante do dilema entre aderir ao bloqueio de Napoleão ou sofrer represálias da aliada Inglaterra, a família real portuguesa fugiu para o Brasil sob escolta britânica em 1808. Logo após chegar a Salvador, D. João assinou o Decreto de Abertura dos Portos, rompendo o pacto colonial.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
+</body>
 </html>
