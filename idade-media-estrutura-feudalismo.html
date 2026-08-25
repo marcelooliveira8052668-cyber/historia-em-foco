@@ -1,146 +1,405 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Idade Média e o Feudalismo: Estrutura e Dinâmica | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Idade Média e o Feudalismo: Estrutura e Dinâmica — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">História Medieval e Sociedade</div>
+      <h1>A Idade Média e o Feudalismo: Estrutura e Dinâmica</h1>
+    </header>
 
     <div class="container">
-        <h1>A Idade Média e o Feudalismo: Estrutura e Dinâmica 🏰🌾</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. As Origens e a Formação do Mundo Feudal</h2>
+        <p>O feudalismo consolidou-se na Europa Ocidental entre os séculos V e IX, fruto da fusão de duas matrizes culturais principais: a tradição institucional e agrária do Baixo Império Romano (caracterizada pelo colonato e pelo enfraquecimento das cidades) e os costumes tribais e guerreiros dos povos germânicos (baseados em laços de fidelidade pessoal e chefia militar).</p>
+        
+        <p>Com a dissolução definitiva do Império Carolíngio e o recrudescimento das invasões externas (vikings, húngaros e sarracenos), a Europa passou por um profundo processo de <strong>ruralização</strong>. As trocas comerciais monetárias entraram em colapso, dando lugar a uma economia de subsistência centrada no feudo.</p>
 
-        <img src="https://maps4study.com.br/wp-content/uploads/2026/01/FEUDALISMO-RESUMIDO-E-EXPLICADO_upscayl_4800px_upscayl-lite-4x.jpg" width="700" height="800" alt="Feudalismo e Sociedade Medieval" />
+        <h2>2. A Estrutura Econômica: O Domínio Feudal</h2>
+        <p>A unidade básica de produção econômica e social era o feudo, tipicamente dividido em três grandes áreas:</p>
 
-        <p>A Idade Média estendeu-se do século V ao século XV. Com a desintegração do Império Romano do Ocidente, consolidou-se o <strong>Feudalismo</strong>, um sistema marcado pela economia agrária, descentralização política e sociedade estamental.</p>
-
-        <h2>1. Características do Feudalismo</h2>
-        <ul>
-            <li><strong>Economia Agrária e Autossuficiente:</strong> Centrada no feudo, produzia tudo o que era necessário para a subsistência local, reduzindo drasticamente o comércio e o uso de moedas.</li>
-            <li><strong>Descentralização Política:</strong> O poder estava fragmentado entre os senhores feudais, que exerciam soberania militar, fiscal e jurídica em seus domínios.</li>
-            <li><strong>Suserania e Vassalagem:</strong> Laços de fidelidade e mútua ajuda militar firmados exclusivamente entre os nobres.</li>
-        </ul>
-
-        <h2>2. A Sociedade Estamental: As Três Ordens</h2>
-        <p>A sociedade era rigidamente dividida pelo princípio teológico de que cada um devia cumprir a função destinada por Deus, sem mobilidade social:</p>
-        <ul>
-            <li><strong>O Clero (Os que oram):</strong> Responsáveis pela salvação espiritual e pela legitimação ideológica da ordem social.</li>
-            <li><strong>A Nobreza (Os que combatem):</strong> Donos de terras e castelos, encarregados da defesa militar e da justiça.</li>
-            <li><strong>Os Servos (Os que trabalhavam):</strong> Camponeses presos à terra que sustentavam as ordens privilegiadas pagando pesados tributos:
-                <ul>
-                    <li><em>Corveia:</em> Trabalho gratuito nas terras do senhor (manso senhorial).</li>
-                    <li><em>Talha:</em> Entrega de parte da produção do lote do servo.</li>
-                    <li><em>Banalidades:</em> Imposto pelo uso das instalações do feudo (moinho, forno, lagar).</li>
-                </ul>
-            </li>
-        </ul>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>A crônica de um feudo descreve camponeses trabalhando três dias nas terras do senhor (corveia), entregando parte da colheita pelo uso do moinho (banalidades) e repassando porcentagem da produção familiar em troca de proteção militar (talha). Essa relação caracterizava-se por:</p>
-        <p>A) Relações salariais livres negociadas diretamente com o senhor.<br>B) Obrigações consuetudinárias e compulsórias, nas quais o camponês estava preso à terra e submetido a tributos em trabalho e produtos.<br>C) Práticas mercantis avançadas estimulando a livre concorrência.<br>D) Acordos contratuais de vassalagem igualando o camponês ao nobre.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: O trabalho servil pautava-se em obrigações tradicionais (consuetudinárias) e compulsórias, com o camponês atado à terra e sujeito a tributos feudais.</em>
+        <div class="highlight-box">
+          <p><strong>🌱 Organização do Feudo:</strong> 
+          <br>• <strong>Reserva Senhorial:</strong> Terras cujos produtos pertenciam exclusivamente ao senhor feudal, cultivadas pelos servos por meio da corveia.
+          <br>• <strong>Manso Servil:</strong> Glebas concedidas aos camponeses para sua própria subsistência.
+          <br>• <strong>Terras Comunais:</strong> Florestas e pastagens de uso coletivo para a extração de madeira e criação de animais.</p>
         </div>
 
-        <p><strong>Questão 2</strong><br>A fragmentação do poder político na Alta Idade Média gerou uma rede de dependência pessoal entre nobres por meio de cerimônias como a homenagem e a investidura. Essa configuração resultou principalmente em:</p>
-        <p>A) Fortalecimento imediato de fronteiras nacionais centralizadas sob um monarca absolutista.<br>B) Supressão das guerras locais por exércitos profissionais pagos pelo tesouro central.<br>C) Descentralização do poder, com os senhores feudais exercendo soberania política, militar e jurídica em seus domínios locais.<br>D) Ascensão política imediata da burguesia urbana.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: As relações de suserania e vassalagem entre nobres enfraqueceram o poder central dos reis e impulsionaram a fragmentação política feudal.</em>
+        <h2>3. A Dinâmica Social e as Obrigações Servis</h2>
+        <p>A sociedade feudal estruturava-se de forma estamental e imobilista, dividida nas três ordens sacralizadas pela Igreja: o clero (os que ora), a nobreza (os que combatem) e o campesinato (os que trabalham).</p>
+        
+        <p>A exploração da força de trabalho dos servos fundamentava-se em um conjunto rígido de obrigações devidas ao senhor feudal, tais como a <strong>corveia</strong> (trabalho gratuito na reserva senhorial por alguns dias da semana), a <strong>talha</strong> (entrega de uma porcentagem da produção do manso servil) e as <strong>banalidades</strong> (taxas pelo uso das instalações do feudo, como o forno, o moinho e o lagar).</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“O feudo configurava-se como uma unidade socioeconômica autossuficiente na qual a terra representava a principal fonte de riqueza e poder. A produção agrícola voltava-se primordialmente para o consumo interno da comunidade local, reduzindo drasticamente as trocas mercantis de longa distância e o uso da moeda.”</p>
+          <p>Com base no texto e nas características da dinâmica econômica feudal, é correto afirmar que:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> O modelo econômico feudal dependia do comércio internacional intenso e da livre concorrência urbana.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A agricultura de subsistência e a autossuficiência local substituíram a dinâmica mercantilista e monetária romana.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Os camponeses detinham a propriedade jurídica de todas as terras cultivadas nos feudos.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A produção industrial em massa era o motor principal da economia dos reinos medievais.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O trabalho assalariado regulamentado por leis trabalhistas estatais era a base das relações de produção.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O feudalismo caracterizou-se pela economia agrária e de subsistência, onde cada feudo produzia o essencial para a sobrevivência de sua população, eliminando o comércio monetário de larga escala característico do mundo romano clássico.</p>
+          </div>
         </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“Nas relações de trabalho do mundo feudal, os servos não eram escravos no sentido clássico, pois possuíam direito à terra para garantir seu sustento e o de suas famílias. No entanto, encontravam-se presos à terra e submetidos a duras obrigações tributárias e de prestação de serviços gratuitos ao senhor feudal.”</p>
+          <p>Entre essas obrigações devidas pelo servo ao senhor de terras, destaca-se:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> O pagamento de impostos em moeda corrente diretamente ao tesouro do Império Centralizado.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A corveia, que consistia no trabalho gratuito prestado por alguns dias da semana nas terras de uso exclusivo do senhor.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A obrigatoriedade de migrar anualmente para as cidades em busca de empregos fabris sazonais.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O direito de negociar livremente os preços de seus produtos no mercado internacional.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A isenção total de taxas pelo uso das estruturas essenciais do feudo, como moinhos e pontes.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A corveia era a obrigação clássica em que o servo trabalhava de graça nas terras do senhor (reserva senhorial) por determinados dias da semana, diferenciando-se da talha (imposto sobre a produção) e das banalidades (taxas de uso).</p>
+          </div>
+        </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Idade Média e o Feudalismo: Estrutura e Dinâmica | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>A Idade Média e o Feudalismo: Estrutura e Dinâmica 🏰🌾</h1>
-
-        <img src="imagem/feudalismo.jpg" alt="Feudalismo e Sociedade Medieval" />
-
-        <p>A Idade Média estendeu-se do século V ao século XV. Com a desintegração do Império Romano do Ocidente, consolidou-se o <strong>Feudalismo</strong>, um sistema marcado pela economia agrária, descentralização política e sociedade estamental.</p>
-
-        <h2>1. Características do Feudalismo</h2>
-        <ul>
-            <li><strong>Economia Agrária e Autossuficiente:</strong> Centrada no feudo, produzia tudo o que era necessário para a subsistência local, reduzindo drasticamente o comércio e o uso de moedas.</li>
-            <li><strong>Descentralização Política:</strong> O poder estava fragmentado entre os senhores feudais, que exerciam soberania militar, fiscal e jurídica em seus domínios.</li>
-            <li><strong>Suserania e Vassalagem:</strong> Laços de fidelidade e mútua ajuda militar firmados exclusivamente entre os nobres.</li>
-        </ul>
-
-        <h2>2. A Sociedade Estamental: As Três Ordens</h2>
-        <p>A sociedade era rigidamente dividida pelo princípio teológico de que cada um devia cumprir a função destinada por Deus, sem mobilidade social:</p>
-        <ul>
-            <li><strong>O Clero (Os que oram):</strong> Responsáveis pela salvação espiritual e pela legitimação ideológica da ordem social.</li>
-            <li><strong>A Nobreza (Os que combatem):</strong> Donos de terras e castelos, encarregados da defesa militar e da justiça.</li>
-            <li><strong>Os Servos (Os que trabalhavam):</strong> Camponeses presos à terra que sustentavam as ordens privilegiadas pagando pesados tributos:
-                <ul>
-                    <li><em>Corveia:</em> Trabalho gratuito nas terras do senhor (manso senhorial).</li>
-                    <li><em>Talha:</em> Entrega de parte da produção do lote do servo.</li>
-                    <li><em>Banalidades:</em> Imposto pelo uso das instalações do feudo (moinho, forno, lagar).</li>
-                </ul>
-            </li>
-        </ul>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>A crônica de um feudo descreve camponeses trabalhando três dias nas terras do senhor (corveia), entregando parte da colheita pelo uso do moinho (banalidades) e repassando porcentagem da produção familiar em troca de proteção militar (talha). Essa relação caracterizava-se por:</p>
-        <p>A) Relações salariais livres negociadas diretamente com o senhor.<br>B) Obrigações consuetudinárias e compulsórias, nas quais o camponês estava preso à terra e submetido a tributos em trabalho e produtos.<br>C) Práticas mercantis avançadas estimulando a livre concorrência.<br>D) Acordos contratuais de vassalagem igualando o camponês ao nobre.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> B. <em>Explicação: O trabalho servil pautava-se em obrigações tradicionais (consuetudinárias) e compulsórias, com o camponês atado à terra e sujeito a tributos feudais.</em>
-        </div>
-
-        <p><strong>Questão 2</strong><br>A fragmentação do poder político na Alta Idade Média gerou uma rede de dependência pessoal entre nobres por meio de cerimônias como a homenagem e a investidura. Essa configuração resultou principalmente em:</p>
-        <p>A) Fortalecimento imediato de fronteiras nacionais centralizadas sob um monarca absolutista.<br>B) Supressão das guerras locais por exércitos profissionais pagos pelo tesouro central.<br>C) Descentralização do poder, com os senhores feudais exercendo soberania política, militar e jurídica em seus domínios locais.<br>D) Ascensão política imediata da burguesia urbana.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: As relações de suserania e vassalagem entre nobres enfraqueceram o poder central dos reis e impulsionaram a fragmentação política feudal.</em>
-        </div>
-    </div>
-</body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>
