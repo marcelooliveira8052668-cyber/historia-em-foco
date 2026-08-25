@@ -1,477 +1,401 @@
-<<<<<<< HEAD
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Inconfidência Mineira e Tiradentes | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Inconfidência Mineira e Tiradentes — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1461360370896-922624d12aa1?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
         margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      <footer> p {
-        font-size: 0.9rem;
+      p {
         color: var(--text-muted);
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
-      </div>
-      <h1>Brasil Colônia</h1>
-      <p>Período: 1789</p>
-    </header>
-
-    <div class="container">
-      <div class="article-card">
-        <h2>A Inconfidência Mineira e Tiradentes</h2>
-        <img src="https://directpardesenvolvimento.com.br/wp-content/uploads/2026/04/Inconfidencia-Mineira-Tiradentes-e-desenvolvimento-economico-1024x683.png" width="500" alt="">
-        
-        <p>Deflagrada em 1789 na capitania de Minas Gerais, a <strong>Inconfidência Mineira</strong> foi uma das principais conjurações separatistas do período colonial brasileiro. O movimento ocorreu em um contexto de evidente decadência da extração aurífera, o que dificultava o pagamento dos pesados tributos exigidos pela Coroa Portuguesa. A ameaça da iminência da <strong>derrama</strong> — cobrança forçada e violenta de impostos atrasados ordenada pelo governador Visconde de Barbacena — serviu como estopim para a revolta.</p>
-        
-        <p>O movimento foi articulado essencialmente por setores letrados da elite mineira (intelectuais, poetas como Cláudio Manuel da Costa e Tomás Antônio Gonzaga, padres e grandes proprietários), além de militares como o alferes <strong>Joaquim José da Silva Xavier, o Tiradentes</strong>. Inspirados pelos ideais do Iluminismo francês, pela independência das 13 colônias inglesas na América (EUA) e criticando o pacto colonial, os inconfidentes pretendiam romper com Portugal, declarar a independência de Minas Gerais, instaurar uma república, criar uma universidade e incentivar a fabricação de ferrovias e indústrias locais.</p>
-
-        <p>Contudo, a conspiração foi delatada por Joaquim Silvério dos Reis em troca do perdão de suas dívidas com a Coroa. O movimento foi sufocado antes mesmo de eclodir. Os líderes foram presos e julgados na chamada Devassa. Enquanto os inconfidentes mais ricos e influentes tiveram suas penas abrandadas ou comutadas para o exílio na África, <strong>Tiradentes</strong>, de origem humilde e o mais ativo propagandista dos ideais republicanos, assumiu sozinho a responsabilidade pela conspiração. Ele foi condenado à morte por enforcamento, tendo seu corpo esquartejado e espalhado pela estrada de Minas ao Rio de Janeiro em 1792, transformando-se posteriormente no mártir nacional da Independência.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A Inconfidência Mineira (1789) expressou as insatisfações das elites e intelectuais da capitania frente ao rigor fiscal da metrópole portuguesa. Um dos fatores econômico-sociais imediatos que catalisou a articulação dessa conjuração foi:</p>
-        <ul>
-          <li>A) a decisão da Coroa de abolir imediatamente a escravidão negra em todas as minas do território americano.</li>
-          <li>B) o temor generalizado da aplicação da derrama para cobrança coercitiva de impostos atrasados em meio à decadência aurífera.</li>
-          <li>C) a imposição de um pacto comercial irrestrito que abria os portos mineiros às nações industriais da Ásia.</li>
-          <li>D) a expulsão em massa dos padres jesuítas de todas as paróquias urbanas da comarca do Rio das Velhas.</li>
-          <li>E) a substituição definitiva da mineração de ouro por plantações extensivas de cacau voltadas ao mercado interno.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A queda na produção de ouro gerou dificuldades extremas para os colonos quitarem suas obrigações fiscais. A ameaça de decretação da derrama uniu a elite mineira em torno da conspiração contra Portugal.</p>
-        </div>
-
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Diferente de outras revoltas coloniais de caráter popular, a Inconfidência Mineira teve forte liderança de intelectuais e proprietários, refletindo influências iluministas. No entanto, o desfecho punitivo recaiu com maior severidade sobre aqueles de menor prestígio político na hierarquia social."</em> O texto retrata a conjuntura do julgamento dos inconfidentes, ressaltando que:</p>
-        <ul>
-          <li>A) todos os envolvidos, sem distinção de classe, receberam a pena máxima de morte por enforcamento.</li>
-          <li>B) a Coroa Portuguesa perdoou integralmente todos os conspiradores devido à confissão espontânea de Tiradentes.</li>
-          <li>C) os líderes pertencentes à elite econômica obtiveram penas brandas de exílio, enquanto Tiradentes, de menor projeção social, foi executado de forma exemplar.</li>
-          <li>D) o movimento logrou estabelecer a república independente em Minas Gerais após sangrentos combates armados.</li>
-          <li>E) os poetas e padres foram banidos permanentemente para a Europa sem julgamento prévio.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A justiça da Coroa foi seletiva: os inconfidentes abastados (letrados e donos de terras) escaparam da morte por meio do indulto real ou exílio, enquanto Tiradentes, que não pertencia ao topo da elite econômica, pagou com a própria vida. </p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlRoot = document.documentElement;
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
-      });
-    </script>
-  </body>
-=======
-<!doctype html>
-<html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Inconfidência Mineira e Tiradentes | Acervo de História</title>
-    <style>
-      :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
-        --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      :root[data-theme="light"] {
-        --bg-color: #f8fafc;
-        --card-bg: #ffffff;
-        --text-color: #1e293b;
-        --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
-        --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
       }
 
-      body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        background-color: var(--bg-color);
+      .highlight-box p {
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      header {
-        background: var(--header-bg);
-        padding: 2rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border-color);
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
         position: relative;
-        box-shadow: var(--shadow);
+        overflow: hidden;
       }
 
-      .top-controls {
+      .question-card::before {
+        content: "";
         position: absolute;
-        top: 20px;
-        right: 30px;
-        display: flex;
-        gap: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
       }
 
-      .btn-theme, .btn-back {
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
         color: var(--text-color);
-        background: var(--input-bg);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
         border: 1px solid var(--border-color);
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 0.85rem;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
         font-weight: 600;
         cursor: pointer;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      .btn-theme:hover, .btn-back:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
+      .btn-reveal:hover {
+        background: var(--primary-hover);
       }
 
-      header h1 {
-        color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
-        font-weight: 700;
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
-        padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
-      }
-
-      .article-card {
-        background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-shadow: var(--shadow);
-      }
-
-      <footer> p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Brasil Colônia</h1>
-      <p>Período: 1789</p>
+      <div class="header-badge">História do Brasil Colonial</div>
+      <h1>A Inconfidência Mineira e Tiradentes</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>A Inconfidência Mineira e Tiradentes</h2>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. Contexto Histórico e Causas da Conjuração</h2>
+        <p>A **Inconfidência Mineira** (1789) eclodiu na Capitania de Minas Gerais em um cenário de profunda decadência da produção aurífera. Com o esgotamento gradual das minas, os colonos viram-se sufocados pelas exigências fiscais da Coroa portuguesa, que insistia em cobrar quantias fixas de impostos atrasados através do temido mecanismo da **derrama**.</p>
         
-        <p>Deflagrada em 1789 na capitania de Minas Gerais, a <strong>Inconfidência Mineira</strong> foi uma das principais conjurações separatistas do período colonial brasileiro. O movimento ocorreu em um contexto de evidente decadência da extração aurífera, o que dificultava o pagamento dos pesados tributos exigidos pela Coroa Portuguesa. A ameaça da iminência da <strong>derrama</strong> — cobrança forçada e violenta de impostos atrasados ordenada pelo governador Visconde de Barbacena — serviu como estopim para a revolta.</p>
-        
-        <p>O movimento foi articulado essencialmente por setores letrados da elite mineira (intelectuais, poetas como Cláudio Manuel da Costa e Tomás Antônio Gonzaga, padres e grandes proprietários), além de militares como o alferes <strong>Joaquim José da Silva Xavier, o Tiradentes</strong>. Inspirados pelos ideais do Iluminismo francês, pela independência das 13 colônias inglesas na América (EUA) e criticando o pacto colonial, os inconfidentes pretendiam romper com Portugal, declarar a independência de Minas Gerais, instaurar uma república, criar uma universidade e incentivar a fabricação de ferrovias e indústrias locais.</p>
+        <p>Inspirados pelas ideias do **Iluminismo** europeu e pelo sucesso da **Independência dos Estados Unidos (1776)**, membros da elite intelectual, letrada e militar de Minas Gerais articularam uma conjuração para romper com o pacto colonial, proclamar a república, criar uma universidade e incentivar a industrialização na região.</p>
 
-        <p>Contudo, a conspiração foi delatada por Joaquim Silvério dos Reis em troca do perdão de suas dívidas com a Coroa. O movimento foi sufocado antes mesmo de eclodir. Os líderes foram presos e julgados na chamada Devassa. Enquanto os inconfidentes mais ricos e influentes tiveram suas penas abrandadas ou comutadas para o exílio na África, <strong>Tiradentes</strong>, de origem humilde e o mais ativo propagandista dos ideais republicanos, assumiu sozinho a responsabilidade pela conspiração. Ele foi condenado à morte por enforcamento, tendo seu corpo esquartejado e espalhado pela estrada de Minas ao Rio de Janeiro em 1792, transformando-se posteriormente no mártir nacional da Independência.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) A Inconfidência Mineira (1789) expressou as insatisfações das elites e intelectuais da capitania frente ao rigor fiscal da metrópole portuguesa. Um dos fatores econômico-sociais imediatos que catalisou a articulação dessa conjuração foi:</p>
-        <ul>
-          <li>A) a decisão da Coroa de abolir imediatamente a escravidão negra em todas as minas do território americano.</li>
-          <li>B) o temor generalizado da aplicação da derrama para cobrança coercitiva de impostos atrasados em meio à decadência aurífera.</li>
-          <li>C) a imposição de um pacto comercial irrestrito que abria os portos mineiros às nações industriais da Ásia.</li>
-          <li>D) a expulsão em massa dos padres jesuítas de todas as paróquias urbanas da comarca do Rio das Velhas.</li>
-          <li>E) a substituição definitiva da mineração de ouro por plantações extensivas de cacau voltadas ao mercado interno.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A queda na produção de ouro gerou dificuldades extremas para os colonos quitarem suas obrigações fiscais. A ameaça de decretação da derrama uniu a elite mineira em torno da conspiração contra Portugal.</p>
+        <h2>2. A Conspiração, a Traição e o Perfil de Tiradentes</h2>
+        <div class="highlight-box">
+          <p><strong>⚖️ Dinâmica e Desfecho da Revolta:</strong> 
+          <br>• <strong>A Traição:</strong> O movimento foi denunciado à Coroa por Joaquim Silvério dos Reis em troca do perdão de suas dívidas vultosas com a fazenda real.
+          <br>• <strong>Joaquim José da Silva Xavier (Tiradentes):</strong> Alferes, minerador e dentista prático, Tiradentes foi o membro de origem mais modesta, porém o mais atuante na propaganda dos ideais separatistas no Rio de Janeiro e em Minas.
+          <br>• <strong>O Julgamento e a Punição:</strong> Enquanto os inconfidentes ricos foram poupados ou exilados para a África, Tiradentes assumiu a responsabilidade total pelo plano, sendo o único condenado à morte na forca (21 de abril de 1792) e tendo seu corpo esquartejado para servir de exemplo exemplar de repressão régia.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Diferente de outras revoltas coloniais de caráter popular, a Inconfidência Mineira teve forte liderança de intelectuais e proprietários, refletindo influências iluministas. No entanto, o desfecho punitivo recaiu com maior severidade sobre aqueles de menor prestígio político na hierarquia social."</em> O texto retrata a conjuntura do julgamento dos inconfidentes, ressaltando que:</p>
-        <ul>
-          <li>A) todos os envolvidos, sem distinção de classe, receberam a pena máxima de morte por enforcamento.</li>
-          <li>B) a Coroa Portuguesa perdoou integralmente todos os conspiradores devido à confissão espontânea de Tiradentes.</li>
-          <li>C) os líderes pertencentes à elite econômica obtiveram penas brandas de exílio, enquanto Tiradentes, de menor projeção social, foi executado de forma exemplar.</li>
-          <li>D) o movimento logrou estabelecer a república independente em Minas Gerais após sangrentos combates armados.</li>
-          <li>E) os poetas e padres foram banidos permanentemente para a Europa sem julgamento prévio.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> A justiça da Coroa foi seletiva: os inconfidentes abastados (letrados e donos de terras) escaparam da morte por meio do indulto real ou exílio, enquanto Tiradentes, que não pertencia ao topo da elite econômica, pagou com a própria vida. </p>
+        <h2>3. Legado e Construção da Memória Nacional</h2>
+        <p>Embora sufocada antes de deflagrar uma revolta armada de fato, a Inconfidência Mineira tornou-se um marco histórico na luta contra o absolutismo colonial. Séculos mais tarde, a figura de Tiradentes foi resgatada pela República brasileira, consagrando-o como o grande mártir cívico da independência nacional.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A Inconfidência Mineira, ocorrida em 1789, inseriu-se em um momento de aguda crise econômica nas Minas Gerais, caracterizada pelo esgotamento das lavras auríferas. A ameaça iminente da decretação da derrama pela administração metropolitana funcionou como o estopim para a articulação da conjuração.”</p>
+          <p>Dentre os fatores ideológicos e contextuais que impulsionaram a formulação desse movimento separatista, destaca-se:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A influência direta do Iluminismo europeu e o reflexo político da Independência das Treze Colônias inglesas.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A aliança irrestrita entre a elite mineradora e os interesses comerciais exclusivos da Igreja Católica.</li>
+            <li class="option-item"><span class="option-letter">C)</span> O projeto de abolir imediatamente o trabalho escravizado em todo o território nacional.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A decisão da Coroa portuguesa de transferir a capital do império colonial para a cidade de Vila Rica.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O apoio militar incondicional oferecido pela Coroa espanhola aos revoltosos mineiros.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra A</strong>
+            <p><strong>Resolução:</strong> Os inconfidentes foram fortemente influenciados pelas luzes do Iluminismo e pelo exemplo bem-sucedido da emancipação americana em relação à metrópole britânica, questionando o pacto colonial.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O desfecho da Inconfidência Mineira revelou a assimetria social existente entre os conspiradores. Enquanto os líderes pertencentes às elites econômicas e intelectuais receberam penas brandas ou o exílio, o alferes Tiradentes assumiu a culpa isoladamente e sofreu a pena capital.”</p>
+          <p>A singularidade do julgamento e a execução de Tiradentes justificam-se, fundamentalmente, pelo fato de que ele:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Era o único integrante da conjuração que possuía laços de parentesco direto com a família real portuguesa.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Recusou-se terminantemente a negociar qualquer forma de perdão e assumiu perante a Justiça a liderança e os atos da conspiração.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Conseguiu liderar com sucesso um levante militar armado que depôs o governador da capitania antes de ser preso.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Foi o único a defender a manutenção da monarquia absolutista e a ampliação dos tributos reais.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Atuou como o principal informante do governo metropolitano na denúncia dos demais inconfidentes.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Durante o processo inquisitorial/judicial, Tiradentes assumiu a responsabilidade pelos ideais e articulações da conjuração, diferenciando-se dos demais réus ricos que tentaram atenuar suas culpas, o que o levou a ser o único punido com a pena de morte na forca.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
+</body>
 </html>
