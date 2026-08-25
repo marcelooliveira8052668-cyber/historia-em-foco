@@ -1,239 +1,403 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Os Maias: Astronomia e Cidades Perdidas na Selva | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os Maias: Astronomia e Cidades Perdidas na Selva — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        category-color: var(--accent-pink);
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
         padding: 1rem 1.2rem;
         border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        deg: none;
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Povos Indígenas</h1>
-      <p>Período: 2000 a.C. - 1500 d.C.</p>
+      <div class="header-badge">Civilizações Pré-Colombianas da Mesoamérica</div>
+      <h1>Os Maias: Astronomia e Cidades Perdidas na Selva</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>Os Maias: Astronomia e Cidades Perdidas na Selva</h2>
-        <img src="https://thumbnails.odycdn.com/card/s:1280:720/quality:85/plain/https://thumbs.odycdn.com/e025615ad20c6e2e58b6685e0cdece2c.webp" width="500" alt="">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. Organização Política e Cidades-Estado</h2>
+        <p>A civilização maia floresceu na região da Mesoamérica (abrangendo partes do atual México, Guatemala, Belize, Honduras e El Salvador). Diferente de impérios centralizados como os incas ou astecas, os maias nunca constituíram um império unificado sob um único poder político central.</p>
         
-        <p>A civilização **maia** floresceu na Mesoamérica — região que abrange o sudeste do México, Guatemala, Belize, Honduras e El Salvador — ao longo de mais de três milênios (c. 2000 a.C. até a chegada dos conquistadores espanhóis no século XVI). Diferente de impérios centralizados como o dos incas, os maias nunca constituíram um Estado unificado sob um único soberano; organizavam-se em uma complexa rede de **cidades-estado autônomas** (como Tikal, Palenque, Copán e Calakmul) unidas por uma língua, uma cosmovisão religiosa e intensas trocas comerciais e culturais, mas frequentemente em rivalidades políticas e militares.</p>
-        
-        <p>Renomados por sua arquitetura monumental pontilhada de imponentes pirâmides escalonadas, palácios e observatórios astronômicos integrados à densa selva tropical, os maias alcançaram um nível extraordinário de desenvolvimento científico. Desenvolveram o único sistema de **escrita hieroglífica** plenamente funcional das Américas pré-colombianas e criaram um sofisticado sistema numérico vigesimal que incorporava o conceito do **zero** de forma independente. Sua fascinante maestria na **astronomia** permitiu-lhes calcular com precisão milimétrica os ciclos lunares, os eclipses solares e a órbita de Vênus, estruturando calendários complexos — como o solar (*Haab'*) e o sagrado (*Tzolkin*) — fundamentais para orientar a agricultura de milho e os rituais religiosos. O declínio político das grandes cidades maias das Terras Baixas ocorreu séculos antes da conquista europeia devido a fatores combinados de superpopulação, degradação ambiental e secas prolongadas, embora centros menores tenham persistido até a colonização.</p>
+        <p>Eles organizavam-se em <strong>cidades-estado autônomas</strong> (como Tikal, Palenque, Copán e Calakmul), ligadas entre si por uma cultura comum, rotas comerciais intensas, crenças religiosas e uma escrita hieroglífica complexa. Cada cidade era governada por uma dinastia de reis-sacerdotes (os <em>k'uhul ajaw</em>), que detinham autoridade política e religiosa sobre a população urbana e camponesa.</p>
 
-        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) Ao contrário de impérios como o romano ou o inca, que se caracterizavam pela forte centralização administrativa e territorial sob um único poder imperial, a civilização maia estruturou-se politicamente por meio de:</p>
-        <ul>
-          <li>A) cidades-estado independentes que compartilhavam traços culturais, religiosos e linguísticos, mantendo entre si laços de comércio e rivalidades políticas.</li>
-          <li>B) tribos nômades pastoris que rejeitavam qualquer forma de sedentarismo agrícola ou construção urbana permanente.</li>
-          <li>C) um sistema teocrático centralizado na capital única de Tenochtitlán, controlando militarmente todo o continente.</li>
-          <li>D) confederações militares estritamente pacíficas que aboliram o uso de exércitos e guerras regionais.</li>
-          <li>E) colônias ultramarinas estabelecidas diretamente nas costas do Oceano Atlântico.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> A organização política clássica dos maias era descentralizada, baseada em cidades-estado soberanas (como Tikal e Palenque) que interagiam por meio de alianças comerciais, casamentos dinásticos e conflitos bélicos, assemelhando-se ao modelo das pólis da Grécia Antiga.</p>
+        <h2>2. O Domínio da Astronomia e do Tempo</h2>
+        <p>A sabedoria astronômica dos maias impressiona pela precisão matemática e observacional. Sem instrumentos ópticos, eles mapearam minuciosamente os ciclos celestes, prevendo com exatidão eclipses solares e lunares, além de calcular o ciclo sinódico do planeta Vênus com margens de erro mínimas.</p>
+
+        <div class="highlight-box">
+          <p><strong>⏳ A Matemática e os Calendários:</strong> Os maias utilizavam um sistema de numeração vigesimal (base 20) que incluía o conceito do número zero. Desenvolveram calendários complexos, como o <em>Haab</em> (solar de 365 dias) e o <em>Tzolkin</em> (sagrado de 260 dias), que se combinavam na "Roda Calendárica" para registrar o tempo, definir rituais e orientar épocas de plantio e colheita na floresta tropical.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O alto grau de precisão dos calendários maias e o desenvolvimento de seus conhecimentos astronômicos e matemáticos, incluindo o uso do zero, demonstram a sofisticação intelectual desse povo pré-colombiano."</em> Historicamente, a principal motivação prática que impulsionou o avanço da astronomia e da contagem do tempo entre os maias foi:</p>
-        <ul>
-          <li>A) a necessidade de prever rotas marítimas comerciais transatlânticas para a Europa.</li>
-          <li>B) a estruturação dos ciclos agrícolas (como o plantio e a colheita do milho) e a organização dos rituais religiosos cíclicos.</li>
-          <li>C) a obrigação de registrar impostos cobrados em moeda metálica de ouro por um imperador central.</li>
-          <li>D) a invenção de relógios mecânicos de bolso importados da Ásia.</li>
-          <li>E) o estabelecimento de leis civis voltadas exclusivamente para o direito comercial marítimo.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A ciência e a matemática entre os maias estavam profundamente atreladas à religião e à sobrevivência material. O domínio dos ciclos astronômicos permitia prever as estações chuvosas e secas, regulando rigorosamente o calendário agrícola do milho e as festividades litúrgicas.</p>
+        <h2>3. A Arquitetura Monumental e o Enigma do "Colapso"</h2>
+        <p>A engenharia maia adaptou-se perfeitamente ao ambiente desafiador da selva tropical. Construíram imensas pirámides escalonadas, palácios e observatórios astronômicos alinhados aos astros, erguidos com blocos de calcário sem o uso de animais de carga ou ferramentas de metal.</p>
+        
+        <p>Por volta do século IX d.C., grande parte das metrópoles das planícies do sul foi misteriosamente abandonada, com a vegetação reconquistando as construções (as chamadas "cidades perdidas"). O colapso não significou a extinção do povo maia, mas sim uma descentralização populacional e o deslocamento do eixo cultural para a região norte da Península de Yucatán (onde cidades como Chichén Itzá continuaram a prosperar).</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">Diferente de outras grandes civilizações da Antiguidade e da América pré-colombiana que constituíram vastos impérios territoriais unificados sob uma única autoridade central, os maias estruturaram-se política e administrativamente em uma rede de cidades-estado autônomas, como Tikal e Palenque, unidas por laços culturais, comerciais e religiosos.</p>
+          <p>Essa configuração político-espacial das cidades-estado maias implicava diretamente:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A ausência de quaisquer conflitos bélicos, alianças comerciais ou intercâmbios culturais entre os centros urbanos.</li>
+            <li class="option-item"><span class="option-letter">B)</span> A subordinação de toda a população da península de Yucatán a um imperador divinizado residente na capital absoluta.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A descentralização do poder político, onde cada cidade possuía sua própria dinastia governante e autonomia administrativa.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A imposição de um sistema monetário universal baseado exclusivamente no uso de moedas metálicas de ouro.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O isolamento geográfico absoluto de cada núcleo urbano no interior denso das florestas tropicais.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> Os maias organizavam-se politicamente em cidades-estado independentes. Cada cidade possuía seu próprio governo (reis-sacerdotes), leis e autonomia, compartilhando contudo a mesma língua, escrita, religião e matriz cultural.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O desenvolvimento astronômico e matemático dos maias impressiona pela precisão com que calculavam os ciclos celestes e elaboravam calendários complexos, como o Haab e o Tzolkin. Esses saberes não possuíam caráter puramente abstrato; eles orientavam a organização agrícola de subsistência na floresta tropical e os ciclos rituais dirigidos pelos sacerdotes.”</p>
+          <p>Com base no texto, a importância dos saberes astronômicos para a sociedade maia estava associada a:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Sua aplicação estritamente náutica voltada para a exploração de rotas de navegação transatlântica.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Sua função prática e religiosa na regulação das atividades agrícolas sazonais e do calendário cerimonial.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A necessidade de prever invasões de impérios industriais europeus séculos antes da conquista.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A substituição total da escrita hieroglífica por equações algébricas abstratas na administração urbana.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O abandono definitivo das crenças religiosas em favor de um modelo puramente científico e laico.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Na civilização maia, a astronomia e a matemática cumpriam um papel essencial e prático: antecipar as épocas de chuvas, cheias e secas para o manejo agrícola nas florestas, além de estruturar o calendário sagrado e os rituais religiosos.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
+</body>
 </html>
