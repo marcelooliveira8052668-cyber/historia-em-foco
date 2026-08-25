@@ -1,238 +1,403 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O Império Inca: Os Engenheiros dos Andes | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Império Inca: Os Engenheiros dos Andes — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1.2rem;
-        border-radius: 8px;
+      .highlight-box {
+        background: var(--badge-bg);
         border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(-10px);}
+        to {opacity: 1; transform: translateY(0);}
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Povos Indígenas</h1>
-      <p>Período: 1438 - 1572</p>
+      <div class="header-badge">História da América Pré-Colombiana e Andina</div>
+      <h1>O Império Inca: Os Engenheiros dos Andes</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>O Império Inca: Os Engenheiros dos Andes</h2>
-        <img src="https://historiamania.com/wp-content/uploads/2025/11/civilizacao-inca-o-imperio-das-montanhas-1024x585.jpg" width="500" alt="">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Expansão do Tawantinsuyu</h2>
+        <p>O **Império Inca**, autodenominado ***Tawantinsuyu*** ("O Império das Quatro Partes"), desenvolveu-se ao longo da Cordilheira dos Andes na América do Sul, atingindo seu apogeu entre os séculos XV e XVI. Sob a liderança de governantes como Pachacuti, os incas unificaram dezenas de etnias andinas sob um Estado centralizado e teocrático, tendo Cusco como sua grandiosa capital sagrada.</p>
         
-        <p>Conhecido formalmente como **Tahuantinsuyu** ("o império das quatro regiões"), o Império Inca ergueu-se como a maior e mais estruturada civilização pré-colombiana da América do Sul. A partir da expansão político-militar liderada pelo soberano Pachacuti em 1438, a partir de sua capital sagrada em **Cuzco**, os incas subjugaram diversos povos e dominaram a imensa cordilheira dos Andes, estendendo seus domínios por milhares de quilômetros ao longo da costa do Pacífico e de territórios que hoje integram Peru, Bolívia, Equador, Chile e Colômbia.</p>
-        
-        <p>Os incas ficaram mundialmente célebres como engenheiros prodigiosos capazes de dominar um relevo montanhoso extremamente hostil e acidentado. Para garantir a produção alimentar em encostas íngremes, desenvolveram a técnica dos **terraços de cultivo** (*andenes*), acompanhada por elaborados sistemas de irrigação e armazenamento de excedentes em silos estatais (*tambos*). A coesão do vasto império dependia de uma imensa rede de estradas e pontes suspensas — o **Capac Ñan** —, que cobria mais de 30 mil quilômetros, permitindo o trânsito rápido de exércitos e mensageiros imperiais (*chasquis*), que utilizavam o **quipu** (sistema de cordas com nós) para o controle contábil e demográfico. A organização socioeconômica baseava-se na reciprocidade e na mita (sistema de tributação em forma de trabalho obrigatório comunitário nas obras públicas, minas e terras do Estado). O império sofreu um golpe fatal a partir de 1532 com a chegada dos conquistadores espanhóis liderados por Francisco Pizarro, que se aproveitaram de uma violenta guerra de sucessão dinástica e executaram o imperador Atahualpa, embora a resistência andina tenha persistido em redutos isolados até a queda de Vilcabamba em 1572.</p>
+        <p>Apesar da ausência de escrita fonética tradicional, o império administrava sua vasta extensão territorial por meio de uma impressionante burocracia e do sistema de registros numéricos e estatísticos baseado em cordas com nós coloridos, chamado **quipu**.</p>
 
-        <h3>Exercícios Estilo ENEM e Vestibulares</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O Império Inca destacou-se na América pré-colombiana por sua notável capacidade de organização estatal e integração territorial em uma região geográfica de relevo montanhoso e extremo. Entre as inovações tecnológicas e administrativas adotadas pelos incas para garantir a subsistência e o controle de seu vasto território, destaca-se:</p>
-        <ul>
-          <li>A) a criação de um sistema monetário metálico baseado exclusivamente na cunhagem de moedas de ouro em circulação livre.</li>
-          <li>B) a construção de terraços agrícolas nas encostas dos Andes (*andenes*) e a estruturação de uma vasta rede de estradas e caminhos (*Capac Ñan*) para circulação e comunicação.</li>
-          <li>C) a abolição de qualquer forma de tributação ou prestação de trabalho obrigatório por parte das comunidades locais.</li>
-          <li>D) o abandono da agricultura em favor de uma economia estritamente voltada para a navegação oceânica comercial transatlântica.</li>
-          <li>E) a descentralização política absoluta, que impedia o governo central de interferir nas províncias distantes.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> Os incas adaptaram-se com genialidade ao ambiente andino por meio da engenharia agrícola dos terraços (*andenes*) e da integração de seu império centralizado através da monumental rede de estradas do *Capac Ñan*, fundamental para o controle administrativo e militar.</p>
+        <h2>2. A Engenharia Andina e a Organização do Trabalho</h2>
+        <p>Os incas destacaram-se mundialmente por sua maestria em engenharia adaptada a um relevo montanhoso extremamente hostil e acidentado.</p>
+
+        <div class="highlight-box">
+          <p><strong>⛰️ Inovações Estruturais:</strong> 
+          <br>• <strong>Agricultura em Terraços (Andenes):</strong> Construção de degraus esculpidas nas encostas das montanhas para ampliar a área arável e evitar a erosão do solo.
+          <br>• <strong>Rede Viária (Qhapaq Ñan):</strong> Milhares de quilômetros de estradas pavimentadas e pontes suspensas que conectavam todo o império, percorridas por mensageiros ágeis (*chasquis*).
+          <br>• <strong>Arquitetura Megalítica:</strong> Edifícios e fortalezas (como Machu Picchu e Sacsayhuamán) erguidos com blocos de pedra perfeitamente encaixados sem uso de argamassa.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O sistema de tributação no Império Inca não se apoiava no pagamento de moedas ou mercadorias físicas individualizadas, mas sim na prestação de trabalho temporário obrigatório prestado à comunidade e ao Estado, conhecido como mita."</em> Historicamente, o funcionamento dessa instituição socioeconômica indicava que:</p>
-        <ul>
-          <li>A) a sociedade inca era igualitária, sem estratificação social ou autoridades centralizadas.</li>
-          <li>B) o Estado imperial exercia controle direto sobre a força de trabalho coletiva para a execução de grandes obras públicas e manutenção da economia redistributiva.</li>
-          <li>C) o trabalho era inteiramente voluntário e realizado de forma esporádica sem planejamento governamental.</li>
-          <li>D) os camponeses eram remunerados com altos salários em espécie pelo imperador em Cuzco.</li>
-          <li>E) a economia do Tahuantinsuyu dependia unicamente do comércio internacional com povos da Ásia.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A mita era o pilar da economia e da organização do Estado inca. Os súditos dedicavam parte de seu tempo ao cultivo das terras do imperador e do Sol, bem como à construção de estradas, pontes e templos, garantindo a centralização e a infraestrutura do Tahuantinsuyu.</p>
+        <h2>3. O Sistema Tributário: A Mita</h2>
+        <p>A economia do império não se baseava em moeda ou comércio privado de mercado, mas sim na reciprocidade e na redistribuição controlada pelo Estado. O principal mecanismo de tributação era a **mita**: uma obrigação periódica em que os membros das comunidades aldeãs (ayllus) prestavam serviços gratuitos em obras públicas, minas, construções de estradas e cultivo de terras estatais e religiosas.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A ocupação da Cordilheira dos Andes pelos incas exigiu soluções engenhosas para superar os desafios geográficos e climáticos da região. Por meio da construção de terraços agrícolas nas encostas das montanhas e de uma complexa rede de estradas e armazéns estatais, o Tawantinsuyu garantiu a integração e a subsistência de milhões de habitantes.”</p>
+          <p>As inovações técnicas desenvolvidas pela civilização inca visavam primordialmente:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Promover o livre mercado capitalista e a livre concorrência entre as províncias do império.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Adaptar a produção agrícola e a circulação de riquezas ao relevo montanhoso e acidentado dos Andes.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Estimular o nomadismo pastoral estrito em detrimento da fixação urbana e da agricultura sedentária.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Financiar expedições marítimas de conquista em direção ao Oceano Atlântico e à Europa.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Substituir integralmente a mão de obra humana por tecnologias industriais mecanizadas.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Os incas dominaram a engenharia de montanha. Os terraços (*andenes*) permitiram o cultivo em encostas íngremes, enquanto o *Qhapaq Ñan* uniu o império através da Cordilheira dos Andes.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“No Império Inca, a base da organização econômica e social fundamentava-se na reciprocidade e na obrigatoriedade do trabalho coletivo prestado ao Estado. Conhecida como mita, essa instituição exigia que os comunais cedessem parte de seu tempo para o cultivo de terras estatais, a extração de minérios e a construção de infraestruturas públicas.”</p>
+          <p>O sistema de tributação por meio da mita caracterizava-se por:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Pagamento de impostos individuais em dinheiro metálico cunhado pelo imperador.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Prestação temporária e obrigatória de trabalho em serviços de interesse coletivo e estatal.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Contratação voluntária de trabalhadores assalariados com direitos trabalhistas regulamentados.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Isenção total de obrigações fiscais para as comunidades camponesas vinculadas aos ayllus.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Doação voluntária de excedentes agrícolas voltada exclusivamente para a exportação ultramarina.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A mita era o tributo em forma de trabalho prestado ao Estado inca. Os membros dos *ayllus* revezavam-se na execução de obras públicas, agricultura e mineração para sustentar a máquina imperial.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
     </script>
-  </body>
+</body>
 </html>
