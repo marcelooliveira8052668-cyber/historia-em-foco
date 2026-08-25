@@ -1,478 +1,400 @@
-<<<<<<< HEAD
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juscelino Kubitschek e a Construção de Brasília | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juscelino Kubitschek e a Construção de Brasília — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2.2rem;
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .header-actions {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
+      .btn-header {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
-        text-data-decoration: none;
-        transition: all 0.2s ease;
-        display: inline-flex;
+        display: flex;
         align-items: center;
+        gap: 8px;
         text-decoration: none;
+        transition: all 0.2s ease;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-header:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.6rem;
+        margin: 0 0 12px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
+      /* Container do Conteúdo Didático */
       .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
+        max-width: 900px;
+        margin: 3.5rem auto;
         padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
       }
 
-      .article-card {
+      .content-section {
         background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
+        padding: 3rem;
+        border-radius: 20px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
         margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
+      p {
         color: var(--text-muted);
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
-      </div>
-      <h1>Brasil República</h1>
-      <p>Período: 1956 - 1961</p>
-    </header>
-
-    <div class="container">
-      <div class="article-card">
-        <h2>Juscelino Kubitschek e a Construção de Brasília</h2>
-        
-        <p>O governo de **Juscelino Kubitschek de Oliveira** (1956–1961), sintetizado pelo famoso lema *"50 anos em 5"* e pelo seu **Plano de Metas**, representou um período de expressivo otimismo econômico, modernização urbana e industrialização acelerada no Brasil. O plano governamental estruturava-se em eixos estratégicos como energia, transportes, alimentação, indústrias de base e, como meta-síntese, a construção da nova capital federal: **Brasília**. Sob o comando do urbanista Lúcio Costa (criador do projeto urbanístico do Plano Piloto) e do arquiteto Oscar Niemeyer (responsável pelos monumentais edifícios públicos), Brasília foi inaugurada em 21 de abril de 1960, simbolizando a marcha para o oeste, a integração territorial e a superação do atraso colonial por meio de uma arquitetura modernista de vanguarda.</p>
-        
-        <p>Contudo, o modelo de desenvolvimento associado e dependente implementado por JK — que abriu amplamente o mercado nacional ao capital estrangeiro e à instalação de indústrias automobilísticas — gerou profundos desequilíbrios macroeconômicos. A construção faraônica de Brasília e a importação massiva de insumos industriais elevaram drasticamente a dívida externa brasileira e impulsionaram uma forte inflação, cujos custos recaíram sobre as classes trabalhadoras urbanas. Apesar das contestações econômicas e das pressões sociais, o período de JK marcou o apogeu da chamada "República Populista" (1945–1964), marcada por intensa efervescência cultural (como a Bossa Nova e o Cinema Novo) e pela consolidação da democracia representativa antes da grave crise institucional que culminaria no golpe civil-militar de 1964.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O Plano de Metas do governo Juscelino Kubitschek (1956-1961) priorizou o desenvolvimento industrial atrelado à entrada de capitais estrangeiros e à expansão da infraestrutura de transportes e energia. Uma das marcas fundamentais dessa política foi:</p>
-        <ul>
-          <li>A) a estatização integral de todos os setores produtivos e a abolição da propriedade privada no campo.</li>
-          <li>B) a implementação de um modelo econômico voltado exclusivamente para a agricultura de subsistência e o comércio interno regional.</li>
-          <li>C) a atração de montadoras automobilísticas estrangeiras e a priorização do transporte rodoviário em detrimento do ferroviário.</li>
-          <li>D) a aliança militar estrita com os países do bloco soviético para o financiamento de obras públicas urbanas.</li>
-          <li>E) a erradicação imediata da dívida externa brasileira através do superávit comercial agrícola.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> O governo JK incentivou a industrialização associada, com forte presença de multinacionais (especialmente o setor automobilístico) e a expansão da malha rodoviária nacional para integrar o território e escoar a produção industrial.</p>
-        </div>
-
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A inauguração de Brasília em 1960 representou a concretização da meta-síntese do governo de Juscelino Kubitschek, projetando uma nova capital no interior do país com traços modernistas e zoneamento funcional."</em> No entanto, os custos econômicos associados a essa grande obra geraram impasses estruturais, destacando-se:</p>
-        <ul>
-          <li>A) o superávit nas contas públicas e a completa ausência de inflação durante todo o quinquênio.</li>
-          <li>B) a forte elevação da inflação e o crescimento da dívida externa devido aos gastos massivos com a construção e à emissão monetária sem respaldo.</li>
-          <li>C) a diminuição drástica da população urbana na região Centro-Oeste do país.</li>
-          <li>D) o boicote total da arquitetura modernista por parte das indústrias de base nacionais.</li>
-          <li>E) o encerramento definitivo das relações comerciais do Brasil com os Estados Unidos e a Europa.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A construção acelerada de Brasília consumiu recursos imensos do Tesouro Nacional, resultando em desequilíbrios fiscais agudos, expansão inflacionária e acúmulo de compromissos com credores internacionais.</p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlRoot = document.documentElement;
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
-      });
-    </script>
-  </body>
-=======
-<!doctype html>
-<html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juscelino Kubitschek e a Construção de Brasília | Acervo de História</title>
-    <style>
-      :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
-        --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      :root[data-theme="light"] {
-        --bg-color: #f8fafc;
-        --card-bg: #ffffff;
-        --text-color: #1e293b;
-        --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
-        --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
       }
 
-      body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        background-color: var(--bg-color);
+      .highlight-box p {
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
-      header {
-        background: var(--header-bg);
-        padding: 2.2rem;
-        text-align: center;
-        border-bottom: 1px solid var(--border-color);
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        content-visibility: auto;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+        overflow: hidden;
       }
 
-      .top-controls {
+      .question-card::before {
+        content: "";
         position: absolute;
-        top: 20px;
-        right: 30px;
-        display: flex;
-        gap: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
       }
 
-      .btn-theme, .btn-back {
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
         color: var(--text-color);
-        background: var(--input-bg);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
         border: 1px solid var(--border-color);
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 0.85rem;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);+
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
         font-weight: 600;
         cursor: pointer;
-        text-data-decoration: none;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
+        font-family: inherit;
+        transition: background-color: 0.2s;
       }
 
-      .btn-theme:hover, .btn-back:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
+      .btn-reveal:hover {
+        background: var(--primary-hover);
       }
 
-      header h1 {
-        color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
-        font-weight: 700;
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      header p {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
-        padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
-      }
-
-      .article-card {
-        background: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow);
-      }
-
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
-        color: var(--text-color);
-        font-size: 1rem;
-      }
-
-      ul {
-        padding-left: 20px;
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .gabarito {
-        background: var(--input-bg);
-        padding: 1rem 1.2rem;
-        border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
-      }
-
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.1rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeThemeToggle" onclick="toggleTheme()">☀️ / 🌙 Tema</button>
       </div>
-      <h1>Brasil República</h1>
-      <p>Período: 1956 - 1961</p>
+      <div class="header-badge">História do Brasil / O Século XX</div>
+      <h1>Juscelino Kubitschek e a Construção de Brasília 🇧🇷🏛️</h1>
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>Juscelino Kubitschek e a Construção de Brasília</h2>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. O Plano de Metas e o Desenvolvimentismo</h2>
+        <p>Eleito sob o lema de "50 anos em 5", o governo de **Juscelino Kubitschek (1956–1961)** inaugurou uma fase de intenso otimismo e modernização econômica no Brasil, ancorada na ideologia do **desenvolvimentismo**. O objetivo central era acelerar a industrialização do país através do **Plano de Metas**, que priorizava setores estratégicos divididos em blocos: energia, transportes, alimentação, indústrias de base e, como meta síntese, a construção de Brasília.</p>
         
-        <p>O governo de **Juscelino Kubitschek de Oliveira** (1956–1961), sintetizado pelo famoso lema *"50 anos em 5"* e pelo seu **Plano de Metas**, representou um período de expressivo otimismo econômico, modernização urbana e industrialização acelerada no Brasil. O plano governamental estruturava-se em eixos estratégicos como energia, transportes, alimentação, indústrias de base e, como meta-síntese, a construção da nova capital federal: **Brasília**. Sob o comando do urbanista Lúcio Costa (criador do projeto urbanístico do Plano Piloto) e do arquiteto Oscar Niemeyer (responsável pelos monumentais edifícios públicos), Brasília foi inaugurada em 21 de abril de 1960, simbolizando a marcha para o oeste, a integração territorial e a superação do atraso colonial por meio de uma arquitetura modernista de vanguarda.</p>
-        
-        <p>Contudo, o modelo de desenvolvimento associado e dependente implementado por JK — que abriu amplamente o mercado nacional ao capital estrangeiro e à instalação de indústrias automobilísticas — gerou profundos desequilíbrios macroeconômicos. A construção faraônica de Brasília e a importação massiva de insumos industriais elevaram drasticamente a dívida externa brasileira e impulsionaram uma forte inflação, cujos custos recaíram sobre as classes trabalhadoras urbanas. Apesar das contestações econômicas e das pressões sociais, o período de JK marcou o apogeu da chamada "República Populista" (1945–1964), marcada por intensa efervescência cultural (como a Bossa Nova e o Cinema Novo) e pela consolidação da democracia representativa antes da grave crise institucional que culminaria no golpe civil-militar de 1964.</p>
+        <p>Para viabilizar esse crescimento acelerado sem base fiscal interna suficiente, o governo abriu amplamente o mercado nacional ao capital estrangeiro e às empresas multinacionais (especialmente na indústria automobilística), o que impulsionou o crescimento urbano, mas gerou um forte processo de endividamento externo e inflação.</p>
 
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O Plano de Metas do governo Juscelino Kubitschek (1956-1961) priorizou o desenvolvimento industrial atrelado à entrada de capitais estrangeiros e à expansão da infraestrutura de transportes e energia. Uma das marcas fundamentais dessa política foi:</p>
-        <ul>
-          <li>A) a estatização integral de todos os setores produtivos e a abolição da propriedade privada no campo.</li>
-          <li>B) a implementação de um modelo econômico voltado exclusivamente para a agricultura de subsistência e o comércio interno regional.</li>
-          <li>C) a atração de montadoras automobilísticas estrangeiras e a priorização do transporte rodoviário em detrimento do ferroviário.</li>
-          <li>D) a aliança militar estrita com os países do bloco soviético para o financiamento de obras públicas urbanas.</li>
-          <li>E) a erradicação imediata da dívida externa brasileira através do superávit comercial agrícola.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa C.</strong> O governo JK incentivou a industrialização associada, com forte presença de multinacionais (especialmente o setor automobilístico) e a expansão da malha rodoviária nacional para integrar o território e escoar a produção industrial.</p>
+        <h2>2. A Mudança da Capital e o Simbolismo de Brasília</h2>
+        <div class="highlight-box">
+          <p><strong>🏗️ A Urbe no Cerrado:</strong> 
+          <br>• <strong>Integração Territorial:</strong> A transferência da capital federal do Rio de Janeiro para o Planalto Central cumpria uma promessa constitucional histórica de interiorização do poder político e integração demográfica do vasto território nacional.
+          <br>• <strong>Modernismo e Urbanismo:</strong> Projetada pelo urbanista Lúcio Costa (Plano Piloto em forma de avião / cruz) e com arquitetura monumental de Oscar Niemeyer, Brasília consolidou-se como o grande símbolo estético e ideológico da modernidade brasileira, inaugurada em 21 de abril de 1960.</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"A inauguração de Brasília em 1960 representou a concretização da meta-síntese do governo de Juscelino Kubitschek, projetando uma nova capital no interior do país com traços modernistas e zoneamento funcional."</em> No entanto, os custos econômicos associados a essa grande obra geraram impasses estruturais, destacando-se:</p>
-        <ul>
-          <li>A) o superávit nas contas públicas e a completa ausência de inflação durante todo o quinquênio.</li>
-          <li>B) a forte elevação da inflação e o crescimento da dívida externa devido aos gastos massivos com a construção e à emissão monetária sem respaldo.</li>
-          <li>C) a diminuição drástica da população urbana na região Centro-Oeste do país.</li>
-          <li>D) o boicote total da arquitetura modernista por parte das indústrias de base nacionais.</li>
-          <li>E) o encerramento definitivo das relações comerciais do Brasil com os Estados Unidos e a Europa.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A construção acelerada de Brasília consumiu recursos imensos do Tesouro Nacional, resultando em desequilíbrios fiscais agudos, expansão inflacionária e acúmulo de compromissos com credores internacionais.</p>
+        <h2>3. Os Custos Sociais e Econômicos do Milagre</h2>
+        <p>Apesar do entusiasmo cultural e do avanço da industrialização de bens de consumo duráveis, o ritmo frenético de JK teve um preço elevado. A emissão descontrolada de moeda para custear as obras grandiosas alimentou uma inflação galopante que corroía o poder de compra das classes trabalhadoras, além da intensa exploração da mão de obra migrante (os chamados *candangos*), cujas condições de vida na construção da nova capital contrastavam duramente com o glamour modernista oficial.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“O governo de Juscelino Kubitschek (1956-1961) ficou marcado pela fórmula do ‘desenvolvimentismo’, cujo eixo dinâmico assentava-se no Plano de Metas. A meta-síntese desse projeto foi a construção de Brasília, concebida para redefinir o eixo político e territorial do país.”</p>
+          <p>Além da interiorização do poder administrativo, qual outro argumento geopolítico e econômico justificava oficialmente a transferência da capital federal para o Planalto Central?</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A necessidade imediata de transformar o litoral brasileiro em uma zona desmilitarizada e exclusiva para exportação de café.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O incentivo à integração das regiões interiores, promovendo o desenvolvimento demográfico e econômico do centro do país.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A exigência da Organização das Nações Unidas de subordinar o governo brasileiro a diretrizes de governança global descentralizada.</li>
+            <li class="option-item"><span class="option-letter">D)</span> A extinção absoluta do setor industrial paulista em favor de um modelo agrário de subsistência no Centro-Oeste.</li>
+            <li class="option-item"><span class="option-letter">E)</span> O cumprimento de acordos militares sigilosos firmados exclusivamente com o Pacto de Varsóvia.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A mudança da capital para o interior respondia ao ideal histórico de integrar as regiões distantes do litoral, promovendo o povoamento e a dinamização econômica de áreas até então isoladas do território brasileiro.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O Plano de Metas de Juscelino Kubitschek almejava alcançar ‘50 anos em 5’, impulsionando a industrialização nacional por meio da entrada maciça de capital estrangeiro e de investimentos estatais em infraestrutura. No entanto, esse modelo gerou profundos desequilíbrios macroeconômicos.”</p>
+          <p>Dentre os principais impactos negativos gerados por esse modelo de desenvolvimento acelerado no final da década de 1950, destaca-se:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A estagnação absoluta da indústria automobilística e a proibição total de investimentos multinacionais no Brasil.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O superávit primário recorde acompanhado pela completa eliminação da dívida externa brasileira.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A aceleração inflacionária e o aumento expressivo da dívida pública e externa, decorrentes da emissão monetária e dos altos custos de infraestrutura.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O retorno imediato ao modelo agroexportador primário e o fim absoluto de qualquer parque fabril urbano.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A desativação completa da malha rodoviária nacional em favor do transporte fluvial exclusivo.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> O crescimento econômico acelerado e os altos gastos com a construção de Brasília, somados à importação de bens de capital e à forte entrada de multinacionais, resultaram em inflação crônica e em um forte endividamento externo.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-      const themeToggle = document.getElementById('themeToggle');
+      // Controle do Tema Claro / Escuro
       const htmlRoot = document.documentElement;
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
+      function toggleTheme() {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      }
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
         } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
         }
-      });
+      }
     </script>
-  </body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
+</body>
 </html>
