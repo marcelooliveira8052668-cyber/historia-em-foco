@@ -1,134 +1,403 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Revolução Russa de 1917 | História em Foco</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Revolução Russa de 1917 — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2000&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.6rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        content-visibility: auto;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.1rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">História Geral / O Século XX</div>
+      <h1>A Revolução Russa de 1917: O Nascimento de uma Nova Ordem</h1>
+    </header>
 
     <div class="container">
-        <h1>A Revolução Russa de 1917: O Nascimento de uma Nova Era 🚩🇷🇺</h1>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. A Rússia Czarista: Um Império em Crise</h2>
+        <p>No início do século XX, o Império Russo era governado pelo czar Nicolau II sob um regime autocrático e absolutista. A sociedade era profundamente desigual: baseada em uma economia agrária atrasada, com milhões de camponeses submetidos a condições miseráveis (muitos ainda atrelados a dívidas de servidão), e uma industrialização concentrada em poucos centros urbanos (como Moscou e São Petersburgo), onde o nascente operariado sofria com jornadas exaustivas e baixos salários.</p>
+        
+        <p>O descontentamento geral culminou no **Domingo Sangrento (1905)**, quando uma manifestação pacífica foi duramente reprimida pelas tropas do czar. Esse episódio gerou revoltas populares e levou à criação dos **Sovietes** (conselhos de trabalhadores, camponeses e soldados) e à promessa de reformas liberais limitadas (como a criação da Duma, o parlamento russo), que logo foram esvaziadas pelo autoritarismo czarista.</p>
 
-        <img src="https://i.pinimg.com/736x/87/1b/30/871b30b4274c3e34b46c6e7a6857189a.jpg" alt="Revolução Russa" />
-
-        <p>No início do século XX, a Rússia era um império agrário absolutista governado pelo Czar Nicolau II. A miséria extrema e a desastrosa participação na Primeira Guerra Mundial pavimentaram o caminho para a derrocada do czarismo.</p>
-
-        <h2>1. Mencheviques vs. Bolcheviques</h2>
-        <ul>
-            <li><strong>Mencheviques (minoria):</strong> Defendiam uma transição gradual e uma fase capitalista democrática antes de implementar o socialismo.</li>
-            <li><strong>Bolcheviques (maioria):</strong> Liderados por Vladimir Lenin, defendiam a revolução imediata e a implantação da "ditadura do proletariado" (lema: <em>"Paz, Pão e Terra"</em>).</li>
-        </ul>
-
-        <h2>2. As Etapas e a Criação da URSS</h2>
-        <p>A revolução ocorreu em duas fases principais em 1917: a <strong>Revolução de Fevereiro</strong> (queda do Czar e governo provisório) e a <strong>Revolução de Outubro</strong> (tomada do poder pelos bolcheviques sob os sovietes). Após uma sangrenta Guerra Civil, foi fundada em 1922 a <strong>União das Repúblicas Socialistas Soviéticas (URSS)</strong>, o primeiro Estado socialista do mundo.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Diferente dos mencheviques, os bolcheviques liderados por Lenin defendiam:</p>
-        <p>A) A manutenção do sistema monárquico absolutista.<br>B) A permanência incondicional da Rússia na Primeira Guerra.<br>C) A revolução imediata e a implantação de uma ditadura do proletariado.<br>D) A aliança política com as potências capitalistas.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: Os bolcheviques defendiam a tomada imediata do poder pelos trabalhadores e camponeses, rompendo com o capitalismo e com a ordem czarista de uma só vez.</em>
+        <h2>2. As Fases de 1917: Fevereiro e Outubro</h2>
+        <div class="highlight-box">
+          <p><strong>🔥 O Ano Revolucionário:</strong> 
+          <br>• <strong>A Revolução de Fevereiro (Queda do Czar):</strong> Impulsionada pela escassez extrema e pelas catástrofes humanitárias e militares da Rússia na Primeira Guerra Mundial, greves gerais e motins forçaram a abdicação de Nicolau II. Instalou-se um **Governo Provisório** burguês, que cometeu o erro fatal de manter o país na Primeira Guerra, perdendo apoio popular.
+          <br>• <strong>A Revolução de Outubro (A Tomada Bolchevique):</strong> Liderados por Vladimir Lênin e Leon Trotsky, com o lema *"Paz, Pão e Terra"*, os **bolcheviques** (socialistas radicais) articularam a insurreição armada que derrubou o Governo Provisório em outubro (calendário juliano) de 1917, entregando o poder aos Sovietes.</p>
         </div>
 
-        <p><strong>Questão 2</strong><br>O lema "Paz, Pão e Terra" respondia diretamente às seguintes demandas da população russa da época:</p>
-        <p>A) Retirada da guerra, fim da fome e reforma agrária.<br>B) Expansão militar, fortalecimento da aristocracia e industrialização externa.<br>C) Apoio às potências centrais e expropriação urbana.<br>D) Modernização tecnológica e centralização do poder religioso.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> A. <em>Explicação: A "Paz" significava sair da Primeira Guerra; o "Pão", combater a escassez e a fome; e a "Terra", realizar a reforma agrária prometida aos camponeses.</em>
+        <h2>3. Consequências e Desdobramentos</h2>
+        <p>A vitória bolchevique retirou a Rússia da Primeira Guerra Mundial (Tratado de Brest-Litovski), decretou a reforma agrária radical e iniciou a transição para o socialismo. Contudo, o novo regime enfrentou uma violenta **Guerra Civil (1918–1921)** entre o Exército Vermelho (bolchevique) e o Exército Branco (opositores monarquistas e capitalistas apoiados por potências estrangeiras).</p>
+        
+        <p>Para vencer a guerra civil, Lênin adotou o **Comunismo de Guerra** (centralização econômica drástica), substituído posteriormente pela **NEP (Nova Política Econômica)**, que permitiu o retorno controlado de práticas capitalistas para salvar a economia. Em 1922, consolidou-se a criação da **União das Repúblicas Socialistas Soviéticas (URSS)**.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">“A Revolução de Fevereiro de 1917 na Rússia provocou a queda do regime czarista e a formação de um Governo Provisório de caráter liberal-burguês. No entanto, a decisão desse novo governo de continuar a participação russa na Primeira Guerra Mundial acelerou a sua derrocada, abrindo espaço para a palavra de ordem bolchevique: 'Paz, Pão e Terra'.”</p>
+          <p>O sucesso da insurreição bolchevique em outubro de 1917 esteve diretamente relacionado à capacidade do partido de:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Aliar-se aos antigos latifundiários czaristas para preservar o sistema feudal de produção agrícola.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Atender aos anseios imediatos das massas populares esgotadas pela guerra, prometendo a saída imediata do conflito e reformas estruturais.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Financiar a expansão imperialista russa nos Bálcãs em conjunto com as potências da Tríplice Entente.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Restabelecer a monarquia parlamentarista sob a liderança direta de herdeiros da família Romanov.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Desmobilizar completamente os sovietes de trabalhadores para centralizar o poder nas mãos de corporações industriais privadas.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> Os bolcheviques ganharam enorme apoio popular ao captarem as principais demandas das massas trabalhadoras, camponesas e soldados: o fim da participação na Primeira Guerra ("Paz"), o abastecimento alimentar ("Pão") e a redistribuição de terras ("Terra").</p>
+          </div>
         </div>
 
-        <p><strong>Questão 3</strong><br>Sobre a organização política e econômica do Estado soviético após sua fundação, é correto afirmar que ele se baseava em:</p>
-        <p>A) Liberdade de mercado e concorrência plena.<br>B) Pluralismo político partidário.<br>C) Estatização dos meios de produção, planejamento centralizado da economia e governo de partido único.<br>D) Restauração dos títulos de nobreza.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: A URSS estruturou-se sob o socialismo científico, com forte controle estatal da economia (planejamento central) e centralização política sob o Partido Comunista.</em>
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“Após a vitória na Guerra Civil russa, o país encontrava-se em frangalhos econômicos. Diante do colapso da produção, Lênin propôs em 1921 a Nova Política Econômica (NEP), que combinava a manutenção do controle estatal sobre os grandes setores industriais, o crédito e o comércio exterior, com a permissão de formas de mercado e pequena propriedade privada no campo e no comércio interno.”</p>
+          <p>A adoção da NEP evidenciou que os líderes revolucionários russos:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Abandonaram definitivamente os princípios marxistas e restauraram integralmente o capitalismo liberal clássico.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Utilizaram medidas capitalistas transitórias e pragmáticas para salvar a economia socialista da ruína total e garantir a sobrevivência do regime.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Submeteram a economia nacional às diretrizes e empréstimos financeiros impostos pelo Fundo Monetário Internacional.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Extinguiram imediatamente todas as formas de controle estatal e planificação industrial na sociedade soviética.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Proibiram o comércio interno de alimentos, forçando a coletivização agrária forçada em 100% das fazendas de imediato.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> A NEP funcionou como um recuo tático temporário ("um passo atrás para dar dois passos à frente"). Como o Comunismo de Guerra levou a economia à bancarrota, o governo permitiu o comércio privado localizado (capitalismo de Estado controlado) para reabastecer as cidades e estabilizar o país.</p>
+          </div>
         </div>
+
+      </section>
     </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Revolução Russa de 1917 | História em Foco</title>
-    <style>
-        :root { --bg-color: #05050a; --card-bg: rgba(20, 20, 40, 0.7); --text-color: #e0e0e0; --accent-color: #00f3ff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .nav-bar { margin-bottom: 20px; }
-        .btn-voltar { color: var(--accent-color); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 1.8rem; }
-        h2 { color: var(--accent-color); margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
-        img { width: 100%; border-radius: 15px; margin-bottom: 20px; height: 350px; object-fit: cover; }
-        p { margin-bottom: 15px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .gabarito { background: rgba(0, 243, 255, 0.1); padding: 15px; border-left: 4px solid var(--accent-color); border-radius: 5px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class="nav-bar">
-        <a href="index.html" class="btn-voltar">← Voltar para a Home</a>
-    </div>
-
-    <div class="container">
-        <h1>A Revolução Russa de 1917: O Nascimento de uma Nova Era 🚩🇷🇺</h1>
-
-        <img src="https://i.pinimg.com/736x/87/1b/30/871b30b4274c3e34b46c6e7a6857189a.jpg" alt="Revolução Russa" />
-
-        <p>No início do século XX, a Rússia era um império agrário absolutista governado pelo Czar Nicolau II. A miséria extrema e a desastrosa participação na Primeira Guerra Mundial pavimentaram o caminho para a derrocada do czarismo.</p>
-
-        <h2>1. Mencheviques vs. Bolcheviques</h2>
-        <ul>
-            <li><strong>Mencheviques (minoria):</strong> Defendiam uma transição gradual e uma fase capitalista democrática antes de implementar o socialismo.</li>
-            <li><strong>Bolcheviques (maioria):</strong> Liderados por Vladimir Lenin, defendiam a revolução imediata e a implantação da "ditadura do proletariado" (lema: <em>"Paz, Pão e Terra"</em>).</li>
-        </ul>
-
-        <h2>2. As Etapas e a Criação da URSS</h2>
-        <p>A revolução ocorreu em duas fases principais em 1917: a <strong>Revolução de Fevereiro</strong> (queda do Czar e governo provisório) e a <strong>Revolução de Outubro</strong> (tomada do poder pelos bolcheviques sob os sovietes). Após uma sangrenta Guerra Civil, foi fundada em 1922 a <strong>União das Repúblicas Socialistas Soviéticas (URSS)</strong>, o primeiro Estado socialista do mundo.</p>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
-
-        <h2>Questões Estilo ENEM 📝</h2>
-
-        <p><strong>Questão 1</strong><br>Diferente dos mencheviques, os bolcheviques liderados por Lenin defendiam:</p>
-        <p>A) A manutenção do sistema monárquico absolutista.<br>B) A permanência incondicional da Rússia na Primeira Guerra.<br>C) A revolução imediata e a implantação de uma ditadura do proletariado.<br>D) A aliança política com as potências capitalistas.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: Os bolcheviques defendiam a tomada imediata do poder pelos trabalhadores e camponeses, rompendo com o capitalismo e com a ordem czarista de uma só vez.</em>
-        </div>
-
-        <p><strong>Questão 2</strong><br>O lema "Paz, Pão e Terra" respondia diretamente às seguintes demandas da população russa da época:</p>
-        <p>A) Retirada da guerra, fim da fome e reforma agrária.<br>B) Expansão militar, fortalecimento da aristocracia e industrialização externa.<br>C) Apoio às potências centrais e expropriação urbana.<br>D) Modernização tecnológica e centralização do poder religioso.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> A. <em>Explicação: A "Paz" significava sair da Primeira Guerra; o "Pão", combater a escassez e a fome; e a "Terra", realizar a reforma agrária prometida aos camponeses.</em>
-        </div>
-
-        <p><strong>Questão 3</strong><br>Sobre a organização política e econômica do Estado soviético após sua fundação, é correto afirmar que ele se baseava em:</p>
-        <p>A) Liberdade de mercado e concorrência plena.<br>B) Pluralismo político partidário.<br>C) Estatização dos meios de produção, planejamento centralizado da economia e governo de partido único.<br>D) Restauração dos títulos de nobreza.</p>
-        <div class="gabarito">
-            <strong>Gabarito:</strong> C. <em>Explicação: A URSS estruturou-se sob o socialismo científico, com forte controle estatal da economia (planejamento central) e centralização política sob o Partido Comunista.</em>
-        </div>
-    </div>
-</body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
 </html>
