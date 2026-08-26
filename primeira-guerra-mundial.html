@@ -1,484 +1,844 @@
-<<<<<<< HEAD
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Primeira Guerra Mundial | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Primeira Guerra Mundial: A Grande Guerra (1914–1918) — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2rem;
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .nav-controls {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
-        content: "";
+      .btn-action {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-action:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 20px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        content: "";
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
-        padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
-      }
-
-      .article-card {
-        background: var(--card-bg);
-        padding: 2.5rem;
+      .header-img {
+        max-width: 100%;
+        width: 500px;
+        height: auto;
         border-radius: 12px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
+        margin-top: 15px;
       }
 
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
         padding: 1rem 1.2rem;
         border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        background: transparent;
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 4rem;
+        background: var(--card-bg);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .nav-controls { position: static; margin-bottom: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="nav-controls">
+        <a href="index.html" class="btn-action"><span>⬅️</span> Página Principal</a>
+        <button class="btn-action" id="themeUpgrade" onclick="toggleTheme()"><span>☀️ / 🌙</span> Tema</button>
       </div>
-      <h1>Século XX</h1>
-      <p>Período: 1914 - 1918</p>
-    </header>
-
-    <div class="container">
-      <div class="article-card">
-        <h2>A Primeira Guerra Mundial</h2>
-        
-        <p>A **Primeira Guerra Mundial** (1914–1918) representou um marco trágico de ruptura na história contemporânea, caracterizando-se como o primeiro conflito de proporções planetárias e industriais da humanidade. O terreno para a guerra foi fertilizado por décadas de tensões imperialistas acirradas decorrentes da Segunda Revolução Industrial, disputas por mercados e colônias na África e na Ásia, pelo nacionalismo exacerbado (como o pangermanismo e o paneslavismo) e pela intensa **"Paz Armada"**, período em que as grandes potências europeias acumularam arsenais bélicos massivos e firmaram alianças militares defensivas e ofensivas rígidas, dividindo o continente entre a **Tríplice Entente** (França, Reino Unido e Rússia) e a **Tríplice Aliança** (Alemanha, Áustria-Hungria e Itália — embora esta última tenha mudado de lado posteriormente).</p>
-        
-        <p>O estopim para o irrompimento das hostilidades ocorreu em 28 de junho de 1914, com o **Atentado de Sarajevo**, no qual o arquiduque Francisco Ferdinando, herdeiro do trono austro-húngaro, foi assassinado por um nacionalista sérvio. Esse evento ativou o sistema de alianças em cadeia, arrastando as nações para a guerra. Após uma fase inicial de movimentação rápida, o conflito estagnou na famosa **Guerra de Trincheiras** (1915–1917), marcada pelo uso letal de novas tecnologias bélicas mortíferas, como metralhadoras, tanques, lança-chamas, aviões de combate e armas químicas (gases venenosos). Em 1917, dois fatos alteraram os rumos da guerra: a saída da Rússia czarista, abalada pela Revolução Russa, e a entrada decisiva dos Estados Unidos ao lado da Entente, fornecendo fôlego financeiro e militar insuperável. O colapso das Potências Centrais culminou no armistício de novembro de 1918.</p>
-
-        <p>As consequências geopolíticas foram sísmicas: o desmantelamento de quatro grandes impérios seculares (Alemão, Austro-Húngaro, Otomano e Russo), a reconfiguração territorial do mapa mundial, a criação da Liga das Nações e a imposição do punitivo *Tratado de Versalhes* à Alemanha, cujo revanchismo econômico e social plantou as sementes para a eclosão da Segunda Guerra Mundial duas décadas mais tarde.</p>
-
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O período que antecedeu a Primeira Guerra Mundial ficou conhecido como "Paz Armada", caracterizado pela corrida armamentista e pela formação de blocos militares antagônicos na Europa. Sobre as causas estruturais que deflagraram esse conflito, é correto afirmar que:</p>
-        <ul>
-          <li>A) decorreu exclusivamente de desentendimentos religiosos entre o Vaticano e os governos seculares da Ásia central.</li>
-          <li>B) resultou das disputas imperialistas por mercados consumidores, matérias-primas e colônias na África e na Ásia, somadas ao nacionalismo agressivo e às rivalidades geopolíticas europeias.</li>
-          <li>C) foi motivado pela tentativa conjunta das potências europeias de conter o expansionismo militar do Império Japonês sobre o Mar Mediterrâneo.</li>
-          <li>D) originou-se do acordo pacífico de desarmamento geral assinado por todas as potências industriais no Congresso de Viena.</li>
-          <li>E) decorreu da crise agrária mundial provocada pela escassez de trigo na América do Norte.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A Grande Guerra teve raízes profundas nas disputas imperialistas geradas pelo capitalismo industrial avançado, na corrida colonial e na exaltação de nacionalismos ferrenhos, que alimentaram a desconfiança mútua e a corrida armamentista entre as potências europeias.</p>
-        </div>
-
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Durante a maior parte da Primeira Guerra Mundial, o conflito terrestre na frente ocidental caracterizou-se pela estagnação tática das trincheiras, onde os soldados enfrentavam lama, doenças, artilharia pesada e gases tóxicos, sem conseguir avançar significativamente sobre as linhas inimigas."</em> Essa modalidade de combate prolongado foi diretamente influenciada por:</p>
-        <ul>
-          <li>A) o avanço tecnológico industrial aplicado à defesa militar, que tornou o poder de fogo das armas (metralhadoras e artilharia) muito superior à capacidade de mobilidade e avanço da infantaria.</li>
-          <li>B) a ausência total de armamento moderno, o que obrigava os exércitos a combaterem exclusivamente com espadas e lanças medievais.</li>
-          <li>C) a decisão unânime dos generais de evitar qualquer tipo de confronto direto para preservar integralmente a vida das tropas.</li>
-          <li>D) a proibição internacional do uso de ferrovias e automóveis nos teatros de operações militares europeus.</li>
-          <li>E) o isolamento geográfico absoluto dos campos de batalha, situados em ilhas desérticas do Oceano Pacífico.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> A guerra de trincheiras reflete o impacto da Segunda Revolução Industrial no campo de batalha: as inovações defensivas, como metralhadoras e arames farpados, superaram em eficiência tática as táticas tradicionais de avanço a pé, gerando o imobilismo e o alto índice de mortalidade.</p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlRoot = document.documentElement;
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
-        } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
-        }
-      });
-    </script>
-  </body>
-=======
-<!doctype html>
+      <div class="header-badge">História Contemporânea / Século XX</div>
+      <h1>A Primeira Guerra Mundial: A Grande Guerra (1914–1918)</h1>
+      <img src="<!DOCTYPE html>
 <html lang="pt-br" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Primeira Guerra Mundial | Acervo de História</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Primeira Guerra Mundial: A Grande Guerra (1914–1918) — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
     <style>
       :root[data-theme="dark"] {
-        --bg-color: #0b0f19;
-        --card-bg: #131c2e;
-        --text-color: #e2e8f0;
-        --text-muted: #94a3b8;
-        --primary: #3b82f6;
-        --primary-hover: #2563eb;
-        --accent-pink: #ec4899;
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
         --border-color: #1e293b;
-        --input-bg: #090d16;
-        --header-bg: #131c2e;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
       }
 
       :root[data-theme="light"] {
         --bg-color: #f8fafc;
         --card-bg: #ffffff;
-        --text-color: #1e293b;
+        --text-color: #0f172a;
         --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --accent-pink: #db2777;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
         --border-color: #e2e8f0;
-        --input-bg: #f1f5f9;
-        --header-bg: #ffffff;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
         margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        line-height: 1.7;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* Cabeçalho de Aula */
       header {
-        background: var(--header-bg);
-        padding: 2rem;
+        background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
         text-align: center;
         border-bottom: 1px solid var(--border-color);
         position: relative;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
       }
 
-      .top-controls {
+      .nav-controls {
         position: absolute;
-        top: 20px;
-        right: 30px;
+        top: 24px;
+        right: 32px;
         display: flex;
-        gap: 10px;
+        gap: 12px;
       }
 
-      .btn-theme, .btn-back {
-        content: "";
+      .btn-action {
         color: var(--text-color);
-        background: var(--input-bg);
+        background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 8px 16px;
-        border-radius: 6px;
+        border-radius: 8px;
         font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         text-decoration: none;
         transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
       }
 
-      .btn-theme:hover, .btn-back:hover {
+      .btn-action:hover {
         background: var(--primary);
-        color: white;
+        color: #ffffff;
         border-color: var(--primary);
       }
 
-      header h1 {
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
         color: var(--primary);
-        font-size: 1.8rem;
-        margin: 0 0 8px 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 20px 0;
         font-weight: 700;
       }
 
-      header p {
-        font-size: 0.95rem;
-        content: "";
-        color: var(--text-muted);
-        margin: 0;
-      }
-
-      .container {
-        max-width: 850px;
-        margin: 2.5rem auto;
-        padding: 0 1.5rem;
-        width: 100%;
-        box-sizing: border-box;
-        flex: 1;
-      }
-
-      .article-card {
-        background: var(--card-bg);
-        padding: 2.5rem;
+      .header-img {
+        max-width: 100%;
+        width: 500px;
+        height: auto;
         border-radius: 12px;
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow);
+        margin-top: 15px;
       }
 
-      h2, h3 {
-        color: var(--accent-pink);
-        font-weight: 600;
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
       }
 
       h2 {
-        font-size: 1.4rem;
-        border-bottom: 2px solid var(--border-color);
-        padding-bottom: 0.5rem;
-        margin-top: 0;
-      }
-
-      h3 {
-        font-size: 1.15rem;
-        margin-top: 2rem;
-      }
-
-      p, li {
-        line-height: 1.7;
+        font-family: "Playfair Display", serif;
         color: var(--text-color);
-        font-size: 1rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
       }
 
-      li {
-        margin-bottom: 8px;
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
 
-      .gabarito {
-        background: var(--input-bg);
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
         padding: 1rem 1.2rem;
         border-radius: 8px;
-        border-left: 4px solid var(--primary);
-        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        background: transparent;
+        color: var(--text-color);
+        margin: 0;
         font-size: 0.95rem;
       }
 
-      footer {
-        background: var(--header-bg);
-        border-top: 1px solid var(--border-color);
-        padding: 1.5rem;
-        text-align: center;
-        margin-top: auto;
-        box-sizing: border-box;
-        box-shadow: var(--shadow);
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.2s;
       }
 
-      footer p {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        margin: 0;
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 4rem;
+        background: var(--card-bg);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .nav-controls { position: static; margin-bottom: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .content-section { padding: 2rem; }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <header>
-      <div class="top-controls">
-        <a href="index.html" class="btn-back">← Voltar ao Acervo</a>
-        <button class="btn-theme" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="nav-controls">
+        <a href="index.html" class="btn-action"><span>⬅️</span> Página Principal</a>
+        <button class="btn-action" id="themeUpgrade" onclick="toggleTheme()"><span>☀️ / 🌙</span> Tema</button>
       </div>
-      <h1>Século XX</h1>
-      <p>Período: 1914 - 1918</p>
+      <div class="header-badge">História Contemporânea / Século XX</div>
+      <h1>A Primeira Guerra Mundial: A Grande Guerra (1914–1918)</h1>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/WW1_Title_Collage.jpg/640px-WW1_Title_Collage.jpg" alt="A Primeira Guerra Mundial" class="header-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/2/23/Australian_troops_walking_through_the_mud_at_Broodseinde_October_1917.jpg'">
     </header>
 
     <div class="container">
-      <div class="article-card">
-        <h2>A Primeira Guerra Mundial</h2>
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. Antecedentes e a "Paz Armada"</h2>
+        <p>A Primeira Guerra Mundial (1914–1918) foi o resultado direto das profundas tensões acumuladas entre as potências imperialistas europeias durante o final do século XIX e início do século XX. O período conhecido como **Paz Armada** foi marcado por uma corrida armamentista sem precedentes e pela formação de alianças militares secretas e defensivas: a **Tríplice Entente** (formada inicialmente por Reino Unido, França e Rússia) e a **Tríplice Aliança** (composta por Alemanha, Áustria-Hungria e Itália — embora esta última tenha mudado de lado no decorrer do conflito).</p>
         
-        <p>A **Primeira Guerra Mundial** (1914–1918) representou um marco trágico de ruptura na história contemporânea, caracterizando-se como o primeiro conflito de proporções planetárias e industriais da humanidade. O terreno para a guerra foi fertilizado por décadas de tensões imperialistas acirradas decorrentes da Segunda Revolução Industrial, disputas por mercados e colônias na África e na Ásia, pelo nacionalismo exacerbado (como o pangermanismo e o paneslavismo) e pela intensa **"Paz Armada"**, período em que as grandes potências europeias acumularam arsenais bélicos massivos e firmaram alianças militares defensivas e ofensivas rígidas, dividindo o continente entre a **Tríplice Entente** (França, Reino Unido e Rússia) e a **Tríplice Aliança** (Alemanha, Áustria-Hungria e Itália — embora esta última tenha mudado de lado posteriormente).</p>
-        
-        <p>O estopim para o irrompimento das hostilidades ocorreu em 28 de junho de 1914, com o **Atentado de Sarajevo**, no qual o arquiduque Francisco Ferdinando, herdeiro do trono austro-húngaro, foi assassinado por um nacionalista sérvio. Esse evento ativou o sistema de alianças em cadeia, arrastando as nações para a guerra. Após uma fase inicial de movimentação rápida, o conflito estagnou na famosa **Guerra de Trincheiras** (1915–1917), marcada pelo uso letal de novas tecnologias bélicas mortíferas, como metralhadoras, tanques, lança-chamas, aviões de combate e armas químicas (gases venenosos). Em 1917, dois fatos alteraram os rumos da guerra: a saída da Rússia czarista, abalada pela Revolução Russa, e a entrada decisiva dos Estados Unidos ao lado da Entente, fornecendo fôlego financeiro e militar insuperável. O colapso das Potências Centrais culminou no armistício de novembro de 1918.</p>
+        <p>Os principais rastilhos de pólvora que alimentavam o clima de hostilidade incluíam o imperialismo neocolonialista na África e na Ásia, o revanchismo francês (decorrente da perda da Alsácia-Lorena para a Alemanha na Guerra Franco-Prussiana) e o nacionalismo exacerbado nos Bálcãs, conhecido como o "Barril de Pólvora da Europa".</p>
 
-        <p>As consequências geopolíticas foram sísmicas: o desmantelamento de quatro grandes impérios seculares (Alemão, Austro-Húngaro, Otomano e Russo), a reconfiguração territorial do mapa mundial, a criação da Liga das Nações e a imposição do punitivo *Tratado de Versalhes* à Alemanha, cujo revanchismo econômico e social plantou as sementes para a eclosão da Segunda Guerra Mundial duas décadas mais tarde.</p>
+        <h2>2. O Estopim e as Fases do Conflito</h2>
+        <p>O estopim da guerra ocorreu em 28 de junho de 1914, com o **Atentado de Sarajevo**, no qual o arquiduque Francisco Ferdinando, herdeiro do trono austro-húngaro, foi assassinado por um nacionalista sérvio. Esse evento desencadeou o sistema de alianças, arrastando as grandes potências para um conflito em escala global.</p>
 
-        <h3>Exercícios Estilo ENEM</h3>
-        
-        <p><strong>Questão 1:</strong> (ENEM - Adaptado) O período que antecedeu a Primeira Guerra Mundial ficou conhecido como "Paz Armada", caracterizado pela corrida armamentista e pela formação de blocos militares antagônicos na Europa. Sobre as causas estruturais que deflagraram esse conflito, é correto afirmar que:</p>
-        <ul>
-          <li>A) decorreu exclusivamente de desentendimentos religiosos entre o Vaticano e os governos seculares da Ásia central.</li>
-          <li>B) resultou das disputas imperialistas por mercados consumidores, matérias-primas e colônias na África e na Ásia, somadas ao nacionalismo agressivo e às rivalidades geopolíticas europeias.</li>
-          <li>C) foi motivado pela tentativa conjunta das potências europeias de conter o expansionismo militar do Império Japonês sobre o Mar Mediterrâneo.</li>
-          <li>D) originou-se do acordo pacífico de desarmamento geral assinado por todas as potências industriais no Congresso de Viena.</li>
-          <li>E) decorreu da crise agrária mundial provocada pela escassez de trigo na América do Norte.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> A Grande Guerra teve raízes profundas nas disputas imperialistas geradas pelo capitalismo industrial avançado, na corrida colonial e na exaltação de nacionalismos ferrenhos, que alimentaram a desconfiança mútua e a corrida armamentista entre as potências europeias.</p>
+        <div class="highlight-box">
+          <p><strong>⚔️ As Fases da Guerra:</strong> O conflito desenrolou-se essencialmente em duas grandes etapas: a <strong>Guerra de Movimento</strong> (caracterizada pelo avanço rápido das tropas iniciais) e a longa <strong>Guerra de Trincheiras</strong> (1915–1917), onde frentes estáticas enlameadas usaram novas tecnologias de extermínio em massa, como metralhadoras, tanques, aviões, lança-chamas e armas químicas (gases tóxicos).</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"Durante a maior parte da Primeira Guerra Mundial, o conflito terrestre na frente ocidental caracterizou-se pela estagnação tática das trincheiras, onde os soldados enfrentavam lama, doenças, artilharia pesada e gases tóxicos, sem conseguir avançar significativamente sobre as linhas inimigas."</em> Essa modalidade de combate prolongado foi diretamente influenciada por:</p>
-        <ul>
-          <li>A) o avanço tecnológico industrial aplicado à defesa militar, que tornou o poder de fogo das armas (metralhadoras e artilharia) muito superior à capacidade de mobilidade e avanço da infantaria.</li>
-          <li>B) a ausência total de armamento moderno, o que obrigava os exércitos a combaterem exclusivamente com espadas e lanças medievais.</li>
-          <li>C) a decisão unânime dos generais de evitar qualquer tipo de confronto direto para preservar integralmente a vida das tropas.</li>
-          <li>D) a proibição internacional do uso de ferrovias e automóveis nos teatros de operações militares europeus.</li>
-          <li>E) o isolamento geográfico absoluto dos campos de batalha, situados em ilhas desérticas do Oceano Pacífico.</li>
-        </ul>
-        <div class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa A.</strong> A guerra de trincheiras reflete o impacto da Segunda Revolução Industrial no campo de batalha: as inovações defensivas, como metralhadoras e arames farpados, superaram em eficiência tática as táticas tradicionais de avanço a pé, gerando o imobilismo e o alto índice de mortalidade.</p>
+        <h2>3. Desfecho e o Tratado de Versalhes</h2>
+        <p>Em 1917, exausta economicamente e enfrentando revoluções internas, a Rússia retirou-se do conflito através do Tratado de Brest-Litovsk. No mesmo ano, a entrada dos **Estados Unidos** ao lado da Entente injetou recursos vitais, desequilibrando a balança a favor dos aliados e levando à rendição das potências centrais em novembro de 1918.</p>
+        <p>O pós-guerra foi formalizado pelo **Tratado de Versalhes (1919)**, que impôs duras punições econômicas e territoriais à Alemanha, gerando um sentimento de revanchismo que, décadas mais tarde, criaria o terreno fértil para a ascensão do nazifascismo e a Segunda Guerra Mundial.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">O período que antecedeu a Primeira Guerra Mundial ficou conhecido como "Paz Armada". Essa expressão sintetiza a contradição fundamental da política internacional europeia nas décadas anteriores a 1914, que se caracterizava por:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Ausência total de conflitos coloniais na África e na Ásia devido à mediação pacífica da Liga das Nações.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Acordos de desarmamento geral assinados entre Alemanha, França e Inglaterra para garantir a estabilidade econômica global.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Estabilidade diplomática absoluta combinada com o fortalecimento de governos democráticos em todo o continente europeu.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Manutenção de uma aparente paz diplomática na Europa ocidental, sustentada por intensa corrida armamentista e alianças militares defensivas.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Hegemonia pacífica dos Estados Unidos sobre o comércio europeu, impedindo qualquer disputa imperialista.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra D</strong>
+            <p><strong>Resolução:</strong> A "Paz Armada" descreve o período em que, embora não houvesse uma guerra aberta direta entre as grandes potências europeias, os países investiram maciçamente na produção de armamentos e firmaram alianças militares estratégicas (como a Tríplice Entente e a Tríplice Aliança), antecipando o conflito inevitável.</p>
+          </div>
         </div>
-      </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O Tratado de Versalhes, assinado em 1919, impôs severas restrições e pesadas reparações financeiras à Alemanha derrotada na Primeira Guerra Mundial. Ao responsabilizar unilateralmente os alemães pelo conflito e redesenhar o mapa geopolítico europeu, o tratado acabou gerando um profundo ressentimento nacionalista no país.”</p>
+          <p>Considerando o contexto histórico subsequente, pode-se afirmar que o Tratado de Versalhes funcionou como um dos fatores determinantes para:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A consolidação de democracias liberais fortes e estáveis em toda a Europa Central durante a década de 1930.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O surgimento do revanchismo alemão e a criação de condições favoráveis para a ascensão de regimes totalitários, como o nazismo.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A imediata unificação econômica e militar entre Alemanha e França sob a tutela da União Soviética.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O fim definitivo de todas as disputas territoriais e imperialistas no continente asiático e africano.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A expansão pacífica dos impérios centrais e a dissolução definitiva dos Estados Unidos da política internacional.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> As punições extremas e a humilhação impuestas pelo Tratado de Versalhes à Alemanha geraram uma crise econômica drástica e um forte sentimento de humilhação nacional, elementos que foram amplamente explorados por Adolf Hitler e o Partido Nazista para conquistar o poder e pavimentar o caminho para a Segunda Guerra Mundial.</p>
+          </div>
+        </div>
+
+      </section>
     </div>
 
     <footer>
-      <p>&copy; 2026 Acervo de História. Todos os direitos reservados.</p>
+      <p>© 2026 Portal Acadêmico — Professor Marcelo da Silva Oliveira. <br><br>
+        <a href="index.html" class="btn-action" style="display: inline-flex; margin: 0 auto;">⬅️ Voltar para a Página Principal</a>
+      </p>
     </footer>
 
     <script>
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlRoot = document.documentElement;
+      // Controle do Tema Claro / Escuro
+      function toggleTheme() {
+        const htmlRoot = document.documentElement;
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      }
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = htmlRoot.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-          htmlRoot.setAttribute('data-theme', 'light');
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
         } else {
-          htmlRoot.setAttribute('data-theme', 'dark');
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
         }
-      });
+      }
     </script>
-  </body>
->>>>>>> 2f52de796f2fc552ecaecc9c51dd46d098a449cf
+</body>
+</html>
+    </header>
+    <div class="container">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. Antecedentes e a "Paz Armada"</h2>
+        <p>A Primeira Guerra Mundial (1914–1918) foi o resultado direto das profundas tensões acumuladas entre as potências imperialistas europeias durante o final do século XIX e início do século XX. O período conhecido como **Paz Armada** foi marcado por uma corrida armamentista sem precedentes e pela formação de alianças militares secretas e defensivas: a **Tríplice Entente** (formada inicialmente por Reino Unido, França e Rússia) e a **Tríplice Aliança** (composta por Alemanha, Áustria-Hungria e Itália — embora esta última tenha mudado de lado no decorrer do conflito).</p>
+        
+        <p>Os principais rastilhos de pólvora que alimentavam o clima de hostilidade incluíam o imperialismo neocolonialista na África e na Ásia, o revanchismo francês (decorrente da perda da Alsácia-Lorena para a Alemanha na Guerra Franco-Prussiana) e o nacionalismo exacerbado nos Bálcãs, conhecido como o "Barril de Pólvora da Europa".</p>
+
+        <h2>2. O Estopim e as Fases do Conflito</h2>
+        <p>O estopim da guerra ocorreu em 28 de junho de 1914, com o **Atentado de Sarajevo**, no qual o arquiduque Francisco Ferdinando, herdeiro do trono austro-húngaro, foi assassinado por um nacionalista sérvio. Esse evento desencadeou o sistema de alianças, arrastando as grandes potências para um conflito em escala global.</p>
+
+        <div class="highlight-box">
+          <p><strong>⚔️ As Fases da Guerra:</strong> O conflito desenrolou-se essencialmente em duas grandes etapas: a <strong>Guerra de Movimento</strong> (caracterizada pelo avanço rápido das tropas iniciais) e a longa <strong>Guerra de Trincheiras</strong> (1915–1917), onde frentes estáticas enlameadas usaram novas tecnologias de extermínio em massa, como metralhadoras, tanques, aviões, lança-chamas e armas químicas (gases tóxicos).</p>
+        </div>
+
+        <h2>3. Desfecho e o Tratado de Versalhes</h2>
+        <p>Em 1917, exausta economicamente e enfrentando revoluções internas, a Rússia retirou-se do conflito através do Tratado de Brest-Litovsk. No mesmo ano, a entrada dos **Estados Unidos** ao lado da Entente injetou recursos vitais, desequilibrando a balança a favor dos aliados e levando à rendição das potências centrais em novembro de 1918.</p>
+        <p>O pós-guerra foi formalizado pelo **Tratado de Versalhes (1919)**, que impôs duras punições econômicas e territoriais à Alemanha, gerando um sentimento de revanchismo que, décadas mais tarde, criaria o terreno fértil para a ascensão do nazifascismo e a Segunda Guerra Mundial.</p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">O período que antecedeu a Primeira Guerra Mundial ficou conhecido como "Paz Armada". Essa expressão sintetiza a contradição fundamental da política internacional europeia nas décadas anteriores a 1914, que se caracterizava por:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Ausência total de conflitos coloniais na África e na Ásia devido à mediação pacífica da Liga das Nações.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Acordos de desarmamento geral assinados entre Alemanha, França e Inglaterra para garantir a estabilidade econômica global.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Estabilidade diplomática absoluta combinada com o fortalecimento de governos democráticos em todo o continente europeu.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Manutenção de uma aparente paz diplomática na Europa ocidental, sustentada por intensa corrida armamentista e alianças militares defensivas.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Hegemonia pacífica dos Estados Unidos sobre o comércio europeu, impedindo qualquer disputa imperialista.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra D</strong>
+            <p><strong>Resolução:</strong> A "Paz Armada" descreve o período em que, embora não houvesse uma guerra aberta direta entre as grandes potências europeias, os países investiram maciçamente na produção de armamentos e firmaram alianças militares estratégicas (como a Tríplice Entente e a Tríplice Aliança), antecipando o conflito inevitável.</p>
+          </div>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“O Tratado de Versalhes, assinado em 1919, impôs severas restrições e pesadas reparações financeiras à Alemanha derrotada na Primeira Guerra Mundial. Ao responsabilizar unilateralmente os alemães pelo conflito e redesenhar o mapa geopolítico europeu, o tratado acabou gerando um profundo ressentimento nacionalista no país.”</p>
+          <p>Considerando o contexto histórico subsequente, pode-se afirmar que o Tratado de Versalhes funcionou como um dos fatores determinantes para:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> A consolidação de democracias liberais fortes e estáveis em toda a Europa Central durante a década de 1930.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O surgimento do revanchismo alemão e a criação de condições favoráveis para a ascensão de regimes totalitários, como o nazismo.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A imediata unificação econômica e militar entre Alemanha e França sob a tutela da União Soviética.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O fim definitivo de todas as disputas territoriais e imperialistas no continente asiático e africano.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A expansão pacífica dos impérios centrais e a dissolução definitiva dos Estados Unidos da política internacional.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> As punições extremas e a humilhação impuestas pelo Tratado de Versalhes à Alemanha geraram uma crise econômica drástica e um forte sentimento de humilhação nacional, elementos que foram amplamente explorados por Adolf Hitler e o Partido Nazista para conquistar o poder e pavimentar o caminho para a Segunda Guerra Mundial.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <footer>
+      <p>© 2026 Portal Acadêmico — Professor Marcelo da Silva Oliveira. <br><br>
+        <a href="index.html" class="btn-action" style="display: inline-flex; margin: 0 auto;">⬅️ Voltar para a Página Principal</a>
+      </p>
+    </footer>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      function toggleTheme() {
+        const htmlRoot = document.documentElement;
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      }
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
+</body>
 </html>
