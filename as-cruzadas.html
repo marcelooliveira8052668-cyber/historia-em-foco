@@ -55,7 +55,7 @@
 
       /* Cabeçalho de Aula */
       header {
-         background-size: cover;
+        background-size: cover;
         background-position: center;
         padding: 5rem 1rem 4rem 1rem;
         text-align: center;
@@ -63,10 +63,15 @@
         position: relative;
       }
 
-      .btn-theme {
+      .nav-controls {
         position: absolute;
         top: 24px;
         right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-action {
         color: var(--text-color);
         background: var(--card-bg);
         border: 1px solid var(--border-color);
@@ -78,10 +83,11 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        text-decoration: none;
         transition: all 0.2s ease;
       }
 
-      .btn-theme:hover {
+      .btn-action:hover {
         background: var(--primary);
         color: #ffffff;
         border-color: var(--primary);
@@ -105,8 +111,18 @@
         font-family: "Playfair Display", serif;
         color: #ffffff;
         font-size: 2.8rem;
-        margin: 0 0 12px 0;
+        margin: 0 0 20px 0;
         font-weight: 700;
+      }
+
+      .header-img {
+        max-width: 100%;
+        width: 500px;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-top: 15px;
       }
 
       /* Container do Conteúdo Didático */
@@ -273,6 +289,14 @@
         background: var(--primary-hover);
       }
 
+      footer {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 4rem;
+        background: var(--card-bg);
+      }
+
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
@@ -280,7 +304,7 @@
 
       @media (max-width: 768px) {
         header h1 { font-size: 2.2rem; }
-        .btn-theme { position: static; margin: 0 auto 1.5rem auto; width: fit-content; }
+        .nav-controls { position: static; margin-bottom: 1.5rem; justify-content: center; flex-wrap: wrap; }
         .content-section { padding: 2rem; }
       }
     </style>
@@ -288,10 +312,13 @@
 <body>
 
     <header>
-      <button class="btn-theme" id="themeToggle"><span>☀️ / 🌙</span> Tema</button>
+      <div class="nav-controls">
+        <a href="index.html" class="btn-action"><span>⬅️</span> Página Principal</a>
+        <button class="btn-action" id="themeToggle"><span>☀️ / 🌙</span> Tema</button>
+      </div>
       <div class="header-badge">Idade Média Ocidental e Oriental</div>
       <h1>As Cruzadas: Choque de Mundos e Transformações</h1>
-        <img src="https://th.bing.com/th/id/R.7b8e86eef72165f070c375274a42dc1d?rik=4tK4pAY0yWEo8Q&riu=http%3a%2f%2f2.bp.blogspot.com%2f-w2LyU542-iI%2fVqQQezNEhPI%2fAAAAAAAArGY%2fFw_SdjVfJeo%2fs1600%2fCruzadas.jpg&ehk=RSogVh1%2bzIvgWA%2foCJHNgfa1eugfwj6pK%2fvmUHCmQ7Y%3d&risl=&pid=ImgRaw&r=0" width="500"
+      <img src="https://th.bing.com/th/id/R.7b8e86eef72165f070c375274a42dc1d?rik=4tK4pAY0yWEo8Q&riu=http%3a%2f%2f2.bp.blogspot.com%2f-w2LyU542-iI%2fVqQQezNEhPI%2fAAAAAAAArGY%2fFw_SdjVfJeo%2fs1600%2fCruzadas.jpg&ehk=RSogVh1%2bzIvgWA%2foCJHNgfa1eugfwj6pK%2fvmUHCmQ7Y%3d&risl=&pid=ImgRaw&r=0" alt="Ilustração das Cruzadas" class="header-img">
     </header>
 
     <div class="container">
@@ -365,6 +392,12 @@
 
       </section>
     </div>
+
+    <footer>
+      <p>© 2026 Portal Acadêmico — Professor Marcelo da Silva Oliveira. <br><br>
+        <a href="index.html" class="btn-action" style="display: inline-flex; margin: 0 auto;">⬅️ Voltar para a Página Principal</a>
+      </p>
+    </footer>
 
     <script>
       // Controle do Tema Claro / Escuro
