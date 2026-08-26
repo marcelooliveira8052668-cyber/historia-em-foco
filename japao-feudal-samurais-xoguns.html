@@ -113,6 +113,14 @@
         box-shadow: var(--shadow);
       }
 
+      .article-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+      }
+
       h2, h3 {
         color: var(--accent-pink);
         font-weight: 600;
@@ -144,7 +152,7 @@
         margin-bottom: 8px;
       }
 
-      /* Estilo dos Botões e Gabarito Oculto */
+      /* Estilização dos Botões de Gabarito */
       .btn-gabarito {
         background: var(--primary);
         color: white;
@@ -163,7 +171,7 @@
       }
 
       .gabarito {
-        display: none; /* Mantém oculto por padrão */
+        display: none;
         background: var(--input-bg);
         padding: 1.2rem;
         border-radius: 8px;
@@ -172,7 +180,6 @@
         font-size: 0.95rem;
       }
 
-      /* Classe ativada via JavaScript para exibir o gabarito */
       .gabarito.show {
         display: block;
         animation: fadeIn 0.3s ease;
@@ -213,7 +220,7 @@
     <div class="container">
       <div class="article-card">
         <h2>O Japão Feudal: Samurais, Xoguns e o Código Bushido</h2>
-        <img src="https://th.bing.com/th/id/R.13cc7810640f00767fa69b7ac892162b?rik=i93b0ZPrrcfpuA&riu=http%3a%2f%2fhanasu.com.br%2fwp-content%2fuploads%2f2024%2f03%2fJapao-medieval.jpg&ehk=r4xzOgQuWV4EVJTPBvgxBFYK7TzseLGDZ6CUlO5Uc%2fk%3d&risl=&pid=ImgRaw&r=0" width="500" alt="Japão Medieval" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+        <img src="https://th.bing.com/th/id/R.13cc7810640f00767fa69b7ac892162b?rik=i93b0ZPrrcfpuA&riu=http%3a%2f%2fhanasu.com.br%2fwp-content%2fuploads%2f2024%2f03%2fJapao-medieval.jpg&ehk=r4xzOgQuWV4EVJTPBvgxBFYK7TzseLGDZ6CUlO5Uc%2fk%3d&risl=&pid=ImgRaw&r=0" alt="Japão Medieval e Feudal" class="article-image">
         
         <p>A era feudal do Japão, iniciada com o estabelecimento do Xogunato Kamakura por Minamoto no Yoritomo no final do século XII e consolidada ao longo dos séculos seguintes, representou uma profunda reestruturação política e militar da sociedade nipônica. Embora a figura do Imperador (Tenno) mantivesse seu prestígio religioso e simbólico como descendente direto da divindade solar, o poder efetivo de governo concentrou-se nas mãos dos <strong>xoguns</strong> (comandantes militares supremos) e de uma poderosa aristocracia de senhores de terras conhecidos como <strong>daimyo</strong>.</p>
         
@@ -234,7 +241,7 @@
           <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> No Japão feudal, o Imperador era reverenciado como uma autoridade sagrada, mas sem poder político prático. A governança efetiva, o controle das terras e a força militar estavam nas mãos do xogun e dos senhores feudais locais (<i>daimyo</i>).</p>
         </div>
 
-        <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O Bushido, ou o caminho do guerreiro, constituiu o código ético e moral que moldou a conduta dos samurais no Japão feudal, enfatizando a lealdade incondicional, a honra, a coragem e o desapego às riquezas materiais."</em> Historicamente, a adesão a esse código reforçava na sociedade japonesa:</p>
+        <p style="margin-top: 2.5rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O Bushido, ou o caminho do guerreiro, constituiu o código ético e moral que moldou a conduta dos samurais no Japão feudal, enfatizando a lealdade incondicional, a honra, a coragem e o desapego às riquezas materiais."</em> Historicamente, a adesão a esse código reforçava na sociedade japonesa:</p>
         <ul>
           <li>A) a flexibilidade de alianças políticas e a traição constante de senhores em troca de vantagens financeiras.</li>
           <li>B) a coesão rígida da hierarquia militar e a submissão absoluta do guerreiro aos deveres para com seu superior e clã.</li>
@@ -254,7 +261,7 @@
     </footer>
 
     <script>
-      // Alternância de Tema Claro/Escuro
+      // Alternância de Tema (Dia / Noite)
       const themeToggle = document.getElementById('themeToggle');
       const htmlRoot = document.documentElement;
 
@@ -267,7 +274,7 @@
         }
       });
 
-      // Função Ajustada para Ocultar/Exibir Gabaritos
+      // Função para Exibir e Ocultar Gabaritos Dinamicamente
       function toggleGabarito(id, btn) {
         const gabaritoDiv = document.getElementById(id);
         if (gabaritoDiv.classList.contains("show")) {
