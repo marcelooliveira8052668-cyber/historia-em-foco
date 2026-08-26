@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Globalização, Sociedade Digital e os Desafios do Século XXI — Portal Acadêmico</title>
+    <title>Globalização, Tecnologias e a Nova Ordem Mundial — Portal Acadêmico</title>
     <!-- Google Fonts para tipografia acadêmica -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,7 +55,6 @@
 
       /* Cabeçalho de Aula */
       header {
-        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop");
         background-size: cover;
         background-position: center;
         padding: 5rem 1rem 4rem 1rem;
@@ -64,7 +63,7 @@
         position: relative;
       }
 
-      .header-actions {
+      .nav-controls {
         position: absolute;
         top: 24px;
         right: 32px;
@@ -72,7 +71,7 @@
         gap: 12px;
       }
 
-      .btn-header {
+      .btn-action {
         color: var(--text-color);
         background: var(--card-bg);
         border: 1px solid var(--border-color);
@@ -88,7 +87,7 @@
         transition: all 0.2s ease;
       }
 
-      .btn-header:hover {
+      .btn-action:hover {
         background: var(--primary);
         color: #ffffff;
         border-color: var(--primary);
@@ -111,9 +110,19 @@
       header h1 {
         font-family: "Playfair Display", serif;
         color: #ffffff;
-        font-size: 2.4rem;
-        margin: 0 0 12px 0;
+        font-size: 2.8rem;
+        margin: 0 0 20px 0;
         font-weight: 700;
+      }
+
+      .header-img {
+        max-width: 100%;
+        width: 500px;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-top: 15px;
       }
 
       /* Container do Conteúdo Didático */
@@ -178,7 +187,6 @@
       }
 
       .question-card {
-        content-visibility: auto;
         background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 2.5rem;
@@ -199,7 +207,7 @@
       }
 
       .question-title {
-        font-size: 1.2rem;
+        -font-size: 1.2rem;
         font-weight: 700;
         color: var(--primary);
         margin-bottom: 1rem;
@@ -219,7 +227,7 @@
       .option-item {
         background: var(--bg-color);
         border: 1px solid var(--border-color);
-        padding: 1rem 1.25rem;
+        padding: 1rem 1.2rem;
         border-radius: 8px;
         margin-bottom: 0.8rem;
         color: var(--text-muted);
@@ -260,6 +268,7 @@
       }
 
       .resolution-box p {
+        background: transparent;
         color: var(--text-color);
         margin: 0;
         font-size: 0.95rem;
@@ -274,11 +283,19 @@
         font-weight: 600;
         cursor: pointer;
         font-family: inherit;
-        transition: background-color 0.2s;
+        transition: background 0.2s;
       }
 
       .btn-reveal:hover {
         background: var(--primary-hover);
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 4rem;
+        background: var(--card-bg);
       }
 
       @keyframes fadeIn {
@@ -287,8 +304,8 @@
       }
 
       @media (max-width: 768px) {
-        header h1 { font-size: 1.9rem; }
-        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        header h1 { font-size: 2.2rem; }
+        .nav-controls { position: static; margin-bottom: 1.5rem; justify-content: center; flex-wrap: wrap; }
         .content-section { padding: 2rem; }
       }
     </style>
@@ -296,32 +313,33 @@
 <body>
 
     <header>
-      <div class="header-actions">
-        <a href="index.html" class="btn-header">🏠 Início</a>
-        <button class="btn-header" id="themeThemeToggle" onclick="toggleTheme()">☀️ / 🌙 Tema</button>
+      <div class="nav-controls">
+        <a href="index.html" class="btn-action"><span>⬅️</span> Página Principal</a>
+        <button class="btn-action" id="themeUpgrade" onclick="toggleTheme()"><span>☀️ / 🌙</span> Tema</button>
       </div>
-      <div class="header-badge">Geografia / Sociologia Contemporânea</div>
-      <h1>Globalização, Sociedade Digital e os Desafios do Século XXI 🌐💻</h1>
+      <div class="header-badge">Geografia / Ensino Médio</div>
+      <h1>Globalização, Tecnologias e a Nova Ordem Mundial</h1>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Global_connections_visualization.png/640px-Global_connections_visualization.png" alt="Globalização e Redes" class="header-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_2009_Wi-Fi_density.jpg/640px-World_2009_Wi-Fi_density.jpg'">
     </header>
 
     <div class="container">
       
       <!-- Seção Teórica -->
       <section class="content-section">
-        <h2>1. A Aldeia Global e as Redes de Informação</h2>
-        <p>A globalização contemporânea é caracterizada pela compressão do tempo e do espaço, propiciada pelo avanço vertiginoso das tecnologias de informação e comunicação (TICs). A consolidação da internet, da computação em nuvem e das redes sociais criou a chamada <strong>sociedade digital</strong> ou informacional, conceito amplamente estudado por sociólogos como Manuel Castells. Nessa estrutura reticular, as fronteiras nacionais tornam-se fluidas para o capital financeiro, para a cultura de massa e para os fluxos de dados em tempo real.</p>
+        <h2>1. A Globalização e a Revolução Técnico-Científica-Informacional</h2>
+        <p>A **Globalização** contemporânea não pode ser entendida sem a sua principal base material e imaterial: a **Terceira Revolução Industrial** (ou Revolução Técnico-Científica-Informacional), impulsionada a partir da segunda metade do século XX. O avanço vertiginoso das telecomunicações, da informática, da internet e dos transportes reduziu drasticamente as distâncias relativas do planeta, fenômeno que o geógrafo Milton Santos denominou de "compressão do espaço-tempo" e a formação de "aldeia global".</p>
         
-        <p>No entanto, essa integração planetária não ocorre de forma homogênea, gerando profundas assimetrias territoriais e sociais.</p>
+        <p>Esse processo permitiu a expansão planetária das **Empresas Transnacionais (ETs)**, que descentralizam suas etapas de produção — fragmentando fábricas, pesquisa e montagem em diferentes países em busca de menores custos laborais, isenções fiscais e matérias-primas abundantes (a Divisão Internacional do Trabalho - DIT contemporânea).</p>
 
-        <h2>2. A Inclusão Digital e a "Exclusão" Tecnológica</h2>
+        <h2>2. A Configuração da Nova Ordem Mundial</h2>
+        <p>Com o fim da Guerra Fria e a dissolução da União Soviética em 1991, o eixo de poder bipolar ruiu, inaugurando a chamada **Nova Ordem Mundial**. Inicialmente caracterizada por uma hegemonia militar unipolar dos Estados Unidos, essa nova configuração evoluiu rapidamente para um cenário **multipolar** e multiposicional, onde novos polos de poder econômico e político ganharam relevância global (como a União Europeia, a China, o Japão e os BRICS).</p>
+
         <div class="highlight-box">
-          <p><strong>⚠️ O Fosso Digital (Digital Divide):</strong> 
-          <br>• <strong>Desigualdade de Acesso:</strong> O acesso à banda larga, a equipamentos modernos e à literacia digital é estratificado por classes sociais, recortes geográficos e diferenças geracionais.
-          <br>• <strong>Gig Economy e Precarização:</strong> As plataformas digitais reconfiguraram as relações de trabalho, gerando novas modalidades de emprego informal (como entregadores de aplicativos e motoristas de ride-hailing), muitas vezes destituídas de direitos trabalhistas tradicionais e seguridade social.</p>
+          <p><strong>🌐 Economia e Fragmentação:</strong> Paradoxalmente, enquanto a globalização une mercados e fluxos financeiros em tempo real, ela também aprofunda a fragmentação e a exclusão social. O espaço mundial divide-se entre as áreas integradas (conectadas às redes globais de alta tecnologia e consumo) e as áreas marginalizadas (à margem dos investimentos, sofrendo com o desemprego estrutural e a precarização do trabalho).</p>
         </div>
 
-        <h2>3. Os Novos Desafios: Algoritmos, Privacidade e Desinformação</h2>
-        <p>No século XXI, a circulação massiva de dados colocou no centro do debate ético e político o uso de algoritmos de inteligência artificial. A curadoria algorítmica de conteúdos nas redes sociais frequentemente isola os usuários em bolhas ideológicas, polarizando o debate público. Além disso, a proliferação de <em>fake news</em> (notícias falsas) e a mercantilização de dados pessoais — submetendo a privacidade individual aos interesses de grandes corporações de tecnologia (as chamadas <em>Big Techs</em>) — constituem alguns dos maiores desafios para a democracia e para o exercício pleno da cidadania moderna.</p>
+        <h2>3. O Papel das Redes Geográficas e os Blocos Econômicos</h2>
+        <p>O mundo atual opera integrado por **redes geográficas** (fluxos de mercadorias, capitais, informações e pessoas). Para mitigar barreiras alfandegárias e fortalecer economias regionais diante da concorrência global, os países intensificaram a formação de **blocos econômicos** em diferentes níveis de integração (Zonas de Livre Comércio, Uniões Aduaneiras e Mercados Comuns, como o Mercosul e a União Europeia).</p>
       </section>
 
       <!-- Seção de Exercícios -->
@@ -331,55 +349,59 @@
         <!-- Questão 1 -->
         <div class="question-card">
           <div class="question-title">Questão 1</div>
-          <p class="question-text">“A sociedade informacional caracteriza-se pela centralidade do conhecimento e da informação como fontes fundamentais de produtividade e poder. Contudo, a expansão global dessas redes digitais não elimina as desigualdades preexistentes; pelo contrário, muitas vezes as reconfigura sob a forma do fosso digital.”</p>
-          <p>Com base na dinâmica da sociedade digital contemporânea, o "fosso digital" expressa:</p>
+          <p class="question-text">“A globalização é acompanhada por uma intensa revolução tecnológica que integrou os mercados financeiros e fragmentou a produção industrial em escala planetária. As empresas transnacionais deslocam unidades fabris para países em desenvolvimento em busca de vantagens locacionais, redefinindo a Divisão Internacional do Trabalho.”</p>
+          <p>Assinale a alternativa que descreve corretamente uma consequência socioespacial desse processo na atualidade:</p>
           
           <ul class="options-list">
-            <li class="option-item"><span class="option-letter">A)</span> a igualdade de oportunidades educacionais e tecnológicas garantida de maneira uniforme a todos os países do globo.</li>
-            <li class="option-item"><span class="option-letter">B)</span> a barreira geográfica e socioeconômica que separa aqueles que possuem acesso pleno às tecnologias de informação daqueles que estão marginalizados desse processo.</li>
-            <li class="option-item"><span class="option-letter">C)</span> a extinção total dos centros urbanos industriais em detrimento de uma sociedade exclusivamente rural e agrária.</li>
-            <li class="option-item"><span class="option-letter">D)</span> o fim do controle estatal sobre os fluxos financeiros internacionais e o desmantelamento das corporações transnacionais.</li>
-            <li class="option-item"><span class="option-letter">E)</span> a completa erradicação do desemprego estrutural por meio da automação robótica generalizada das fábricas.</li>
+            <li class="option-item"><span class="option-letter">A)</span> A padronização salarial igualitária em todos os países do globo, eliminando as desigualdades regionais.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O fim absoluto das fronteiras nacionais e o livre trânsito migratório desimpedido em qualquer continente.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A reestruturação produtiva acompanhada de maior flexibilização das leis trabalhistas e desemprego estrutural nas áreas urbanas.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O isolamento econômico total das grandes potências em relação aos países emergentes do Sul Global.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A estatização generalizada dos meios de comunicação e transporte por organismos supranacionais.</li>
           </ul>
 
           <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
           
           <div class="resolution-box" id="res1">
-            <strong>Gabarito: Letra B</strong>
-            <p><strong>Resolução:</strong> O fosso digital (ou exclusão digital) reflete a disparidade no acesso, uso ou impacto das tecnologias de informação e comunicação entre diferentes grupos sociais, regiões ou nações, acentuando as desigualdades na sociedade globalizada.</p>
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> A reestruturação produtiva da globalização exige flexibilidade operacional das empresas, o que frequentemente resulta na precarização dos vínculos de trabalho, terceirização e surgimento do desemprego estrutural decorrente da automação e avanço tecnológico.</p>
           </div>
         </div>
 
         <!-- Questão 2 -->
         <div class="question-card">
           <div class="question-title">Questão 2</div>
-          <p class="question-text">Nos últimos anos, a expansão das redes sociais e o uso intensivo de algoritmos de recomendação impulsionaram debates cruciais sobre a qualidade da informação circulante na esfera pública. Fenômenos como a propagação em larga escala de notícias falsas (*fake news*) e a formação de bolhas informacionais afetam diretamente a coesão social e os processos democráticos.</p>
-          <p>Dentre os impactos sociopolíticos gerados por essa nova configuração comunicacional na sociedade digital, destaca-se:</p>
+          <p class="question-text">O fim da Guerra Fria e a derrocada do bloco soviético no início da década de 1990 propiciaram profundas transformações geopolíticas no planeta. A chamada "Nova Ordem Mundial" passou a ser caracterizada por:</p>
           
           <ul class="options-list">
-            <li class="option-item"><span class="option-letter">A)</span> o fortalecimento do pensamento crítico plural decorrente da exposição neutra e imparcial a contrapontos ideológicos cotidianos.</li>
-            <li class="option-item"><span class="option-letter">B)</span> a facilitação da manipulação da opinião pública e a polarização exacerbada decorrente de filtros algorítmicos que reforçam crenças pré-existentes.</li>
-            <li class="option-item"><span class="option-letter">C)</span> a supressão definitiva do poder econômico e político exercido pelas grandes empresas de tecnologia (Big Techs).</li>
-            <li class="option-item"><span class="option-letter">D)</span> a padronização absoluta das leis de privacidade de dados em âmbito mundial sem conflitos de soberania.</li>
-            <li class="option-item"><span class="option-letter">E)</span> o fim da dependência do trabalho humano nas plataformas digitais de prestação de serviços urbanos.</li>
+            <li class="option-item"><span class="option-letter">A)</span> Uma rigidez absoluta nas relações internacionais, mantendo a exata divisão militar e ideológica do pós-Segunda Guerra.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Um arranjo multipolar no plano econômico — com o surgimento de novos centros de poder como a União Europeia, a China e blocos regionais —, coexistindo com uma supremacia militar inicial unipolar dos EUA.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A submissão econômica irrestrita de todas as nações desenvolvidas às diretrizes planejadas exclusivamente pela Organização das Nações Unidas (ONU).</li>
+            <li class="option-item"><span class="option-letter">D)</span> O completo desaparecimento das corporações transnacionais e o retorno às economias autárquicas locais.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A centralização absoluta do poder financeiro mundial nas mãos dos países não-alinhados da África.</li>
           </ul>
 
           <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
           
           <div class="resolution-box" id="res2">
             <strong>Gabarito: Letra B</strong>
-            <p><strong>Resolução:</strong> Os algoritmos das redes sociais tendem a priorizar conteúdos que geram maior engajamento (muitas vezes sensacionalistas ou polarizadores), criando câmaras de eco e bolhas informacionais que dificultam o debate público plural e favorecem a desinformação.</p>
+            <p><strong>Resolução:</strong> Na Nova Ordem Mundial, o poder econômico dispersou-se entre múltiplos polos (multipolaridade comercial e tecnológica com União Europeia, China, Japão, etc.), embora militarmente os Estados Unidos tenham mantido uma posição hegemônica isolada por um período (unipolaridade militar).</p>
           </div>
         </div>
 
       </section>
     </div>
 
+    <footer>
+      <p>© 2026 Portal Acadêmico — Professor Marcelo da Silva Oliveira. <br><br>
+        <a href="index.html" class="btn-action" style="display: inline-flex; margin: 0 auto;">⬅️ Voltar para a Página Principal</a>
+      </p>
+    </footer>
+
     <script>
       // Controle do Tema Claro / Escuro
-      const htmlRoot = document.documentElement;
-
       function toggleTheme() {
+        const htmlRoot = document.documentElement;
         const currentTheme = htmlRoot.getAttribute("data-theme");
         htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       }
