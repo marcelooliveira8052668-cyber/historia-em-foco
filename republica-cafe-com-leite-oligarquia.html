@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Primeira Guerra Mundial (1914-1918) — Portal Acadêmico</title>
+    <title>A Política do Café com Leite e o Coronelismo — Portal Acadêmico</title>
     <!-- Google Fonts para tipografia acadêmica -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,7 +55,6 @@
 
       /* Cabeçalho de Aula */
       header {
-        background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url("https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2000&auto=format&fit=crop");
         background-size: cover;
         background-position: center;
         padding: 5rem 1rem 4rem 1rem;
@@ -64,7 +63,7 @@
         position: relative;
       }
 
-      .header-actions {
+      .nav-controls {
         position: absolute;
         top: 24px;
         right: 32px;
@@ -72,7 +71,7 @@
         gap: 12px;
       }
 
-      .btn-header {
+      .btn-action {
         color: var(--text-color);
         background: var(--card-bg);
         border: 1px solid var(--border-color);
@@ -88,7 +87,7 @@
         transition: all 0.2s ease;
       }
 
-      .btn-header:hover {
+      .btn-action:hover {
         background: var(--primary);
         color: #ffffff;
         border-color: var(--primary);
@@ -111,9 +110,19 @@
       header h1 {
         font-family: "Playfair Display", serif;
         color: #ffffff;
-        font-size: 2.6rem;
-        margin: 0 0 12px 0;
+        font-size: 2.8rem;
+        margin: 0 0 20px 0;
         font-weight: 700;
+      }
+
+      .header-img {
+        max-width: 100%;
+        width: 500px;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-top: 15px;
       }
 
       /* Container do Conteúdo Didático */
@@ -178,7 +187,6 @@
       }
 
       .question-card {
-        content-visibility: auto;
         background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 2.5rem;
@@ -219,7 +227,7 @@
       .option-item {
         background: var(--bg-color);
         border: 1px solid var(--border-color);
-        padding: 1rem 1.25rem;
+        padding: 1rem 1.2rem;
         border-radius: 8px;
         margin-bottom: 0.8rem;
         color: var(--text-muted);
@@ -260,7 +268,6 @@
       }
 
       .resolution-box p {
-        content-visibility: auto;
         color: var(--text-color);
         margin: 0;
         font-size: 0.95rem;
@@ -275,16 +282,19 @@
         font-weight: 600;
         cursor: pointer;
         font-family: inherit;
-        transition: background-color 0.2s;
+        transition: background 0.2s;
       }
 
       .btn-reveal:hover {
         background: var(--primary-hover);
       }
 
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+      footer {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 4rem;
+        background: var(--card-bg);
       }
 
       @keyframes fadeIn {
@@ -293,8 +303,8 @@
       }
 
       @media (max-width: 768px) {
-        header h1 { font-size: 2.1rem; }
-        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        header h1 { font-size: 2.2rem; }
+        .nav-controls { position: static; margin-bottom: 1.5rem; justify-content: center; flex-wrap: wrap; }
         .content-section { padding: 2rem; }
       }
     </style>
@@ -302,34 +312,33 @@
 <body>
 
     <header>
-      <div class="header-actions">
-        <a href="index.html" class="btn-header">🏠 Início</a>
-        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      <div class="nav-controls">
+        <a href="index.html" class="btn-action"><span>⬅️</span> Página Principal</a>
+        <button class="btn-action" id="themeToggle"><span>☀️ / 🌙</span> Tema</button>
       </div>
-      <div class="header-badge">História Geral / Conflitos Contemporâneos</div>
-      <h1>A Primeira Guerra Mundial (1914–1918)</h1>
+      <div class="header-badge">Brasil República (República Velha)</div>
+      <h1>A Política do Café com Leite e o Coronelismo</h1>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Presidentes_do_Caf%C3%A9_com_Leite.jpg/640px-Presidentes_do_Caf%C3%A9_com_Leite.jpg" alt="Política do Café com Leite" class="header-img" onerror="this.src='https://www.infoescola.com/wp-content/uploads/2010/04/republica-cafe-com-leite.jpg'">
     </header>
 
     <div class="container">
       
       <!-- Seção Teórica -->
       <section class="content-section">
-        <h2>1. Antecedentes e a "Paz Armada"</h2>
-        <p>O final do século XIX e o início do século XX foram marcados pelo imperialismo e pela corrida neocolonial, que intensificaram as disputas econômicas e territoriais entre as potências europeias. O período que antecedeu o conflito ficou conhecido como **Paz Armada**: os países europeus não estavam em guerra aberta, mas investiam massivamente na fabricação de armamentos e na formação de alianças militares secretas ou ostensivas, prevendo um inevitável confronto.</p>
+        <h2>1. O Cenário da República Oligárquica (1894–1930)</h2>
+        <p>A República Velha, especificamente em sua fase oligárquica, foi dominada política e economicamente pelas elites agrário-exportadoras dos estados mais poderosos da federação. O eixo central desse arranjo político girava em torno de São Paulo (o maior produtor de café do país) e de Minas Gerais (o estado com o maior eleitorado e forte produção leiteira).</p>
         
-        <p>Destacavam-se dois grandes blocos rivais: a **Tríplice Aliança** (formada inicialmente por Alemanha, Império Austro-Húngaro e Itália — embora esta última tenha mudado de lado posteriormente) e a **Tríplice Entente** (composta por Reino Unido, França e Rússia).</p>
+        <p>A chamada <strong>Política do Café com Leite</strong> consistia em um pacto de alternância de poder no cargo de Presidente da República. Os dois estados se revezavam indicando o candidato oficial à presidência, que contava com o apoio dos demais estados (a Política dos Governadores) para garantir a vitória nas urnas através de fraudes generalizadas.</p>
 
-        <h2>2. As Causas Estruturais e o Estopim</h2>
+        <h2>2. As Engrenagens do Poder Local: O Coronelismo e o Curral Eleitoral</h2>
+        <p>Para que a engrenagem nacional funcionasse, era necessário o controle rigoroso da base da sociedade: os municípios e as zonas rurais. É nesse contexto que o <strong>Coronelismo</strong> se consolidou como uma prática de poder político descentralizado, herdado muitas vezes das antigas Guardas Nacionais do Império.</p>
+
         <div class="highlight-box">
-          <p><strong>💣 O Barril de Pólvora Europeu:</strong> 
-          <br>• <strong>Imperialismo e Nacionalismo:</strong> Choques por mercados consumidores e matérias-primas na Ásia e na África, somados a rivalidades como o Revanchismo Francês (perda da Alsácia-Lorena para a Alemanha em 1870) e o Pan-Slavismo nos Bálcãs.
-          <br>• <strong>O Estopim (Atentado de Sarajevo):</strong> Em 28 de junho de 1914, o arquiduque Francisco Ferdinando, herdeiro do trono austro-húngaro, foi assassinado em Sarajevo por um nacionalista sérvio. Esse evento acionou o sistema de alianças em cadeia, transformando um conflito regional em uma guerra mundial.</p>
+          <p><strong>🏛️ O Voto de Cabresto e a Fraude:</strong> O "coronel" (geralmente um grande proprietário de terras) exercia controle absoluto sobre a vida dos trabalhadores rurais e moradores locais através da troca de favores, ameaças e violência (pistoleirismo). O famoso <em>voto de cabresto</em> garantia que os eleitores votassem estritamente no candidato indicado pelo coronel. Na etapa final, a "degola" no Congresso permitia que a Comissão de Verificação de Poderes eliminasse deputados da oposição.</p>
         </div>
 
-        <h2>3. Fases, Novas Tecnologias e Desfecho</h2>
-        <p>A guerra desenrolou-se majoritariamente em duas grandes fases: a **Guerra de Movimento** (rápida expansão e manobras iniciais) e a **Guerra de Trincheiras** (longo período de estagnação estática nas frentes ocidentais, marcado pelo uso de novas tecnologias letais como metralhadoras, tanques, gases tóxicos, aviação e submarinos).</p>
-        
-        <p>Em 1917, a Rússia retirou-se do conflito devido à Revolução Bolchevique, enquanto os Estados Unidos entraram na guerra ao lado da Entente, desequilibrando as forças. Com a derrota econômica e militar das Potências Centrais, assinou-se o Armistício em novembro de 1918, culminando no rigoroso **Tratado de Versalhes (1919)**, cujas punições severas impostas à Alemanha geraram o revanchismo que desembocaria na Segunda Guerra Mundial.</p>
+        <h2>3. A Crise do Sistema e a Revolução de 1930</h2>
+        <p>O arranjo político do Café com Leite começou a ruir na década de 1920 devido a crescentes contestações urbanas, o movimento tenentista e as divergências econômicas geradas pela Crise de 1929. O golpe definitivo ocorreu em 1930, quando o presidente Washington Luís (paulista) rompeu o pacto ao indicar outro paulista (Júlio Prestes) em vez de um mineiro, motivando a Aliança Liberal e a Revolução de 1930, que encerrou a Primeira República.</p>
       </section>
 
       <!-- Seção de Exercícios -->
@@ -339,49 +348,54 @@
         <!-- Questão 1 -->
         <div class="question-card">
           <div class="question-title">Questão 1</div>
-          <p class="question-text">“O período antecedente à Primeira Guerra Mundial ficou conhecido como 'Paz Armada'. Sob uma aparente estabilidade diplomática e o otimismo da Belle Époque, as potências industriais europeias acumulavam arsenais bélicos sem precedentes e consolidavam blocos de cooperação militar defensiva e ofensiva.”</p>
-          <p>Essa dinâmica geopolítica europeia anterior a 1914 demonstrava que:</p>
+          <p class="question-text">O coronelismo foi uma prática recorrente durante a Primeira República brasileira, caracterizando-se pelas relações de poder mantidas no interior dos municípios. O termo "coronel" remeteu inicialmente às patentes da Guarda Nacional, mas na prática política cotidiana expressava a:</p>
           
           <ul class="options-list">
-            <li class="option-item"><span class="option-letter">A)</span> O desenvolvimento industrial pacífico eliminou por completo a competição colonial nos continentes africano e asiático.</li>
-            <li class="option-item"><span class="option-letter">B)</span> A corrida armamentista e a política de alianças funcionavam como garantias absolutas e duradouras da paz internacional.</li>
-            <li class="option-item"><span class="option-letter">C)</span> A estabilidade econômica europeia impedia qualquer tipo de choque nacionalista na região dos Bálcãs.</li>
-            <li class="option-item"><span class="option-letter">D)</span> O clima de desconfiança mútua e a preparação bélica tornavam iminente o eclodir de um conflito de proporções globais.</li>
-            <li class="option-item"><span class="option-letter">E)</span> Os Estados Unidos lideravam politicamente a contenção de armamentos na Europa por meio da Liga das Nações.</li>
+            <li class="option-item"><span class="option-letter">A)</span> Centralização do poder administrativo nas mãos do governo federal, que impunha prefeitos em todos os estados.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Dependência dos eleitores em relação aos grandes proprietários de terras, que utilizavam o favor e a coerção para direcionar o voto.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Ampla participação democrática e igualitária dos camponeses nas decisões políticas das capitais.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Supremacia absoluta do poder militar do Exército sobre as oligarquias regionais e estaduais.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Industrialização acelerada das zonas rurais por meio de subsídios concedidos aos coronéis.</li>
           </ul>
 
           <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
           
           <div class="resolution-box" id="res1">
-            <strong>Gabarito: Letra D</strong>
-            <p><strong>Resolução:</strong> A "Paz Armada" foi um período de intensa preparação militar e alianças estratégicas (Tríplice Entente e Tríplice Aliança) motivadas pelas rivalidades imperialistas. Longe de garantir a paz, esse cenário criou um barril de pólvora pronto para explodir ao menor incidente diplomático.</p>
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O coronelismo apoiava-se no poder socioeconômico do grande proprietário de terras nas instâncias locais. Através da dependência econômica, da violência e da troca de favores (o curral eleitoral e o voto de cabresto), o coronel controlava o comportamento político da população dependente.</p>
           </div>
         </div>
 
         <!-- Questão 2 -->
         <div class="question-card">
           <div class="question-title">Questão 2</div>
-          <p class="question-text">“Assinado em 1919, o Tratado de Versalhes impôs duras sanções à Alemanha derrotada. Além da perda de colônias e territórios na Europa, o país foi responsabilizado unilateralmente pela culpa da guerra, tendo de arcar com indenizações financeiras astronômicas e drástica redução de suas forças armadas.”</p>
-          <p>Historicamente, as consequências de longo prazo das imposições contidas no Tratado de Versalhes resultaram em:</p>
+          <p class="question-text">“A chamada 'Política do Café com Leite' garantiu a estabilidade do pacto oligárquico durante a maior parte da República Velha. Por meio desse arranjo, as oligarquias paulista e mineira alternavam o controle da presidência da república, contando com o apoio de uma rede institucional que neutralizava a oposição e controlava os resultados eleitorais desde a base municipal até o Congresso.”</p>
+          <p>O mecanismo institucional que complementava essa política de alianças a nível federal e estadual, garantindo a exclusão de oposições incômodas no parlamento, era conhecido como:</p>
           
           <ul class="options-list">
-            <li class="option-item"><span class="option-letter">A)</span> A consolidação de uma democracia pacífica e estável na Alemanha ao longo de toda a década de 1930.</li>
-            <li class="option-item"><span class="option-letter">B)</span> O surgimento de um forte sentimento de humilhação nacional e de revanchismo que favoreceu a ascensão do nazifascismo.</li>
-            <li class="option-item"><span class="option-letter">C)</span> A imediata integração da Alemanha como principal potência econômica defensora do Tratado de Paz.</li>
-            <li class="option-item"><span class="option-letter">D)</span> O fim definitivo de todas as disputas territoriais e ideológicas no continente europeu.</li>
-            <li class="option-item"><span class="option-letter">E)</span> A dissolução imediata do Império Britânico e a abolição das fronteiras coloniais na Ásia.</li>
+            <li class="option-item"><span class="option-letter">A)</span> Lei Áurea e o sufrágio universal irrestrito.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Política dos Governadores e a Comissão de Verificação de Poderes (conhecida como a "degola").</li>
+            <li class="option-item"><span class="option-letter">C)</span> Parlamentarismo às avessas controlado diretamente pelos sindicatos operários.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Reforma urbana do Rio de Janeiro e a Bota-Abaixo.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Aliança Liberal e o Manifesto dos 18 do Forte.</li>
           </ul>
 
           <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
           
           <div class="resolution-box" id="res2">
             <strong>Gabarito: Letra B</strong>
-            <p><strong>Resolução:</strong> O caráter punitivo e humilhante do Tratado de Versalhes gerou profunda crise econômica e revolta social na Alemanha. Esse cenário de terra arrasada econômica e crise institucional alimentou o discurso nacionalista radical, pavimentando o caminho para o surgimento do nazismo.</p>
+            <p><strong>Resolução:</strong> A Política dos Governadores alinhava os interesses do Executivo federal com os governadores estaduais. Caso algum oposicionista indesejado vencesse as eleições locais, a Comissão de Verificação de Poderes no Congresso atuava no processo de "degola", vetando a posse do parlamentar adversário.</p>
           </div>
         </div>
 
       </section>
     </div>
+
+    <footer>
+      <p>© 2026 Portal Acadêmico — Professor Marcelo da Silva Oliveira. <br><br>
+        <a href="index.html" class="btn-action" style="display: inline-flex; margin: 0 auto;">⬅️ Voltar para a Página Principal</a>
+      </p>
+    </footer>
 
     <script>
       // Controle do Tema Claro / Escuro
