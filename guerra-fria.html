@@ -55,7 +55,7 @@
 
       /* Cabeçalho de Aula */
       header {
-         background-size: cover;
+        background-size: cover;
         background-position: center;
         padding: 5rem 1rem 4rem 1rem;
         text-align: center;
@@ -63,7 +63,7 @@
         position: relative;
       }
 
-      .header-actions {
+      .nav-controls {
         position: absolute;
         top: 24px;
         right: 32px;
@@ -71,7 +71,7 @@
         gap: 12px;
       }
 
-      .btn-header {
+      .btn-action {
         color: var(--text-color);
         background: var(--card-bg);
         border: 1px solid var(--border-color);
@@ -87,7 +87,7 @@
         transition: all 0.2s ease;
       }
 
-      .btn-header:hover {
+      .btn-action:hover {
         background: var(--primary);
         color: #ffffff;
         border-color: var(--primary);
@@ -110,9 +110,19 @@
       header h1 {
         font-family: "Playfair Display", serif;
         color: #ffffff;
-        font-size: 2.6rem;
-        margin: 0 0 12px 0;
+        font-size: 2.8rem;
+        margin: 0 0 20px 0;
         font-weight: 700;
+      }
+
+      .header-img {
+        max-width: 100%;
+        width: 500px;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-top: 15px;
       }
 
       /* Container do Conteúdo Didático */
@@ -177,7 +187,6 @@
       }
 
       .question-card {
-        content-visibility: auto;
         background: var(--card-bg);
         border: 1px solid var(--border-color);
         padding: 2.5rem;
@@ -218,7 +227,7 @@
       .option-item {
         background: var(--bg-color);
         border: 1px solid var(--border-color);
-        padding: 1rem 1.25rem;
+        padding: 1rem 1.2rem;
         border-radius: 8px;
         margin-bottom: 0.8rem;
         color: var(--text-muted);
@@ -259,6 +268,7 @@
       }
 
       .resolution-box p {
+        background: transparent;
         color: var(--text-color);
         margin: 0;
         font-size: 0.95rem;
@@ -273,11 +283,19 @@
         font-weight: 600;
         cursor: pointer;
         font-family: inherit;
-        transition: background-color 0.2s;
+        transition: background 0.2s;
       }
 
       .btn-reveal:hover {
         background: var(--primary-hover);
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem 1.5rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 4rem;
+        background: var(--card-bg);
       }
 
       @keyframes fadeIn {
@@ -286,8 +304,8 @@
       }
 
       @media (max-width: 768px) {
-        header h1 { font-size: 2.1rem; }
-        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        header h1 { font-size: 2.2rem; }
+        .nav-controls { position: static; margin-bottom: 1.5rem; justify-content: center; flex-wrap: wrap; }
         .content-section { padding: 2rem; }
       }
     </style>
@@ -295,34 +313,35 @@
 <body>
 
     <header>
-      <div class="header-actions">
-        <a href="index.html" class="btn-header">🏠 Início</a>
-        <button class="btn-header" id="themeThemeToggle" onclick="toggleTheme()">☀️ / 🌙 Tema</button>
+      <div class="nav-controls">
+        <a href="index.html" class="btn-action"><span>⬅️</span> Página Principal</a>
+        <button class="btn-action" id="themeUpgrade" onclick="toggleTheme()"><span>☀️ / 🌙</span> Tema</button>
       </div>
-      <div class="header-badge">História Geral / O Século XX</div>
-      <h1>A Guerra Fria: O Mundo Bipolar e a Tensão Ideológica 🌐⚡</h1>
-        <img src='https://kardiasociologia.org/wp-content/uploads/2024/03/captura-de-tela-2024-03-05-174735.png" width="600"
+      <div class="header-badge">História Contemporânea / Ordem Mundial</div>
+      <h1>A Guerra Fria: O Mundo Bipolar e a Tensão Ideológica</h1>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Cold_War_map_1959.svg/640px-Cold_War_map_1959.svg.png" alt="Mapa da Guerra Fria" class="header-img" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Berlin_Wall_1986.jpg/640px-Berlin_Wall_1986.jpg'">
     </header>
 
     <div class="container">
       
       <!-- Seção Teórica -->
       <section class="content-section">
-        <h2>1. Origens e a Configuração do Mundo Bipolar</h2>
-        <p>Com o fim da Segunda Guerra Mundial em 1945, o cenário internacional transformou-se radicalmente. As antigas potências europeias perderam protagonismo, dando lugar a uma nova ordem geopolítica caracterizada pela bipolaridade: de um lado, os **Estados Unidos (EUA)**, defensores do capitalismo, da democracia liberal e da economia de mercado; do outro, a **União Soviética (URSS)**, promotora do socialismo real, da economia planificada e do centralismo político.</p>
+        <h2>1. Origens e a Configuração do Mundo Bipolar (1947–1950)</h2>
+          <img src="https://kardiasociologia.org/wp-content/uploads/2024/03/captura-de-tela-2024-03-05-174735.png?w=1024" width="600"
+        <p>A **Guerra Fria** (aprox. 1947–1991) foi um conflito de natureza ideológica, política, econômica e militar travado entre duas superpotências emergentes do pós-Segunda Guerra Mundial: os **Estados Unidos (EUA)**, defensores do capitalismo e da democracia liberal, e a **União Soviética (URSS)**, promotora do socialismo e da economia planejada pelo Estado.</p>
         
-        <p>O conflito foi chamado de "frio" porque nunca houve um confronto militar direto em larga escala entre as duas superpotências, temerosas da aniquilação mútua gerada pelo desenvolvimento de arsenais nucleares. Em vez disso, a disputa manifestou-se através de rivalidades ideológicas, propaganda, corridas armamentista e espacial, espionagem e guerras indiretas (por proxy) em territórios da periferia do globo.</p>
+        <p>O termo "fria" decorre do fato de que nunca houve um confronto militar direto e em larga escala entre as duas superpotências, pois a invenção e proliferação de armas nucleares criaram o conceito de **Destruição Mútua Assegurada (MAD)** — uma guerra direta significaria a aniquilação total de ambos os lados. Em vez disso, o confronto manifestou-se através de corridas armamentista e espacial, espionagem, propaganda e guerras indiretas (conflitos periféricos em países do "Terceiro Mundo").</p>
 
-        <h2>2. Estratégias Econômicas, Militares e Conflitos Locais</h2>
+        <h2>2. Estratégias Econômicas, Militares e a Divisão da Europa</h2>
+        <p>O mundo dividiu-se rigidamente em duas esferas de influência, simbolizadas na Europa pela "Cortina de Ferro". Para consolidar seus blocos, as superpotências criaram estruturas institucionais e militares robustas:</p>
+
         <div class="highlight-box">
-          <p><strong>♟️ Os Pilares da Disputa Global:</strong> 
-          <br>• <strong>Plano Marshall e KOMECON:</strong> Os EUA lançaram o Plano Marshall (ajuda financeira para reconstruir a Europa ocidental e conter o avanço comunista), enquanto a URSS respondeu com o COMECON e o Kominform para integrar as economias do bloco oriental.
-          <br>• <strong>Alianças Militares:</strong> A criação da **OTAN** (Organização do Tratado do Atlântico Norte) liderada pelos EUA em 1949, contraposta pelo **Pacto de Varsóvia** instituído pela URSS em 1955.
-          <br>• <strong>Guerras Indiretas:</strong> O choque de influências gerou conflitos dramáticos de repercussão mundial, como a Guerra da Coreia, a Guerra do Vietnã e a Crise dos Mísseis em Cuba.</p>
+          <p><strong>🌐 Blocos de Poder:</strong> Do lado capitalista, os EUA lançaram o <em>Plano Marshall</em> (ajuda financeira para reconstruir a Europa ocidental) e criaram a **OTAN** (aliança militar defensiva). Do lado socialista, a URSS respondeu com o <em>COMECON</em> (integração econômica dos países socialistas) e o **Pacto de Varsóvia** (aliança militar do bloco soviético), enquanto a Alemanha dividia-se com a construção do Muro de Berlim em 1961.</p>
         </div>
 
-        <h2>3. Coexistência Pacífica e a Crise do Bloco Soviético</h2>
-        <p>Após momentos de extrema tensão — como a construção do Muro de Berlim (1961) —, a Guerra Fria passou por fases de abrandamento (Detente / Coexistência Pacífica). No entanto, o engessamento burocrático e econômico da URSS na década de 1980, aliado às reformas de reestruturação (*Perestroika*) e transparência (*Glasnost*) implementadas por Mikhail Gorbatchov, precipitaram a desagregação do bloco socialista, simbolizada pela queda do Muro de Berlim em 1989 e pelo fim da própria União Soviética em 1991.</p>
+        <h2>3. Conflitos Indiretos, Coexistência Pacífica e o Fim da URSS</h2>
+        <p>Embora sem guerra direta entre as metrópoles, a periferia global sangrou em conflitos marcados pela lógica bipolar, como a **Guerra da Coreia**, a **Guerra do Vietnã** e a **Crise dos Mísseis de Cuba** (1962), momento em que o mundo esteve mais próximo de um holocausto nuclear.</p>
+        <p>Após décadas de alternância entre momentos de tensão extrema e períodos de abrandamento (como a <em>Detente</em>), o sistema soviético entrou em colapso estrutural e econômico no final dos anos 1980. As reformas de Mikhail Gorbachev (*Glasnost* e *Perestroika*), somadas à queda do Muro de Berlim em 1989 e à dissolução oficial da URSS em dezembro de 1991, selaram o fim da Guerra Fria e abriram caminho para a ordem global unipolar e globalizada.</p>
       </section>
 
       <!-- Seção de Exercícios -->
@@ -332,55 +351,59 @@
         <!-- Questão 1 -->
         <div class="question-card">
           <div class="question-title">Questão 1</div>
-          <p class="question-text">“Durante a Guerra Fria, a rivalidade entre Estados Unidos e União Soviética não se traduziu em confrontos bélicos diretos em seus territórios metropolitanos, mas estruturou-se em um sistema de blocos político-militares antagônicos e em conflitos localizados na periferia do sistema capitalista e socialista.”</p>
-          <p>Assinale a alternativa que apresenta corretamente uma instituição militar criada nesse contexto para consolidar a hegemonia de um dos blocos:</p>
+          <p class="question-text">A expressão "Guerra Fria" serviu para caracterizar a geopolítica mundial estruturada após a Segunda Guerra Mundial. Sobre esse conflito, é correto afirmar que ele consistiu fundamentalmente em:</p>
           
           <ul class="options-list">
-            <li class="option-item"><span class="option-letter">A)</span> A Liga das Nações, fundada para arbitrar conflitos armados sob comando exclusivo soviético.</li>
-            <li class="option-item"><span class="option-letter">B)</span> O Pacto de Varsóvia, aliança militar firmada para assegurar o controle e a defesa mútua dos países socialistas do Leste Europeu sob liderança soviética.</li>
-            <li class="option-item"><span class="option-letter">C)</span> O Mercado Comum Europeu, criado estritamente como braço armado operacional das forças norte-americanas na Ásia.</li>
-            <li class="option-item"><span class="option-letter">D)</span> A Organização dos Estados Americanos (OEA), concebida para unificar o bloco comunista no continente americano.</li>
-            <li class="option-item"><span class="option-letter">E)</span> O Tratado de Versalhes, reorganizado no pós-1945 para conter o avanço do capitalismo industrial.</li>
+            <li class="option-item"><span class="option-letter">A)</span> Um confronto militar direto e contínuo nos territórios norte-americano e soviético, utilizando armamento convencional de alta tecnologia.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Uma disputa de hegemonia global ideológica, econômica, tecnológica e política entre EUA e URSS, marcada por conflitos indiretos em outras regiões.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Uma aliança militar incondicional entre capitalistas e socialistas para erradicar os vestígios do fascismo na Europa.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O isolamento comercial absoluto entre os continentes, sem qualquer intercâmbio cultural ou científico entre os blocos.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Uma guerra comercial restrita ao continente asiático, liderada exclusivamente pela China e pelo Japão.</li>
           </ul>
 
           <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
           
           <div class="resolution-box" id="res1">
             <strong>Gabarito: Letra B</strong>
-            <p><strong>Resolução:</strong> O Pacto de Varsóvia (1955) foi a resposta militar da União Soviética e dos países do bloco socialista europeu à criação da OTAN pelos Estados Unidos e aliados ocidentais, consolidando a bipolaridade militar da Guerra Fria.</p>
+            <p><strong>Resolução:</strong> A Guerra Fria foi um embate global de modelos socioeconômicos e políticos (capitalismo vs. socialismo). Como uma guerra direta entre as potências nucleares era evitada pelo risco de destruição mútua, a disputa ocorreu no campo ideológico, econômico, cultural, na corrida espacial/armamentista e em guerras indiretas (periféricas).</p>
           </div>
         </div>
 
         <!-- Questão 2 -->
         <div class="question-card">
           <div class="question-title">Questão 2</div>
-          <p class="question-text">“A chamada ‘Guerra Fria’ caracterizou-se por uma profunda disputa ideológica, tecnológica e econômica entre o capitalismo liberal e o socialismo real. No âmbito econômico, os Estados Unidos implementaram estratégias de ajuda externa para conter a expansão soviética na Europa.”</p>
-          <p>O principal programa econômico norte-americano voltado para a recuperação e consolidação da influência capitalista na Europa Ocidental pós-Segunda Guerra foi:</p>
+          <p class="question-text">“Durante a Guerra Fria, a lógica da bipolaridade impôs aos países periféricos o alinhamento automático ou a busca por uma terceira via de autonomia. A criação de blocos militares e econômicos opostos, como a OTAN e o Pacto de Varsóvia, refletiu a divisão institucional de um mundo sob constante ameaça nuclear.”</p>
+          <p>Assinale a alternativa que identifica corretamente uma das principais consequências geopolíticas do término desse período no início da década de 1990:</p>
           
           <ul class="options-list">
-            <li class="option-item"><span class="option-letter">A)</span> O Plano Marshall, que injetou bilhões de dólares na reconstrução de infraestruturas europeias para barrar o avanço de ideologias comunistas.</li>
-            <li class="option-item"><span class="option-letter">B)</span> O New Deal, programa interno de obras públicas voltado exclusivamente para colonizar o Leste Asiático.</li>
-            <li class="option-item"><span class="option-letter">C)</span> O COMECON, plano de assistência mútua gerido por Washington para unificar o mercado russo.</li>
-            <li class="option-item"><span class="option-letter">D)</span> A Doutrina Truman de estatização absoluta de bancos e indústrias automotivas na Alemanha Oriental.</li>
-            <li class="option-item"><span class="option-letter">E)</span> O Acordo de Bretton Woods voltado estritamente ao financiamento de colônias na África subsaariana.</li>
+            <li class="option-item"><span class="option-letter">A)</span> A expansão imediata do comunismo soviético por toda a Europa Ocidental e América Latina.</li>
+            <li class="option-item"><span class="option-letter">B)</span> O fortalecimento absoluto do Pacto de Varsóvia como única força militar global remanescente.</li>
+            <li class="option-item"><span class="option-letter">C)</span> A dissolução da União Soviética, a reunificação alemã e a transição para uma nova ordem mundial marcada temporariamente pela unipolaridade estadunidense.</li>
+            <li class="option-item"><span class="option-letter">D)</span> O retorno definitivo ao colonialismo europeu clássico nos territórios da África e da Ásia.</li>
+            <li class="option-item"><span class="option-letter">E)</span> A extinção completa de conflitos étnicos e regionais em todo o planeta devido à paz duradoura.</li>
           </ul>
 
           <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
           
           <div class="resolution-box" id="res2">
-            <strong>Gabarito: Letra A</strong>
-            <p><strong>Resolução:</strong> O Plano Marshall (Programa de Recuperação Europeia) foi a ferramenta econômica central dos EUA para reerguer a Europa Ocidental destruída pela guerra, garantindo mercados consumidores e contendo a atração exercida pelo modelo soviético.</p>
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> O fim da Guerra Fria consolidou o colapso do bloco soviético (marcado pela queda do Muro de Berlim e desmembramento da URSS), resultando na reunificação da Alemanha e no fim do mundo bipolar, dando lugar a uma fase de hegemonia temporária dos EUA (unipolaridade) e avanço da globalização.</p>
           </div>
         </div>
 
       </section>
     </div>
 
+    <footer>
+      <p>© 2026 Portal Acadêmico — Professor Marcelo da Silva Oliveira. <br><br>
+        <a href="index.html" class="btn-action" style="display: inline-flex; margin: 0 auto;">⬅️ Voltar para a Página Principal</a>
+      </p>
+    </footer>
+
     <script>
       // Controle do Tema Claro / Escuro
-      const htmlRoot = document.documentElement;
-
       function toggleTheme() {
+        const htmlRoot = document.documentElement;
         const currentTheme = htmlRoot.getAttribute("data-theme");
         htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
       }
