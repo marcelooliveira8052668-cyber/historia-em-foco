@@ -163,18 +163,19 @@
       }
 
       .gabarito {
-        display: none;
+        display: none; /* Mantém oculto por padrão */
         background: var(--input-bg);
         padding: 1.2rem;
         border-radius: 8px;
         border-left: 4px solid var(--primary);
         margin-top: 1rem;
         font-size: 0.95rem;
-        animation: fadeIn 0.3s ease;
       }
 
+      /* Classe ativada via JavaScript para exibir o gabarito */
       .gabarito.show {
         display: block;
+        animation: fadeIn 0.3s ease;
       }
 
       @keyframes fadeIn {
@@ -212,12 +213,11 @@
     <div class="container">
       <div class="article-card">
         <h2>O Japão Feudal: Samurais, Xoguns e o Código Bushido</h2>
-        
-        <img src="https://th.bing.com/th/id/R.13cc7810640f00767fa69b7ac892162b?rik=i93b0ZPrrcfpuA&riu=http%3a%2f%2fhanasu.com.br%2fwp-content%2fuploads%2f2024%2f03%2fJapao-medieval.jpg&ehk=r4xzOgQuWV4EVJTPBvgxBFYK7TzseLGDZ6CUlO5Uc%2fk%3d&risl=&pid=ImgRaw&r=0" width="500" alt="Japão Medieval">
+        <img src="https://th.bing.com/th/id/R.13cc7810640f00767fa69b7ac892162b?rik=i93b0ZPrrcfpuA&riu=http%3a%2f%2fhanasu.com.br%2fwp-content%2fuploads%2f2024%2f03%2fJapao-medieval.jpg&ehk=r4xzOgQuWV4EVJTPBvgxBFYK7TzseLGDZ6CUlO5Uc%2fk%3d&risl=&pid=ImgRaw&r=0" width="500" alt="Japão Medieval" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
         
         <p>A era feudal do Japão, iniciada com o estabelecimento do Xogunato Kamakura por Minamoto no Yoritomo no final do século XII e consolidada ao longo dos séculos seguintes, representou uma profunda reestruturação política e militar da sociedade nipônica. Embora a figura do Imperador (Tenno) mantivesse seu prestígio religioso e simbólico como descendente direto da divindade solar, o poder efetivo de governo concentrou-se nas mãos dos <strong>xoguns</strong> (comandantes militares supremos) e de uma poderosa aristocracia de senhores de terras conhecidos como <strong>daimyo</strong>.</p>
         
-        <p>Nesse sistema estratificado, a classe militar dos <strong>samurais</strong> emergiu como o pilar de sustentação política e social do país. Guiados pelo rigoroso código de honra e ética conhecido como <strong>Bushido</strong> ("o caminho do guerreiro"), os samurais valorizavam a lealdade absoluta ao seu senhor (*daimyo*), a coragem extrema, o autocontrole e a retidão moral, sendo o suicídio ritual (*seppuku*) a alternativa honrosa para preservar a dignidade em caso de desonra ou derrota. O período feudal japonês passou por intensas guerras civis até ser unificado no início do século XVII pelo xogunato Tokugawa, que inaugurou um longo período de paz interna e estrito isolamento internacional (*Sakoku*) que durou até a chegada das frotas ocidentais e a Restauração Meiji em 1868.</p>
+        <p>Nesse sistema estratificado, a classe militar dos <strong>samurais</strong> emergiu como o pilar de sustentação política e social do país. Guiados pelo rigoroso código de honra e ética conhecido como <strong>Bushido</strong> ("o caminho do guerreiro"), os samurais valorizavam a lealdade absoluta ao seu senhor (<i>daimyo</i>), a coragem extrema, o autocontrole e a retidão moral, sendo o suicídio ritual (<i>seppuku</i>) a alternativa honrosa para preservar a dignidade em caso de desonra ou derrota. O período feudal japonês passou por intensas guerras civis até ser unificado no início do século XVII pelo xogunato Tokugawa, que inaugurou um longo período de paz interna e estrito isolamento internacional (<i>Sakoku</i>) que durou até a chegada das frotas ocidentais e a Restauração Meiji em 1868.</p>
 
         <h3>Exercícios Estilo ENEM e Vestibulares</h3>
         
@@ -231,7 +231,7 @@
         </ul>
         <button class="btn-gabarito" onclick="toggleGabarito('gab1', this)">🔍 Ver Gabarito Comentado</button>
         <div id="gab1" class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> No Japão feudal, o Imperador era reverenciado como uma autoridade sagrada, mas sem poder político prático. A governança efetiva, o controle das terras e a força militar estavam nas mãos do xogun e dos senhores feudais locais (*daimyo*).</p>
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> No Japão feudal, o Imperador era reverenciado como uma autoridade sagrada, mas sem poder político prático. A governança efetiva, o controle das terras e a força militar estavam nas mãos do xogun e dos senhores feudais locais (<i>daimyo</i>).</p>
         </div>
 
         <p style="margin-top: 2rem;"><strong>Questão 2:</strong> (ENEM - Adaptado) <em>"O Bushido, ou o caminho do guerreiro, constituiu o código ético e moral que moldou a conduta dos samurais no Japão feudal, enfatizando a lealdade incondicional, a honra, a coragem e o desapego às riquezas materiais."</em> Historicamente, a adesão a esse código reforçava na sociedade japonesa:</p>
@@ -244,7 +244,7 @@
         </ul>
         <button class="btn-gabarito" onclick="toggleGabarito('gab2', this)">🔍 Ver Gabarito Comentado</button>
         <div id="gab2" class="gabarito">
-          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O código Bushido normatizava a vida e a morte dos samurais, tendo como eixos centrais a lealdade intransigente ao *daimyo*, a disciplina severa e a honra coletiva, garantindo a solidez da estrutura militar feudal japonesa.</p>
+          <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O código Bushido normatizava a vida e a morte dos samurais, tendo como eixos centrais a lealdade intransigente ao <i>daimyo</i>, a disciplina severa e a honra coletiva, garantindo a solidez da estrutura militar feudal japonesa.</p>
         </div>
       </div>
     </div>
@@ -254,6 +254,7 @@
     </footer>
 
     <script>
+      // Alternância de Tema Claro/Escuro
       const themeToggle = document.getElementById('themeToggle');
       const htmlRoot = document.documentElement;
 
@@ -266,6 +267,7 @@
         }
       });
 
+      // Função Ajustada para Ocultar/Exibir Gabaritos
       function toggleGabarito(id, btn) {
         const gabaritoDiv = document.getElementById(id);
         if (gabaritoDiv.classList.contains("show")) {
