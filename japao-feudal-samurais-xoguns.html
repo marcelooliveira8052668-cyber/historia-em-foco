@@ -65,7 +65,7 @@
       .btn-theme, .btn-back {
         color: var(--text-color);
         background: var(--input-bg);
-        border: 1px solid var--border-color;
+        border: 1px solid var(--border-color);
         padding: 8px 16px;
         border-radius: 6px;
         font-size: 0.85rem;
@@ -92,7 +92,7 @@
 
       header p {
         font-size: 0.95rem;
-        color: var--text-muted;
+        color: var(--text-muted);
         margin: 0;
       }
 
@@ -110,7 +110,7 @@
         padding: 2.5rem;
         border-radius: 12px;
         border: 1px solid var(--border-color);
-        box-shadow: var--shadow;
+        box-shadow: var(--shadow);
       }
 
       h2, h3 {
@@ -120,7 +120,7 @@
 
       h2 {
         font-size: 1.4rem;
-        border-bottom: 2px solid var--border-color;
+        border-bottom: 2px solid var(--border-color);
         padding-bottom: 0.5rem;
         margin-top: 0;
       }
@@ -144,23 +144,52 @@
         margin-bottom: 8px;
       }
 
+      /* Estilo dos Botões e Gabarito Oculto */
+      .btn-gabarito {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: background 0.2s;
+      }
+
+      .btn-gabarito:hover {
+        background: var(--primary-hover);
+      }
+
       .gabarito {
-        background: var--input-bg;
+        display: none;
+        background: var(--input-bg);
         padding: 1.2rem;
         border-radius: 8px;
-        border-left: 4px solid var--primary;
+        border-left: 4px solid var(--primary);
         margin-top: 1rem;
         font-size: 0.95rem;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .gabarito.show {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-4px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
       footer {
         background: var(--header-bg);
-        border-top: 1px solid var--border-color;
+        border-top: 1px solid var(--border-color);
         padding: 1.5rem;
         text-align: center;
         margin-top: auto;
         box-sizing: border-box;
-        box-shadow: var--shadow;
+        box-shadow: var(--shadow);
       }
 
       footer p {
@@ -183,11 +212,12 @@
     <div class="container">
       <div class="article-card">
         <h2>O Japão Feudal: Samurais, Xoguns e o Código Bushido</h2>
-        <img src="https://th.bing.com/th/id/R.13cc7810640f00767fa69b7ac892162b?rik=i93b0ZPrrcfpuA&riu=http%3a%2f%2fhanasu.com.br%2fwp-content%2fuploads%2f2024%2f03%2fJapao-medieval.jpg&ehk=r4xzOgQuWV4EVJTPBvgxBFYK7TzseLGDZ6CUlO5Uc%2fk%3d&risl=&pid=ImgRaw&r=0" width="500" alt="">
         
-        <p>A era feudal do Japão, iniciada com o estabelecimento do Xogunato Kamakura por Minamoto no Yoritomo no final do século XII e consolidada ao longo dos séculos seguintes, representou uma profunda reestruturação política e militar da sociedade nipônica. Embora a figura do Imperador (Tenno) mantivesse seu prestígio religioso e simbólico como descendente direto da divindade solar, o poder efetivo de governo concentrou-se nas mãos dos **xoguns** (comandantes militares supremos) e de uma poderosa aristocracia de senhores de terras conhecidos como **daimyo**.</p>
+        <img src="https://th.bing.com/th/id/R.13cc7810640f00767fa69b7ac892162b?rik=i93b0ZPrrcfpuA&riu=http%3a%2f%2fhanasu.com.br%2fwp-content%2fuploads%2f2024%2f03%2fJapao-medieval.jpg&ehk=r4xzOgQuWV4EVJTPBvgxBFYK7TzseLGDZ6CUlO5Uc%2fk%3d&risl=&pid=ImgRaw&r=0" width="500" alt="Japão Medieval">
         
-        <p>Nesse sistema estratificado, a classe militar dos **samurais** emergiu como o pilar de sustentação política e social do país. Guiados pelo rigoroso código de honra e ética conhecido como **Bushido** ("o caminho do guerreiro"), os samurais valorizavam a lealdade absoluta ao seu senhor (*daimyo*), a coragem extrema, o autocontrole e a retidão moral, sendo o suicídio ritual (*seppuku*) a alternativa honrosa para preservar a dignidade em caso de desonra ou derrota. O período feudal japonês passou por intensas guerras civis até ser unificado no início do século XVII pelo xogunato Tokugawa, que inaugurou um longo período de paz interna e estrito isolamento internacional (*Sakoku*) que durou até a chegada das frotas ocidentais e a Restauração Meiji em 1868.</p>
+        <p>A era feudal do Japão, iniciada com o estabelecimento do Xogunato Kamakura por Minamoto no Yoritomo no final do século XII e consolidada ao longo dos séculos seguintes, representou uma profunda reestruturação política e militar da sociedade nipônica. Embora a figura do Imperador (Tenno) mantivesse seu prestígio religioso e simbólico como descendente direto da divindade solar, o poder efetivo de governo concentrou-se nas mãos dos <strong>xoguns</strong> (comandantes militares supremos) e de uma poderosa aristocracia de senhores de terras conhecidos como <strong>daimyo</strong>.</p>
+        
+        <p>Nesse sistema estratificado, a classe militar dos <strong>samurais</strong> emergiu como o pilar de sustentação política e social do país. Guiados pelo rigoroso código de honra e ética conhecido como <strong>Bushido</strong> ("o caminho do guerreiro"), os samurais valorizavam a lealdade absoluta ao seu senhor (*daimyo*), a coragem extrema, o autocontrole e a retidão moral, sendo o suicídio ritual (*seppuku*) a alternativa honrosa para preservar a dignidade em caso de desonra ou derrota. O período feudal japonês passou por intensas guerras civis até ser unificado no início do século XVII pelo xogunato Tokugawa, que inaugurou um longo período de paz interna e estrito isolamento internacional (*Sakoku*) que durou até a chegada das frotas ocidentais e a Restauração Meiji em 1868.</p>
 
         <h3>Exercícios Estilo ENEM e Vestibulares</h3>
         
@@ -199,7 +229,8 @@
           <li>D) aliança militar com potências europeias para combater rebeliões camponesas internas.</li>
           <li>E) transferência definitiva da capital do império para cidades localizadas na Europa ocidental.</li>
         </ul>
-        <div class="gabarito">
+        <button class="btn-gabarito" onclick="toggleGabarito('gab1', this)">🔍 Ver Gabarito Comentado</button>
+        <div id="gab1" class="gabarito">
           <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> No Japão feudal, o Imperador era reverenciado como uma autoridade sagrada, mas sem poder político prático. A governança efetiva, o controle das terras e a força militar estavam nas mãos do xogun e dos senhores feudais locais (*daimyo*).</p>
         </div>
 
@@ -211,7 +242,8 @@
           <li>D) a substituição das espadas por armas de fogo modernas importadas do continente americano no século XIV.</li>
           <li>E) a igualdade social irrestrita entre camponeses, samurais e xoguns.</li>
         </ul>
-        <div class="gabarito">
+        <button class="btn-gabarito" onclick="toggleGabarito('gab2', this)">🔍 Ver Gabarito Comentado</button>
+        <div id="gab2" class="gabarito">
           <p><strong>Gabarito Comentado:</strong> <strong>Alternativa B.</strong> O código Bushido normatizava a vida e a morte dos samurais, tendo como eixos centrais a lealdade intransigente ao *daimyo*, a disciplina severa e a honra coletiva, garantindo a solidez da estrutura militar feudal japonesa.</p>
         </div>
       </div>
@@ -233,6 +265,17 @@
           htmlRoot.setAttribute('data-theme', 'dark');
         }
       });
+
+      function toggleGabarito(id, btn) {
+        const gabaritoDiv = document.getElementById(id);
+        if (gabaritoDiv.classList.contains("show")) {
+          gabaritoDiv.classList.remove("show");
+          btn.textContent = "🔍 Ver Gabarito Comentado";
+        } else {
+          gabaritoDiv.classList.add("show");
+          btn.textContent = "🔒 Ocultar Gabarito";
+        }
+      }
     </script>
   </body>
 </html>
