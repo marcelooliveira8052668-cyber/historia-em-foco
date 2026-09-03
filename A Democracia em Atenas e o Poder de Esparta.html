@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Democracia em Atenas e o Poder de Esparta — Portal Acadêmico</title>
+    <!-- Google Fonts para tipografia acadêmica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <style>
+      :root[data-theme="dark"] {
+        --bg-color: #0b0f17;
+        --card-bg: #131b26;
+        --text-color: #f0f6fc;
+        --text-muted: #8b949e;
+        --primary: #38bdf8;
+        --primary-hover: #0ea5e9;
+        --accent: #f59e0b;
+        --border-color: #1e293b;
+        --badge-bg: rgba(56, 189, 248, 0.1);
+        --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        --success-bg: rgba(16, 185, 129, 0.1);
+        --success-text: #34d399;
+      }
+
+      :root[data-theme="light"] {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --text-color: #0f172a;
+        --text-muted: #64748b;
+        --primary: #0284c7;
+        --primary-hover: #0369a1;
+        --accent: #b45309;
+        --border-color: #e2e8f0;
+        --badge-bg: rgba(2, 132, 199, 0.08);
+        --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06);
+        --success-bg: rgba(16, 185, 129, 0.15);
+        --success-text: #059669;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Cabeçalho de Aula */
+      header {
+           background-size: cover;
+        background-position: center;
+        padding: 5rem 1rem 4rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+      }
+
+      .header-actions {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-header {
+        color: var(--text-color);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-header:hover {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+      }
+
+      .header-badge {
+        display: inline-block;
+        background: var(--badge-bg);
+        color: var(--primary);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        margin-bottom: 1.25rem;
+        border: 1px solid var(--border-color);
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        color: #ffffff;
+        font-size: 2.8rem;
+        margin: 0 0 12px 0;
+        font-weight: 700;
+      }
+
+      /* Container do Conteúdo Didático */
+      .container {
+        max-width: 900px;
+        margin: 3.5rem auto;
+        padding: 0 1.5rem;
+      }
+
+      .content-section {
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        margin-bottom: 3rem;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        margin-top: 0;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--primary);
+        margin-top: 0.85rem;
+        border-radius: 2px;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight-box {
+        background: var(--badge-bg);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin: 2rem 0;
+      }
+
+      .highlight-box p {
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      /* Área de Exercícios ENEM */
+      .exercise-section {
+        margin-top: 4rem;
+      }
+
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        padding: 2.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .question-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .question-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .question-text {
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .options-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .option-item {
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        gap: 12px;
+      }
+
+      .option-item:hover {
+        border-color: var(--primary);
+        background: var(--badge-bg);
+      }
+
+      .option-letter {
+        font-weight: 700;
+        color: var(--text-color);
+      }
+
+      .resolution-box {
+        display: none;
+        background: var(--success-bg);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
+
+      .resolution-box.show {
+        display: block;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .resolution-box strong {
+        color: var(--success-text);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .resolution-box p {
+        color: var(--text-color);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .btn-reveal {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background-color 0.2s;
+      }
+
+      .btn-reveal:hover {
+        background: var(--primary-hover);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        header h1 { font-size: 2.2rem; }
+        .header-actions { position: static; margin-bottom: 1.5rem; justify-content: center; }
+        .content-section { padding: 2rem; }
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+      <div class="header-actions">
+        <a href="index.html" class="btn-header">🏠 Início</a>
+        <button class="btn-header" id="themeToggle">☀️ / 🌙 Tema</button>
+      </div>
+      <div class="header-badge">Antiguidade Clássica e Modelos Políticos</div>
+      <h1>A Democracia em Atenas e o Poder de Esparta</h1>
+        <img src="https://trasteandoenlaescuela.com/wp-content/uploads/2026/01/La-polis-griega-organizacion-politica-Atenas-vs.-Esparta.webp" width="500"
+    </header>
+
+    <div class="container">
+      
+      <!-- Seção Teórica -->
+      <section class="content-section">
+        <h2>1. Atenas: O Berço da Democracia Direta</h2>
+        <p>Atenas desenvolveu ao longo dos séculos um modelo político revolucionário para a Antiguidade: a <strong>democracia direta</strong>. Diferente das democracias representativas atuais, onde elegemos parlamentares para votar em nosso nome, os cidadãos atenienses reuniam-se presencialmente na Eclésia (Assembleia Popular) para debater, propor e votar leis de forma direta.</p>
+        
+        <p>Esse sistema fundamentava-se nos princípios da <em>isonomia</em> (igualdade perante a lei) e da <em>isegoria</em> (direito igual de voz nas discussões). Contudo, a cidadania ateniense era altamente restrita: mulheres, estrangeiros (metecos) e escravos eram totalmente excluídos da vida política.</p>
+
+        <h2>2. Esparta: A Oligarquia Militarista</h2>
+        <p>Em forte oposição a Atenas, <strong>Esparta</strong> estruturou-se como uma sociedade agrária, aristocrática e profundamente militarizada. Localizada na região do Peloponeso, a pólis espartana era voltada quase inteiramente para a manutenção de seu poderio bélico e para o controle rigoroso sobre a vasta população de <em>hilotas</em> (povos subjugados que realizavam todo o trabalho agrícola).</p>
+
+        <div class="highlight-box">
+          <p><strong>🛡️ A Educação Militar (Agoge):</strong> Desde os sete anos de idade, os meninos espartanos eram retirados de suas famílias e submetidos à <em>agoge</em>, um sistema educativo brutal e altamente disciplinado focado na resistência física, na obediência cega ao Estado e na arte da guerra.</p>
+        </div>
+
+        <h2>3. A Estrutura de Poder Espartana e a Diarquia</h2>
+        <p>Politicamente, Esparta era uma oligarquia governada por instituições mistas:
+        <ul>
+          <li><strong>Diarquia:</strong> Dois reis com funções essencialmente militares e religiosas.</li>
+          <li><strong>Gerúsia:</strong> Conselho de anciãos responsável por elaborar as leis.</li>
+          <li><strong>Apéla:</strong> Assembleia formada por todos os cidadãos espartanos (esparciatas) maiores de 30 anos.</li>
+          <li><strong>Éforos:</strong> Magistrados com amplos poderes de fiscalização sobre os reis e a sociedade.</li>
+        </ul>
+        </p>
+      </section>
+
+      <!-- Seção de Exercícios -->
+      <section class="exercise-section">
+        <h2 style="text-align: center; border: none;">Testando Seus Conhecimentos (Padrão ENEM)</h2>
+        
+        <!-- Questão 1 -->
+        <div class="question-card">
+          <div class="question-title">Questão 1</div>
+          <p class="question-text">Enquanto Atenas construiu um modelo político baseado na participação direta dos cidadãos na ágora, na retórica e no debate público, Esparta organizou-se como uma sociedade fechada, onde a prioridade máxima era a formação do soldado perfeito e a vigilância constante sobre os hilotas, que sustentavam a base produtiva da pólis.</p>
+          <p>A comparação entre os modelos de Atenas e Esparta revela que a Grécia Antiga:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Possuía uma uniformidade política absoluta, com instituições idênticas em todas as suas cidades-estado.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Caracterizava-se pela diversidade de organizações sociais e políticas, refletindo prioridades distintas entre suas principais pólis.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Adotava o militarismo espartano como padrão obrigatório para o desenvolvimento de qualquer atividade comercial.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Rejeitava qualquer forma de controle sobre a mão de obra escrava nas dependências de Atenas.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Garantia direitos civis universais e idênticos a todas as mulheres de ambas as cidades.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res1')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res1">
+            <strong>Gabarito: Letra B</strong>
+            <p><strong>Resolução:</strong> O mundo grego era fragmentado e plural. Atenas e Esparta representam dois polos contrastantes da Antiguidade clássica: a democracia participativa focada na palavra versus a oligarquia militarista voltada para a guerra.</p>
+          </div>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+          <div class="question-title">Questão 2</div>
+          <p class="question-text">“A educação espartana, conhecida como agoge, afastava as crianças do convívio familiar tradicional desde a tenra idade, integrando-as a grupos comunitários submetidos a testes rigorosos de sobrevivência, disciplina e conformidade coletiva. O objetivo supremo dessa formação não era o desenvolvimento intelectual individual, mas a submissão total do indivíduo aos interesses militares da cidade.”</p>
+          <p>Com base no texto, o sistema educacional de Esparta tinha como finalidade principal:</p>
+          
+          <ul class="options-list">
+            <li class="option-item"><span class="option-letter">A)</span> Estimular o pensamento filosófico crítico e o debate democrático nas assembleias populares.</li>
+            <li class="option-item"><span class="option-letter">B)</span> Capacitar a totalidade da população, incluindo os hilotas, para o exercício de cargos públicos.</li>
+            <li class="option-item"><span class="option-letter">C)</span> Assegurar a supremacia bélica e a manutenção da ordem oligárquica através de cidadãos-soldados disciplinados.</li>
+            <li class="option-item"><span class="option-letter">D)</span> Fomentar o intercâmbio cultural e comercial com povos estrangeiros do Oriente Próximo.</li>
+            <li class="option-item"><span class="option-letter">E)</span> Promover a abolição das diferenças sociais entre esparciatas, periecos e hilotas.</li>
+          </ul>
+
+          <button class="btn-reveal" onclick="toggleRes(this, 'res2')">Ver Gabarito e Resolução</button>
+          
+          <div class="resolution-box" id="res2">
+            <strong>Gabarito: Letra C</strong>
+            <p><strong>Resolução:</strong> A agoge espartana visava moldar soldados disciplinados para manter o controle social interno (sobre os hilotas) e a prontidão militar defensiva/ofensiva da oligarquia esparciata.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <script>
+      // Controle do Tema Claro / Escuro
+      const themeToggle = document.getElementById("themeToggle");
+      const htmlRoot = document.documentElement;
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlRoot.getAttribute("data-theme");
+        htmlRoot.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+      });
+
+      // Lógica para mostrar/esconder gabarito
+      function toggleRes(button, resId) {
+        const resBox = document.getElementById(resId);
+        if (resBox.classList.contains('show')) {
+          resBox.classList.remove('show');
+          button.textContent = "Ver Gabarito e Resolução";
+        } else {
+          resBox.classList.add('show');
+          button.textContent = "Ocultar Gabarito";
+        }
+      }
+    </script>
+</body>
+</html>
